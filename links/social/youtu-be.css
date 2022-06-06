@@ -1,0 +1,178 @@
+@import url('https://fonts.cdnfonts.com/css/pt-root-ui');
+:root {
+   --bg-note: rgb(197, 226, 239);
+   --note-tit: rgb(221, 166, 83);
+   --note-color: rgb(248, 222, 183)
+}
+* {
+   box-sizing: border-box;
+   font-family: 'PT Root UI', 'Segoe UI', sans-serif;
+}
+body {
+   font: 14px sans-serif;
+   text-align: center;
+   margin: 0
+}
+#menu {
+   font-weight: 700;
+   position: fixed;
+   z-index: 25;
+   right: 0;
+   top: 75%;
+   cursor: pointer;
+   transform: translateY(-50%);
+   background-color: rgba(255, 255, 255, .35);
+   padding: 4px;
+   padding-left: 8px;
+   font-size: 21px;
+   opacity: 0.4;
+   border-radius: 10px 0px 0px 10px;
+   transition: all 0.3s;
+   font-family: monospace;
+}
+#menu:hover {
+   opacity: 1;
+}
+.mn-hd label {
+   transform: translateX(100%)
+}
+.mn-sh label {
+   transform: translateX(0)
+}
+label {
+   transition: all .3s;
+   position: fixed;
+   top: 6rem;
+   right: 0;
+   background-color: #b4b4f8;
+   padding: 6px;
+   display: flex;
+   align-items: center;
+}
+label span {
+   margin-left: 4px;
+}
+#doc {
+   transition: all .3s;
+   position: fixed;
+   box-shadow: 0 0 12px 3px rgba(0, 0, 0, .35);
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   left: 0;
+   top: 0;
+   bottom: 0;
+   height: 100%;
+   background-color: var(--bg-note);
+   max-width: 390px;
+   width: 100%;
+   user-select: none;
+   -webkit-user-select: none;
+   transition: all 0.3s;
+   opacity: 0.15;
+}
+#doc:hover {
+   opacity: 1;
+}
+.mn-hd #doc {
+   transform: translateX(-100%)
+}
+.mn-sh #doc {
+   transform: translateX(0)
+}
+#lists {
+   flex: 1;
+   overflow-y: scroll;
+   height: 100%
+}
+#lists::-webkit-scrollbar {
+   width: 10px;
+   height: 0;
+   background-color: var(--bg-note)
+}
+#lists::-webkit-scrollbar-thumb {
+   background-color: #224272;
+   border: 3px solid var(--bg-note);
+   border-radius: 30px
+}
+.d_trr {
+   padding-bottom: 18px
+}
+.d_trr .group-type {
+   margin-top: 8px;
+   margin-left: 7px;
+   text-align: left;
+   margin-bottom: 8px;
+   margin-right: 2px;
+   border-radius: 6px;
+   box-shadow: 0 2px 2px 1px rgba(0, 0, 0, .28);
+   background-color: var(--note-color);
+}
+#lt-name {
+   display: flex;
+   overflow-x: scroll;
+   background-color: var(--note-tit);
+   border-bottom: 2px solid var(--note-tit)
+}
+#lt-name::-webkit-scrollbar {
+   width: 0;
+   height: 6px;
+   background-color: var(--note-tit)
+}
+#lt-name::-webkit-scrollbar-thumb {
+   background-color: var(--bg-note);
+   border-left: 5px solid var(--note-tit);
+   border-right: 5px solid var(--note-tit)
+}
+#lt-name div {
+   padding: 18px 20px 10px 20px;
+   cursor: pointer
+}
+#lt-name div:hover {
+   background-color: rgba(0, 0, 0, .15)
+}
+.group-name {
+   padding-top: 16px;
+   padding-left: .8rem;
+   font-size: 1.1rem;
+   font-weight: 700;
+   padding-bottom: 8px;
+   cursor: cell
+}
+.group-list {
+   padding-bottom: 6px
+}
+.group-list p {
+   margin: 0;
+   display: block;
+   padding: 4px 6px;
+   padding-left: 1rem;
+   cursor: pointer
+}
+.group-list p:hover {
+   background-color: rgba(0, 0, 0, .12)
+}
+.group-list iframe {
+   height: 50px;
+   width: 190px;
+   border: none
+}
+main {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   height: 100%;
+   width: 100%;
+   background-image: linear-gradient(to top, #ff0844 0, #ffb199 100%)
+}
+#emb,
+main iframe {
+   position: fixed;
+   height: 100%;
+   width: 100%;
+   border: none;
+   bottom: 0;
+   right: 0
+}

@@ -1,0 +1,263 @@
+:root {
+    --blue: hsl(221, 100%, 67%);
+    --red: hsl(0, 75%, 49%);
+    --yellow: hsl(66, 75%, 49%);
+    --cian: hsl(194, 75%, 49%);
+    --green: hsl(133, 75%, 49%);
+    --gray: hsl(0, 0%, 49%);
+    --w: hsl(0, 0%, 100%);
+    --dark: rgb(65, 65, 65);
+}
+.t-blue {
+    color: var(--blue) !important;
+}
+.t-red {
+    color: var(--red);
+}
+.t-yellow {
+    color: var(--yellow);
+}
+.t-cian {
+    color: var(--cian);
+}
+.t-green {
+    color: var(--green);
+}
+.t-gray {
+    color: var(--gray);
+}
+.t-w {
+    color: var(--w);
+}
+* {
+    box-sizing: border-box;
+    font-family: monospace;
+    margin: 0;
+    padding: 0;
+    font-size: 0.95rem;
+}
+body {
+    max-height: 100vh;
+    height: 100vh;
+    min-height: 100vh;
+}
+.app {
+    height: 100%;
+    background-image: url('https://store-images.s-microsoft.com/image/apps.51232.14176082463109974.f84fc39e-bc64-44f3-9851-edbbe1a9d810.d3b66324-8c44-4ac1-8df3-fc47485eb9f0?mode=scale&q=90&h=1080&w=1920');
+    background-size: cover;
+    background-attachment: fixed;
+}
+*:focus {
+    outline: none;
+}
+.console {
+    padding: 6px 8px;
+    padding-bottom: 50vh;
+    padding-right: 0px;
+    flex: 1;
+    overflow-y: scroll;
+    /* background-color: rgba(0, 0, 0, 0.88); */
+    background-image: linear-gradient(270deg, black 0%, rgba(0, 0, 0, 0.82) 92%);
+}
+.console::-webkit-scrollbar {
+    height: 0px;
+    width: 12px;
+    background-color: black;
+}
+.console::-webkit-scrollbar-thumb {
+    background-color: var(--dark);
+    border: 3px solid black;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: 100%;
+}
+.typer { 
+    background-color: rgba(0, 0, 0, 0.726);
+}
+#send .ipt {
+    flex: 1;
+    min-width: 50px;
+}
+#send .sbt {
+    font-weight: bold;
+    cursor: pointer;
+}
+#send .sbt:hover {
+    background-color: var(--green)
+}
+#send button,
+#send input {
+    padding: 8px 16px;
+    color: var(--w);
+    border-width: 0;
+    border-style: solid;
+    border-left-width: 3px;
+    border-color: var(--dark);
+    background-color: black;
+}
+#send button:focus,
+#send input:focus {
+    background-color: var(--dark);
+}
+#send button {
+    cursor: pointer;
+}
+#send .arrow {
+    position: relative;
+    width: 1.6rem;
+}
+#send .arrow::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 30%;
+    border-width: 8px 5px;
+    border-style: solid;
+    top: 35%;
+}
+#send .a_top::before {
+    border-color: transparent transparent white transparent;
+    transform: translateY(-50%);
+}
+#send .a_bot::before {
+    border-color: white transparent transparent transparent;
+}
+#send {
+    display: flex;
+    border-color: var(--dark);
+    border-style: solid;
+    border-top-width: 3px;
+    border-bottom-width: 3px;
+    border-right-width: 3px;
+    border-left-width: 0px;
+}
+.console {
+    cursor: text;
+    color: var(--gray);
+}
+.console *::selection {
+    background-color: rgba(90, 90, 90, 0.66);
+}
+.result {
+    padding: 8px;
+}
+.entry {
+    margin-bottom:  4px;
+}
+.clone {
+    cursor: pointer;
+    border-bottom: 1px dotted transparent;
+}
+.clone:hover {
+    border-bottom: 1px dotted var(--cian);
+}
+.clone::before {
+    content: "> ";
+    color: inherit;
+    font-weight: bold;
+}
+.ss-item {
+    padding-left: 10px;
+}
+.ss-item p {
+    margin-top: 4px;
+}
+.d-flex {
+    padding-top: 7px;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.d-box {
+    display: block;
+    margin-top: 18px;
+    margin-left: 16px;
+    padding-top: 12px;
+    padding-left: 18px;
+    padding-bottom: 18px;
+    border-width: 2px;
+    border-style: dashed;
+    border-color: var(--blue);
+    max-width: 600px;
+    overflow-x: auto;
+}
+.d-box .d-flex > *:last-child {
+    padding-right: 12px;
+}
+@media screen and (max-width: 600px) {
+    .d-box {
+        margin-right: 0px;
+    }
+}
+@media screen and (min-width: 600px) {
+    .d-box {
+        margin-right: 30px;
+    }
+}
+.d-box::-webkit-scrollbar {
+    width: 0px;
+    height: 12px;
+}
+.d-box::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1);
+    background-clip: padding-box;
+    border: 2px solid transparent;
+}
+.d-box::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.d-box::-webkit-scrollbar-thumb:active {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.t-pre {
+    white-space: pre;
+}
+.t-italic {
+    font-style: italic;
+}
+.i-flex {
+    display: flex;
+    flex-direction: row;
+    margin-right: 1.5rem;
+    white-space: pre;
+    width: 7rem;
+}
+.t-left {
+    display: inline-block;
+    width: 3rem;
+    margin-right: 16px;
+}
+.i-tr {
+    color: transparent;
+}
+.console a {
+    text-decoration: none;
+    color: inherit;
+}
+.t-a {
+    cursor: pointer;
+    border-bottom: 1px dotted transparent;
+}
+.t-a:hover {
+    border-bottom: 1px dotted var(--cian);
+}
+
+.float {
+    z-index: 5;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 2rem;
+    left: auto;
+    padding: 8px;
+    padding-bottom: 28px;
+    border-radius: 6px 6px 0px 0px;
+    background-color: var(--dark);
+    transition: all 0.4s;
+    transform: translateY(100%);
+}
+.float.vi {
+    transform: translateY(0);
+}

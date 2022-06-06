@@ -1,0 +1,267 @@
+body {
+    margin: 0;
+}
+* {
+    font-family: 'Segoe UI', sans-serif;
+    box-sizing: border-box;
+}
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 12px;
+    padding-bottom: 4em;
+    background-color: rgb(213, 246, 213);
+}
+.target {
+    transition: all .18s;
+    user-select: none;
+    flex: auto;
+    min-width: 211px;
+    padding: 12px;
+    box-shadow: 0px 0px 0px 1px rgba(35, 39, 35, 0.184);
+}
+.target:hover {
+    box-shadow: 0px 0px 8px 3px rgba(15, 15, 15, 0.416);
+    position: relative;
+    z-index: 2;
+    background-color: rgb(255, 255, 255);
+}
+.link {
+    font-size: 13px;
+    white-space: pre-line;
+    text-overflow: ellipsis;
+    overflow-wrap: anywhere;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(162, 162, 162);
+    border-radius: 6px;
+    overflow: hidden;
+}
+.link:hover {
+    border-color: rgb(75, 75, 75);
+    background-color: white;
+}
+.link p {
+    margin: 0;
+}
+.link a {
+    text-decoration: none;
+    font-size: 1.12em;
+    color: rgb(52, 101, 150);
+    font-weight: 500;
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.link a:hover {
+    text-decoration: underline;
+}
+.link:hover a {
+    color: rgb(85, 186, 246);
+}
+.link .btn {
+    display: flex;
+    align-items: center;
+}
+.link button {
+    cursor: pointer;
+    padding: 0px 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(107, 107, 107);
+    border-radius: 4px;
+    color: rgb(105, 105, 105);
+    transition: all .18s;
+    background-color: rgba(104, 165, 226, 0.1);
+    font-size: inherit;
+}
+.link button:first-child {
+    margin-right: 6px;
+}
+.link button:hover {
+    color: black;
+    border-color: rgb(46, 46, 46);
+    background-color: rgba(91, 173, 255, 0.426);
+    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, .6);
+}
+.link .string {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 16px;
+    height: 2rem;
+    border-left-width: 10px;
+    border-left-style: solid;
+    background-color: rgba(255, 255, 255, 0.478);
+}
+.odd {
+    background-color: rgb(219, 219, 242);
+}
+.odd .link .string{
+    border-left-color: rgb(78, 78, 180);
+}
+.even {
+    background-color: rgb(213, 246, 213);
+}
+.even .link .string {
+    border-left-color: rgb(78, 180, 78);
+}
+.link .more {
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: rgb(142, 142, 142);
+    font-size: 0.95em;
+    background-color: rgb(205, 205, 205);
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    padding-right: 16px;
+}
+.link .more .i-path::before {
+    content: attr(data-ord);
+    font-family: monospace;
+    font-weight: bold;
+    margin-right: 8px;
+    padding: 0px 8px;
+    background-color: rgb(177 177 177);
+    line-height: 2em;
+    height: 2em;
+    display: inline-block;
+}
+.link .more .alert::before {
+    background-color: rgb(242, 141, 141);
+}
+.link .more .i-path {
+    margin-right: 18px;
+}
+
+.up {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 32px;
+    padding-bottom: 65px;
+    z-index: 2;
+}
+.up[data-v=off] {
+    display: none;
+}
+.up .cls-tx {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .82);
+    z-index: -1;
+}
+.up .editor {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    min-height: 100%;
+}
+.up .editor::before,
+.up .editor::after {
+    content: "";
+    left: 3px;
+    right: 3px;
+    height: 20px;
+    width: auto;
+    position: absolute;
+    z-index: 1;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.22), transparent);
+}
+.up .editor::before {
+    top: 3px;
+}
+.up .editor::after {
+    bottom: 3px;
+    transform: rotate(180deg);
+}
+.up .opt {
+    position: absolute;
+    display: flex;
+    z-index: 5;
+    right: 0;
+    top: 50%;
+    height: 25px;
+    align-items: center;
+    transform: rotate(90deg) translateX(50%) translateY(3px);
+    overflow: hidden;
+    border-radius: 0px 0px 4px 4px;
+    transform-origin: right top;
+    background-color: white;
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.46);
+    transition: all 0.2s;
+    opacity: 0.2;
+}
+.up .opt:hover {
+    opacity: 1;
+}
+.up .opt * {
+    color: black;
+    font-family: monospace;
+    padding: 4px 10px;
+    font-size: 15px;
+    margin: 0px 0px;
+    transition: all 0.2s;
+    background-color: transparent;
+    text-decoration: none;
+    cursor: pointer;
+}
+.up .opt a:hover,
+.up .opt div:hover {
+    background-color: rgba(27, 89, 117, 0.492);
+}
+.up textarea {
+    position: relative;
+    font-family: monospace;
+    resize: none;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    min-height: 100%;
+    border-width: 3px;
+    border-style: solid;
+    border-color: rgb(211, 211, 211);
+    font-size: 16px;
+    line-height: 18px;
+    padding: 18px;
+    white-space: nowrap;
+    background-image: url(pixel.png);
+    background-size: 36px 18px;
+    background-repeat: repeat;
+    background-attachment: local;
+    white-space: pre;
+}
+.up textarea.pre {
+    white-space: break-spaces !important;
+}
+.up textarea::-webkit-scrollbar {
+    background-color: white;
+    height: 9px;
+    width: 9px;
+}
+.up textarea::-webkit-scrollbar-thumb {
+    background-color: rgb(163, 163, 163);
+    border-style: solid;
+    border-color: white;
+    border-width: 2px;
+}
+.up textarea::selection {
+    background-color: rgba(86, 152, 238, 0.541);
+}
+.up textarea:focus {
+    outline: none;
+    border-color: rgb(82, 156, 253);
+}

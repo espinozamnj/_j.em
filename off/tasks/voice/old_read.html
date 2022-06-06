@@ -1,0 +1,30 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<Title>Lector</Title>
+    <link rel="icon" type="image/png" href="/_cdn_/favs/speech.192.png">
+    <script src="/_cdn_/rm-wbha.js"></script>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+	<div id="txt" contenteditable onclick="func()">
+		Mi texto aún es solo una prueba para ver que tan bien funciona el dictado de google para cooperar a ayudarme con mis tareas que tendré el próximo año
+	</div>
+	<div id="out"></div>
+	<div class="voice">
+		<input type="number" id="vel" placeholder="1" onchange="speed()">
+		<audio id="au" controls="" src="null" nodownload></audio>
+	</div>
+	<footer>
+		<span class="lang">Idioma:</span>
+		<select id="lang">
+			<option value="es">Español</option>
+			<option value="ja">Japonés</option>
+			<option value="en">Inglés</option>
+			<option value="ru">Ruso</option>
+		</select>
+	</footer>
+	<script type="text/javascript" src="javascript.js"></script>
+</body>
+</html>

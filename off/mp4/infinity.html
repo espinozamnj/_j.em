@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Infinite screen</title>
+    <link rel="icon" type="image/png" href="/_cdn_/favs/wait-room.192.png">
+    <script src="/_cdn_/rm-wbha.js"></script>
+    <link rel="stylesheet" href="infinity.css">
+</head>
+<body>
+    <div class="app">
+        <div class="mouse-cursor cursor-outer"></div>
+        <div class="root">
+            <div class="main">
+                <div class="message opacity-an">
+                    <p>EQUIPO TRABAJANDO</p>
+                    <p>NO APAGAR</p>
+                </div>
+                <div class="animation opacity-an">
+                    <div class="container">
+                        <div class="support"><div class="dot"></div></div>
+                        <div class="support"><div class="dot"></div></div>
+                        <div class="support"><div class="dot"></div></div>
+                        <div class="support"><div class="dot"></div></div>
+                        <div class="support"><div class="dot"></div></div>
+                        <div class="support"><div class="dot"></div></div>
+                        <p class="txt">Espere</p>
+                    </div>
+                </div>
+                <video src="bar.mp4" autoplay="true" preload loop class="video"></video>
+            </div>
+        </div>
+        <div class="sjs">
+            <script>
+                (function(){
+                    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                        $('.cursor').style.display = 'none'
+                    } else {
+                        if (1 == 2) {
+                            let t = document.getElementsByClassName('cursor-outer')[0]
+                            window.addEventListener('mousemove', function(event) {
+                                t.style.left = event.clientX + 5 + "px"
+                                t.style.top = event.clientY + 5 + "px"
+                            })
+                        }
+                    }
+                })();
+                window.addEventListener('load', function(){
+                    let v = document.getElementsByTagName('video')[0]
+                    v.muted = true
+                    v.play()
+                    v.addEventListener('dblclick', function(){
+                        console.log('cambio de toogle')
+                        if (v.hasAttribute('controls')) {
+                            v.setAttribute('controls', '')
+                        } else {
+                            v.removeAttribute('controls')
+                        }
+                    })
+                })
+            </script>
+        </div>
+    </div>
+</body>
+</html>

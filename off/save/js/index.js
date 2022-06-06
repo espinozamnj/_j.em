@@ -1,0 +1,411 @@
+(function(){
+    window.__select = ''
+    function save(){
+        if(window.getSelection() != ''){
+            window.__select = window.getSelection()
+        }
+    }
+    window.addEventListener('click', function(){save()}, false)
+    window.addEventListener('touchstart', function(){save()}, false)
+    window.addEventListener('touchend', function(){save()}, false)
+    window.addEventListener('mousedown', function(){save()}, false)
+    window.addEventListener('mouseup', function(){save()}, false)
+
+    var jso = ''
+    location.origin.includes('test') ? jso = 'https://panda.test/' : jso = 'https://v-etoski.web.app/'
+
+    function i(t, a, w) {
+        let i = 0
+        n = document.createElement(t)
+        while (i < a.length) {
+          let t = a[i]
+          n.setAttribute(t[0], t[1])
+          i++
+        }
+        w.appendChild(n)
+        return n
+    }
+    let fontMain = 'Raleway'
+
+    let SR = document.createElement('div')
+    SR.id = 'context-menu-addons'
+    document.body.appendChild(SR)
+    var SRO = SR.attachShadow({mode: 'open'})
+    // SRO = SR
+    
+    let ff = i('script',[['src', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js']], SRO)
+    // dir_project
+    i('script',[['src', jso + '_j.em/off/save/js/all-fa.js']], SRO)
+
+    function iconFA(name, where) {
+        let svgend = ''
+        let td = i('div', [], document.body)
+        td.style.display = 'none'
+        i('i', [['class', name]], td)
+        setTimeout(function(){
+            svgend = td.children[0].outerHTML
+            var htmlELM = new DOMParser().parseFromString(svgend, "text/xml")
+            where.appendChild(htmlELM.firstChild)
+            setTimeout(function(){
+                document.body.removeChild(td)
+            }, 5e2)
+        }, 1e3)
+    }
+    ff.addEventListener('load', function(){
+        setTimeout(function(){
+            WebFont.load({
+                google: {
+                    families: [fontMain]
+                }
+            });
+        }, 1e3)
+    })
+    let ad = document.createElement('script')
+    typeof _bkl_ == 'undefined' ? ad.src = jso + '_j.em/off/save/js/t-url.js' : ad.src = jso + '_cdn_/webhost.js'
+    SRO.appendChild(ad)
+            
+    
+    ad.addEventListener('load', function(){   
+        function create(tag, clas, css, style, where){
+            let sty = '.' +  css + '{' + style + '}'
+            style == '' ? ae.css.innerText += '' : ae.css.innerText += sty
+            let g = document.createElement(tag)
+            clas.split(',').forEach(function(c){
+                g.classList.add(c)
+            })
+            where.appendChild(g)
+            return g
+        }
+
+        var ae = {}
+        ae.width = 260
+        ae.height = 600
+        ae.css = document.createElement('style')
+        ae.css.innerText = `
+            .--alt *,
+            .--alt * *,
+            .--alt * * *,
+            .--alt * * * * {
+                line-height: initial;
+                font-weight: initial;
+                letter-spacing: initial;
+                color: initial;
+                text-decoration: initial;
+                user-select: none;
+            }
+            .--tog {
+                position:fixed;z-index:2147483647;top:0;right:10px;padding:6px 14px;background:white;opacity:0.1;border-radius:0px 0px 8px 8px;min-height:16px;
+            }
+            .--tog:hover {
+               opacity: 0.89;
+            }
+            .--alt .view {
+                transform:translateY(0) !important;
+            }
+            .--alt .--bod {
+                max-width:${ae.width}px;
+                max-height:${ae.height}px;
+            }
+            .--bod .--bc::-webkit-scrollbar {
+                width: 14px;
+                background-color:transparent;
+            }
+            .--bod .--bc::-webkit-scrollbar-thumb {
+                border: 4px solid transparent;
+                background-clip: padding-box;
+                background-color:rgba(0,0,0,0.08);
+                border-radius: 12px;
+            }
+            .--bod .--bc::-webkit-scrollbar-thumb:hover {
+                background-color:rgba(0,0,0,0.15);
+            }
+            .--bod .--bc::-webkit-scrollbar-thumb:active {
+                background-color:rgba(0,0,0,0.25);
+            }
+            .--bod *:not(.--alt i) {
+                font-family:'${fontMain}', sans-serif
+            }
+            .--alt .--cont:last-child {
+                margin-bottom:14px;
+            }
+            .--alt .--cont:not(.--alt .--cont:last-child)::after {
+                content:"";position:absolute;bottom:-4px;left:10px;right:10px;width:auto;border-radius:6px;height:2px;background:rgb(177,177,177)
+            }
+            .--alt .--item {
+                display:flex;align-items:center;text-decoration:none;cursor:pointer;padding:6px 9px;transition:all .3s;font-size:13px;
+            }
+            .--alt .--item:hover {
+                background: white;box-shadow: 0px 0px 8px -1px rgba(0,0,0,0.66);
+            }
+            .--alt .--item:hover svg * {
+                fill: black !important;
+            }
+            .--alt .--item i,
+            .--alt .--item svg {
+                height: 13px;
+                width: 22px !important;
+                color: black !important;
+                text-align: center !important;
+                margin-right: 10px !important;
+            }
+            .--tog svg {
+                height: 14px;
+                width: 18px !important;
+                color: black !important;
+                text-align: center !important;
+                position: relative;
+                z-index: -1;
+            }
+            .--alt .--item svg path {
+                fill: rgb(75, 75, 75) !important;
+            }
+            .--alt .--item span {
+                flex: 1;
+                color: black;
+            }
+        `.replaceAll('\n','').replaceAll('    ','').replaceAll('\t','')
+        ae.sr = SRO
+        ae.init = create(
+            'div',
+            '--alt',
+            '',
+            '',
+            SRO
+        )
+        ae.body = create(
+            'div',
+            '--bod',
+            '--alt .--bod',
+            'position:fixed;z-index:10000000;width:100%;height:100%;overflow:hidden;background:rgba(255,255,255,0.82);backdrop-filter:blur(18px) saturate(1.1) brightness(1.15);box-shadow:0px 2px 16px 2px rgba(0,0,0,0.26);border-width:1px;border-bottom-width:0px;border-style:solid;border-color:rgb(185,185,185);transform:translateY(205vh)',
+            ae.init
+    
+        )
+        ae.init.appendChild(ae.css)
+        ae.toogle = create('div', '--tog', '', '', ae.init)
+        // ae.toogle.innerText = '::'
+        iconFA('fas fa-bars', ae.toogle)
+        
+        var mov = {}
+        mov.dragItem = ae.toogle
+        mov.dcb = SRO
+        mov.active = false
+        mov.currentX
+        mov.currentY
+        mov.initialX
+        mov.initialY
+        mov.xOffset = 0
+        mov.yOffset = 0
+        function dragStart(e) {
+            if (e.type === 'touchstart') {
+                mov.initialX = e.touches[0].clientX - mov.xOffset
+                mov.initialY = e.touches[0].clientY - mov.yOffset
+            } else {
+                mov.initialX = e.clientX - mov.xOffset
+                mov.initialY = e.clientY - mov.yOffset
+            }
+            if (e.target === mov.dragItem) {
+                mov.active = true
+                mov.dragItem.style.cursor = 'move'
+            }
+        }
+        function dragEnd(e) {
+            mov.initialX = mov.currentX
+            mov.initialY = mov.currentY
+            mov.active = false
+            mov.dragItem.style.cursor = 'grab'
+        }
+        function drag(e) {
+            if (mov.active) {
+                e.preventDefault()
+                mov.dragItem.style.cursor = 'grabbing'
+                if (e.type === 'touchmove') {
+                    mov.currentX = e.touches[0].clientX - mov.initialX
+                    mov.currentY = e.touches[0].clientY - mov.initialY
+                } else {
+                    mov.currentX = e.clientX - mov.initialX
+                    mov.currentY = e.clientY - mov.initialY
+                }
+                mov.xOffset = mov.currentX
+                mov.yOffset = mov.currentY
+                setTranslate(mov.currentX, 0, ae.toogle)
+            }
+        }
+        function setTranslate(xPos, yPos, el) {
+            el.style.transform = 'translate3d(' + xPos + 'px, ' + yPos + 'px, 0)'
+        }
+        mov.dcb.addEventListener('touchstart', dragStart, false)
+        mov.dcb.addEventListener('touchend', dragEnd, false)
+        mov.dcb.addEventListener('touchmove', drag, false)
+        mov.dcb.addEventListener('mousedown', dragStart, false)
+        mov.dcb.addEventListener('mouseup', dragEnd, false)
+        mov.dcb.addEventListener('mousemove', drag, false)
+
+        var poX = 0, poY = 0, lastKEY = 0
+        document.addEventListener('mousemove', function(event){
+            poX = event.clientX
+            poY = event.clientY
+          })
+        function getScrollbarWidth() {
+            let scrollbarWidth
+            if (document.body.offsetHeight > window.innerHeight) {
+                const outer = document.createElement('div')
+                outer.style.visibility = 'hidden'
+                outer.style.overflow = 'scroll'
+                outer.style.msOverflowStyle = 'scrollbar'
+                document.body.appendChild(outer)       
+                const inner = document.createElement('div')
+                outer.appendChild(inner)      
+                scrollbarWidth = (outer.offsetWidth - inner.offsetWidth)
+                outer.parentNode.removeChild(outer);
+            } else {
+                scrollbarWidth = 0
+            }
+            
+            return scrollbarWidth;
+        }
+        function alternateVisibleMenuToogle(position) {
+            let b = ae.body
+            if (position) {
+                if (poX + ae.width > window.innerWidth) {
+                    b.style.right = ((window.innerWidth - poX) - getScrollbarWidth()) + 'px'
+                    b.style.left = 'auto'
+                } else {
+                    b.style.left = poX + 'px'
+                    b.style.right = 'auto'
+                }
+                if (poY + ae.height > window.innerHeight) {
+                    b.style.top = 'auto'
+                    b.style.bottom =  (window.innerHeight - poY) + 'px'
+                } else {
+                    b.style.top = poY + 'px'
+                    b.style.bottom = 'auto'
+                }
+                // iggore position Y
+                b.style.top = 'auto'
+                b.style.bottom = '10px'
+                // 
+                b.style.transition = 'none'
+                b.style.borderRadius = '8px'
+            } else {
+                b.style.transition = 'all 0.4s'
+                b.style.left = 'auto'
+                b.style.top = 'auto'
+                b.style.bottom = '0px'
+                b.style.right = '10px'
+                b.style.borderRadius = '11px 11px 0px 0px'
+            }
+            b.classList.toggle('view')
+            ae.b.scrollTo(0, 0)
+
+        }
+        ae.toogle.addEventListener('mouseenter', function(){
+            alternateVisibleMenuToogle(false)
+        })
+        ae.toogle.addEventListener('click', function(){
+            alternateVisibleMenuToogle(false)
+        })
+        window.addEventListener('keydown', function(event){
+            lastKEY = event.keyCode
+        })
+        
+        window.addEventListener('contextmenu', function(e){
+            if (lastKEY == 18){
+                e.preventDefault()
+                alternateVisibleMenuToogle(true)
+            }
+        })
+        ae.b = create(
+            'div',
+            '--bc',
+            '--alt .--bc',
+            'height:100%;width:100%;display:flex;flex-direction:column;overflow-x:hidden;overflow-y:overlay',
+            ae.body
+        )
+        ae.i = {
+            a: create('div', '--cont', '--alt .--cont', 'position:relative;padding:6px 0px;margin-bottom:8px', ae.b),
+            b: create('div', '--cont', '', '', ae.b),
+            c: create('div', '--cont', '', '', ae.b),
+            d: create('div', '--cont', '', '', ae.b),
+            e: create('div', '--cont', '', '', ae.b),
+            f: create('div', '--cont', '', '', ae.b)
+        }
+        
+        button = [
+            ['preview','arrow-left','(function(){history.go(-1)})()', ae.i.a],
+            ['next','arrow-right','(function(){history.go(1)})()', ae.i.a],
+            ['share','share-alt','share', ae.i.a],
+            ['refresh','redo','(function(){location.href=location.href})()', ae.i.a],
+            ['duplicate','clone','(function(){open(location.href,"_blank")})()', ae.i.a],
+            ['index site','home','(function(){location.href=location.origin})()', ae.i.a],
+            ['go parent','arrow-up','(function(){let f=location.href.split("/"),i=0,p="";while(i<f.length-2){p+=f[i]+"/";i++};open(p,"_blank")})()', ae.i.a],
+            ['search site','fabgoogle','search_web', ae.i.a],
+            ['zoom','search-plus','zoom', ae.i.b],
+            ['viewport', 'mobile-alt', 'viewport', ae.i.b],
+            ['reader', 'align-left', 'read', ae.i.b],
+            ['to speech', 'volume-up', 'voice', ae.i.b],
+            ['invert', 'moon', 'invert', ae.i.b],
+            ['dark mode', 'adjust', 'nigth mode', ae.i.b],
+            ['read', 'book-open', 'clean', ae.i.b],
+            ['print', 'print', 'print', ae.i.b],
+            ['delete items', 'eraser', 'deldom', ae.i.b],
+            ['edit page', 'backspace', 'contenteditable', ae.i.b],
+            ['go to top', 'arrow-circle-up', 'go top', ae.i.b],
+            ['go to bottom', 'arrow-circle-down', 'go bottom', ae.i.b],
+            ['translate', 'globe-africa', 'lang', ae.i.c],
+            ['google translate', 'language', 'gtr', ae.i.c],
+            ['yandex translate', 'fabyandex-international', 'ytr', ae.i.c],
+            ['definition', 'spell-check', 'mean', ae.i.c],
+            ['fullscreen', 'expand', 'full screen', ae.i.d],
+            ['console', 'terminal', 'ins', ae.i.d],
+            ['eval js', 'code', 'evaljs', ae.i.d],
+            ['show password', 'key', 'show passwords', ae.i.d],
+            ['window', 'window-restore', 'wid', ae.i.d],
+            ['QR URL', 'qrcode', 'get qr', ae.i.e],
+            ['saved', 'heart', 'savedio', ae.i.e],
+            ['telegram share', 'fabtelegram-plane', '(function(){open("https://telegram.me/share/url?url="+location.href,"_blank")})()', ae.i.e],
+            ['copy to markdown', 'link', 'link', ae.i.e],
+            ['view as PDF', 'file-pdf', 'get pdf', ae.i.e],
+            ['resources', 'sitemap', 'resources', ae.i.e],
+            ['save images', 'file-image', 'save img', ae.i.e],
+            ['addons', 'puzzle-piece', 'addons', ae.i.f],
+            ['bookmarks', 'external-link-alt', '(function(){open("'+jso+'_j.em/off/save/","_blank")})()', ae.i.f]
+        ]
+    
+        button.forEach(function(bt){
+            let b = document.createElement('a'),
+                ic = document.createElement('i')
+                s = document.createElement('span')
+                classIcon = ''
+            if (bt[1].includes('fab')) {
+                classIcon = 'fab ' + 'fa-' + bt[1].substring(3)
+            } else {
+                classIcon = 'fas ' + 'fa-' + bt[1]
+            }
+            iconFA(classIcon, ic)
+            if (!bt[2].startsWith('(f')) {
+                let res = _bkl_.filter(element => element.name.toString().toLowerCase() == bt[2].toLowerCase())
+                bt.push(res[0]['url'])
+            } else {
+                bt.push(bt[2])
+            }
+            b.addEventListener('click', function(e){
+                e.preventDefault()
+                eval(bt[4])
+            })
+            b.addEventListener('contextmenu', function(){
+                console.groupCollapsed('info script')
+                    console.log(bt[0])
+                    console.log(bt[4].substring(12, 50))
+                    console.groupCollapsed('all script')
+                        console.log(bt[4])
+                    console.groupEnd()
+                console.groupEnd()
+            })
+            b.classList.add('--item')
+            s.innerText = bt[0].substring(0, 1).toUpperCase() + bt[0].slice(1)
+            b.appendChild(ic)
+            b.appendChild(s)
+            bt[3].appendChild(b)
+        })
+    })
+})()

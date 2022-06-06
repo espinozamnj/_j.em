@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reproductor de video</title>
+    <link rel="shortcut icon" href="/_cdn_/media--fav_/play.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <script src="/_cdn_/rm-wbha.js"></script>
+    <link rel="shortcut icon" href="/_cdn_/media--fav_/play.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand|Actor|Source+Sans+Pro:900|Lato:400,700,900|Oswald:400,700|Abel:400|Dosis:600" rel="stylesheet">
+    <link href="players/techsmith-smart-player.min.css" rel="stylesheet" type="text/css" />
+    <style>html,body{background-color:rgb(26, 26, 26);}</style>
+</head>
+<body>
+    <div id="tscVideoContent">
+        <img width="32px" height="32px" style="position: absolute; top: 50%; left: 50%; margin: -16px 0 0 -16px" src="players/load.gif">
+    </div>
+    <script src="players/config_xml.js"></script>
+    <script>
+        (function (window) {  
+            let tooo
+            if (location.href.includes('?')) {
+                tooo = location.search
+                tooo = tooo.substring(2, tooo.length)
+            } else {
+                setTimeout(function(){
+                    document.write('NO URL')
+                },22e2)
+            }
+
+            function setup(TSC) {
+                TSC.playerConfiguration.addMediaSrc(tooo)
+                TSC.playerConfiguration.setXMPSrc("vidg_config.xml")
+                TSC.playerConfiguration.setAutoHideControls(true)
+                TSC.playerConfiguration.setBackgroundColor("#000000")
+                TSC.playerConfiguration.setCaptionsEnabled(false)
+                TSC.playerConfiguration.setSidebarEnabled(false)
+            
+                TSC.playerConfiguration.setAutoPlayMedia(false)
+                TSC.playerConfiguration.setPosterImageSrc("background.png")
+                TSC.playerConfiguration.setIsSearchable(true)
+                TSC.playerConfiguration.setEndActionType("stop")
+                TSC.playerConfiguration.setEndActionParam("true")
+                TSC.playerConfiguration.setAllowRewind(-1)
+
+                TSC.localizationStrings.setLanguage(TSC.languageCodes.ENGLISH)
+                TSC.mediaPlayer.init("#tscVideoContent")
+            }
+
+            function loadScript(e,t){if(!e||!(typeof e==="string")){return}var n=document.createElement("script");if(typeof document.attachEvent==="object"){n.onreadystatechange=function(){if(n.readyState==="complete"||n.readyState==="loaded"){if(t){t()}}}}else{n.onload=function(){if(t){t()}}}n.src=e;document.getElementsByTagName("head")[0].appendChild(n)}
+
+            loadScript('players/techsmith-smart-player.min.js', function() {setup(window["TSC"]);});
+        }(window));
+    </script>
+</body>
+</html>

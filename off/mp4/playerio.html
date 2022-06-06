@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Reproductor de video</title>
+    <script src="/_cdn_/rm-wbha.js"></script>
+    <link rel="shortcut icon" href="/_cdn_/media--fav_/play.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script>
+        function home(){
+            open(location.protocol + '//' + location.host + location.pathname,"_top")
+        }
+        if(!location.search.indexOf("?=") && location.search.split("?=")[1].split("&")[0]==""){home()}
+    </script>
+    <meta name="robots" content="noindex,nofollow,norobots,noarchive" />
+    <link rel="stylesheet" href="players/plyr.css">
+    <!-- <link rel="stylesheet" href="https://cdn.plyr.io/3.4.6/plyr.css"> -->
+    <style>body {margin:0;height:100vh;}.container{width:100%;height:100%;margin:0 auto;}.plyr{height:100%;}.plyr__video-wrapper{height:100%;}.plyr video{height:100%;}</style>
+</head>
+<body>
+    <div class="container">
+        <video controls crossorigin playsinline poster="background.png" id="player">
+        </video>
+        <script>
+            let tooo
+            if (location.href.includes('?')) {
+                tooo = location.search
+                tooo = tooo.substring(2, tooo.length)
+                let v = document.getElementsByTagName('video')[0]
+                v.innerHTML = '<source src="'+tooo+'" type="video/mp4" size="auto">'
+            } else {
+                setTimeout(function(){
+                    document.write('NO URL')
+                },22e2)
+            }
+        </script>
+    </div>
+    <script src="players/plyr.js"></script>
+    <!-- <script src="https://cdn.plyr.io/3.4.6/plyr.js"></script> -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => { 
+        // This is the bare minimum JavaScript. You can opt to pass no arguments to setup.
+        const player = new Plyr('#player');
+        // Expose
+        window.player = player;
+        // Bind event listener
+        function on(selector, type, callback) {
+            document.querySelector(selector).addEventListener(type, callback, false);
+        }
+        // Play
+        on('.js-play', 'click', () => {player.play();});
+        // Pause
+        on('.js-pause', 'click', () => {player.pause();});
+        // Stop
+        on('.js-stop', 'click', () => {player.stop();});
+        // Rewind
+        on('.js-rewind', 'click', () => {player.rewind();});
+        // Forward
+        on('.js-forward', 'click', () => {player.forward();});
+        });
+    </script>
+</body>
+</html>

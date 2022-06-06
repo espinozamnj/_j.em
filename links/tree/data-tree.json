@@ -1,0 +1,427 @@
+{
+  "children": [{
+      "children": [{
+          "children": [{
+              "children": [
+                {"name": "Garage Digital", "url": "//learndigital.withgoogle.com/activate/courses", "type": "url"},
+                {"name": "Aprende.org", "url": "//aprende.org/", "type": "url"},
+                {"name": "Capacítate para el empleo", "url": "//capacitateparaelempleo.org/", "type": "url"},
+                {"name": "Cursos gratis en línea en GCFGlobal", "url": "//edu.gcfglobal.org/es/", "type": "url"},
+                {"name": "Courses List - Google Digital Garage", "url": "//learndigital.withgoogle.com/digitalgarage/courses", "type": "url"},
+                {"name": "Duolingo", "url": "//www.duolingo.com/learn", "type": "url"}
+              ],
+              "name": "Gratis",
+              "type": "folder"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {"name": "PDF certificate 2021", "url": "//drive.google.com/file/d/1voSpRDQE-KguPE0BIcMSPna62-09NA8n/view", "type": "url"},
+                    {"name": "Diverse courses make money", "url": "//mega.nz/folder/jhwGmTzB#z9ZLYY6j6jopVmseDxt55g", "type": "url"}
+                  ],
+                  "name": "Folder Courses",
+                  "type": "folder"
+                },
+                {"name": "Descargas Mega Total", "url": "//descargasmegatotal.com/", "type": "url"},
+                {"name": "Recursostecnologicos21", "url": "//www.recursostecnologicos21.com/", "type": "url"},
+                {"name": "Cursosgratis21", "url": "//www.cursosgratis21.com/", "type": "url"},
+                {"name": "Cursos LatamStocks", "url": "//cursos.latamstocks.com/", "type": "url"},
+                {"name": "CURSOS PROFESIONALES GRATIS", "url": "//cursosprogratis.com/", "type": "url"}
+              ],
+              "name": "Pirata",
+              "type": "folder"
+            },
+            {
+              "children": [
+                {"name": "Artista Pirata", "url": "//www.artistapirata.com/", "type": "url"},
+                {"name": "Microsoft Power BI", "url": "//recursosgraficosblog.wordpress.com/", "type": "url"},
+                {"name": "Intercambios Virtuales", "url": "//www.intercambiosvirtuales.org/", "type": "url"}
+              ],
+              "name": "Programas",
+              "type": "folder"
+            },
+            {
+              "children": [
+                {"name": "IEEE Xplore", "url": "//ieeexplore.ieee.org/Xplore/home.jsp", "type": "url"},
+                {"name": "Sci-Hub", "url": "//sci-hub.tw/", "type": "url"},
+                {"name": "Google Académico", "url": "//scholar.google.com.pe/", "type": "url"},
+                {"name": "Solucionador matemático Symbolab", "url": "//es.symbolab.com/", "type": "url"}
+              ],
+              "name": "Herramienta",
+              "type": "folder"
+            }
+          ],
+          "name": "Educación",
+          "type": "folder"
+        },
+        {
+          "children": [{
+              "children": [
+                {"name": "Codepen", "url": "//codepen.io/", "type": "url"},
+                {"name": "JavaScript Event KeyCodes", "url": "//keycode.info/", "type": "url"},
+                {"name": "El código ASCII Completo", "url": "//elcodigoascii.com.ar/", "type": "url"},
+                {"name": "Clippy", "url": "//bennettfeely.com/clippy/", "type": "url"},
+                {"name": "Flexplorer", "url": "//bennettfeely.com/flexplorer/", "type": "url"},
+                {"name": "Image Effects with CSS", "url": "//bennettfeely.com/image-effects/", "type": "url"},
+                {"name": "JSFiddle", "url": "//jsfiddle.net/", "type": "url"},
+                {"name": "Guía completa de Flexbox", "url": "//css-tricks.com/snippets/css/a-guide-to-flexbox/", "type": "url"}
+              ],
+              "name": "Learn",
+              "type": "folder"
+            },
+            {
+              "children": [
+                {"name": "Latín básico - Tabla de caracteres Unicode", "url": "//unicode-table.com/es/", "type": "url"},
+                {"name": "Trustscam", "url": "//trustscam.es/", "type": "url"},
+                {"name": "ImgBB — Subir Imágenes", "url": "//es.imgbb.com/", "type": "url"},
+                {"name": "Adescargarlo - CODIGOS", "url": "//adescargarlo.com/", "type": "url"},
+                {"name": "Can I use?", "url": "//caniuse.com/", "type": "url"},
+                {
+                  "children": [
+                    {"name": "Chatbot Software for Your Website", "url": "//collect.chat/", "type": "url"},
+                    {"name": "Zendesk.", "url": "//www.zendesk.com/", "type": "url"},
+                    {"name": "Chats by Landbot", "url": "//chats.landbot.io/", "type": "url"},
+                    {"name": "Chatbot Sites", "url": "//chatbotsites.com/", "type": "url"},
+                    {"name": "Botón de chat gratuito", "url": "//getbutton.io/es/", "type": "url"}
+                  ],
+                  "name": "Button and ChatBots",
+                  "type":"folder"
+                }
+              ],
+              "name": "Services",
+              "type": "folder"
+            },
+            {
+              "children": [
+                {"name": "Front Page - Illdy Theme Demo", "url": "//colorlib.com/illdy/", "type": "url"},
+                {"name": "El Fotógrafo de Perros", "url": "//www.elfotografodeperros.com/", "type": "url"},
+                {"name": "TutosDeath", "url": "//tutosdeath.blogspot.com/", "type": "url"},
+                {"name": "Desarrollo sostenible", "url": "//www.sostenibilidad.com/desarrollo-sostenible/", "type": "url"},
+                {"name": "PERU GRAPH", "url": "//consorciomdrperu.com/", "type": "url"},
+                {"name": "Android TV", "url": "//www.android.com/tv/", "type": "url"}
+              ],
+              "name": "Examples",
+              "type": "folder"
+            }
+          ],
+          "name": "HTML",
+          "type": "folder"
+        },
+        {
+          "children": [
+            {"name": "AlexCG Design", "url": "//alexcgdesign.com/blog/", "type": "url"},
+            {"name": "Fabian el publicista", "url": "//fabianelpublicista.co/", "type": "url"},
+            {"name": "Yoney Gallardo", "url": "//yoneygallardo.com/", "type": "url"},
+            {"name": "Dostin Hurtado", "url": "//dostinhurtado.com/site/", "type": "url"},
+            {"name": "SandyOlivera", "url": "//www.sandyolivera.com/main/tutoriales", "type": "url"},
+            {"name": "Abstracto Create", "url": "//abstractocreate.blogspot.com/", "type": "url"},
+            {"name": "Ugbtuts", "url": "//ugbtuts.com/", "type": "url"},
+            {"name": "Aprende a editar Fotos y Vídeos", "url": "//www.runbenguo.com/tutoriales/", "type": "url"},
+            {"name": "Tutoriales – MassterFX", "url": "//massterfx.com/tutoriales/", "type": "url"},
+            {"name": "Mini-Consejos - UnNaranjo", "url": "//unnaranjo.com/category/mini-consejos/", "type": "url"},
+            {"name": "PRESETS Y ACCIONES | Phicsion", "url": "//phicsion.com/presets-y-acciones/", "type": "url"}
+          ],
+          "name": "Tutoriales",
+          "type": "folder"
+        }
+      ],
+      "name": "Sites",
+      "type": "folder"
+    },
+    {
+      "children": [{
+          "children": [
+            {"name": "Vimeo", "url": "vimeo.com", "type": "url"},
+            {"name": "Movistar Play", "url": "//www.movistarplay.com.pe/", "type": "url"},
+            {"name": "Claro", "url": "//claro.com.pe", "type": "url"},
+            {"name": "Movistarplay", "url": "//movistarplay.com.pe", "type": "url"},
+            {"name": "Netflix", "url": "//netflix.com", "type": "url"},
+            {"name": "Clarovideo", "url": "//www.clarovideo.com/peru/homeuser", "type": "url"},
+            {"name": "Spotify Web", "url": "//open.spotify.com/", "type": "url"},
+            {"name": "Youtube Music", "url": "//music.youtube.com", "type": "url"},
+            {"name": "MiMp3 Club", "url": "//ww9.mimp3.club/", "type": "url"}
+          ],
+          "name": "Video and music",
+          "type": "folder"
+        },
+        {
+          "children": [
+            {"name": "Facebook", "url": "//www.facebook.com/", "type": "url"},
+            {"name": "Messenger", "url": "//www.messenger.com/", "type": "url"},
+            {"name": "Twitter", "url": "//twitter.com/", "type": "url"},
+            {"name": "Telegram Web", "url": "//web.telegram.org/#/im", "type": "url"},
+            {"name": "WhatsApp Web", "url": "//web.whatsapp.com/", "type": "url"}
+          ],
+          "name": "People",
+          "type": "folder"
+        },
+        {
+          "children": [
+            {"name": "MEGA", "url": "//mega.nz/fm/ajQVFaYD", "type": "url"},
+            {"name": "Drive", "url": "//drive.google.com/drive/my-drive", "type": "url"},
+            {"name": "OneDrive", "url": "//onedrive.live.com/", "type": "url"}
+          ],
+          "name": "Drive",
+          "type": "folder"
+        },
+        {
+          "children": [{
+              "children": [
+                {
+                  "children": [
+                    {"name": "Notion", "url": "//notion.so", "type": "url"},
+                    {"name": "Bitdefender", "url": "//www.bitdefender.com/solutions/digital-identity-protection.html", "type": "url"},
+                    {"name": "Trello", "url": "//trello.com", "type": "url"},
+                    {"name": "Microsoft", "url": "//live.com", "type": "url"},
+                    {"name": "Wickr", "url": "//wickr.com/", "type": "url"}
+                  ],
+                  "name": "advanc",
+                  "type":"folder"
+                },
+                {"name": "Telegram", "url": "//tg.dev", "type": "url"},
+                {"name": "Google", "url": "//google.com", "type": "url"},
+                {"name": "Facebook", "url": "//www.facebook.com/", "type": "url"},
+                {"name": "Firefox", "url": "//firefox.com", "type": "url"}
+              ],
+              "name": "BOSS",
+              "type": "folder"
+            },
+            {"name": "AirDroid", "url": "//192.168.0.4:8888/", "type": "url"},
+            {"name": "Justpaste", "url": "//justpaste.it", "type": "url"},
+            {"name": "Archivo de álbumes", "url": "//get.google.com/albumarchive/116075828617437170854", "type": "url"},
+            {"name": "Coleciones", "url": "//www.google.com/save", "type": "url"}
+          ],
+          "name": "Data",
+          "type": "folder"
+        },
+        {
+          "children": [
+            {"name": "000Webhost", "url": "//000webhost.com", "type": "url"},
+            {"name": "Infiniuty FreeEpizy", "url": "//epizy.com", "type": "url"},
+            {"name": "Filemanager", "url": "//filemanager.ai", "type": "url"},
+            {"name": "Wordpress", "url": "//www.wordpress.com", "type": "url"},
+            {"name": "Beget", "url": "//beget.com/en", "type": "url"},
+            {"name": "HostGator", "url": "//www.hostgator.com/", "type": "url"},
+            {"name": "Tonohost", "url": "//tonohost.com", "type": "url"}
+          ],
+          "name": "Host",
+          "type": "folder"
+        },
+        {
+          "children": [
+            {"name": "Pinterest", "url": "//www.pinterest.com/", "type": "url"},
+            {"name": "Ted", "url": "//www.ted.com", "type": "url"},
+            {"name": "Pixabay", "url": "//www.pixabay.com", "type": "url"},
+            {"name": "Instagram", "url": "//www.instagram.com/", "type": "url"},
+            {"name": "Memedroid", "url": "//es.memedroid.com/", "type": "url"}
+          ],
+          "name": "Image, meme, phrases",
+          "type": "folder"
+        },
+        {
+          "children": [
+            {"name": "Adobe", "url": "//adobe.com", "type": "url"},
+            {"name": "Techsmith", "url": "//techsmith.com", "type": "url"},
+            {"name": "Airdroid", "url": "//airdroid.com", "type": "url"},
+            {"name": "Homestyler", "url": "//homestyler.com", "type": "url"},
+            {"name": "Sonolibro", "url": "//sonolibro.com", "type": "url"}
+          ],
+          "name": "Programs",
+          "type": "folder"
+        }
+      ],
+      "name": "Social",
+      "type": "folder"
+    },
+    {
+      "children": [{
+          "children": [
+            {"name": "SINFO", "url": "//sinfo.senati.edu.pe/auth", "type": "url"},
+            {"name": "Campus Online - Senati", "url": "//campusonline.senati.edu.pe/", "type": "url"},
+            {"name": "SENATI - App", "url": "//app.senati.edu.pe/web", "type": "url"},
+            {"name": "SENATI YT", "url": "//www.youtube.com/user/virtualsenati/", "type": "url"},
+            {"name": "Plataforma de pagos - SENATI", "url": "//www.senati.edu.pe/pagos/", "type": "url"}
+          ],
+          "name": "SNT",
+          "type": "folder"
+        },
+        {"name": "Blackboard", "url": "//senati.blackboard.com/ultra/course", "type": "url"},
+        {"name": "ELITE", "url": "//eliteclassvirtual.com/", "type": "url"},
+        {"name": "Office", "url": "//www.office.com/?auth=2", "type": "url"}
+      ],
+      "name": "SENATI",
+      "type": "folder"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {"name": "This Person Does Not Exist", "url": "//thispersondoesnotexist.com/", "type": "url"},
+            {"name": "OpenAI API", "url": "//openai.com/blog/openai-api/", "type": "url"},
+            {"name": "GitHub|NVlabs/stylegan2", "url": "//github.com/NVlabs/stylegan2", "type": "url"},
+            {"name": "Lyrebird - Descript", "url": "//www.descript.com/lyrebird", "type": "url"},
+            {"name": "Kuki - Chat with me!", "url": "//chat.kuki.ai/", "type": "url"},
+            {"name": "Replika", "url": "//replika.ai/", "type": "url"}
+          ],
+          "name": "Intelligence",
+          "type":"folder"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {"name": "Talk to Transformer – InferKit", "url": "//app.inferkit.com/demo", "type": "url"},
+                {"name": "Text Synth", "url": "//bellard.org/textsynth/", "type": "url"},
+                {"name": "Write With Transformer", "url": "//transformer.huggingface.co/doc/gpt2-large", "type": "url"},
+                {"name": "Business Name Generator", "url": "//namelix.com/", "type": "url"},
+                {"name": "All about GPT-3", "url": "//gpt3.website/", "type": "url"},
+                {"name": "GPT-3 Demos", "url": "//gpt3demo.com/", "type": "url"}
+              ],
+              "name": "GPT",
+              "type": "folder"
+            },
+            {
+              "children": [
+                {"name": "EXAMPLE", "url": "//view.officeapps.live.com/op/embed.aspx?src=URL", "type": "url"},
+                {"name": "EXAMPLE", "url": "//view.officeapps.live.com/op/view.aspx?src=URL", "type": "url"},
+                {"name": "EXAMPLE", "url": "//powerpoint.officeapps.live.com/op/embed.aspx?src=URL", "type": "url"}
+              ],
+              "name": "Office embed",
+              "type":"folder"
+            },
+            {
+              "children": [
+                {"name": "Letras chidas", "url": "//fsymbols.com/es/letras/", "type": "url"},
+                {"name": "Font Generator", "url": "//tell.wtf/", "type": "url"},
+                {"name": "Adornos para tu Nick", "url": "//www.mundoxat.com/nicks/letrasycaracteresxat.html", "type": "url"},
+                {"name": "CopyPasteCharacter.com", "url": "//www.copypastecharacter.com/", "type": "url"},
+                {"name": "TypeIt", "url": "//www.typeit.org/", "type": "url"},
+                {"name": "Símbolo", "url": "//es.piliapp.com/symbol/", "type": "url"},
+                {"name": "Copiar símbolos, íconos y emoji", "url": "//smodin.me/es/Copiar-s%C3%ADmbolos-%C3%ADconos-y-emoji", "type": "url"}
+              ],
+              "name": "Caracters",
+              "type":"folder"
+            },
+            {"name": "Diccionario de la lengua española", "url": "//dle.rae.es/", "type": "url"},
+            {"name": "ALT Codes - Alt Codes for Maths", "url": "//usefulshortcuts.com/alt-codes/maths-alt-codes.php", "type": "url"},
+            {"name": "Screenshot OCR online", "url": "//www.structurise.com/screenshot-ocr/", "type": "url"},
+            {"name": "OCR Image to Text Converter", "url": "//www.developertoolkits.com/ocr/image-to-text-converter", "type": "url"},
+            {"name": "Generador de Letras para Nick", "url": "//conversorletras.com/letras-nick/", "type": "url"},
+            {"name": "Simplificador de fracciones", "url": "//es.calcuworld.com/calculadoras-matematicas/simplificar-fracciones/", "type": "url"},
+            {"name": "Calcular Porcentaje", "url": "//www.calcularporcentaje.net/", "type": "url"},
+            {"name": "Microsoft Math Solver", "url": "//math.microsoft.com/es", "type": "url"}
+          ],
+          "name": "Student Tools",
+          "type":"folder"
+        },
+        {
+          "children": [
+            {"name": "Online Notepad", "url": "//onlinenotepad.org/notepad", "type": "url"},
+            {"name": "Edit Pad", "url": "//www.editpad.org/", "type": "url"}
+          ],
+          "name": "Write Editor",
+          "type": "folder"
+        },
+        {
+          "children": [
+            {"name": "SpeedTest | Host Tools", "url": "//es.host-tools.com/test-velocidad-internet", "type": "url"},
+            {"name": "Fast.com", "url": "//fast.com/es/", "type": "url"},
+            {"name": "Speedtest by Ookla", "url": "//www.speedtest.net/", "type": "url"},
+            {"name": "is.gd - a URL shortener", "url": "//is.gd/", "type": "url"},
+            {"name": "URL Shortener", "url": "//gg.gg/", "type": "url"}
+          ],
+          "name": "Network Tools",
+          "type":"folder"
+        },
+        {
+          "children": [   
+            {"name": "Don't ask to ask, just ask", "url": "//dontasktoask.com/", "type": "url"},
+            {
+              "children": [
+                {"name": "Internet Speed Test", "url": "//whatismyipaddress.com/speed-test", "type": "url"},
+                {"name": "IP DATA Geolocation API", "url": "//ipdata.co/", "type": "url"},
+                {"name": "IP Address Information", "url": "//www.ip-adress.com/ip-address/ipv4/132.184.128.82", "type": "url"},
+                {"name": "Public IP Address", "url": "//www.ipaddress.com/ipv4/132.184.128.82", "type": "url"},
+                {"name": "WhatIsMiIpAddress", "url": "//whatismyipaddress.com/ip/132.184.128.82", "type": "url"},
+                {"name": "Trace An IP", "url": "//www.ip-adress.com/ip-address/lookup", "type": "url"},
+                {"name": "ipapi", "url": "//ipapi.co/", "type": "url"},
+                {"name": "IPinfo.io", "url": "//ipinfo.io/", "type": "url"}
+              ],
+              "name": "IP adress",
+              "type":"folder"
+            },
+            {
+              "children": [
+                {"name": "Lifetime tempmail", "url": "//tempmailgen.com/", "type": "url"},
+                {"name": "Temporary Email", "url": "//tempail.com/", "type": "url"},
+                {"name": "Send anonymous email", "url": "//tempmail.ninja/send-anonymous-email", "type": "url"},
+                {"name": "Temp Emails - Temporary & Disposable Email Generator", "url": "//www.tempemails.net/", "type": "url"},
+                {"name": "Temp Mail ORG", "url": "//temp-mail.org/", "type": "url"},
+                {"name": "MAIL TM", "url": "//mail.tm/en/", "type": "url"},
+                {"name": "Temp Mail IO", "url": "//temp-mail.io/es/", "type": "url"},
+                {"name": "SMAIL PRO", "url": "//smailpro.com/", "type": "url"},
+                {"name": "Mail Poof", "url": "//mailpoof.com/", "type": "url"}
+              ],
+              "name": "Temp mail",
+              "type":"folder"
+            },
+            {
+              "children": [
+                {"name": "Firefox Monitor", "url": "//monitor.firefox.com/", "type": "url"},
+                {"name": "Have I Been Pwned", "url": "//haveibeenpwned.com/", "type": "url"},
+                {"name": "Check Email Breach", "url": "//whatismyipaddress.com/breach-check", "type": "url"},
+                {"name": "Breach Checker", "url": "//breachchecker.com/?language=es", "type": "url"}
+              ],
+              "name": "Check Account",
+              "type":"folder"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {"name": "Generador de nicks", "url": "//plarium.com/es/resource/generator/nickname-generator/", "type": "url"},
+                    {"name": "Letras Nick", "url": "//letrasnick.com/", "type": "url"},
+                    {"name": "Weird Text - Generador de nicks", "url": "//www.mundoxat.com/nicks/letrasnick.html", "type": "url"},
+                    {"name": "Generador de nombres de usuario | LastPass", "url": "//www.lastpass.com/es/username-generator", "type": "url"},
+                    {"name": "Generador de contraseñas | LastPass", "url": "//www.lastpass.com/es/password-generator", "type": "url"},
+                    {"name": "Strong Random Password Generator", "url": "//passwordsgenerator.net/", "type": "url"},
+                    {"name": "RANDOM.ORG - Password Generator", "url": "//www.random.org/passwords/", "type": "url"}
+                  ],
+                  "name": "NickName",
+                  "type": "folder"
+                },
+                {"name": "Free Email Verification", "url": "//cleancss.com/email-validator/", "type": "url"},
+                {"name": "USA Fake Name Generator", "url": "//fake-it.ws/us/", "type": "url"}
+              ],
+              "name": "People Gen",
+              "type":"folder"
+            },
+            {
+              "children": [
+                {"name": "¿Cuál es mi navegador?", "url": "//www.whatsmybrowser.org/", "type": "url"},
+                {"name": "What browser am I using?", "url": "//www.whatismybrowser.com/", "type": "url"},
+                {"name": "Device Info", "url": "//www.deviceinfo.me/", "type": "url"}
+              ],
+              "name": "Device Info",
+              "type":"folder"
+            }
+          ],
+          "name": "Tech",
+          "type":"folder"
+        }
+      ],
+      "name": "Apps",
+      "type":"folder"
+    },
+    {
+      "children": [
+        {"name": "DuckDuckGo", "url": "//duckduckgo.com/", "type": "url"}
+      ],
+      "name": "NaN",
+      "type":"folder"
+    }
+  ],
+  "name": "ELINKS",
+  "type": "folder"
+}

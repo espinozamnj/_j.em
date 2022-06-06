@@ -1,0 +1,8 @@
+for /d %i in ("%USERPROFILE%\AppData\Local\Google\Chrome\User Data\*.pma") do ( cd "%i" &  echo "%i")
+forfiles /P "C:\Users\BETO\AppData\Local\Google\Chrome\User Data" /S /M *ookmarks /C "cmd /c copy @path K:\xammp\htdocs\_j.em\links\chrome\data /a/z/n"
+forfiles /P "K:\xammp\htdocs\_j.em" /S /M *.php /C "cmd /c copy @path K:\xammp\htdocs\_j.em\links\chrome\data /a/z/n"
+xcopy "%USERPROFILE%\AppData\Local\Google\Chrome\User Data\*ookmarks" "K:\xammp\htdocs\_j.em\links\chrome\data" /e/w/v/f/l xcopy.out
+For %A In ("%USERPROFILE%\AppData\Local\Google\Chrome\User Data\*ookmarks") Do @Copy /-Y "%A" "K:\xammp\htdocs\_j.em\links\chrome\data"
+
+
+powershell -c "Invoke-WebRequest -Uri 'https://www.website.com/file.zip' -OutFile 'c:\temp\file.zip'"

@@ -1,0 +1,80 @@
+body {
+	background-image: linear-gradient(rgb(201, 201, 201) 0%, rgb(75, 75, 75) 100%); 
+	font-family: "Century Gothic";
+	margin: 1em;
+}
+#txt {
+	padding: 1em;
+	outline: black solid 1px;
+	transition: all 0.5s;
+}
+#txt:focus {
+  outline: blue solid 1px;
+  color: blue;
+}
+#out {
+	padding: 0.5em;
+	font-size: 0.9rem;
+	font-style: italic;
+	margin-bottom: 3em;
+	-webkit-user-select: none;
+	min-height: 1em;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+	-webkit-appearance: none; 
+	margin: 0; 
+}
+.voice {
+	width: 100%;
+	display: flex;
+}
+.voice #vel {
+	border: none;
+	box-shadow: inset 0px 0px 16px 6px gray;
+	width: 4em;
+	line-height: 3em;
+	font-size: 1em;
+	text-align: center;
+	border-radius: 2em;
+	color: white;
+	background-color: black;
+	font-weight: bold;
+}
+.voice #vel:focus {
+	outline: none;
+}
+.voice audio {
+	width: calc(100% - 5em);
+	margin-left: 0.5em;
+	border-radius: 2em;
+	transition: all 0.3s;
+	opacity: 0.8;
+}
+audio:focus {
+	outline: none;
+	box-shadow: 0px 0px 4px 1px green;
+}
+audio:hover {
+	opacity: 1;
+}
+select {
+	transition: all 0.3s;
+	box-shadow: 2px 2px 4px 1px #222;
+	background-image: linear-gradient(rgb(201, 201, 201) 0%, rgb(105, 105, 105) 100%);
+	padding: 0.5em 1em;
+	border-radius: 0.5em;
+}
+footer {
+	position: absolute;
+	bottom: 1em;
+	right: 1em;
+}
+.lang {
+	content: 'Idioma:';
+	margin-right: 0.5em;
+}
+select:focus {
+	outline: none;
+	box-shadow: 2px 2px 4px 1px black;
+}

@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>String manipulation tool</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,300,400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="./style-string.css">
+  <script src="/_cdn_/rm-wbha.js"></script>
+  <link rel="shortcut icon" href="/_cdn_/favs/write.192.png" type="image/png">
+</head>
+<body>
+  <main>
+    <textarea class="main-textarea" id="main-textarea" placeholder="Paste or type your text here…"
+      spellcheck="false"></textarea>
+    <p class="textarea-options-wrapper">
+      <div class="word-wrap-wrapper">
+        <input type="checkbox" id="word-wrap-checkbox" />
+        <label for="word-wrap-checkbox">Word wrap</label>
+      </div>
+    </p>
+  </main>
+  <aside class="control-panel">
+    <fieldset class="general-fieldset">
+      <legend>General</legend>
+      <div class="fieldset-content general-fieldset-content">
+        <button class="btn" id="btn-clear-textarea-1">Clear text</button>
+        <button class="btn" id="btn-collapse-panels-1">Collapse panels</button>
+        <button class="btn" id="btn-expand-panels-1">Expand panels</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Clipboard</legend>
+      <div class="fieldset-content clipboard-fieldset-content">
+        <button class="btn" id="btn-clipboard-select-all">Select all</button>
+        <button class="btn" id="btn-clipboard-copy" data-clipboard-action="copy"
+          data-clipboard-target="#main-textarea">Copy text</button>
+        <button class="btn" id="btn-clipboard-cut" data-clipboard-action="copy"
+          data-clipboard-target="#main-textarea">Cut text</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend id="history-legend">History</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-history-undo" disabled="disabled">Undo (Ctrl+Z)</button>
+        <button class="btn" id="btn-history-redo" disabled="disabled">Redo (Ctrl+Y)</button>
+        <button class="btn" id="btn-history-clear" disabled="disabled">Clear history (Ctrl+H)</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Font</legend>
+      <div class="fieldset-content">
+        <p class="font-subheading">Family</p>
+        <select id="font-family">
+          <option class="font-family-monospaced" value="Source Code Pro" selected="selected">Source Code Pro</option>
+          <option class="font-family-monospaced" value="'Roboto Mono', Consolas, monaco, monospace">Monospaced</option>
+          <option class="font-family-sansserif" value="'Helvetica Neue', Helvetica, Arial, sans-serif">Sans-serif
+          </option>
+          <option class="font-family-serif"
+            value="TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif">Serif</option>
+        </select>
+        <p class="font-subheading">Size</p>
+        <select id="font-size">
+          <option value="1px">1px</option>
+          <option value="2px">2px</option>
+          <option value="3px">3px</option>
+          <option value="4px">4px</option>
+          <option value="5px">5px</option>
+          <option value="6px">6px</option>
+          <option value="7px">7px</option>
+          <option value="8px">8px</option>
+          <option value="9px">9px</option>
+          <option value="10px">10px</option>
+          <option value="11px">11px</option>
+          <option value="12px">12px</option>
+          <option value="13px">13px</option>
+          <option value="14px">14px</option>
+          <option value="15px">15px</option>
+          <option value="16px">16px</option>
+          <option value="17px">17px</option>
+          <option value="18px" selected="selected">18px</option>
+          <option value="20px">20px</option>
+          <option value="22px">22px</option>
+          <option value="24px">24px</option>
+          <option value="26px">26px</option>
+          <option value="28px">28px</option>
+          <option value="30px">30px</option>
+          <option value="32px">32px</option>
+          <option value="34px">34px</option>
+          <option value="36px">36px</option>
+          <option value="38px">38px</option>
+          <option value="40px">40px</option>
+          <option value="42px">42px</option>
+          <option value="44px">44px</option>
+          <option value="46px">46px</option>
+          <option value="48px">48px</option>
+          <option value="50px">50px</option>
+          <option value="52px">52px</option>
+          <option value="54px">54px</option>
+          <option value="56px">56px</option>
+          <option value="58px">58px</option>
+          <option value="60px">60px</option>
+          <option value="62px">62px</option>
+          <option value="64px">64px</option>
+          <option value="66px">66px</option>
+          <option value="68px">68px</option>
+          <option value="70px">70px</option>
+          <option value="80px">80px</option>
+          <option value="90px">90px</option>
+          <option value="100px">100px</option>
+          <option value="110px">110px</option>
+          <option value="120px">120px</option>
+          <option value="130px">130px</option>
+          <option value="140px">140px</option>
+          <option value="150px">150px</option>
+        </select>
+        <p class="font-subheading">Weight</p>
+        <select id="font-weight">
+          <option value="lighter" selected="selected">Lighter</option>
+          <option value="normal">Normal</option>
+          <option value="bolder">Bolder</option>
+          <option value="bold">Bold</option>
+        </select>
+        <p class="font-subheading">Line height</p>
+        <select id="line-height">
+          <option value="0">0</option>
+          <option value="0.1">0.1</option>
+          <option value="0.2">0.2</option>
+          <option value="0.3">0.3</option>
+          <option value="0.4">0.4</option>
+          <option value="0.5">0.5</option>
+          <option value="0.6">0.6</option>
+          <option value="0.7">0.7</option>
+          <option value="0.8">0.8</option>
+          <option value="0.9">0.9</option>
+          <option value="1.0">1.0</option>
+          <option value="1.1">1.1</option>
+          <option value="1.2">1.2</option>
+          <option value="1.3">1.3</option>
+          <option value="1.4" selected="selected">1.4</option>
+          <option value="1.5">1.5</option>
+          <option value="2.0">2.0</option>
+          <option value="3.0">3.0</option>
+          <option value="4.0">4.0</option>
+        </select>
+        <p class="font-subheading">Letter spacing</p>
+        <select id="letter-spacing">
+          <option value="-0.2em">-0.2em</option>
+          <option value="-0.1em">-0.1em</option>
+          <option value="0px" selected="selected">0px (normal)</option>
+          <option value="0.1em">0.1em</option>
+          <option value="0.2em">0.2em</option>
+          <option value="0.3em">0.3em</option>
+          <option value="0.4em">0.4em</option>
+          <option value="0.5em">0.5em</option>
+          <option value="0.6em">0.6em</option>
+          <option value="0.7em">0.7em</option>
+          <option value="0.8em">0.8em</option>
+          <option value="0.9em">0.9em</option>
+          <option value="1.0em">1.0em</option>
+          <option value="1.5em">1.5em</option>
+          <option value="2.0em">2.0em</option>
+        </select>
+        <p class="font-subheading">Theme</p>
+        <select id="color-theme">
+          <option value="green-on-black">Green on black</option>
+          <option value="white-on-black">White on black</option>
+          <option value="light-on-dark" selected="selected">Light on dark</option>
+          <option value="dark-on-light">Dark on light</option>
+          <option value="black-on-white">Black on white</option>
+        </select>
+        <button class="btn btn-font-reset-to-default" id="btn-font-reset-to-default">Reset to default</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Save / Restore text</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-save-text">Save text to localStorage</button>
+        <button class="btn" id="btn-restore-text">Restore text from localStorage</button>
+        <button class="btn" id="btn-save-text-to-file">Save to .txt file</button>
+        <button class="btn" id="btn-save-json-to-file">Save to .json file</button>
+        <button class="btn" id="btn-save-csv-to-file">Save to .csv file</button>
+        <button class="btn" id="btn-save-json-as-csv-file">Save JSON as CSV file</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Drag 'n' Drop</legend>
+      <div class="fieldset-content">
+        <p class="file-drop-area">Drop text file here</p>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Set / Copy as URL</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-set-as-url-readable">Set as URL (Readable)</button>
+        <button class="btn" id="btn-copy-as-url-readable">Copy as URL (Readable)</button>
+        <button class="btn" id="btn-set-as-url-base64">Set as URL (Base64)</button>
+        <button class="btn" id="btn-copy-as-url-base64">Copy as URL (Base64)</button><a class="btn"
+          href="https://bitly.com/" target="_blank">Open Bitly URL Shortener</a>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Scroll to&hellip;</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-scroll-to-top-left">Top left &#8598;</button>
+        <button class="btn" id="btn-scroll-to-bottom-left">Bottom left &#8601;</button>
+        <button class="btn" id="btn-scroll-to-top">Top &#8593;</button>
+        <button class="btn" id="btn-scroll-to-bottom">Bottom &#8595;</button>
+        <button class="btn" id="btn-scroll-to-left">&#8592; Left</button>
+        <button class="btn" id="btn-scroll-to-right">Right &#8594;</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Sample content</legend>
+      <div class="fieldset-content">
+        <div class="input-row sample-replace-radio-input-row">
+          <input class="sample-replace-radio" type="radio" checked="checked" name="sample-radio-group"
+            id="sample-replace-radio" />
+          <label class="sample-replace-label" for="sample-replace-radio">Replace content</label>
+        </div>
+        <div class="input-row sample-prepend-radio-input-row">
+          <input class="sample-prepend-radio" type="radio" name="sample-radio-group" id="sample-prepend-radio" />
+          <label class="sample-prepend-label" for="sample-prepend-radio">Prepend sample to beginning</label>
+        </div>
+        <div class="input-row sample-append-radio-input-row">
+          <input class="sample-append-radio" type="radio" name="sample-radio-group" id="sample-append-radio" />
+          <label class="sample-append-label" for="sample-append-radio">Append sample to end</label>
+        </div>
+        <button class="btn" id="btn-sample-hello-world">hello world</button>
+        <button class="btn" id="btn-sample-accent">déjà vu</button>
+        <button class="btn" id="btn-sample-simple-url">Simple URL</button>
+        <button class="btn" id="btn-sample-complex-url">Complex URL</button>
+        <button class="btn" id="btn-sample-text">Text</button>
+        <button class="btn" id="btn-sample-html-emmet-starter">Emmet HTML 5 starter</button>
+        <button class="btn" id="btn-sample-html">Simple HTML</button>
+        <button class="btn" id="btn-sample-html-5-boilerplate">HTML 5 Boilerplate</button>
+        <button class="btn" id="btn-sample-html-5-kitchen-sink">HTML 5 Kitchen Sink</button>
+        <button class="btn" id="btn-sample-html-table">HTML Table</button>
+        <button class="btn" id="btn-sample-xml">XML</button>
+        <button class="btn" id="btn-sample-js-with-comments">JavaScript with comments</button>
+        <button class="btn" id="btn-sample-js-jquery-unminified">jQuery Unminified</button>
+        <button class="btn" id="btn-sample-bootstrap-css-unminified">Bootstrap CSS Unminified</button>
+        <button class="btn" id="btn-sample-wordpress-directory-structure">WordPress Directory Structure</button>
+        <button class="btn" id="btn-sample-markdown">Markdown</button>
+        <button class="btn" id="btn-sample-poem">The Soldier (Poem)</button>
+        <button class="btn" id="btn-shakespeare-play-titles">Some Shakespeare Play Titles</button>
+        <button class="btn" id="btn-sample-alice-extract">Alice In Wonderland (Extract)</button>
+        <button class="btn" id="btn-sample-alice-full">Alice In Wonderland (Full)</button>
+        <button class="btn" id="btn-sample-quote">Quote</button>
+        <button class="btn" id="btn-sample-pangrams">Pangrams</button>
+        <button class="btn" id="btn-sample-boys-names">Top 100 boys names</button>
+        <button class="btn" id="btn-sample-girls-names">Top 100 girls names</button>
+        <button class="btn" id="btn-sample-466k-english-words">466k English words</button>
+        <button class="btn" id="btn-sample-reserved">Reserved characters</button>
+        <button class="btn" id="btn-sample-unreserved">Unreserved characters</button>
+        <button class="btn" id="btn-sample-az-uppercase">A-Z</button>
+        <button class="btn" id="btn-sample-az-lowercase">a-z</button>
+        <button class="btn" id="btn-sample-special-chars">Special characters</button>
+        <button class="btn" id="btn-sample-character-mapping">Character mapping</button>
+        <button class="btn" id="btn-sample-emoticons">Emoticons</button>
+        <button class="btn" id="btn-sample-phonetic">Phonetic alphabet</button>
+        <button class="btn" id="btn-sample-lorem-ipsum">Lorem Ipsum (static)</button>
+        <button class="btn" id="btn-sample-lorem-ipsum-generated">Lorem Ipsum (generated)</button>
+        <button class="btn" id="btn-sample-number-column-n-n">Number column (n-n)</button>
+        <button class="btn" id="btn-sample-number-column-01-99">Number column (01-99)</button>
+        <button class="btn" id="btn-sample-number-column-001-999">Number column (001-999)</button>
+        <button class="btn" id="btn-sample-number-column-0001-9999">Number column (0001-9999)</button>
+        <button class="btn" id="btn-sample-curly-quotes">Curly quotes</button>
+        <button class="btn" id="btn-sample-ascii-image-simple">ASCII image (Simple)</button>
+        <button class="btn" id="btn-sample-ascii-image-complex">ASCII image (Complex)</button>
+        <button class="btn" id="btn-sample-diamond-of-bullets">Diamond of bullets</button>
+        <button class="btn" id="btn-sample-csv-data">CSV data</button>
+        <button class="btn" id="btn-sample-lined-up-csv-data">Lined up CSV data</button>
+        <button class="btn" id="btn-sample-tab-delimited-data">Tab delimited values (TSV)</button>
+        <button class="btn" id="btn-sample-lined-up-tab-delimited-data">Lined up TSV data</button>
+        <button class="btn" id="btn-sample-javascript-array-of-objects">JS array of objects (not JSON)</button>
+        <button class="btn" id="btn-sample-json-formatted">JSON (Formatted) 1</button>
+        <button class="btn" id="btn-sample-json-formatted-2">JSON (Formatted) 2</button>
+        <button class="btn" id="btn-sample-json-simple-formatted-1">Simple JSON (Formatted) 1</button>
+        <button class="btn" id="btn-sample-json-simple-formatted-2">Simple JSON (Formatted) 2</button>
+        <button class="btn" id="btn-sample-json-simple-unformatted">Simple JSON (Unformatted)</button>
+        <button class="btn" id="btn-sample-json-complex-unformatted">Complex JSON (Unformatted)</button>
+        <button class="btn" id="btn-sample-json-unicode-names-minified">Unicode names JSON (Minified)</button>
+        <button class="btn" id="btn-sample-yaml-simple-1">Simple YAML 1</button>
+        <button class="btn" id="btn-sample-yaml-simple-2">Simple YAML 2</button>
+        <button class="btn" id="btn-sample-yaml-complex">Complex YAML</button>
+        <button class="btn" id="btn-sample-regular-array">Simple regular array</button>
+        <button class="btn" id="btn-sample-associative-array">Simple associative array</button>
+        <button class="btn" id="btn-sample-data-string">Data string</button>
+        <button class="btn" id="btn-sample-repeating-data-string">Repeating data string</button>
+        <button class="btn" id="btn-sample-data-to-be-lined-up">Data to be lined up</button>
+        <button class="btn" id="btn-sample-string-to-be-incremented">String to be incremented</button>
+        <button class="btn" id="btn-sample-merge-bottom-into-top">Merge bottom into top</button>
+        <button class="btn" id="btn-sample-uuids-with-duplicates">UUIDs (with duplicates)</button>
+        <button class="btn" id="btn-sample-indentation-tabs">Indentation (Tabs)</button>
+        <button class="btn" id="btn-sample-indentation-two-spaces">Indentation (2 spaces)</button>
+        <button class="btn" id="btn-sample-indentation-four-spaces">Indentation (4 spaces)</button>
+        <button class="btn" id="btn-sample-extract-data">Data for extraction</button>
+        <button class="btn" id="btn-sample-authorization-header-jwt">Authorization header (JWT)</button>
+        <button class="btn" id="btn-sample-svg-markup-simple">SVG markup (Simple)</button>
+        <button class="btn" id="btn-sample-svg-markup-complex">SVG markup (Complex)</button>
+        <button class="btn" id="btn-sample-animated-gif-data-uri">Animated GIF (Data URI)</button>
+        <button class="btn" id="btn-sample-pdf-data-uri">PDF (Data URI)</button>
+        <button class="btn" id="btn-sample-date-now">Date.now() / date-fns</button>
+        <button class="btn" id="btn-sample-sanity-groq-query">Sanity.io GROQ query</button>
+        <button class="btn" id="btn-sample-geometric-shapes">Geometric Shapes</button>
+        <button class="btn" id="btn-sample-arrow-symbols">Arrow symbols</button>
+        <button class="btn" id="btn-sample-dingbat-symbols">Dingbat symbols</button>
+        <button class="btn" id="btn-sample-heart-symbols">Heart symbols</button>
+        <button class="btn" id="btn-sample-special-symbols">Special symbols</button>
+        <button class="btn" id="btn-sample-flower-symbols">Flower symbols</button>
+        <button class="btn" id="btn-sample-quotation-marks">Quotation marks</button>
+        <button class="btn" id="btn-sample-star-symbols">Star symbols</button>
+        <button class="btn" id="btn-sample-emoji-symbols">Emoji symbols</button>
+        <button class="btn" id="btn-sample-zodiac-symbols">Zodiac symbols</button>
+        <button class="btn" id="btn-sample-currency-symbols">Currency symbols</button>
+        <button class="btn" id="btn-sample-greek-symbols">Greek symbols</button>
+        <button class="btn" id="btn-sample-roman-numerals">Roman numerals</button>
+        <button class="btn" id="btn-sample-suits-of-the-cards">Suits of the cards</button>
+        <button class="btn" id="btn-sample-punctuation-marks">Punctuation marks</button>
+        <button class="btn" id="btn-sample-box-drawing">Box drawing</button>
+        <button class="btn" id="btn-sample-unicode-profanity">Unicode profanity</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Random content&hellip;</legend>
+      <div class="fieldset-content">
+        <p class="num-random-items visually-hidden">Number of items&hellip;</p>
+        <select class="num-random-items-select" id="num-random-items-select">
+          <option value="1">1 item</option>
+          <option value="2">2 items</option>
+          <option value="5">5 items</option>
+          <option value="10">10 items</option>
+          <option value="20">20 items</option>
+          <option value="50">50 items</option>
+          <option value="100" selected="selected">100 items</option>
+          <option value="200">200 items</option>
+          <option value="500">500 items</option>
+          <option value="1000">1000 items</option>
+          <option value="2000">2000 items</option>
+          <option value="5000">5000 items</option>
+          <option value="10000">10000 items</option>
+          <option value="50000">50000 items</option>
+        </select>
+        <button class="btn" id="btn-random-passwords-length-8">Passwords (Length 8)</button>
+        <button class="btn" id="btn-random-passwords-length-16">Passwords (Length 16)</button>
+        <button class="btn" id="btn-random-passwords-length-24">Passwords (Length 24)</button>
+        <button class="btn" id="btn-random-passwords-length-32">Passwords (Length 32)</button>
+        <button class="btn" id="btn-random-passwords-length-64">Passwords (Length 64)</button>
+        <button class="btn" id="btn-random-uuids">UUIDs (v4)</button>
+        <button class="btn" id="btn-random-booleans">Booleans</button>
+        <button class="btn" id="btn-random-characters-all">Characters (All)</button>
+        <button class="btn" id="btn-random-characters-lowercase">Characters (Lowercase)</button>
+        <button class="btn" id="btn-random-characters-uppercase">Characters (Uppercase)</button>
+        <button class="btn" id="btn-random-characters-ABCD">Characters (ABCD)</button>
+        <button class="btn" id="btn-random-floating">Floating point numbers</button>
+        <button class="btn" id="btn-random-floating-positive">Floating (Positive)</button>
+        <button class="btn" id="btn-random-integers">Integers</button>
+        <button class="btn" id="btn-random-integers-positive">Integers (Positive)</button>
+        <button class="btn" id="btn-random-integers-plus-minus-100">Integers (-100 &#8594; 100)</button>
+        <button class="btn" id="btn-random-integers-0-to-1000">Integers (0 &#8594; 1000)</button>
+        <button class="btn" id="btn-random-integers-0-to-100">Integers (0 &#8594; 100)</button>
+        <button class="btn" id="btn-random-integers-0-to-10">Integers (0 &#8594; 10)</button>
+        <button class="btn" id="btn-random-integers-0-to-1">Integers (0 &#8594; 1)</button>
+        <button class="btn" id="btn-random-strings">Strings </button>
+        <button class="btn" id="btn-random-strings-length-8">Strings (Length 8)</button>
+        <button class="btn" id="btn-random-strings-length-16">Strings (Length 16)</button>
+        <button class="btn" id="btn-random-strings-length-32">Strings (Length 32)</button>
+        <button class="btn" id="btn-random-strings-length-64">Strings (Length 64)</button>
+        <button class="btn" id="btn-random-strings-length-128">Strings (Length 128)</button>
+        <button class="btn" id="btn-random-strings-uppercase">Strings (Uppercase)</button>
+        <button class="btn" id="btn-random-strings-lowercase">Strings (Lowercase)</button>
+        <button class="btn" id="btn-random-strings-digits">Strings (Digits)</button>
+        <button class="btn" id="btn-random-strings-slashes">Unicode slashes</button>
+        <button class="btn" id="btn-random-paragraphs">Paragraphs</button>
+        <button class="btn" id="btn-random-sentences">Sentence</button>
+        <button class="btn" id="btn-random-sentences-5-words">Sentence (5 words)</button>
+        <button class="btn" id="btn-random-sentences-10-words">Sentence (10 words)</button>
+        <button class="btn" id="btn-random-sentences-15-words">Sentence (15 words)</button>
+        <button class="btn" id="btn-random-sentences-20-words">Sentence (20 words)</button>
+        <button class="btn" id="btn-random-syllables">Syllables</button>
+        <button class="btn" id="btn-random-words">Words (Nonsense)</button>
+        <button class="btn" id="btn-random-dates-last-10-years">Dates (In last 10 years)</button>
+        <button class="btn" id="btn-random-dates-last-100-years">Dates (In last 100 years)</button>
+        <button class="btn" id="btn-random-dates-formatted">Dates (Formatted)</button>
+        <button class="btn" id="btn-random-names-first">Names (First)</button>
+        <button class="btn" id="btn-random-names-last">Last (Last)</button>
+        <button class="btn" id="btn-random-names-first-last">Names (First Last)</button>
+        <button class="btn" id="btn-random-names-male">Names (Male)</button>
+        <button class="btn" id="btn-random-names-female">Names (Female)</button>
+        <button class="btn" id="btn-random-color-hex">Colors (Hex)</button>
+        <button class="btn" id="btn-random-color-rgb">Colors (RGB)</button>
+        <button class="btn" id="btn-random-domain">Domains</button>
+        <button class="btn" id="btn-random-email">Emails</button>
+        <button class="btn" id="btn-random-email-domain-com">Emails (domain.com)</button>
+        <button class="btn" id="btn-random-ip-address">IP Addresses (IPv4)</button>
+        <button class="btn" id="btn-random-ipv6">IP Addresses (IPv6)</button>
+        <button class="btn" id="btn-random-url">URLs</button>
+        <button class="btn" id="btn-random-address">Addresses</button>
+        <button class="btn" id="btn-random-city-uk">Cities (UK)</button>
+        <button class="btn" id="btn-random-coordinates">Coordinates</button>
+        <button class="btn" id="btn-random-country">Countries</button>
+        <button class="btn" id="btn-random-phone">Phone numbers</button>
+        <button class="btn" id="btn-random-phone-uk">Phone numbers (UK)</button>
+        <button class="btn" id="btn-random-phone-uk-mobile">Phone numbers (UK mobiles)</button>
+        <button class="btn" id="btn-random-timestamp">Timestamps</button>
+        <button class="btn" id="btn-random-weekday">Weekdays</button>
+        <button class="btn" id="btn-random-credit-card-visa">Credit Card (Visa)</button>
+        <button class="btn" id="btn-random-dollar">Dollars</button>
+        <button class="btn" id="btn-random-euro">Euros</button>
+        <button class="btn" id="btn-random-coin-toss">Coin Toss</button>
+        <button class="btn" id="btn-random-dice-6">Dice (6 sides)</button>
+        <button class="btn" id="btn-random-hash">Hashes</button>
+        <button class="btn" id="btn-10-print">10 PRINT</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Count&hellip;</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-count-chars">Characters (All)</button>
+        <button class="btn" id="btn-count-chars-alphanumeric">Characters (Alphanumeric)</button>
+        <button class="btn" id="btn-count-words">Words (All)</button>
+        <button class="btn" id="btn-count-words-alphanumeric">Words (Alphanumeric)</button>
+        <button class="btn" id="btn-count-lines">Lines (All)</button>
+        <button class="btn" id="btn-count-lines-empty">Lines (Empty)</button>
+        <button class="btn" id="btn-count-lines-non-empty">Lines (Non-Empty)</button>
+        <button class="btn" id="btn-count-average-per-line">Characters per line (Average)</button>
+        <button class="btn" id="btn-count-shortest-line">Num chars on shortest line</button>
+        <button class="btn" id="btn-count-longest-line">Num chars on longest line</button>
+        <button class="btn" id="btn-count-selected-chars">Selected characters</button>
+        <button class="btn" id="btn-count-selected-words">Selected words</button>
+        <button class="btn" id="btn-count-filesize">Filesize</button>
+        <button class="btn" id="btn-count-character-frequency">Character frequency</button>
+        <button class="btn" id="btn-count-word-frequency">Word frequency</button>
+        <button class="btn" id="btn-count-uuids">UUIDs (v4)</button>
+        <button class="btn" id="btn-count-array-length">Array length</button>
+        <button class="btn" id="btn-count-associative-array-length">Associative Array (Object) length</button>
+        <p class="substring-frequency-exact">Frequency of exact substring&hellip;</p>
+        <input class="substring-frequency-exact-value" type="text" id="substring-frequency-exact-value" />
+        <button class="btn" id="btn-count-substring-frequency-exact" disabled="disabled">Count exact substring
+          frequency</button>
+        <p class="word-frequency-wildcard">Frequency of word (with _ wildcard) &hellip;</p>
+        <input class="word-frequency-wildcard-value" type="text" id="word-frequency-wildcard-value" />
+        <button class="btn" id="btn-count-word-frequency-wildcard" disabled="disabled">Count word frequency (with _
+          wildcard)</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Remove&hellip;</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-remove-using-regular-expression">Using Regular Expression (regexp)</button>
+        <button class="btn" id="btn-remove-linebreaks">Linebreaks (All)</button>
+        <button class="btn" id="btn-remove-linebreaks-keep-empty">Linebreaks (Keep empty)</button>
+        <button class="btn" id="btn-remove-whitespace-all">Whitespace (All)</button>
+        <button class="btn" id="btn-remove-trim-each-line">Trim whitespace (Each line)</button>
+        <button class="btn" id="btn-remove-whitespace-from-start">Trim whitespace (From start)</button>
+        <button class="btn" id="btn-remove-whitespace-from-end">Trim whitespace (From end)</button>
+        <button class="btn" id="btn-remove-spaces-multiple">Spaces (Multiple)</button>
+        <button class="btn" id="btn-remove-spaces-all">Spaces (All)</button>
+        <button class="btn" id="btn-remove-spaces-from-csv">Spaces (from CSV)</button>
+        <button class="btn" id="btn-remove-non-alpha-chars">Non-alpha chars</button>
+        <button class="btn" id="btn-remove-az-lowercase">a-z</button>
+        <button class="btn" id="btn-remove-az-uppercase">A-Z</button>
+        <button class="btn" id="btn-remove-numbers">Numbers</button>
+        <button class="btn" id="btn-remove-special-chars">Special characters</button>
+        <button class="btn" id="btn-remove-vowels">Vowels</button>
+        <button class="btn" id="btn-remove-consonants">Consonants</button>
+        <button class="btn" id="btn-remove-html-markup">HTML markup</button>
+        <button class="btn" id="btn-remove-dom-elements-using-selector">DOM elements using selector</button>
+        <button class="btn" id="btn-remove-surrounding-dom-elements-using-selector">Surrounding DOM elements using
+          selector</button>
+        <button class="btn" id="btn-remove-html-inline-styles">HTML inline styles</button>
+        <button class="btn" id="btn-remove-empty-lines-all">Empty lines (All)</button>
+        <button class="btn" id="btn-remove-empty-lines-top-bottom">Empty lines (Top & Bottom)</button>
+        <button class="btn" id="btn-remove-empty-lines-multiple">Empty lines (Multiple)</button>
+        <button class="btn" id="btn-remove-lines-that-only-contain-special-chars">Only special char lines</button>
+        <button class="btn" id="btn-remove-uuids">UUIDs (v4)</button>
+        <button class="btn" id="btn-remove-tabs-all">Tabs (All)</button>
+        <button class="btn" id="btn-remove-tabs-multiple">Tabs (Multiple)</button>
+        <button class="btn" id="btn-remove-duplicate-words">Duplicate words</button>
+        <button class="btn" id="btn-remove-duplicate-lines">Duplicate lines</button>
+        <button class="btn" id="btn-remove-random-chars">Random characters</button>
+        <button class="btn" id="btn-remove-random-words">Random words</button>
+        <button class="btn" id="btn-remove-random-lines">Random lines</button>
+        <button class="btn" id="btn-remove-first-char-of-each-word">1<sup>st</sup> character of each word</button>
+        <button class="btn" id="btn-remove-first-char-of-each-line">1<sup>st</sup> character of each line</button>
+        <button class="btn" id="btn-remove-non-alpha-prefix">Non-alpha prefix</button>
+        <button class="btn" id="btn-remove-non-alpha-suffix">Non-alpha suffix</button>
+        <button class="btn" id="btn-remove-alternate-lines-odd">Alternate lines (Odd)</button>
+        <button class="btn" id="btn-remove-alternate-lines-even">Alternate lines (Even)</button>
+        <button class="btn" id="btn-remove-shortest-line">Shortest line/s</button>
+        <button class="btn" id="btn-remove-longest-line">Longest line/s</button>
+        <button class="btn" id="btn-remove-reverse-line-feed">Reverse Line feed (U+008D)</button>
+        <button class="btn" id="btn-remove-console-logs">console.log()</button>
+        <button class="btn" id="btn-remove-javascript-comments">JavaScript comments</button>
+        <button class="btn" id="btn-remove-html-comments">HTML comments</button>
+        <button class="btn" id="btn-remove-head-tag">&lt;head&gt; tag</button>
+        <button class="btn" id="btn-remove-body-tag">&lt;body&gt; tag</button>
+        <button class="btn" id="btn-remove-script-tags">&lt;script&gt; tags</button>
+        <button class="btn" id="btn-remove-style-tags">&lt;style&gt; tags</button><br />
+        <p class="lines-that">Lines that&hellip;</p>
+        <select class="select-lines-that" id="select-lines-that">
+          <option value="match-exactly">Match exacly</option>
+          <option value="start-with">Start with</option>
+          <option value="contain">Contain</option>
+          <option value="end-with">End with</option>
+          <option value="dont-start-with">Don't start with</option>
+          <option value="dont-contain">Don't contain</option>
+          <option value="dont-end-with">Don't end with</option>
+          <option value="dont-match-exactly">Don't match exacly</option>
+        </select>
+        <input class="lines-that-value" type="text" id="lines-that-value" />
+        <button class="btn btn-lines-that" id="btn-lines-that" disabled="disabled">Remove lines</button><br />
+        <p class="words-that">Words that&hellip;</p>
+        <select class="select-words-that" id="select-words-that">
+          <option value="match-exactly">Match exacly</option>
+          <option value="start-with">Start with</option>
+          <option value="contain">Contain</option>
+          <option value="end-with">End with</option>
+          <option value="dont-start-with">Don't start with</option>
+          <option value="dont-contain">Don't contain</option>
+          <option value="dont-end-with">Don't end with</option>
+          <option value="dont-match-exactly">Don't match exacly</option>
+        </select>
+        <input class="words-that-value" type="text" id="words-that-value" />
+        <button class="btn btn-words-that" id="btn-words-that" disabled="disabled">Remove words</button><br />
+        <p class="remove-text-on-each-line">Remove text on each line&hellip;</p>
+        <select id="select-text-on-each-line">
+          <option value="before">Before</option>
+          <option value="before-and-including">Before and including</option>
+          <option value="including-and-after">Including and after</option>
+          <option value="after">After&hellip;</option>
+        </select>
+        <p class="remove-text-on-each-line-the">&hellip;the&hellip;</p>
+        <select id="select-text-on-each-line-position">
+          <option value="first">First instance of</option>
+          <option value="last">Last instance of</option>
+        </select>
+        <input class="instance-of-text-value" type="text" id="instance-of-text-value" />
+        <button class="btn btn-instance-of" id="btn-instance-of" disabled="disabled">Remove text</button><br />
+        <p class="remove-chars-from-position">Remove &hellip;</p>
+        <select id="select-remove-chars-from-position-num-chars">
+          <option value="1">1 char</option>
+          <option value="2">2 chars</option>
+          <option value="3">3 chars</option>
+          <option value="4">4 chars</option>
+          <option value="5">5 chars</option>
+          <option value="6">6 chars</option>
+          <option value="7">7 chars</option>
+          <option value="8">8 chars</option>
+          <option value="9">9 chars</option>
+          <option value="10">10 chars</option>
+          <option value="11">11 chars</option>
+          <option value="12">12 chars</option>
+          <option value="13">13 chars</option>
+          <option value="14">14 chars</option>
+          <option value="15">15 chars</option>
+          <option value="16">16 chars</option>
+          <option value="17">17 chars</option>
+          <option value="18">18 chars</option>
+          <option value="19">19 chars</option>
+          <option value="20">20 chars</option>
+          <option value="21">21 chars</option>
+          <option value="22">22 chars</option>
+          <option value="23">23 chars</option>
+          <option value="24">24 chars</option>
+          <option value="25">25 chars</option>
+          <option value="26">26 chars</option>
+          <option value="27">27 chars</option>
+          <option value="28">28 chars</option>
+          <option value="29">29 chars</option>
+          <option value="30">30 chars</option>
+          <option value="31">31 chars</option>
+          <option value="32">32 chars</option>
+          <option value="33">33 chars</option>
+          <option value="34">34 chars</option>
+          <option value="35">35 chars</option>
+          <option value="36">36 chars</option>
+          <option value="37">37 chars</option>
+          <option value="38">38 chars</option>
+          <option value="39">39 chars</option>
+          <option value="40">40 chars</option>
+          <option value="41">41 chars</option>
+          <option value="42">42 chars</option>
+          <option value="43">43 chars</option>
+          <option value="44">44 chars</option>
+          <option value="45">45 chars</option>
+          <option value="46">46 chars</option>
+          <option value="47">47 chars</option>
+          <option value="48">48 chars</option>
+          <option value="49">49 chars</option>
+          <option value="50">50 chars</option>
+          <option value="51">51 chars</option>
+          <option value="52">52 chars</option>
+          <option value="53">53 chars</option>
+          <option value="54">54 chars</option>
+          <option value="55">55 chars</option>
+          <option value="56">56 chars</option>
+          <option value="57">57 chars</option>
+          <option value="58">58 chars</option>
+          <option value="59">59 chars</option>
+          <option value="60">60 chars</option>
+          <option value="61">61 chars</option>
+          <option value="62">62 chars</option>
+          <option value="63">63 chars</option>
+          <option value="64">64 chars</option>
+          <option value="65">65 chars</option>
+          <option value="66">66 chars</option>
+          <option value="67">67 chars</option>
+          <option value="68">68 chars</option>
+          <option value="69">69 chars</option>
+          <option value="70">70 chars</option>
+          <option value="71">71 chars</option>
+          <option value="72">72 chars</option>
+          <option value="73">73 chars</option>
+          <option value="74">74 chars</option>
+          <option value="75">75 chars</option>
+          <option value="76">76 chars</option>
+          <option value="77">77 chars</option>
+          <option value="78">78 chars</option>
+          <option value="79">79 chars</option>
+          <option value="80">80 chars</option>
+          <option value="81">81 chars</option>
+          <option value="82">82 chars</option>
+          <option value="83">83 chars</option>
+          <option value="84">84 chars</option>
+          <option value="85">85 chars</option>
+          <option value="86">86 chars</option>
+          <option value="87">87 chars</option>
+          <option value="88">88 chars</option>
+          <option value="89">89 chars</option>
+          <option value="90">90 chars</option>
+          <option value="91">91 chars</option>
+          <option value="92">92 chars</option>
+          <option value="93">93 chars</option>
+          <option value="94">94 chars</option>
+          <option value="95">95 chars</option>
+          <option value="96">96 chars</option>
+          <option value="97">97 chars</option>
+          <option value="98">98 chars</option>
+          <option value="99">99 chars</option>
+          <option value="100">100 chars</option>
+        </select>
+        <p class="remove-chars-from-position-from-the">&hellip;from the&hellip;</p>
+        <select id="select-remove-chars-from-position">
+          <option value="beginning">Beginning</option>
+          <option value="end">End</option>
+          <option value="beginning-and-end">Beginning &amp; End</option>
+          <option value="nth-position">nth Position</option>
+        </select>
+        <input class="input-remove-chars-from-nth-position" type="text" id="input-remove-chars-from-nth-position" />
+        <p class="remove-chars-from-position-from-the" id="remove-chars-from-position-from-the-nth-position">
+          &hellip;from the&hellip;</p>
+        <select id="select-remove-chars-from-nth-position-beginning-end">
+          <option value="beginning">Beginning</option>
+          <option value="end">End</option>
+        </select>
+        <p class="remove-chars-from-position-from-the">&hellip;of each line</p>
+        <div class="remove-chars-from-position-if-it-is-a" id="remove-chars-from-position-if-it-is-a">
+          <select class="select-remove-chars-from-nth-position-if-is-is-not"
+            id="select-remove-chars-from-nth-position-if-is-is-not">
+            <option value="is">if it is</option>
+            <option value="is-not">if it is not</option>
+          </select>
+          <select class="select-remove-chars-from-nth-position-if-is-is-not-character"
+            id="select-remove-chars-from-nth-position-if-is-is-not-character">
+            <option value="anything">Anything</option>
+            <option value="space">a Space (&nbsp;)</option>
+            <option value="tab">a Tab (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</option>
+            <option value="full-stop">a Full stop (.)</option>
+            <option value="colon">a Colon (:)</option>
+            <option value="semicolon">a Semicolon (;)</option>
+            <option value="single-quote">a Single quote (')</option>
+            <option value="double-quote">a Double quote (")</option>
+            <option value="backtick">a Backtick (`)</option>
+            <option value="pipe">a Pipe (|)</option>
+            <option value="lowercase">a Lowercase (a-z) character</option>
+            <option value="uppercase">an Uppercase (A-Z) character</option>
+            <option value="number">a Number (0-9)</option>
+          </select>
+        </div>
+        <button class="btn" id="btn-remove-chars-from-position">Remove chars</button><br />
+        <p class="remove-lines-from-position">Remove &hellip;</p>
+        <select id="select-remove-lines-from-position-num-lines">
+          <option value="1">1 line</option>
+          <option value="2">2 lines</option>
+          <option value="3">3 lines</option>
+          <option value="4">4 lines</option>
+          <option value="5">5 lines</option>
+          <option value="6">6 lines</option>
+          <option value="7">7 lines</option>
+          <option value="8">8 lines</option>
+          <option value="9">9 lines</option>
+          <option value="10">10 lines</option>
+          <option value="11">11 lines</option>
+          <option value="12">12 lines</option>
+          <option value="13">13 lines</option>
+          <option value="14">14 lines</option>
+          <option value="15">15 lines</option>
+          <option value="16">16 lines</option>
+          <option value="17">17 lines</option>
+          <option value="18">18 lines</option>
+          <option value="19">19 lines</option>
+          <option value="20">20 lines</option>
+          <option value="21">21 lines</option>
+          <option value="22">22 lines</option>
+          <option value="23">23 lines</option>
+          <option value="24">24 lines</option>
+          <option value="25">25 lines</option>
+          <option value="26">26 lines</option>
+          <option value="27">27 lines</option>
+          <option value="28">28 lines</option>
+          <option value="29">29 lines</option>
+          <option value="30">30 lines</option>
+          <option value="31">31 lines</option>
+          <option value="32">32 lines</option>
+          <option value="33">33 lines</option>
+          <option value="34">34 lines</option>
+          <option value="35">35 lines</option>
+          <option value="36">36 lines</option>
+          <option value="37">37 lines</option>
+          <option value="38">38 lines</option>
+          <option value="39">39 lines</option>
+          <option value="40">40 lines</option>
+          <option value="41">41 lines</option>
+          <option value="42">42 lines</option>
+          <option value="43">43 lines</option>
+          <option value="44">44 lines</option>
+          <option value="45">45 lines</option>
+          <option value="46">46 lines</option>
+          <option value="47">47 lines</option>
+          <option value="48">48 lines</option>
+          <option value="49">49 lines</option>
+          <option value="50">50 lines</option>
+          <option value="51">51 lines</option>
+          <option value="52">52 lines</option>
+          <option value="53">53 lines</option>
+          <option value="54">54 lines</option>
+          <option value="55">55 lines</option>
+          <option value="56">56 lines</option>
+          <option value="57">57 lines</option>
+          <option value="58">58 lines</option>
+          <option value="59">59 lines</option>
+          <option value="60">60 lines</option>
+          <option value="61">61 lines</option>
+          <option value="62">62 lines</option>
+          <option value="63">63 lines</option>
+          <option value="64">64 lines</option>
+          <option value="65">65 lines</option>
+          <option value="66">66 lines</option>
+          <option value="67">67 lines</option>
+          <option value="68">68 lines</option>
+          <option value="69">69 lines</option>
+          <option value="70">70 lines</option>
+          <option value="71">71 lines</option>
+          <option value="72">72 lines</option>
+          <option value="73">73 lines</option>
+          <option value="74">74 lines</option>
+          <option value="75">75 lines</option>
+          <option value="76">76 lines</option>
+          <option value="77">77 lines</option>
+          <option value="78">78 lines</option>
+          <option value="79">79 lines</option>
+          <option value="80">80 lines</option>
+          <option value="81">81 lines</option>
+          <option value="82">82 lines</option>
+          <option value="83">83 lines</option>
+          <option value="84">84 lines</option>
+          <option value="85">85 lines</option>
+          <option value="86">86 lines</option>
+          <option value="87">87 lines</option>
+          <option value="88">88 lines</option>
+          <option value="89">89 lines</option>
+          <option value="90">90 lines</option>
+          <option value="91">91 lines</option>
+          <option value="92">92 lines</option>
+          <option value="93">93 lines</option>
+          <option value="94">94 lines</option>
+          <option value="95">95 lines</option>
+          <option value="96">96 lines</option>
+          <option value="97">97 lines</option>
+          <option value="98">98 lines</option>
+          <option value="99">99 lines</option>
+          <option value="100">100 lines</option>
+        </select>
+        <p class="remove-lines-from-position-from-the">&hellip;from the&hellip;</p>
+        <select id="select-remove-lines-from-position">
+          <option value="beginning">Beginning</option>
+          <option value="end">End</option>
+          <option value="beginning-and-end">Beginning &amp; End</option>
+          <option value="nth-position">nth Position</option>
+        </select>
+        <input class="input-remove-lines-from-nth-position" type="text" id="input-remove-lines-from-nth-position" />
+        <p class="remove-lines-from-position-from-the" id="remove-lines-from-position-from-the-nth-position">
+          &hellip;from the&hellip;</p>
+        <select id="select-remove-lines-from-nth-position-beginning-end">
+          <option value="beginning">Beginning</option>
+          <option value="end">End</option>
+        </select>
+        <p class="remove-lines-from-position-from-the">&hellip;of document</p>
+        <button class="btn" id="btn-remove-lines-from-position">Remove lines</button><br />
+        <p class="remove-lines-by-length">Remove &hellip;</p>
+        <select class="select-remove-words-and-lines-by-length" id="select-remove-words-and-lines-by-length">
+          <option value="remove-words-by-length">words that are</option>
+          <option value="remove-lines-by-length">lines that are</option>
+        </select>
+        <select class="select-remove-lines-by-length-type" id="select-remove-lines-by-length-type">
+          <option value="less-than">less than</option>
+          <option value="less-than-or-equal-to">less than or equal to</option>
+          <option value="equal-to">equal to</option>
+          <option value="not-equal-to">not equal to</option>
+          <option value="more-than-or-equal-to">more than or equal to</option>
+          <option value="more-than">more than</option>
+        </select>
+        <select class="select-remove-lines-by-length-num-chars" id="select-remove-lines-by-length-num-chars">
+          <option value="0">0 chars</option>
+          <option value="1">1 char</option>
+          <option value="2">2 chars</option>
+          <option value="3">3 chars</option>
+          <option value="4">4 chars</option>
+          <option value="5">5 chars</option>
+          <option value="6">6 chars</option>
+          <option value="7">7 chars</option>
+          <option value="8">8 chars</option>
+          <option value="9">9 chars</option>
+          <option value="10">10 chars</option>
+          <option value="11">11 chars</option>
+          <option value="12">12 chars</option>
+          <option value="13">13 chars</option>
+          <option value="14">14 chars</option>
+          <option value="15">15 chars</option>
+          <option value="16">16 chars</option>
+          <option value="17">17 chars</option>
+          <option value="18">18 chars</option>
+          <option value="19">19 chars</option>
+          <option value="20">20 chars</option>
+          <option value="21">21 chars</option>
+          <option value="22">22 chars</option>
+          <option value="23">23 chars</option>
+          <option value="24">24 chars</option>
+          <option value="25">25 chars</option>
+          <option value="26">26 chars</option>
+          <option value="27">27 chars</option>
+          <option value="28">28 chars</option>
+          <option value="29">29 chars</option>
+          <option value="30">30 chars</option>
+          <option value="31">31 chars</option>
+          <option value="32">32 chars</option>
+          <option value="33">33 chars</option>
+          <option value="35">35 chars</option>
+          <option value="36">36 chars</option>
+          <option value="37">37 chars</option>
+          <option value="38">38 chars</option>
+          <option value="39">39 chars</option>
+          <option value="40">40 chars</option>
+          <option value="41">41 chars</option>
+          <option value="42">42 chars</option>
+          <option value="43">43 chars</option>
+          <option value="44">44 chars</option>
+          <option value="45">45 chars</option>
+          <option value="46">46 chars</option>
+          <option value="47">47 chars</option>
+          <option value="48">48 chars</option>
+          <option value="49">49 chars</option>
+          <option value="50">50 chars</option>
+          <option value="51">51 chars</option>
+          <option value="52">52 chars</option>
+          <option value="53">53 chars</option>
+          <option value="54">54 chars</option>
+          <option value="55">55 chars</option>
+          <option value="56">56 chars</option>
+          <option value="57">57 chars</option>
+          <option value="58">58 chars</option>
+          <option value="59">59 chars</option>
+          <option value="60">60 chars</option>
+          <option value="61">61 chars</option>
+          <option value="62">62 chars</option>
+          <option value="63">63 chars</option>
+          <option value="64">64 chars</option>
+          <option value="65">65 chars</option>
+          <option value="66">66 chars</option>
+          <option value="67">67 chars</option>
+          <option value="68">68 chars</option>
+          <option value="69">69 chars</option>
+          <option value="70">70 chars</option>
+          <option value="71">71 chars</option>
+          <option value="72">72 chars</option>
+          <option value="73">73 chars</option>
+          <option value="74">74 chars</option>
+          <option value="75">75 chars</option>
+          <option value="76">76 chars</option>
+          <option value="77">77 chars</option>
+          <option value="78">78 chars</option>
+          <option value="79">79 chars</option>
+          <option value="80">80 chars</option>
+          <option value="81">81 chars</option>
+          <option value="82">82 chars</option>
+          <option value="83">83 chars</option>
+          <option value="84">84 chars</option>
+          <option value="85">85 chars</option>
+          <option value="86">86 chars</option>
+          <option value="87">87 chars</option>
+          <option value="88">88 chars</option>
+          <option value="89">89 chars</option>
+          <option value="90">90 chars</option>
+          <option value="91">91 chars</option>
+          <option value="92">92 chars</option>
+          <option value="93">93 chars</option>
+          <option value="94">94 chars</option>
+          <option value="95">95 chars</option>
+          <option value="96">96 chars</option>
+          <option value="97">97 chars</option>
+          <option value="98">98 chars</option>
+          <option value="99">99 chars</option>
+          <option value="100">100 chars</option>
+        </select>
+        <button class="btn" id="btn-remove-words-and-lines-by-length">Remove words</button><br />
+        <p class="remove-lines-start-with-type">Remove lines that begin with&hellip;</p>
+        <select class="select-remove-lines-start-with-type" id="select-remove-lines-start-with-type">
+          <option value="az">a-z</option>
+          <option value="AZ">A-Z</option>
+          <option value="09">0-9</option>
+          <option value="azAZ">a-z or A-Z</option>
+          <option value="punctuation-symbol">punctuation or symbol</option>
+          <option value="space">space</option>
+          <option value="tab">tab</option>
+          <option value="hyphen">hyphen</option>
+          <option value="less-than">
+            <</option> </select> <button class="btn" id="btn-remove-lines-start-with-type">Remove lines</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Replace&hellip;</legend>
+      <div class="fieldset-content">
+        <button class="btn btn-replace-using-regular-expression" id="btn-replace-using-regular-expression">Using Regular
+          Expression (regexp)</button><br />
+        <select class="select-replace-1" id="select-replace-1">
+          <option value="linebreaks">Linebreaks</option>
+          <option value="tabs">Tabs</option>
+          <option value="two-tabs">Two Tabs</option>
+          <option value="spaces">Spaces</option>
+          <option value="two-spaces">Two spaces</option>
+          <option value="four-spaces">Four spaces</option>
+          <option value="hyphen">Hyphen</option>
+          <option value="underscore">Underscore</option>
+          <option value="commas">Commas</option>
+          <option value="commas-space">Comma space</option>
+          <option value="full-stops">Full stops</option>
+          <option value="full-stop-space">Full stop space</option>
+          <option value="colon">Colon</option>
+          <option value="semicolon">Semicolon</option>
+          <option value="single-quotes">Single quotes (')</option>
+          <option value="double-quotes">Double quotes (")</option>
+          <option value="double-double-quotes">Double double quotes ("")</option>
+          <option value="backticks">Backticks (`)</option>
+          <option value="array-single">Array ['x']</option>
+          <option value="array-double">Array ["x"]</option>
+          <option value="pipe">Pipe</option>
+          <option value="angle-brackets">><</option> <option value="between-each-char">Between each character</option>
+          <option value="single-backslash">Single backslash (\)</option>
+          <option value="double-backslash">Double backslash (\\)</option>
+          <option value="middle-dot-unicode">Middle dot unicode (·)</option>
+          <option value="other">Other&hellip;</option>
+        </select>
+        <input class="replace-1-other" type="text" id="replace-1-other" />
+        <p class="replace-with">with</p>
+        <select class="select-replace-2" id="select-replace-2">
+          <option value="linebreaks">Linebreaks</option>
+          <option value="tabs">Tabs</option>
+          <option value="two-tabs">Two Tabs</option>
+          <option value="spaces">Spaces</option>
+          <option value="two-spaces">Two spaces</option>
+          <option value="four-spaces">Four spaces</option>
+          <option value="hyphen">Hyphen</option>
+          <option value="underscore">Underscore</option>
+          <option value="commas">Commas</option>
+          <option value="commas-space">Comma space</option>
+          <option value="full-stops">Full stops</option>
+          <option value="full-stop-space">Full stop space</option>
+          <option value="full-stop-linebreak">Full stop linebreak</option>
+          <option value="colon">Colon</option>
+          <option value="semicolon">Semicolon</option>
+          <option value="single-quotes">Single quotes (')</option>
+          <option value="double-quotes">Double quotes (")</option>
+          <option value="double-double-quotes">Double double quotes ("")</option>
+          <option value="backticks">Backticks (`)</option>
+          <option value="array-single">Array ['x']</option>
+          <option value="array-double">Array ["x"]</option>
+          <option value="pipe">Pipe</option>
+          <option value="angle-brackets-linebreak">>Linebreak<</option> <option value="nothing">Nothing ''</option>
+          <option value="single-backslash">Single backslash (\)</option>
+          <option value="double-backslash">Double backslash (\\)</option>
+          <option value="middle-dot-unicode">Middle dot unicode (·)</option>
+          <option value="other">Other&hellip;</option>
+        </select>
+        <input class="replace-2-other" type="text" id="replace-2-other" />
+        <button class="btn btn-replace" id="btn-replace">Replace</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Split on string&hellip;</legend>
+      <div class="fieldset-content">
+        <input class="split-on-string" type="text" id="split-on-string" />
+        <button class="btn btn-split-on-string" id="btn-split-on-string">Split</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Case&hellip;</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-case-invert">iNVERT cASE</button>
+        <button class="btn" id="btn-case-uppercase">UPPERCASE</button>
+        <button class="btn" id="btn-case-lowercase">lowercase</button>
+        <button class="btn" id="btn-case-titlecase-words">Titlecase Words</button>
+        <button class="btn" id="btn-case-titlecase-lines">Titlecase lines</button>
+        <button class="btn" id="btn-case-random">RaNDoM</button>
+        <button class="btn" id="btn-case-alternate">AlTeRnAtE</button>
+        <button class="btn" id="btn-case-uppercase-first-letter-each-line">Uppercase first letter of each line</button>
+        <button class="btn" id="btn-case-lowercase-first-letter-each-line">Lowercase first letter of each line</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Order / Sort</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-modify-order-chars">Order chars (alphabetically)</button>
+        <button class="btn" id="btn-modify-order-words">Order words (alphabetically)</button>
+        <button class="btn" id="btn-modify-order-words-by-length">Order words (by length)</button>
+        <button class="btn" id="btn-modify-order-lines">Order lines (alphabetically)</button>
+        <button class="btn" id="btn-modify-order-lines-by-length">Order lines (by length)</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Reverse</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-modify-reverse-chars">Reverse all chars</button>
+        <button class="btn" id="btn-modify-reverse-chars-on-line">Reverse chars on each line</button>
+        <button class="btn" id="btn-modify-reverse-chars-in-each-word">Reverse chars in each word</button>
+        <button class="btn" id="btn-modify-reverse-words">Reverse all words</button>
+        <button class="btn" id="btn-modify-reverse-words-on-line">Reverse words on each line</button>
+        <button class="btn" id="btn-modify-reverse-lines">Reverse all lines</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Scramble</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-modify-scramble-all-chars">Scramble all chars</button>
+        <button class="btn" id="btn-modify-scramble-chars-on-line">Scramble chars on each line</button>
+        <button class="btn" id="btn-modify-scramble-chars-in-each-word">Scramble chars in each word</button>
+        <button class="btn" id="btn-modify-scramble-chars-in-each-word-keep-first-and-last">Sbmcrlae chras in ecah
+          wrod</button>
+        <button class="btn" id="btn-modify-scramble-all-words">Scramble all words</button>
+        <button class="btn" id="btn-modify-scramble-words-on-line">Scramble words on each line</button>
+        <button class="btn" id="btn-modify-scramble-lines">Scramble all lines (simple)</button>
+        <button class="btn" id="btn-modify-scramble-lines-fisher-yates">Scramble all lines (Fisher Yates x5) </button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Modify&hellip;</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-modify-leetspeak">Leetspeak</button>
+        <button class="btn" id="btn-modify-straighten-quotes">Straighten curly quotes</button>
+        <button class="btn" id="btn-modify-upside-down">To uʍop ǝpısdn</button>
+        <button class="btn" id="btn-modify-from-upside-down">From uʍop ǝpısdn</button>
+        <button class="btn" id="btn-modify-insert-line-numbers">Insert line numbers</button>
+        <button class="btn" id="btn-modify-pad-left">Pad left</button>
+        <button class="btn" id="btn-modify-pad-right">Pad right</button>
+        <button class="btn" id="btn-modify-pad-left-and-right">Pad left and right (Centre)</button>
+        <button class="btn" id="btn-modify-line-up-first-instance-of-char">Line up first instance of char</button>
+        <button class="btn" id="btn-modify-line-up-last-instance-of-char">Line up last instance of char</button>
+        <button class="btn" id="btn-modify-line-up-csv-data">Line up CSV data</button>
+        <button class="btn" id="btn-modify-line-up-pipe-delimited-data">Line up pipe delimited data</button>
+        <button class="btn" id="btn-modify-transpose">Transpose (90&deg;)</button>
+        <button class="btn" id="btn-modify-trim-each-line">Trim each line</button>
+        <button class="btn" id="btn-modify-one-char-per-line">One character per line</button>
+        <button class="btn" id="btn-modify-duplicate-text">Duplicate text</button>
+        <button class="btn" id="btn-modify-duplicate-each-line-horizontally">Duplicate each line (Horizontally)</button>
+        <button class="btn" id="btn-modify-duplicate-each-line-vertically">Duplicate each line (Vertically)</button>
+        <button class="btn" id="btn-modify-swap-top-and-bottom">Swap top half with bottom half</button>
+        <button class="btn" id="btn-modify-merge-bottom-into-top">Merge bottom into top</button>
+        <button class="btn" id="btn-modify-hard-word-wrap">Hard word wrap</button>
+        <button class="btn" id="btn-modify-insert-linebreak-every-n-chars">Insert linebreak every n chars</button>
+        <button class="btn" id="btn-modify-insert-n-linebreak-after-each-line">Insert n linebreaks after each
+          line</button>
+        <button class="btn" id="btn-modify-insert-n-linebreaks-after-every-n-lines">Insert n linebreaks after every n
+          lines</button>
+        <button class="btn" id="btn-modify-insert-text-at-position-n">Insert text at position n</button>
+        <button class="btn" id="btn-modify-insert-prefix-and-suffix">Add prefix and suffix</button>
+        <button class="btn" id="btn-modify-move-the-to-the-end">&lsquo;The &hellip;&rsquo; &#x279D; &lsquo;&hellip;,
+          The&rsquo;</button>
+        <button class="btn" id="btn-modify-move-a-to-the-end">&lsquo;A &hellip;&rsquo; &#x279D; &lsquo;&hellip;,
+          A&rsquo;</button>
+        <button class="btn" id="btn-modify-html-table-to-json">HTML Table to JSON</button>
+        <button class="btn" id="btn-modify-data-string-to-json">Data string to JSON</button>
+        <button class="btn" id="btn-modify-populate-uuid">Populate "uuid": "" (v4)</button>
+        <button class="btn" id="btn-modify-replace-uuids">Replace UUIDs (v4)</button>
+        <button class="btn" id="btn-modify-create-bookmarklet-js">Create Bookmarklet JS</button>
+        <button class="btn" id="btn-modify-acronymize">Acronymize</button>
+        <button class="btn" id="btn-modify-regular-expression">Regular Expression (regexp)</button>
+        <button class="btn" id="btn-modify-deconstructed-props">React deconstructed props</button><br />
+        <p class="merge-lines-p">Merge lines&hellip;</p>
+        <select class="select-merge-lines-num" id="select-merge-lines-num">
+          <option value="2" selected="selected">Every 2 lines</option>
+          <option value="3">Every 3 lines</option>
+          <option value="4">Every 4 lines</option>
+          <option value="5">Every 5 lines</option>
+          <option value="6">Every 6 lines</option>
+          <option value="7">Every 7 lines</option>
+          <option value="8">Every 8 lines</option>
+          <option value="9">Every 9 lines</option>
+          <option value="10">Every 10 lines</option>
+          <option value="11">Every 11 lines</option>
+          <option value="12">Every 12 lines</option>
+          <option value="13">Every 13 lines</option>
+          <option value="14">Every 14 lines</option>
+          <option value="15">Every 15 lines</option>
+          <option value="16">Every 16 lines</option>
+          <option value="17">Every 17 lines</option>
+          <option value="18">Every 18 lines</option>
+          <option value="19">Every 19 lines</option>
+          <option value="20">Every 20 lines</option>
+          <option value="21">Every 21 lines</option>
+          <option value="22">Every 22 lines</option>
+          <option value="23">Every 23 lines</option>
+          <option value="24">Every 24 lines</option>
+          <option value="25">Every 25 lines</option>
+          <option value="26">Every 26 lines</option>
+          <option value="27">Every 27 lines</option>
+          <option value="28">Every 28 lines</option>
+          <option value="29">Every 29 lines</option>
+          <option value="30">Every 30 lines</option>
+        </select>
+        <div class="input-row merge-lines-input-row">
+          <input id="merge-lines-trim-checkbox" type="checkbox" checked="checked" name="merge-lines-trim-checkbox" />
+          <label for="merge-lines-trim-checkbox">Trim each line</label>
+        </div>
+        <p class="merge-lines-join-char-p">Join character&hellip;</p>
+        <select class="select-merge-lines-join-char" id="select-merge-lines-join-char">
+          <option value=" ">Space</option>
+          <option value="	">Tab</option>
+          <option value="|">Pipe</option>
+          <option value=":">Colon</option>
+          <option value="-">Hyphen</option>
+          <option value="other">Other&hellip;</option>
+        </select>
+        <button class="btn btn-merge-lines" id="btn-merge-lines">Merge lines</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Decrement / Increment counter&hellip;</legend>
+      <div class="fieldset-content">
+        <select class="select-decrement-increment" id="select-decrement-increment">
+          <option value="decrement">Decrement counter</option>
+          <option value="increment" selected="selected">Increment counter</option>
+        </select>
+        <button class="btn btn-decrement-increment-and-generate" id="btn-decrement-increment-and-generate">&hellip; and
+          generate new lines</button>
+        <button class="btn" id="btn-decrement-increment-and-replace-on-each-line">&hellip; and replace string on each
+          line</button>
+        <button class="btn" id="btn-decrement-increment-each-occurrence-in-text">&hellip; and replace each occurrence in
+          text</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Populate template&hellip;</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-populate-template-from-csv">&hellip; from CSV</button>
+        <button class="btn" id="btn-populate-template-from-tsv">&hellip; from TSV</button>
+        <button class="btn" id="btn-populate-template-from-json">&hellip; from JSON</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Switch format</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-switch-format-json-to-csv-with-quotes">JSON to CSV (with quotes)</button>
+        <button class="btn" id="btn-switch-format-json-to-csv-without-quotes">JSON to CSV (without quotes)</button>
+        <button class="btn" id="btn-switch-format-csv-to-json">CSV to JSON</button>
+        <button class="btn" id="btn-switch-format-javascript-object-to-json">JavaScript object to JSON</button>
+        <button class="btn" id="btn-switch-format-json-to-javascript-object">JSON to JavaScript object</button>
+        <button class="btn" id="btn-switch-format-yaml-to-json">YAML to JSON</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Create lookup table</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-create-lookup-table-encode-formatted">Encode (Formatted)</button>
+        <button class="btn" id="btn-create-lookup-table-encode-unformatted">Encode (Unformatted)</button>
+        <button class="btn" id="btn-create-lookup-table-decode-formatted">Decode (Formatted)</button>
+        <button class="btn" id="btn-create-lookup-table-decode-unformatted">Decode (Unformatted)</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Convert to comment block</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-comments-html">HTML Comments</button>
+        <button class="btn" id="btn-comments-css">CSS Comments</button>
+        <button class="btn" id="btn-comments-js">JS Comments</button>
+        <button class="btn" id="btn-comments-js-dont-minify">JS Comments (Don't minify)</button>
+        <button class="btn" id="btn-comments-console-log">console.log()</button>
+        <button class="btn" id="btn-comments-react-jsx">React JSX Comments</button>
+        <button class="btn" id="btn-comments-php">PHP Comments</button>
+        <button class="btn" id="btn-comments-blade-template">Blade Template Comments</button>
+        <button class="btn" id="btn-comments-python">Python Comments</button>
+        <button class="btn" id="btn-comments-yaml">YAML Comments</button>
+        <button class="btn" id="btn-comments-pug">Pug Comments</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Extract data</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-extract-email-addresses">Email addresses</button>
+        <button class="btn" id="btn-extract-urls-inc-args">URLs (inc. Query String)</button>
+        <button class="btn" id="btn-extract-urls-exc-args">URLs (ex. Query String)</button>
+        <button class="btn" id="btn-extract-non-ascii">Non-ASCII chars</button>
+        <button class="btn" id="btn-extract-unicode-values">Unicode values (\uXXXX)</button>
+        <button class="btn" id="btn-extract-hex-colors">Hex colors</button>
+        <button class="btn" id="btn-extract-ip-addresses">IP addresses</button>
+        <button class="btn" id="btn-extract-phone-numbers">Phone numbers</button>
+        <button class="btn" id="btn-extract-uk-postcodes">UK postcodes</button>
+        <button class="btn" id="btn-extract-uuids">UUIDs (v4)</button>
+        <button class="btn" id="btn-extract-words-with-wildcards">Words with _ wildcards</button>
+        <button class="btn" id="btn-extract-anagrams-of-letters">Anagrams of letters </button>
+        <button class="btn" id="btn-extract-palindrome-words">Palindrome words</button>
+        <button class="btn" id="btn-extract-movie-data-from-imdb">Movie data from IMDb markup</button>
+        <button class="btn" id="btn-extract-player-info-from-premierleague">Player info from Premier League
+          markup</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Find duplicate</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-find-duplicate-uuids">UUIDs (v4)</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Prepend/append to line&hellip;</legend>
+      <div class="fieldset-content">
+        <select class="select-prepend-append-1" id="prepend-append">
+          <option value="prepend">Prepend</option>
+          <option value="append" selected="selected">Append</option>
+        </select>
+        <p class="prepend-append-with">with</p>
+        <select class="select-prepend-append-2" id="prepend-append-value">
+          <option value="linebreak">Linebreak</option>
+          <option value="tab">Tab</option>
+          <option value="space">Space</option>
+          <option value="two-spaces">Two spaces</option>
+          <option value="four-spaces">Four spaces</option>
+          <option value="comma">Comma</option>
+          <option value="comma-space">Comma space</option>
+          <option value="full-stop">Full stop</option>
+          <option value="full-stop-space">Full stop space</option>
+          <option value="colon">Colon</option>
+          <option value="semicolon">Semicolon</option>
+          <option value="pipe">Pipe</option>
+          <option value="br" selected="selected">&lt;br/&gt;</option>
+          <option value="bullet">Bulletpoint</option>
+          <option value="right-arrow">Rightwards arrow</option>
+          <option value="long-right-arrow">Long rightwards arrow</option>
+          <option value="other">Other&hellip;</option>
+        </select>
+        <input class="prepend-append-other" type="text" id="prepend-append-other" />
+        <button class="btn btn-prepend-append-action" id="btn-prepend-append-action">Append</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Repeating data to tabular data</legend>
+      <div class="fieldset-content">
+        <p class="repeats-after">Data repeats after&hellip;</p>
+        <select class="repeats-after-select" id="repeats-after-select">
+          <option value="2">2 lines</option>
+          <option value="3">3 lines</option>
+          <option value="4">4 lines</option>
+          <option value="5">5 lines</option>
+          <option value="6">6 lines</option>
+          <option value="7">7 lines</option>
+          <option value="8">8 lines</option>
+          <option value="9">9 lines</option>
+          <option value="10">10 lines</option>
+          <option value="11">11 lines</option>
+          <option value="12">12 lines</option>
+          <option value="13">13 lines</option>
+          <option value="14">14 lines</option>
+          <option value="15">15 lines</option>
+          <option value="16">16 lines</option>
+          <option value="17">17 lines</option>
+          <option value="18">18 lines</option>
+          <option value="19">19 lines</option>
+          <option value="20">20 lines</option>
+        </select>
+        <p class="repeats-after-delimeter">Delimiter&hellip;</p>
+        <select class="repeats-after-delimeter-select" id="repeats-after-delimeter-select">
+          <option value="comma">Comma</option>
+          <option value="comma-space">Comma space</option>
+          <option value="tab">Tab</option>
+          <option value="space">Space</option>
+          <option value="colon">Colon</option>
+          <option value="semicolon">Semicolon</option>
+          <option value="pipe">Pipe</option>
+        </select>
+        <button class="btn btn-repeats-to-table" id="btn-repeats-to-table">Convert to table</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Tabular data&hellip;</legend>
+      <div class="fieldset-content">
+        <input class="tabular-data-first-row-headings-checkbox" type="checkbox" checked="checked"
+          id="tabular-data-first-row-headings-checkbox" />
+        <label class="tabular-data-first-row-headings" for="tabular-data-first-row-headings-checkbox">First row is
+          headings</label>
+        <p class="tabular-data-delimeter">Delimeter</p>
+        <select class="tabular-data-delimeter-value" id="tabular-data-delimeter-value">
+          <option value="comma">Comma</option>
+          <option value="comma-space">Comma space</option>
+          <option value="tab">Tab</option>
+          <option value="space">Space</option>
+          <option value="colon">Colon</option>
+          <option value="semicolon">Semicolon</option>
+          <option value="pipe">Pipe</option>
+          <option value="other">Other&hellip;</option>
+        </select>
+        <input class="tabular-data-other-delimeter-value" type="text" id="tabular-data-other-delimeter-value" />
+        <button class="btn btn-tabular-data-analyse" id="btn-tabular-data-analyse">Analyse data</button>
+        <div id="tabular-data-analysed-wrapper">
+          <p class="tabular-data-num-rows-columns" id="tabular-data-num-rows-columns">X rows, X columns</p>
+          <p class="tabular-data-column">Column</p>
+          <select class="tabular-data-column-select" id="tabular-data-column-select">
+            <option value="" disabled="disabled">Please select&hellip;</option>
+          </select>
+          <p class="tabular-data-action">Action</p>
+          <select class="tabular-data-action-select" id="tabular-data-action-select">
+            <option value="delete-this">Delete this column</option>
+            <option value="delete-others">Delete other columns</option>
+            <option value="delete-before">Delete columns before this</option>
+            <option value="delete-after">Delete columns after this</option>
+            <option value="move-left">Move left</option>
+            <option value="move-right">Move right</option>
+            <option value="move-to-beginning">Move to beginning</option>
+            <option value="move-to-end">Move to end</option>
+          </select>
+          <button class="btn" id="btn-tabular-data-perform-action">Delete column</button>
+          <div id="tabular-data-convert-wrapper">
+            <p class="tabular-data-convert">Convert data to&hellip;</p>
+            <select class="tabular-data-convert-select" id="tabular-data-convert-select">
+              <option value="" disabled="disabled">Please select&hellip;</option>
+              <option value="json">JSON</option>
+              <option value="html">HTML Table</option>
+            </select>
+            <button class="btn btn-tabular-data-convert" id="btn-tabular-data-convert">Convert</button>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Add HTML markup&hellip;</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-html-ol">Convert to &lt;ol&gt;</button>
+        <button class="btn" id="btn-html-ul">Convert to &lt;ul&gt;</button>
+        <button class="btn" id="btn-html-br">Linebreaks to &lt;br/&gt;</button>
+        <button class="btn" id="btn-html-p">Paragraphs to &lt;p&gt;</button>
+        <button class="btn" id="btn-html-wrap-lines">Wrap lines with tag</button>
+        <p class="view-html-css-prompt">Preview HTML with CSS library&hellip;</p>
+        <select class="view-html-css-select" id="view-html-css-select">
+          <option value="" selected="selected">None</option>
+          <option value="meyer-reset">Eric Meyer CSS reset</option>
+          <option value="normalize">Normalize</option>
+          <option value="bootstrap3">Bootstrap 3</option>
+          <option value="bootstrap4">Bootstrap 4</option>
+          <option value="foundation5">Foundation 5</option>
+          <option value="foundation6">Foundation 6</option>
+          <option value="bulma">Bulma</option>
+          <option value="semantic-ui">Semantic-UI</option>
+          <option value="materialize">Materialize</option>
+          <option value="pure">Pure</option>
+          <option value="skeleton">Skeleton</option>
+          <option value="uikit">UIKit</option>
+          <option value="milligram">Milligram</option>
+          <option value="spectre">Spectre</option>
+          <option value="mustard-ui">Mustard UI</option>
+          <option value="mui">MUI</option>
+          <option value="animate">Animate</option>
+          <option value="tailwind">Tailwind</option>
+          <option value="tachyons">Tachyons</option>
+          <option value="typesafe">TypeSafe</option>
+        </select>
+        <button class="btn" id="btn-html-open-new-window">View HTML in new window</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Data URIs</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-data-uri-svg-to-background-image">SVG to CSS background-image</button>
+        <button class="btn" id="btn-data-uri-background-image-to-svg">CSS background-image to SVG</button>
+        <button class="btn" id="btn-base64-open-new-window">View Base 64 image (Data URI)</button>
+        <button class="btn" id="btn-base64-download-file">Download Base 64 file (Data URI)</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Encode/Decode&hellip;</legend>
+      <div class="fieldset-content">
+        <div class="input-row encode-decode-each-line-radio-input-row">
+          <input class="encode-decode-each-line-radio" type="radio" checked="checked" name="encode-decode-radio-group"
+            id="encode-decode-each-line-radio" />
+          <label class="encode-decode-each-line-label" for="encode-decode-each-line-radio">Each line
+            individually</label>
+        </div>
+        <div class="input-row encode-decode-whole-document-radio-input-row">
+          <input class="encode-decode-whole-document-radio" type="radio" name="encode-decode-radio-group"
+            id="encode-decode-whole-document-radio" />
+          <label class="encode-decode-each-line-label" for="encode-decode-whole-document-radio">Whole document</label>
+        </div>
+        <button class="btn" id="btn-modify-encodeURI">encodeURI()</button>
+        <button class="btn" id="btn-modify-decodeURI">decodeURI()</button>
+        <button class="btn" id="btn-modify-encodeURIComponent">encodeURIComponent()</button>
+        <button class="btn" id="btn-modify-decodeURIComponent">decodeURIComponent()</button>
+        <button class="btn" id="btn-modify-toUnicode">To Unicode (\u)</button>
+        <button class="btn" id="btn-modify-fromUnicode">From Unicode (\u)</button>
+        <button class="btn" id="btn-modify-toUnicode-zerox">To Unicode (0x)</button>
+        <button class="btn" id="btn-modify-fromUnicode-zerox">From Unicode (0x)</button>
+        <button class="btn" id="btn-modify-toUnicode-uplus">To Unicode (U+)</button>
+        <button class="btn" id="btn-modify-fromUnicode-uplus">From Unicode (U+)</button>
+        <button class="btn" id="btn-modify-to-binary-unicode">To Unicode (Binary)</button>
+        <button class="btn" id="btn-modify-from-binary-unicode">From Unicode (Binary)</button>
+        <button class="btn" id="btn-modify-to-hex-unicode">To Unicode (Hex)</button>
+        <button class="btn" id="btn-modify-from-hex-unicode">From Unicode (Hex)</button>
+        <button class="btn" id="btn-modify-to-hex-escape-sequence">To Hex Escape Sequence (\x)</button>
+        <button class="btn" id="btn-modify-from-hex-escape-sequence">From Hex Escape Sequence (\x)</button>
+        <button class="btn" id="btn-modify-to-css-pseudo-content">To CSS Pseudo content (Hex)</button>
+        <button class="btn" id="btn-modify-toBinary">To Binary (Base 2)</button>
+        <button class="btn" id="btn-modify-fromBinary">From Binary (Base 2)</button>
+        <button class="btn" id="btn-modify-toTernary">To Ternary (Base 3)</button>
+        <button class="btn" id="btn-modify-fromTernary">From Ternary (Base 3)</button>
+        <button class="btn" id="btn-modify-toOctal">To Octal (Base 8)</button>
+        <button class="btn" id="btn-modify-fromOctal">From Octal (Base 8)</button>
+        <button class="btn" id="btn-modify-toDecimal">To Decimal (Base 10)</button>
+        <button class="btn" id="btn-modify-fromDecimal">From Decimal (Base 10)</button>
+        <button class="btn" id="btn-modify-toHex">To Hex (Base 16)</button>
+        <button class="btn" id="btn-modify-fromHex">From Hex (Base 16)</button>
+        <button class="btn" id="btn-modify-toUTF8">To UTF8</button>
+        <button class="btn" id="btn-modify-fromUTF8">From UTF8</button>
+        <button class="btn" id="btn-modify-toCharCode">To CharCode</button>
+        <button class="btn" id="btn-modify-fromCharCode">From CharCode</button>
+        <button class="btn" id="btn-modify-toCodePoint">To CodePoint</button>
+        <button class="btn" id="btn-modify-fromCodePoint">From CodePoint</button>
+        <button class="btn" id="btn-modify-to-html-entity-decimal">To HTML Entities (Decimal &#__;)</button>
+        <button class="btn" id="btn-modify-from-html-entity-decimal">From HTML Entities (Decimal &#__;)</button>
+        <button class="btn" id="btn-modify-to-html-entity-named-unsafe">To HTML Named Entities (only unsafe)</button>
+        <button class="btn" id="btn-modify-to-html-entity-named-all">To HTML Named Entities (all)</button>
+        <button class="btn" id="btn-modify-from-html-entity-named-hex">From HTML Entities (Hex &#x__;)</button>
+        <button class="btn" id="btn-modify-toBase64">To Base64 values</button>
+        <button class="btn" id="btn-modify-fromBase64">From Base64 values</button>
+        <button class="btn" id="btn-modify-toMorse">To Morse code</button>
+        <button class="btn" id="btn-modify-fromMorse">From Morse code</button>
+        <button class="btn" id="btn-modify-to-json-string">To safe JSON string \n\t</button>
+        <button class="btn" id="btn-modify-from-json-string">From safe JSON string \n\t</button>
+        <button class="btn" id="btn-modify-to-textarea-value">To &lt;textarea&gt; value (JS)</button>
+        <button class="btn" id="btn-modify-to-pre-inner-html">To &lt;pre&gt; innerHTML (JS)</button>
+        <button class="btn" id="btn-modify-to-dna-string">To DNA string</button>
+        <button class="btn" id="btn-modify-from-dna-string">From DNA string</button>
+        <button class="btn" id="btn-modify-to-fanda">To Fanda</button>
+        <button class="btn" id="btn-modify-from-fanda">From Fanda</button>
+        <button class="btn" id="btn-modify-to-alphabet-position">To alphabet position</button>
+        <button class="btn" id="btn-modify-from-alphabet-position">From alphabet position</button>
+        <button class="btn" id="btn-modify-to-alphabet-position-hex">To alphabet position (Hex)</button>
+        <button class="btn" id="btn-modify-from-alphabet-position-hex">From alphabet position (Hex)</button>
+        <button class="btn" id="btn-modify-to-reversed-alphabet">To reversed alphabet</button>
+        <button class="btn" id="btn-modify-from-reversed-alphabet">From reversed alphabet</button>
+        <button class="btn" id="btn-modify-to-pigpen-font">To PigPen font</button>
+        <button class="btn" id="btn-modify-from-pigpen-font">From PigPen font</button>
+        <button class="btn" id="btn-modify-to-punycode">To Punycode</button>
+        <button class="btn" id="btn-modify-from-punycode">From Punycode</button>
+        <button class="btn" id="btn-modify-toMD5">To MD5 Hash</button>
+        <button class="btn" id="btn-modify-to-pig-latin">To Pig Latin</button>
+        <button class="btn" id="btn-modify-to-feature-phone-texting">To feaure phone texting</button>
+        <button class="btn" id="btn-modify-to-regexp-escape-sequence">Escape Regular Expression</button>
+        <button class="btn" id="btn-modify-fromJwt">From JSON Web Token (JWT)</button>
+        <button class="btn" id="btn-get-character-info">Get character info</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>ROT</legend>
+      <div class="fieldset-content">
+        <select class="rot-number-select" id="rot-number-select">
+          <option value="1">ROT1</option>
+          <option value="2">ROT2</option>
+          <option value="3">ROT3</option>
+          <option value="4">ROT4</option>
+          <option value="5">ROT5</option>
+          <option value="6">ROT6</option>
+          <option value="7">ROT7</option>
+          <option value="8">ROT8</option>
+          <option value="9">ROT9</option>
+          <option value="10">ROT10</option>
+          <option value="11">ROT11</option>
+          <option value="12">ROT12</option>
+          <option value="13" selected="selected">ROT13 (Default)</option>
+          <option value="14">ROT14</option>
+          <option value="15">ROT15</option>
+          <option value="16">ROT16</option>
+          <option value="17">ROT17</option>
+          <option value="18">ROT18</option>
+          <option value="19">ROT19</option>
+          <option value="20">ROT20</option>
+          <option value="21">ROT21</option>
+          <option value="22">ROT22</option>
+          <option value="23">ROT23</option>
+          <option value="24">ROT24</option>
+          <option value="25">ROT25</option>
+        </select>
+        <button class="btn" id="btn-to-rot">To ROT13</button>
+        <button class="btn" id="btn-from-rot">From ROT13</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Vigenère cipher</legend>
+      <div class="fieldset-content">
+        <input class="vigenere-key" type="text" placeholder="Enter a key" id="vigenere-key" />
+        <button class="btn" id="btn-vigenere-cipher-encode">Encode</button>
+        <button class="btn" id="btn-vigenere-cipher-decode">Decode</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Spelling/Phonetic Alphabet</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-spelling-alphabet-nato">NATO/ICAO phonetic alphabet</button>
+        <button class="btn" id="btn-spelling-alphabet-dutch">Dutch spelling alphabet</button>
+        <button class="btn" id="btn-spelling-alphabet-german">German spelling alphabet</button>
+        <button class="btn" id="btn-spelling-alphabet-swedish">Swedish Armed Forces' radio alphabet</button>
+        <button class="btn" id="btn-spelling-alphabet-decode">Decode</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Mathematical Unicode</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-to-mathematical-double-struck">To Double-Struck</button>
+        <button class="btn" id="btn-to-mathematical-fraktur">To Fraktur</button>
+        <button class="btn" id="btn-to-mathematical-bold-fraktur">To Bold Fraktur</button>
+        <button class="btn" id="btn-to-mathematical-bold">To Bold</button>
+        <button class="btn" id="btn-to-mathematical-italic">To Italic</button>
+        <button class="btn" id="btn-to-mathematical-bold-italic">To Bold Italic</button>
+        <button class="btn" id="btn-to-mathematical-script">To Script</button>
+        <button class="btn" id="btn-to-mathematical-bold-script">To Bold Script</button>
+        <button class="btn" id="btn-to-mathematical-sans-serif">To Sans-Serif</button>
+        <button class="btn" id="btn-to-mathematical-sans-serif-bold">To Sans-Serif Bold</button>
+        <button class="btn" id="btn-to-mathematical-sans-serif-italic">To Sans-Serif Italic</button>
+        <button class="btn" id="btn-to-mathematical-sans-serif-bold-italic">To Sans-Serif Bold Italic</button>
+        <button class="btn" id="btn-to-mathematical-monospace">To Monospace</button>
+        <button class="btn" id="btn-to-fullwidth-unicode">To Fullwidth Unicode</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Lodash&hellip;</legend>
+      <div class="fieldset-content">
+        <div class="input-row lodash-each-line-radio-input-row">
+          <input class="lodash-each-line-radio" type="radio" checked="checked" name="lodash-radio-group"
+            id="lodash-each-line-radio" />
+          <label class="lodash-each-line-label" for="lodash-each-line-radio">Each line</label>
+        </div>
+        <div class="input-row lodash-whole-document-radio-input-row">
+          <input class="lodash-whole-document-radio" type="radio" name="lodash-radio-group"
+            id="lodash-whole-document-radio" />
+          <label class="lodash-each-line-label" for="lodash-whole-document-radio">Whole document</label>
+        </div>
+        <button class="btn" id="btn-lodash-camelcase">_.camelCase</button>
+        <button class="btn" id="btn-lodash-capitalize">_.capitalize</button>
+        <button class="btn" id="btn-lodash-deburr">_.deburr (Remove accents)</button>
+        <button class="btn" id="btn-lodash-escape">_.escape</button>
+        <button class="btn" id="btn-lodash-escapeRegExp">_.escapeRegExp</button>
+        <button class="btn" id="btn-lodash-kebabCase">_.kebabCase</button>
+        <button class="btn" id="btn-lodash-lowerCase">_.lowerCase</button>
+        <button class="btn" id="btn-lodash-lowerFirst">_.lowerFirst</button>
+        <button class="btn" id="btn-lodash-snakeCase">_.snakeCase</button>
+        <button class="btn" id="btn-lodash-startCase">_.startCase</button>
+        <button class="btn" id="btn-lodash-trim">_.trim</button>
+        <button class="btn" id="btn-lodash-unescape">_.unescape</button>
+        <button class="btn" id="btn-lodash-upperCase">_.upperCase</button>
+        <button class="btn" id="btn-lodash-upperFirst">_.upperFirst</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Voca&hellip;</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-voca-escapeHtml">v.escapeHtml</button>
+        <button class="btn" id="btn-voca-escapeRegExp">v.escapeRegExp</button>
+        <button class="btn" id="btn-voca-unescapeHtml">v.unescapeHtml</button>
+        <button class="btn" id="btn-voca-slugify">v.slugify</button>
+        <button class="btn" id="btn-voca-stripTags">v.stripTags</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Indentation</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-indentation-tabs-to-two-spaces">Tabs to 2 spaces</button>
+        <button class="btn" id="btn-indentation-tabs-to-four-spaces">Tabs to 4 spaces</button>
+        <button class="btn" id="btn-indentation-four-spaces-to-two-spaces">4 spaces to 2 spaces</button>
+        <button class="btn" id="btn-indentation-four-spaces-to-tabs">4 spaces to tabs</button>
+        <button class="btn" id="btn-indentation-two-spaces-to-four-spaces">2 spaces to 4 spaces</button>
+        <button class="btn" id="btn-indentation-two-spaces-to-tabs">2 spaces to tabs</button>
+        <button class="btn" id="btn-indent-one-space">Indent by 1 space</button>
+        <button class="btn" id="btn-indent-two-spaces">Indent by 2 spaces</button>
+        <button class="btn" id="btn-indent-four-spaces">Indent by 4 spaces</button>
+        <button class="btn" id="btn-indent-tab">Indent by 1 tab</button>
+        <button class="btn" id="btn-unindent-one-space">Unindent by 1 space</button>
+        <button class="btn" id="btn-unindent-two-spaces">Unindent by 2 spaces</button>
+        <button class="btn" id="btn-unindent-four-spaces">Unindent by 4 spaces</button>
+        <button class="btn" id="btn-unindent-tab">Unindent by 1 tab</button>
+        <button class="btn" id="btn-remove-all-indentation">Remove all indentation</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Beautify&hellip;</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-beautify-html">Beautify HTML</button>
+        <button class="btn" id="btn-beautify-css">Beautify CSS</button>
+        <button class="btn" id="btn-beautify-js">Beautify JS</button>
+        <button class="btn" id="btn-beautify-json">Beautify JSON</button>
+        <button class="btn" id="btn-beautify-xml">Beautify XML</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Minify/Uglify&hellip;</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-minify-css">Minify CSS</button>
+        <button class="btn" id="btn-uglify-js" disabled="disabled">Minify JS</button>
+        <button class="btn" id="btn-uglify-json">Minify JSON</button>
+        <button class="btn" id="btn-uglify-xml">Minify XML</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Obfuscate&hellip;</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-obfuscate-js-compact-false">Obfuscate JS</button>
+        <button class="btn" id="btn-obfuscate-js-compact-true">Obfuscate JS (Compact)</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Markdown&hellip;</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-markdown-to-html">Convert to HTML</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Validate&hellip;</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-validate-xml">XML</button>
+        <button class="btn" id="btn-validate-json">JSON</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Console&hellip;</legend>
+      <div class="fieldset-content">
+        <button class="btn" id="btn-console-log-text">.log(text)</button>
+        <button class="btn" id="btn-console-log-eval">.log(eval(text))</button>
+        <button class="btn" id="btn-console-log-json">.log(JSON Object)</button>
+        <button class="btn" id="btn-console-table-json">.table(Simple JSON Object)</button>
+        <button class="btn" id="btn-console-dirxml">.dirxml(DOM Element)</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Sanity.io&hellip;</legend>
+      <div class="fieldset-content">
+        <p class="sanity-project-id">Project ID</p>
+        <input class="sanity-project-id-value" type="text" value="x2kykd0r" id="sanity-project-id-value" />
+        <p class="sanity-dataset">Dataset</p>
+        <input class="sanity-dataset-value" type="text" value="production" id="sanity-dataset-value" />
+        <button class="btn" id="btn-sanity-groq">Run GROQ query</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>External tools&hellip;</legend>
+      <div class="fieldset-content">
+        <h3>Online ____ Tools</h3><a class="btn" href="https://onlinecsvtools.com" target="_blank">Online CSV
+          Tools</a><a class="btn" href="https://onlinetsvtools.com" target="_blank">Online TSV Tools</a><a class="btn"
+          href="https://onlinejsontools.com" target="_blank">Online JSON Tools</a><a class="btn"
+          href="https://onlineyamltools.com" target="_blank">Online YAML Tools</a><a class="btn"
+          href="https://onlinexmltools.com" target="_blank">Online XML Tools</a><a class="btn"
+          href="https://onlinemathtools.com" target="_blank">Online MATH Tools</a><a class="btn"
+          href="https://onlinenumbertools.com" target="_blank">Online NUMBER Tools</a><a class="btn"
+          href="https://onlineasciitools.com" target="_blank">Online ASCII Tools</a><a class="btn"
+          href="https://onlineutf8tools.com" target="_blank">Online UTF8 Tools</a><a class="btn"
+          href="https://onlinebinarytools.com" target="_blank">Online BINARY Tools</a><a class="btn"
+          href="https://onlinehextools.com" target="_blank">Online HEX Tools</a><a class="btn"
+          href="https://onlinetexttools.com" target="_blank">Online TEXT Tools</a><a class="btn"
+          href="https://onlinestringtools.com" target="_blank">Online STRING Tools</a><a class="btn"
+          href="https://onlinerandomtools.com" target="_blank">Online RANDOM Tools</a><a class="btn"
+          href="https://onlineimagetools.com" target="_blank">Online IMAGE Tools</a><a class="btn"
+          href="https://onlinejpgtools.com" target="_blank">Online JPG Tools</a><a class="btn"
+          href="https://onlinepngtools.com" target="_blank">Online PNG Tools</a><a class="btn"
+          href="https://onlinefractaltools.com" target="_blank">Online FRACTAL Tools</a>
+        <h3>extraconversion.com</h3><a class="btn" href="http://extraconversion.com/acceleration"
+          target="_blank">Acceleration</a><a class="btn" href="http://extraconversion.com/angle"
+          target="_blank">Angle</a><a class="btn" href="http://extraconversion.com/area" target="_blank">Area</a><a
+          class="btn" href="http://extraconversion.com/base-number" target="_blank">Base Number</a><a class="btn"
+          href="http://extraconversion.com/data-storage" target="_blank">Data Storage</a><a class="btn"
+          href="http://extraconversion.com/density" target="_blank">Density</a><a class="btn"
+          href="http://extraconversion.com/energy" target="_blank">Energy</a><a class="btn"
+          href="http://extraconversion.com/force" target="_blank">Force</a><a class="btn"
+          href="http://extraconversion.com/frequency" target="_blank">Frequency</a><a class="btn"
+          href="http://extraconversion.com/length" target="_blank">Length</a><a class="btn"
+          href="http://extraconversion.com/power" target="_blank">Power</a><a class="btn"
+          href="http://extraconversion.com/pressure" target="_blank">Pressure</a><a class="btn"
+          href="http://extraconversion.com/speed" target="_blank">Speed</a><a class="btn"
+          href="http://extraconversion.com/temperature" target="_blank">Temperature</a><a class="btn"
+          href="http://extraconversion.com/time" target="_blank">Time</a><a class="btn"
+          href="http://extraconversion.com/torque" target="_blank">Torque</a><a class="btn"
+          href="http://extraconversion.com/volume" target="_blank">Volume</a><a class="btn"
+          href="http://extraconversion.com/weight" target="_blank">Weight</a>
+        <h3>RapidTables</h3><a class="btn" href="https://www.rapidtables.com/code/text/alt-codes.html"
+          target="_blank">ALT codes for windows</a><a class="btn"
+          href="https://www.rapidtables.com/code/text/ascii-table.html" target="_blank">ASCII Table</a><a class="btn"
+          href="https://www.rapidtables.com/code/text/unicode-characters.html" target="_blank">Unicode characters
+          table</a><a class="btn" href="https://www.rapidtables.com/web/html/html-codes.html" target="_blank">HTML
+          character codes</a><a class="btn"
+          href="https://www.rapidtables.com/convert/number/ascii-hex-bin-dec-converter.html"
+          target="_blank">ASCII,Hex,Binary,Decimal,Base64 converter</a><a class="btn"
+          href="https://www.rapidtables.com/convert/number/ascii-to-binary.html" target="_blank">Text to Binary
+          Converter</a><a class="btn" href="https://www.rapidtables.com/convert/number/ascii-to-hex.html"
+          target="_blank">ASCII Text to Hex Code Converter</a><a class="btn"
+          href="https://www.rapidtables.com/calc/math/base-calculator.html" target="_blank">Base Calculator</a><a
+          class="btn" href="https://www.rapidtables.com/convert/number/base-converter.html" target="_blank">Base
+          Converter</a><a class="btn" href="https://www.rapidtables.com/convert/number/binary-converter.html"
+          target="_blank">Binary Converter</a><a class="btn"
+          href="https://www.rapidtables.com/convert/number/decimal-to-binary.html" target="_blank">Decimal to Binary
+          converter</a><a class="btn" href="https://www.rapidtables.com/web/color/RGB_Color.html" target="_blank">RGB
+          Color Codes Chart</a><a class="btn" href="https://www.rapidtables.com/web/css/css-color.html"
+          target="_blank">CSS color codes</a><a class="btn" href="https://www.rapidtables.com/convert/color/index.html"
+          target="_blank">Color conversion</a><a class="btn"
+          href="https://www.rapidtables.com/web/tools/base64-decode.html" target="_blank">Decode from Base64</a><a
+          class="btn" href="https://www.rapidtables.com/web/tools/base64-encode.html" target="_blank">Encode to
+          Base64</a><a class="btn" href="https://www.rapidtables.com/web/tools/image-to-base64.html"
+          target="_blank">Image to Base64 Encode</a><a class="btn"
+          href="https://www.rapidtables.com/web/tools/base64-to-image.html" target="_blank">Base64 to Image Decode</a><a
+          class="btn" href="https://www.rapidtables.com/web/tools/html-table-generator.html" target="_blank">HTML Table
+          Generator</a><a class="btn" href="https://www.rapidtables.com/web/tools/svg-viewer-editor.html"
+          target="_blank">SVG viewer/editor</a><a class="btn"
+          href="https://www.rapidtables.com/web/tools/url-encoder.html" target="_blank">URL Encoder</a><a class="btn"
+          href="https://www.rapidtables.com/web/tools/url-decoder.html" target="_blank">URL Decoder</a><a class="btn"
+          href="https://www.rapidtables.com/convert/image/index.html" target="_blank">Image converters</a><a class="btn"
+          href="https://www.rapidtables.com/text/ocr.html" target="_blank">OCR - Image to Text</a>
+        <h3>Regular Expression Tools</h3><a class="btn" href="http://regexstorm.net/tester" target="_blank">Regex
+          Storm</a><a class="btn" href="https://regexr.com/" target="_blank">RegExr</a><a class="btn"
+          href="https://regex101.com/" target="_blank">Regex101</a><a class="btn" href="https://www.regextester.com/"
+          target="_blank">RegEx Testing (Dan&rsquo;s Tools)</a><a class="btn" href="https://regexone.com/"
+          target="_blank">RegexOne</a>
+      </div>
+    </fieldset>
+    <fieldset class="general-fieldset">
+      <legend>General</legend>
+      <div class="fieldset-content general-fieldset-content">
+        <button class="btn" id="btn-clear-textarea-2">Clear text</button>
+        <button class="btn" id="btn-collapse-panels-2">Collapse panels</button>
+        <button class="btn" id="btn-expand-panels-2">Expand panels</button>
+        <button class="btn" id="btn-jump-to-top-of-control-panel">&#x25B2; Jump to top &#x25B2;</button>
+      </div>
+    </fieldset>
+  </aside>
+  <!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/9487/showdown.min.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/9487/mor.min.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/9487/unibabel.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/9487/spark-md5.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/9487/clipboard.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js'></script>
+  <script src='https://cdn.rawgit.com/mathiasbynens/he/670991a4/he.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/9487/voca.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/utf8/3.0.0/utf8.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/strman/1.3.1/strman.js'></script>
+  <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
+  <script src='https://jquerypp.com/release/latest/jquerypp.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/9487/holder-ipsum.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/9487/punycode-client-side.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/9487/rot.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/9487/chance.min.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/9487/date_fns.min.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/9487/jquery.tabletojson.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/9487/FileSaver.min.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/9487/vkbeautify.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/json2csv'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/clientside-haml-js/5.4/haml.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/esprima/2.7.3/esprima.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.13.1/js-yaml.min.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/9487/papaparse.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/javascript-obfuscator/dist/index.browser.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/9487/unicodeNamesLookupTable.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/jsonpath@1.0.2/jsonpath.min.js'></script>
+  <script src='https://codepen.io/adrianparr/pen/eeb3f57c889eb9b902055db69821d6dc.js'></script>
+  <script src="./script-string.js"></script>
+</body>
+</html>

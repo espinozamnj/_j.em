@@ -1,0 +1,121 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+body {
+    padding: 18px 20px;
+    background-color: rgb(207, 223, 207);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.top-header .main p {
+    margin-bottom: 20px;
+}
+.top-header {
+    display: flex;
+    justify-content: space-between;
+}
+#voices {
+    padding: 8px 12px;
+    border: 1px solid rgb(20, 85, 20);
+}
+.customize {
+    width: 320px;
+}
+.customize > div {
+    margin-bottom: 12px;
+}
+input[type=range] {
+    -webkit-appearance: none;
+    width: auto;
+    height: 18px;
+    background-color: rgb(93, 126, 42);
+    outline: none;
+    transition: all 0.2s;
+    width: 100%;
+    margin: 0;
+}
+input[type=range]:hover {
+    background-color: rgb(139, 170, 91);
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 22px;
+    background-color: rgb(44, 173, 202);
+    cursor: pointer;
+    border: 1px solid var(--back);
+    transition: all 0.25s
+}
+input[type=range]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    border: none;
+}
+
+
+.botom {
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+}
+.typer {
+    flex: 1;
+    padding: 6px;
+}
+.ctrls {
+    margin-left: 12px;
+    display: flex;
+    flex-direction: column;
+}
+.ctrls button {
+    cursor: pointer;
+    background-color: rgb(31, 94, 57);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 3px;
+    margin-bottom: 9px;
+    border: none;
+    font-size: 13px;
+}
+.ctrls button:hover {
+    color: black;
+    background-color: rgb(62, 184, 62);
+}
+.statics {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.statics div {
+    margin-top: 10px;
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+}
+.statics p {
+    display: flex;
+    margin: 0;
+}
+.statics label {
+    font-weight: bold;
+    margin-left: 8px;
+}
+textarea {
+    font-size: 16px;
+    padding: 8px 12px;
+    width: 100%;
+    min-height: 280px;
+    resize: vertical;
+    min-width: 100%;
+    max-width: 100%;
+}
+textarea::selection {
+    background-color: rgb(102, 189, 127);
+}
+textarea:focus {
+    outline: none;
+    box-shadow: 0px 0px 1px 5px rgba(0, 225, 126, 0.35);
+}
