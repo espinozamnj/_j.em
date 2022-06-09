@@ -15,13 +15,15 @@ body {
     margin: 0;
     overflow: hidden;
 }
-/*
 .mouse-cursor {
     position: fixed;
     left: 0;
     top: 0;
     pointer-events: none;
     border-radius: 50%;
+}
+.mouse-cursor.hidden {
+    display: none;
 }
 .cursor-outer {
     margin-left: -15px;
@@ -48,12 +50,14 @@ body {
         transform: rotate(360deg);
     }
 }
-*/
+
 .root {
     width: 100%;
     position: relative;
     background-color: black;
     height: 100vh;
+    min-height: -webkit-fill-available;
+    max-height: -webkit-fill-available;
 }
 *::selection {
     background-color: transparent;
@@ -75,6 +79,13 @@ body {
     align-items: center;
     margin-bottom: 4em;
 }
+@media (orientation: portrait) {
+    .main {
+        padding: 10vh 0 100px 0;
+        justify-content: center;
+    }
+}
+
 .animation.opacity-an {
     position: relative;
     z-index: 1;
