@@ -36,8 +36,8 @@ const __apps__ = [
     {name: 'Reference', fav: 'reference', url: '@off/tasks', sec: false},
     {name: 'video view', fav: 'player', url: '@off/mp4', sec: false},
     {name: 'Wait room', fav: 'wait-room', url: '@off/mp4/wait.html', sec: false},
-    {name: 'Black screen', fav: 'wait-room', url: '@off/mp4/wait.html', sec: false},
+    {name: 'Black screen', fav: 'wait-room', url: '@off/mp4/infinity.html', sec: false},
     {name: 'Tech Apps', fav: 'tech', url: '@links/tech', sec: false},
-    {name: 'Nihan', fav: 'nihan', url: 'https://v-etoski.web.app/nihan/', sec: false},
-    {name: 'Music', fav: 'music', url: 'https://spain-bash.github.io/music-private/', sec: true},
+    {name: 'Nihan', fav: 'nihan', url: 'https://espinozamnj.github.io/nihan/', sec: false},
+    {name: 'Music', fav: 'music', url: 'https://espinozamnj.github.io/music-private/', sec: true},
 ]
