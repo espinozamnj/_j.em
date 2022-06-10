@@ -362,7 +362,7 @@
                         h.r.innerText += '\n     /|\n    / |\n   /__|___\n  |       |\n  |       |\n  |       |  \\  Leaving ... \\\n  |       +\n  |       |\n  |_______| '
                         setTimeout(function(){
                             // dir_project
-                            location.replace(location.origin + '/_j.em')
+                            location.replace(location.origin + '/_j.em?exit_window')
                         }, 2e3)
                     } else {
                         h.r = el(h.m, 'div', [['class','t-pre']])

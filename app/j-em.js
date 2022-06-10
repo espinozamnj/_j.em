@@ -1,6 +1,9 @@
 if (location.search == '?pwa') {
     location.href = 'links?start'
 }
+if (location.search == '?exit_window') {
+    window.close()
+}
 window.addEventListener('load', function(e) {
     let d_ = {
         c: [],
