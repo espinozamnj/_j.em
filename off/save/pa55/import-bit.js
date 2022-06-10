@@ -30,13 +30,7 @@ xmlhttp.send()
 
 function makeTextFile(text) {
     let textFile = null
-    let fileTxt = new Blob(
-        [text],
-        {
-            type:'text/plain'
-        }
-    )
-
+    let fileTxt = new Blob([text], {type:'text/plain'})
     if (window.webkitURL != null) {
         textFile = window.webkitURL.createObjectURL(fileTxt)
     } else {
@@ -44,32 +38,28 @@ function makeTextFile(text) {
     }
     return textFile
 }
-function fexport(button, clck, text) {
-    let fname, downA, codeNote
-    fname = 'data-pa55.js'
-    /* ***************************** */
-    codeNote = text
-    /* ***************************** */
-    if (button == '') {
-        downA = document.createElement('a')
-        downA.innerHTML = 'Download File'
-        downA.style.display = 'none'
-        downA.addEventListener(
-            'click',
-            function(event){
-                event.target.parentNode.removeChild(event.target)
-            }
-        )
-        document.body.appendChild(downA)
-    } else {
-        downA = document.querySelector(button)
-    }
-    downA.href = makeTextFile(codeNote)
-    downA.download = fname
-
-    /* ***************************** */
+function fexport(button, clck, string_data) {
+    let downA = document.querySelector(button)
+    downA.href = makeTextFile(string_data)
+    downA.download = 'data-pa55.js'
     clck ? downA.click() : console.log('click for download')
 }
+document.getElementById('strings-import').addEventListener('click', function(){
+    let text = document.getElementById('string-data').value
+    function isJson(str) {
+        try {
+            JSON.parse(str);
+        } catch (e) {
+            return false;
+        }
+        return true;
+    }
+    if (isJson(text)) {
+        gg = JSON.parse(text)
+    } else {
+        alert('string is not JSON')
+    }
+})
 document.getElementById('but').addEventListener('click',function(){
     let rti = []
     let pasw = []

@@ -4,31 +4,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" href="/_cdn_/favs/hash.192.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="app-pa55.css"> -->
+    <link rel="stylesheet" href="import-bit.css">
     <script src="my_crypt.js"></script>
     <script src="/_cdn_/rm-wbha.js"></script>
     <title>pa55</title>
-    <style>*{box-sizing: border-box;font-family: monospace;}body{margin:0px;padding:12px;background-color: rgb(77, 77, 77);color: rgb(82, 82, 82);}#ret{padding:8px 14px;white-space: pre;width:100%;overflow: scroll;height:80vh;border:4px solid rgb(65,65,65);margin-top: 25px;}#ret.color{color:white;}#ret::selection{background:rgb(200,200,200)}#but,#pas,#tog,.down{margin-right:10px;border: 4px solid rgb(165,165,165);cursor:pointer;padding: 6px 10px;background-color:rgb(90,90,90);color:white;user-select: none;text-decoration: none;}</style>
 </head>
 <body>
     <div class="root">
         <div class="app">
             <main>
-                <input type="password" id="pas" placeholder="561234">
-                <button id="but">Generate</button>
-                <button id="tog">Toggle</button>
-                <a href="" class="down">Download</a>
+                <div class="options">
+                    <input type="password" id="pas" placeholder="561234">
+                    <button id="but">Generate</button>
+                    <button id="tog">Toggle</button>
+                    <a href="" class="down">Download</a>
+                </div>
+                <div class="input">
+                    <textarea id="string-data" spellcheck="false"></textarea>
+                    <button id="strings-import">Import</div>
+                </div>
                 <div id="ret"></div>
             </main>
         </div>
         <div class="sjs">
-            <script>
-                window.onload = function(){
-                    let s = document.createElement("script")
-                    s.src = 'import-bit.js'
-                    document.getElementsByClassName("sjs")[0].appendChild(s)
-                }
-            </script>
+            <script src="import-bit.js"></script>
         </div>
     </div>
 </body>
