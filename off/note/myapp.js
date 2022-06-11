@@ -1,4 +1,4 @@
-var emb = function(){}
+var emb = function() {}
 window.addEventListener('load',function(){
     function d(x){
         let i = document.getElementById(x)
@@ -81,10 +81,10 @@ window.addEventListener('load',function(){
             }
         } else {}
     }
-    if(window.location.href.includes('test')){
+    if (window.location.href.includes('test')){
         document.querySelector('#mus').src = 'https://sys.test/play/'
     } else {
-        document.querySelector('#mus').src = 'https://spain-bash.github.io/music-private/'
+        document.querySelector('#mus').src = 'https://espinozamnj.github.io/music-private/'
     }
     emb('n')
 })

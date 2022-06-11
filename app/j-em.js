@@ -125,6 +125,7 @@ window.addEventListener('load', function(e) {
                     emt.innerText = 'cs'
                     exp.value = '10m'
                 }
+                d_.exp = exp.value
             }],
             ['input,<,text,exp', function (event) {
                 setTimeout(function(){
