@@ -117,7 +117,7 @@ window.addEventListener('load', function(e) {
     setTimeout(function(){
         let bt = [
             ['cs', function(emt) {
-                let exp = others.children[0]
+                let exp = others.children[1].children[0]
                 if (emt.innerText == 'cs') {
                     emt.innerText = 'ss'
                     exp.value = '30'
