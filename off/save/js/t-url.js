@@ -1,5 +1,5 @@
 // \xa0
-let ___myDom = location.origin.includes('test') ? jso = 'https://panda.test/' : jso = 'https://v-etoski.web.app/'
+let ___myDom = location.origin.includes('test') ? jso = 'https://locked.test/' : jso = 'https://espinozamnj.github.io/'
 function __i_() {
   let ia = document.createElement('script');
   // dir_project
