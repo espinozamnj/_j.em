@@ -7,7 +7,8 @@ if (location.search == '?exit_window') {
 window.addEventListener('load', function(e) {
     let d_ = {
         c: [],
-        ss: ''
+        ss: '',
+        exp: ''
     }
     d_.tm = new Date()
     function toD(nt) {
@@ -58,18 +59,19 @@ window.addEventListener('load', function(e) {
                 })
             }
         } else if (i == nm) {
-            b.innerText = 'cs'
-            d_.ss = b
-            b.addEventListener('click', function (et) {
-                let _e = et.target
-                if (_e.innerText == 'cs') {
-                    _e.innerText = 'ss'
+            b.innerText = '+'
+            b.addEventListener('click', function () {
+                let ot = document.getElementById('opts')
+                if (ot.classList.contains('visible')) {
+                    ot.classList.remove('visible')
+                    b.innerText = '+'
                 } else {
-                    _e.innerText = 'cs'
+                    ot.classList.add('visible')
+                    b.innerText = '-'
                 }
             })
         } else {
-            b.innerText = 'send'
+            b.innerText = '='
             b.classList.add('log')
             b.addEventListener('click', function () {
                 let s = '',
@@ -88,9 +90,10 @@ window.addEventListener('load', function(e) {
                     getVideoCardInfo()
                 ]
                 _h_.tempMarkDate = new Date(d_.tm).getTime() / 1000
+                _h_.expired = d_.exp
                 _h_.key = s
                 console.log(_h_)
-                localStorage.setItem('sett', __cEn('123456',JSON.stringify(_h_)))
+                localStorage.setItem('sett', __cEn('123456', JSON.stringify(_h_)))
                 setTimeout(function(){
                     if (location.href.includes('?')) {
                         let to = location.search
@@ -108,38 +111,63 @@ window.addEventListener('load', function(e) {
         d.appendChild(b)
         i += 1
     }
+    let others = document.createElement('div')
+    others.classList.add('bt')
+    others.id = 'opts'
     setTimeout(function(){
         let bt = [
+            ['cs', function(emt) {
+                if (emt.innerText == 'cs') {
+                    emt.innerText = 'ss'
+                } else {
+                    emt.innerText = 'cs'
+                }
+            }],
+            ['input,<,text,exp', function (event) {
+                d_.exp = event.target.value
+            }],
+            ['x', function() {
+                localStorage.removeItem('sett')
+                location.reload()
+            }],
             ['#', function() {
                 location.replace('./links')
             }],
             ['::', function() {
                 location.replace('./off')
-            }]
-        ]
-        bt.forEach((b) => {
-          let a = document.getElementsByClassName('bt')[0].appendChild(document.createElement('a'))
-          a.innerText = b[0]
-          a.classList.add('btn-s')
-          a.addEventListener('click', function() {
-                b[1]()
-            })
-        })
-        setTimeout(function() {
-            let a = document.getElementsByClassName('bt')[0].appendChild(document.createElement('a'))
-            let i = a.appendChild(document.createElement('input'))
-            i.setAttribute('placeholder','#')
-            i.setAttribute('type','password')
-            a.classList.add('btn-s')
-            i.classList.add('ipt-log')
-            i.addEventListener('keydown',function(e) {
-                if (e.which == 13) {
-                    d_.c = i.value.split('')
+            }],
+            ['input,#,password', function (event) {
+                if (event.which == 13 || event.code == 'Enter') {
+                    d_.c = event.target.value.split('')
                     setTimeout(function() {
                         document.getElementsByClassName('log')[0].click()
                     }, 2e2)
                 }
-            })
-        }, 1)
+            }],
+        ]
+        bt.forEach((b) => {
+            if (b[0].includes('input,')) {
+                let a = others.appendChild(document.createElement('a'))
+                let i = a.appendChild(document.createElement('input'))
+                let pro = b[0].split(',')
+                i.setAttribute('placeholder', pro[1])
+                i.setAttribute('type', pro[2])
+                a.className = 'btn-s ipt'
+                pro.length == 4 && (i.id = pro[3])
+                i.classList.add('ipt-log')
+                i.addEventListener('keydown',function(e) {
+                    b[1](e)
+                })
+            } else {
+                let a = others.appendChild(document.createElement('a'))
+                a.innerText = b[0]
+                a.classList.add('btn-s')
+                a.addEventListener('click', function() {
+                    b[1](a)
+                })
+            }
+        })
+        d_.ss = others.firstChild
     }, 1)
+    d.parentElement.appendChild(others)
 })

@@ -14,8 +14,9 @@ function adjust(){
         qS('.ct').style.right = '0px'
     }
 }
-
+adjust()
 setTimeout(function () {
+    adjust()
     let isHidden = false, tiof = 0
     String.prototype.ct = function () {
         let s = this,
@@ -137,7 +138,6 @@ setTimeout(function () {
             target.srcElement.classList.remove('view')
         }
     )
-    adjust()
     qS('.mood').addEventListener('click', function(e) {
         let p = document.body, m = 'ngt'
         if (p.className.includes(m)) {
@@ -158,7 +158,10 @@ setTimeout(function () {
             localStorage.setItem('mood-ngt', 'false')
         }
     }
-}, 2e2)
+}, 5e2)
+setTimeout(function(){
+    adjust()
+}, 1e3)
 window.onresize = function(){
     adjust()
 }

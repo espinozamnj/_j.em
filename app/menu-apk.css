@@ -13,7 +13,7 @@ body {
     margin: 0;
 }
 .list {
-    padding-bottom: 4.4rem;
+    padding-bottom: 0.4rem;
 }
 .list .pic {
     width: 1.13rem;
@@ -98,6 +98,10 @@ body {
     border-width: 2px;
     border-style: solid;
     border-color: transparent;
+}
+.list .uri.hidden {
+    visibility: hidden;
+    opacity: 0;
 }
 .list .uri .nam {
     z-index: 2;

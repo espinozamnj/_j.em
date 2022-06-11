@@ -16,18 +16,13 @@ window.addEventListener('load', function (){
     _h = loc.protocol + '//' + xw(loc.href) + '/'
     _s.addEventListener('click',function(ev){
         if (ev.target.textContent.includes('%')) {
-            loc.replace(loc.origin + loc.pathname)
+            open('#self', '_self')
         } else {
-            loc.replace(loc.origin + loc.pathname + '?s=#')
+            open('#new', '_self')
         }
     })
     
-    let isInIframe = (parent !== window)
-    let parentUrl = null
-    if (isInIframe) {
-        parentUrl = document.referrer
-        // console.log('ll: ' + ll)
-    } else {
+    if (parent !== window) {
         console.log('Welcome to init app')
     }
     
@@ -54,7 +49,7 @@ window.addEventListener('load', function (){
             function(event) {
                 let ev = event
                 ev.preventDefault()
-                if (loc.href.includes('#')) {
+                if (loc.hash == '#new') {
                     window.open(u, '_blank')
                 } else {
                     window.open(u, '_top')
@@ -68,10 +63,32 @@ window.addEventListener('load', function (){
         w.appendChild(e)
         i++
     }
-    
-    if (loc.href.includes('#')) {
-        _s.innerText = '%new tab'
-    } else {
-        _s.innerText = 'this tab'
+    let add_fake_apps = 8
+    while (add_fake_apps--) {
+        let a = document.createElement('a')
+        a.className = 'uri hidden'
+        document.querySelector('.list').appendChild(a)
     }
+    function verifyScroll() {
+        let v_scroll = sessionStorage.getItem('scroll-app')
+        if (!!v_scroll) {
+            document.documentElement.scrollTop = Number(v_scroll)
+        }
+    }
+    verifyScroll()
+    window.addEventListener('scroll', function(){
+        sessionStorage.setItem('scroll-app', document.documentElement.scrollTop)
+    })
+    function verifyHash() {
+        if (loc.hash == '#new') {
+            _s.innerText = '%new tab'
+        } else {
+            _s.innerText = 'this tab'
+        }
+    }
+    window.addEventListener('hashchange', function (){
+        verifyHash()
+        verifyScroll()
+    })
+    verifyHash()
 })

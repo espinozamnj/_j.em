@@ -25,7 +25,7 @@ setTimeout(
         let lad = eS('.load')
         lad.parentNode.removeChild(lad)
       }
-    }, 1e2)
+    }, 5e2)
     let bki = 0,
       tchi = 0
       cij = eS('#jsn')

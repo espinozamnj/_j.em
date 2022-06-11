@@ -1,14 +1,13 @@
 * {
-  background-color: rgb(68, 68, 68);
   color: white;
   font-size: 14px;
   font-family: 'Courier New', Courier, monospace;
 }
 body {
+  background-color: rgb(68, 68, 68);
   padding: 10px;
   margin: 0;
 }
-
 #body {
   position: relative;
 }

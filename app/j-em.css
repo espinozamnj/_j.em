@@ -8,19 +8,19 @@ body {
     margin: 0 auto;
     max-width: 650px;
     background-color: rgb(245, 245, 245);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100vh;
+    max-height: -webkit-fill-available;
+    min-inline-size: -webkit-fill-available;
+    padding-top: 10vh;
 }
 .app {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    padding: 0px 9px;
     width: 100%;
-    margin: auto;
     max-width: 333px;
     user-select: none;
     border-radius: 8px;
-    background-color: transparent;
 }
 @media screen and (min-width: 400px) {
     .app {
@@ -28,6 +28,12 @@ body {
         box-shadow: 0px 3px 7px 0px rgb(0 0 0 / 40%), 0px 3px 18px 7px rgb(0 0 0 / 9%);
         background-color: white;
         border: 1px solid rgb(148, 148, 148)
+    }
+}
+@media screen and (max-width: 400px) {
+    .app {
+        padding: 0px 9px;
+        background-color: transparent;
     }
 }
 #clock {
@@ -40,19 +46,31 @@ body {
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+#opts {
+    margin-top: 12px;
+    height: 0px;
+    overflow: hidden;
+    transition-property: all;
+    transition-duration: 0.4s;
+    align-content: flex-start;
+}
+#opts.visible {
+    height: 80px;
+}
 .btn-s {
     cursor: pointer;
     padding: 6px 14px;
     background-color: rgb(218, 218, 218);
     margin: 4px;
     width: 30%;
+    height: 28px;
     text-align: center;
     font-size: 13px;
 }
 .btn-s:hover {
     background-color: rgb(198, 198, 198);
 }
-.btn-s:last-child {
+.btn-s.ipt {
     padding: 0;
 }
 .ipt-log {
