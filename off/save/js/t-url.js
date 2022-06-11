@@ -1,9 +1,9 @@
 // \xa0
 let ___myDom = location.origin.includes('test') ? jso = 'https://locked.test/' : jso = 'https://espinozamnj.github.io/'
 function __i_() {
-  let ia = document.createElement('script');
+  let ia = document.createElement('script')
   // dir_project
-  ia.src=___myDom+'_j.em/off/save/js/import-addons.js';
+  ia.src = ___myDom + '_j.em/off/save/js/import-addons.js'
   document.head.appendChild(ia)
 }
 let _bkl_ = [
