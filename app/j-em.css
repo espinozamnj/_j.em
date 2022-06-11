@@ -66,6 +66,9 @@ body {
     height: 28px;
     text-align: center;
     font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .btn-s:hover {
     background-color: rgb(198, 198, 198);

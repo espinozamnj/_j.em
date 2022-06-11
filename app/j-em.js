@@ -124,7 +124,9 @@ window.addEventListener('load', function(e) {
                 }
             }],
             ['input,<,text,exp', function (event) {
-                d_.exp = event.target.value
+                setTimeout(function(){
+                    d_.exp = event.target.value
+                }, 1e2)
             }],
             ['x', function() {
                 localStorage.removeItem('sett')
