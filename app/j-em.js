@@ -117,10 +117,13 @@ window.addEventListener('load', function(e) {
     setTimeout(function(){
         let bt = [
             ['cs', function(emt) {
+                let exp = others.children[0]
                 if (emt.innerText == 'cs') {
                     emt.innerText = 'ss'
+                    exp.value = '30'
                 } else {
                     emt.innerText = 'cs'
+                    exp.value = '10m'
                 }
             }],
             ['input,<,text,exp', function (event) {
