@@ -94,3 +94,12 @@ body {
     border: 0px solid #c5c5c5;
     background-color: white;
 }
+.error-log {
+    padding: 6px 10px;
+    font-size: 13px;
+    color:rgb(158, 158, 158);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 6px;
+}

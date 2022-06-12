@@ -85,7 +85,7 @@ window.addEventListener('load', function(e) {
                     sessionStorage.setItem('__app-log','0')
                 }
                 _h_.guid = [
-                    navigator.appVersion,
+                    navigator.userAgent,
                     navigator.deviceMemory,
                     getVideoCardInfo()
                 ]
@@ -176,4 +176,11 @@ window.addEventListener('load', function(e) {
         d_.ss = others.firstChild
     }, 1)
     d.parentElement.appendChild(others)
+    let errorLogin = sessionStorage.getItem('error-login')
+    if (errorLogin) {
+        let err = document.createElement('div')
+        err.className = 'error-log'
+        err.innerText = errorLogin
+        document.body.appendChild(err)
+    }
 })

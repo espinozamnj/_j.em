@@ -849,7 +849,8 @@ setTimeout(
       install_pwa_btn.innerHTML = '<img src="./bookmaps/install-icon.svg">'
       install_pwa_btn.classList.add('pwa-install')
       install_pwa_btn.title = 'Install PWA'
-      eS('.nav').appendChild(install_pwa_btn)
+      let na = eS('.nav')
+      na && na.appendChild(install_pwa_btn)
     })()
     let g_S = location.href.split('?')
     if (g_S.length > 1) {

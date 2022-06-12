@@ -162,6 +162,9 @@ setTimeout(function () {
 setTimeout(function(){
     adjust()
 }, 1e3)
+setTimeout(function(){
+    adjust()
+}, 2e3)
 window.onresize = function(){
     adjust()
 }
