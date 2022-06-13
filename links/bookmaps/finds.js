@@ -82,7 +82,7 @@ let ss = {
         {
             "name": "Nihan",
             "path": "nh",
-            "url": "https://v-etoski.web.app/nihan?s=%s"
+            "url": "https://espinozamnj.github.io/nihan?s=%s"
         },
         {
             "name": "Define",
