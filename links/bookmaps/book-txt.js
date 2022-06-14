@@ -205,7 +205,7 @@ const sss = [
 {"name":"Conclusion Generator","url":"https://edubirdie.com/conclusion-generator","path":"/lib/Apps/Student Tools/rewrite"},
 {"name":"Reescribe texto","url":"https://smodin.me/es/Reproduzca-autom%C3%A1ticamente-texto-en-espa%C3%B1ol-gratis","path":"/lib/Apps/Student Tools/rewrite"},
 {"name":"Parafrasist | RESUMIDOR DE TEXTOS","url":"https://parafrasist.com/","path":"/lib/Apps/Student Tools/rewrite"},
-{"name":"Parafrasist | RESUMIDOR DE TEXTOS","url":"https://smmry.com/","path":"/lib/Apps/Student Tools/rewrite"},
+{"name":"Smmry | Resumir textos o páginas web","url":"https://smmry.com/","path":"/lib/Apps/Student Tools/rewrite"},
 {"name":"Paraphrasing tool | Prepostseo","url":"https://www.prepostseo.com/paraphrasing-tool","path":"/lib/Apps/Student Tools/rewrite"},
 {"name":"Article rewriter | Prepostseo","url":"https://www.prepostseo.com/article-rewriter","path":"/lib/Apps/Student Tools/rewrite"},
 {"name":"rytr.me | best AI writing","url":"https://rytr.me/","path":"/lib/Apps/Student Tools/rewrite"},

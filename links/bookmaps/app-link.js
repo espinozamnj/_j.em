@@ -1,22 +1,21 @@
-function adjust(){
-    let pl = qS('.ak').offsetWidth - 18
-    let pr = qS('.hm').offsetWidth + 18
-    if (pl + pr + 300 < window.innerWidth) {
-        qS('.ct').style.top = ''
-        qS('.ct').style.left = pl + 'px'
-        qS('.ct').style.right = pr + 'px'
-        if (window.innerHeight > 680) {
-            qS('.ct').style.top = (window.innerHeight / 4 * 1) + 'px'
-        }
-    } else {
-        qS('.ct').style.top = 'calc(var(--bar) * 1 + 3px)'
-        qS('.ct').style.left = '0px'
-        qS('.ct').style.right = '0px'
-    }
-}
-adjust()
 setTimeout(function () {
-    adjust()
+    let $ = (d) => {return document.querySelector(d)}
+    function adjust(){
+        let pl = $('.ak').offsetWidth - 18
+        let pr = $('.hm').offsetWidth + 18
+        if (pl + pr + 300 < window.innerWidth) {
+            $('.ct').style.top = ''
+            $('.ct').style.left = pl + 'px'
+            $('.ct').style.right = pr + 'px'
+            if (window.innerHeight > 680) {
+                $('.ct').style.top = (window.innerHeight / 4 * 1) + 'px'
+            }
+        } else {
+            $('.ct').style.top = 'calc(var(--bar) * 1 + 3px)'
+            $('.ct').style.left = '0px'
+            $('.ct').style.right = '0px'
+        }
+    }
     let isHidden = false, tiof = 0
     String.prototype.ct = function () {
         let s = this,
@@ -27,7 +26,7 @@ setTimeout(function () {
     let sh = function () {
         if (tiof === 10) {
             if (isHidden) {
-                let p = qS('.screen')
+                let p = $('.screen')
                 p.className = 'screen -m'
             }
             tiof = 0
@@ -35,10 +34,10 @@ setTimeout(function () {
             tiof += 1
         }
         let t = new Date
-        qS('#c_h').innerText = t.getHours().toString().ct()
-        qS('#c_m').innerText = t.getMinutes().toString().ct()
-        qS('#f_h').innerText = t.getHours().toString().ct()
-        qS('#f_m').innerText = t.getMinutes().toString().ct()
+        $('#c_h').innerText = t.getHours().toString().ct()
+        $('#c_m').innerText = t.getMinutes().toString().ct()
+        $('#f_h').innerText = t.getHours().toString().ct()
+        $('#f_m').innerText = t.getMinutes().toString().ct()
     }
     if (window.top == window.self) {
         setInterval(function(){sh()}, 3e4)
@@ -47,8 +46,8 @@ setTimeout(function () {
     window.addEventListener("visibilitychange", function() {
         document.visibilityState == 'hidden' ? isHidden = true : isHidden = false
     }, false);
-    qS('.root').classList.add('tr-f')
-    qS('.f-close').style.display = 'none'
+    $('.root').classList.add('tr-f')
+    $('.f-close').style.display = 'none'
     let i_ = 0
     while (i_ < ss.acc.length) {
         let i = ss.acc[i_],
@@ -57,10 +56,10 @@ setTimeout(function () {
         a.href = i[1]
         a.innerText = i[0]
         a.classList.add('ak-a')
-        qS('.ak').appendChild(a)
+        $('.ak').appendChild(a)
         i_++
     }
-    qS('.toogle').addEventListener('click', function(e) {
+    $('.toogle').addEventListener('click', function(e) {
         let p = e.target.parentNode
         p.className.includes('-o') ? p.classList.replace('-o', '-m') : p.classList.replace('-m', '-o')
     })
@@ -70,7 +69,7 @@ setTimeout(function () {
         e.href = s[1]
         e.innerText = s[0]
         e.setAttribute('target', '_top')
-        qS('.men').appendChild(e)
+        $('.men').appendChild(e)
     }
     ss.bar.forEach(function(a){
         let s = document.createElement('div')
@@ -78,11 +77,11 @@ setTimeout(function () {
         s.addEventListener('click', function(){
             open(a[1])
         })
-        qS('.href').appendChild(s)
+        $('.href').appendChild(s)
     })
     function pan() {
-        let nv = qS('.nav'),
-        hi = qS('.hm')
+        let nv = $('.nav'),
+        hi = $('.hm')
         if (nv.className.includes('hi')) {
             nv.classList.replace('hi','vi')
             hi.classList.replace('hi','vi')
@@ -91,11 +90,11 @@ setTimeout(function () {
             hi.classList.replace('vi','hi')
         }
     }
-    qS('.pad').addEventListener('click', function(){
-        let p = qS('.screen')
+    $('.pad').addEventListener('click', function(){
+        let p = $('.screen')
         p.className.includes('-m') ? p.classList.remove('-m') : p.classList.add('-m')
     })
-    qS('.pad').addEventListener('contextmenu', function(){
+    $('.pad').addEventListener('contextmenu', function(){
         localStorage.removeItem('last-version-links')
         setTimeout(function(){
             location.replace(location.href)
@@ -104,41 +103,41 @@ setTimeout(function () {
     document.addEventListener('keydown', function (ev) {
         ev = ev || window.event
         if (ev.ctrlKey && ev.keyCode == 32) {
-            qS('.screen').classList.remove('-m')
+            $('.screen').classList.remove('-m')
         }
     })
-    qS('.hm').addEventListener('click', pan)
+    $('.hm').addEventListener('click', pan)
     
-    qS('#srh').addEventListener('click', function(){
-        qS('.f-close').style.display = 'block'
+    $('#srh').addEventListener('click', function(){
+        $('.f-close').style.display = 'block'
         setTimeout(function(){
-            qS('.root').classList.replace('tr-f', 'tr-t')
+            $('.root').classList.replace('tr-f', 'tr-t')
         }, 2e2)
     })
-    qS('#srh').addEventListener('keydown', function(event){
-        if (qS('.f-close').style.display == 'none') {
+    $('#srh').addEventListener('keydown', function(event){
+        if ($('.f-close').style.display == 'none') {
             event.target.click()
         }
     })
-    qS('.f-close').addEventListener('click', function(event){
-        qS('.con-search').className = "con-search l-false"
-        qS('.root').classList.replace('tr-t', 'tr-f')
+    $('.f-close').addEventListener('click', function(event){
+        $('.con-search').className = "con-search l-false"
+        $('.root').classList.replace('tr-t', 'tr-f')
         setTimeout(function(){
             event.target.style.display = 'none'
         }, 2e2)
     })
     document.addEventListener("keydown", function (e) {
-        if (e.keyCode == 69 && document.activeElement !== qS('#srh')) {
+        if (e.keyCode == 69 && document.activeElement !== $('#srh')) {
             pan()
         }
     }, false);
-    qS('#scripter').addEventListener(
+    $('#scripter').addEventListener(
         'contextmenu',
         function(target, event) {
             target.srcElement.classList.remove('view')
         }
     )
-    qS('.mood').addEventListener('click', function(e) {
+    $('.mood').addEventListener('click', function(e) {
         let p = document.body, m = 'ngt'
         if (p.className.includes(m)) {
             p.classList.remove(m)
@@ -153,18 +152,13 @@ setTimeout(function () {
         localStorage.setItem('mood-ngt', 'false')
     } else {
         if (lsN == 'true') {
-            qS('.mood').click()
+            $('.mood').click()
         } else {
             localStorage.setItem('mood-ngt', 'false')
         }
     }
-}, 5e2)
-setTimeout(function(){
     adjust()
-}, 1e3)
-setTimeout(function(){
-    adjust()
-}, 2e3)
-window.onresize = function(){
-    adjust()
-}
+    window.onresize = function(){
+        adjust()
+    }
+}, 3e2)
