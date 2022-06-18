@@ -98,16 +98,16 @@ function() {
         let rf = r.toString().cvtVal()
         $('.i-len-m').innerText = vd.duration.toString().cvtVal()
         $('.i-len-s').innerText = Math.round(vd.duration * 100) / 100
-        $('.i-frm').innerText = Math.round(vd.currentTime * 100) / 100
+        $('.i-frm').innerText = (Math.round(vd.currentTime * 100) / 100).toFixed(2)
         $('.i-res-s').innerText = Math.round(r)
         $('.i-res-m').innerText = rf
         $('.i-min-s').innerText = m
         $('.i-min-m').innerText = m.cvtVal()
-        $('.i-spd').innerText = vd.playbackRate
+        $('.i-spd').innerText = (vd.playbackRate).toFixed(2)
         $('.i-vol').innerText = vol
         $('.i-mute').innerText = vd.muted
         $('.i-siz').innerText = vd.offsetHeight + 'x' + vd.offsetWidth
-    }, 5e2)
+    }, 8e2)
     var addd = 0
     var add_ = 0
     var reverse = false
@@ -180,15 +180,19 @@ function() {
     $('.tim').addEventListener('click', function(){
         if (_exist) {
             let tim = prompt('add currentTime', '')
-            tim = Number(tim)
-            vd.currentTime += tim
+            if (isNaN(tim) && tim != '') {
+                tim = Number(tim)
+                vd.currentTime += tim
+            }
         }
     })
     $('.set').addEventListener('click', function(){
         if (_exist) {
             let tim = prompt('set currentTime', '')
-            tim = tim.cvtTime()
-            vd.currentTime = tim
+            if (isNaN(tim) && tim != '') {
+                tim = tim.cvtTime()
+                vd.currentTime = tim
+            }
         }
     })
     $('.cct').addEventListener('click', function() {
@@ -211,7 +215,7 @@ function() {
         _exist ? vd.currentTime += 1/29 : _exist = _exist
     })
     $('.sped').addEventListener('click', function(){
-        let s = prompt("Speed","1")
+        let s = prompt('Speed', '1')
         s = Number(s)
         if (typeof(s) == 'number' && s > 0) {
             vd.playbackRate = s
@@ -254,7 +258,9 @@ function() {
     })
     $('.wdt').addEventListener('click',function(){
         if (_exist) {
-            let tim = prompt('width of panel tools', '0-100')
+            let det = $('.details')
+            let wdt = det.offsetWidth
+            let tim = prompt('width of panel tools', wdt + '-' + window.innerWidth)
             isNaN(tim) ? alert('set a number') : $('.details').style.width = tim + 'px'
         }    
     })
