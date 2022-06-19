@@ -161,4 +161,4 @@ setTimeout(function () {
     window.onresize = function(){
         adjust()
     }
-}, 3e2)
+}, 1e3)
