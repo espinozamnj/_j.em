@@ -12,7 +12,7 @@
     window.addEventListener('mouseup', function(){save()}, false)
 
     var jso = ''
-    location.origin.includes('test') ? jso = 'https://panda.test/' : jso = 'https://v-etoski.web.app/'
+    location.origin.includes('test') ? jso = 'https://locked.test/' : jso = 'https://espinozamn.gith.io/'
 
     function i(t, a, w) {
         let i = 0

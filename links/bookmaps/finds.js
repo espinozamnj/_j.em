@@ -22,7 +22,7 @@ let ss = {
             "name": "Favorite",
             "path": "-",
             // dir_project
-            "url": "https://v-etoski.web.app/_j.em/links?%s-"
+            "url": "https://espinzamnj.github.io/_j.em/links?%s-"
         },
         {
             "name": "Bang",

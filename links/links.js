@@ -1,6 +1,6 @@
 (function(){
     let ssrc = [
-        'https://v-etoski.web.app/nihan/dg-data',
+        'https://espinozamnj.github.io/nihan/dg-data',
         '@app/all-apps',
         '@off/save/js/t-url',
         'finds',

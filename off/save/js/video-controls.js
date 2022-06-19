@@ -1,6 +1,6 @@
 (function () {
     var jso = ''
-    location.origin.includes('test') ? jso = 'https://panda.test/' : jso = 'https://v-etoski.web.app/'
+    location.origin.includes('test') ? jso = 'https://locked.test/' : jso = 'https://espinozamnj.github.io/'
     function create(tag, attr, where) {
         let i = 0
         n = document.createElement(tag)
