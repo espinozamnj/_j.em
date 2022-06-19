@@ -407,15 +407,22 @@
                     bt.push(bt[2])
                 }
                 b.addEventListener('click', function(e){
-                    // eval(bt[4])
                     e.preventDefault()
-                    let script = document.createElement('script')
-                    script.type = 'text/javascript'
-                    script.innerHTML = bt[4]
-                    document.body.appendChild(script)
-                    setTimeout(function(){
-                        document.body.removeChild(script)
-                    }, 1e3)
+                    let method = 'direct'
+                    if (method == 'eval') {
+                        eval(bt[4])
+                    } else if (method == 'create') {
+                        let script = document.createElement('script')
+                        script.type = 'text/javascript'
+                        script.innerHTML = bt[4]
+                        document.body.appendChild(script)
+                        setTimeout(function(){
+                            document.body.removeChild(script)
+                        }, 1e3)
+                    } else {
+                        let fn = new Function(bt[4])
+                        fn()
+                    }
                 })
                 b.addEventListener('contextmenu', function(){
                     console.groupCollapsed('info script')
