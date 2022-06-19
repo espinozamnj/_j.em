@@ -14,7 +14,7 @@
         window.addEventListener('mouseup', function(){save()}, false)
     
         var jso = ''
-        let isTest = true
+        let isTest = location.host.includes('127')
         if (isTest) {
             jso = '//127.0.0.1:5501/'
         } else {
