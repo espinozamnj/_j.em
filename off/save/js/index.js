@@ -407,8 +407,15 @@
                     bt.push(bt[2])
                 }
                 b.addEventListener('click', function(e){
+                    // eval(bt[4])
                     e.preventDefault()
-                    eval(bt[4])
+                    let script = document.createElement('script')
+                    script.type = 'text/javascript'
+                    script.innerHTML = bt[4]
+                    document.body.appendChild(script)
+                    setTimeout(function(){
+                        document.body.removeChild(script)
+                    }, 1e3)
                 })
                 b.addEventListener('contextmenu', function(){
                     console.groupCollapsed('info script')
