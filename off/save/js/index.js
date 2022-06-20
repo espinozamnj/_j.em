@@ -63,18 +63,25 @@
         i('script',[['src', jso + '_j.em/off/save/js/all-fa.js']], SRO)
     
         function iconFA(name, where) {
-            let svgend = ''
-            let td = i('div', [], document.body)
-            td.style.display = 'none'
-            i('i', [['class', name]], td)
-            setTimeout(function(){
-                svgend = td.children[0].outerHTML
-                var htmlELM = new DOMParser().parseFromString(svgend, "text/xml")
-                where.appendChild(htmlELM.firstChild)
-                setTimeout(function(){
-                    document.body.removeChild(td)
-                }, 5e2)
-            }, 1e3)
+            let createIcon = setInterval(function() {
+                if (typeof(window.FontAwesome) == 'object') {
+                    clearInterval(createIcon)
+                    setTimeout(function () {
+                        let svgend = ''
+                        let td = i('div', [], document.body)
+                        td.style.display = 'none'
+                        i('i', [['class', name]], td)
+                        setTimeout(function(){
+                            svgend = td.children[0].outerHTML
+                            var htmlELM = new DOMParser().parseFromString(svgend, 'text/xml')
+                            where.appendChild(htmlELM.firstChild)
+                            setTimeout(function(){
+                                document.body.removeChild(td)
+                            }, 5e2)
+                        }, 2e2)
+                    }, 5e2)
+                }
+            }, 5e2)
         }
         
         function readBKL() {
@@ -392,32 +399,41 @@
                 ['resources', 'sitemap', 'resources', ae.i.e],
                 ['save images', 'file-image', 'save img', ae.i.e],
                 ['addons', 'puzzle-piece', 'addons', ae.i.f],
-                ['bookmarks', 'external-link-alt', (function(){open("'+jso+'_j.em/off/save/","_blank")}), ae.i.f]
+                ['bookmarks', 'external-link-alt', (function(){open(jso+"_j.em/off/save/","_blank")}), ae.i.f]
             ]
         
-            button.forEach(function(bt){
+            button.forEach(function(bt) {
+                let info = {
+                    'name': bt[0],
+                    'icon': bt[1],
+                }
                 let b = document.createElement('a'),
                     ic = document.createElement('i')
                     s = document.createElement('span')
                     classIcon = ''
-                if (bt[1].includes('fab')) {
-                    classIcon = 'fab ' + 'fa-' + bt[1].substring(3)
+                if (info.icon.includes('fab')) {
+                    classIcon = 'fab ' + 'fa-' + info.icon.substring(3)
                 } else {
-                    classIcon = 'fas ' + 'fa-' + bt[1]
+                    classIcon = 'fas ' + 'fa-' + info.icon
                 }
                 iconFA(classIcon, ic)
                 if (typeof(bt[2]) == 'string') {
                     let res = _bkl_.filter(element => element.name.toString().toLowerCase() == bt[2].toLowerCase())
                     if (res.length > 0) {
-                        bt.push(res[0]['fn'])
+                        info.exe = res[0]['fn']
+                        info.origin = 'external'
+                        info.real_name = res[0]['name']
+                        info.fn_string = res[0]['url']
                     } else {
-                        console.log('Check function name: ', bt[2])
-                        bt.push(function (){
+                        info.exe = function(){
                             alert('this function does not exist')
-                        })
+                        }
+                        info.origin = 'none'
                     }
                 } else {
-                    bt.push(bt[2])
+                    info.exe = bt[2]
+                    info.origin = 'same'
+                    info.fn_string = _Fn2Str(bt[2])
                 }
                 b.addEventListener('click', function(e) {
                     e.preventDefault()
@@ -440,23 +456,25 @@
                             fn()
                             break;
                         case 'isfn':
-                            bt[4]()
+                            info.exe()
                             break;
                         default:
                             break;
                     }
                 })
-                b.addEventListener('contextmenu', function(){
+                b.addEventListener('contextmenu', function() {
+                    let fragment_code = info.fn_string.substring(12, 90)
+                    fragment_code = fragment_code.replace(/\}\)\(\)$/, '')
                     console.groupCollapsed('info script')
-                        console.log(bt[0])
-                        console.log(bt[4].substring(12, 50))
+                        console.log(info)
+                        console.log(fragment_code)
                         console.groupCollapsed('all script')
-                            console.log(bt[4])
+                            console.log(info.fn_string)
                         console.groupEnd()
                     console.groupEnd()
                 })
                 b.classList.add('--item')
-                s.innerText = bt[0].substring(0, 1).toUpperCase() + bt[0].slice(1)
+                s.innerText = info.name.substring(0, 1).toUpperCase() + info.name.slice(1)
                 b.appendChild(ic)
                 b.appendChild(s)
                 bt[3].appendChild(b)
