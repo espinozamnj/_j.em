@@ -285,9 +285,11 @@
             function alternateVisibleMenuToogle(position) {
                 let b = ae.body
                 if (position) {
+                    let scrW = getScrollbarWidth()
                     b.firstChild.classList.add('popup')
-                    if (poX + ae.width > window.innerWidth) {
-                        b.style.right = ((window.innerWidth - poX) - getScrollbarWidth()) + 'px'
+                    let min_right = poX + ae.width + scrW > window.innerWidth
+                    if (min_right) {
+                        b.style.right = ((window.innerWidth - poX) - scrW) + 'px'
                         b.style.left = 'auto'
                     } else {
                         b.style.left = poX + 'px'
@@ -297,13 +299,14 @@
                         b.style.top = 'auto'
                         b.style.bottom =  (window.innerHeight - poY) + 'px'
                     } else {
-                        b.style.top = poY + 'px'
+                        if (min_right) {
+                            b.style.top = poY - 8 + 'px'
+                        } else {
+                            b.style.top = poY + 'px'
+                        }
                         b.style.bottom = 'auto'
                     }
-                    // iggore position Y
-                    b.style.top = 'auto'
                     b.style.bottom = '10px'
-                    // 
                     b.style.transition = 'none'
                     b.style.borderRadius = '8px'
                 } else {
