@@ -18,7 +18,7 @@
         if (isTest) {
             jso = '//127.0.0.1:5501/'
         } else {
-            location.origin.includes('test') ? jso = 'https://locked.test/' : jso = 'https://espinozamn.github.io/'
+            location.origin.includes('test') ? jso = 'https://locked.test/' : jso = 'https://espinozamnj.github.io/'
         }
     
         function i(t, a, w) {
