@@ -1,6 +1,6 @@
 // \xa0
 let ___myDom = location.origin.includes('test') ? jso = 'https://locked.test/' : jso = 'https://espinozamnj.github.io/'
-let _bkl_ = [];
+let _bkl_ = []
 function _Fn2Str(execute) {
   let sd = '___myDom'
   let string_js = execute + ''
@@ -18,7 +18,7 @@ function __i_() {
   // dir_project
   ia.src = ___myDom + '_j.em/off/save/js/import-addons.js'
   document.head.appendChild(ia)
-}
+};
 (function() {
   let fns = [
     {"name":"yt_addons","path":"/commands/-yt","fnt":(function(){let ia=document.createElement('script');ia.src=___myDom+'_j.em/off/save/js/youtube.js';document.head.appendChild(ia)})},
