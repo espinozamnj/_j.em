@@ -196,7 +196,11 @@
                 ae.init
         
             )
-            ae.init.appendChild(ae.css)
+            try {
+                ae.init.appendChild(ae.css)
+            } catch (error) {
+                ae.init.style.display = 'none'
+            }
             ae.toogle = create('div', '--tog', '', '', ae.init)
             // ae.toogle.innerText = '::'
             iconFA('fas fa-bars', ae.toogle)
