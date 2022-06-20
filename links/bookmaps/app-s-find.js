@@ -402,7 +402,8 @@ setTimeout(
                   if (bk.url.startsWith('data')){
                     _cjs = bk.url
                   } else {
-                    _cjs = 'javascript:' + bk.url
+                    let complete_function = '(' + bk.url + ')()'
+                    _cjs = 'javascript:' + complete_function
                   }
                   _i.addEventListener('click',function(){
                     let _page = window.open(''),
