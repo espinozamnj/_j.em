@@ -264,7 +264,7 @@
             document.addEventListener('mousemove', function(event){
                 poX = event.clientX
                 poY = event.clientY
-              })
+            })
             function getScrollbarWidth() {
                 let scrollbarWidth
                 if (document.body.offsetHeight > window.innerHeight) {
@@ -280,7 +280,6 @@
                 } else {
                     scrollbarWidth = 0
                 }
-                
                 return scrollbarWidth;
             }
             function alternateVisibleMenuToogle(position) {
