@@ -19,7 +19,7 @@ let ss = {
     ],
     "searchs": [
         {
-            "name": "Favorite",
+            "name": "Locked",
             "path": "-",
             // dir_project
             "url": "https://espinzamnj.github.io/_j.em/links?%s-"
