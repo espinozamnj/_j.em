@@ -139,7 +139,7 @@
                     background-color:rgba(0,0,0,0.25);
                 }
                 .--bod *:not(.--alt i) {
-                    font-family:'${fontMain}', sans-serif
+                    font-family:'${fontMain}', system-ui, sans-serif
                 }
                 .--alt .--cont:last-child {
                     margin-bottom:14px;
@@ -349,13 +349,13 @@
             }
             
             button = [
-                ['preview','arrow-left','(function(){history.go(-1)})()', ae.i.a],
-                ['next','arrow-right','(function(){history.go(1)})()', ae.i.a],
+                ['preview','arrow-left',(function(){history.go(-1)}), ae.i.a],
+                ['next','arrow-right',(function(){history.go(1)}), ae.i.a],
                 ['share','share-alt','share', ae.i.a],
-                ['refresh','redo','(function(){location.href=location.href})()', ae.i.a],
-                ['duplicate','clone','(function(){open(location.href,"_blank")})()', ae.i.a],
-                ['index site','home','(function(){location.href=location.origin})()', ae.i.a],
-                ['go parent','arrow-up','(function(){let f=location.href.split("/"),i=0,p="";while(i<f.length-2){p+=f[i]+"/";i++};open(p,"_blank")})()', ae.i.a],
+                ['refresh','redo',(function(){location.href=location.href}), ae.i.a],
+                ['duplicate','clone',(function(){open(location.href,"_blank")}), ae.i.a],
+                ['index site','home',(function(){location.href=location.origin}), ae.i.a],
+                ['go parent','arrow-up',(function(){let f=location.href.split("/"),i=0,p="";while(i<f.length-2){p+=f[i]+"/";i++};open(p,"_blank")}), ae.i.a],
                 ['search site','fabgoogle','search_web', ae.i.a],
                 ['zoom','search-plus','zoom', ae.i.b],
                 ['viewport', 'mobile-alt', 'viewport', ae.i.b],
@@ -380,13 +380,13 @@
                 ['window', 'window-restore', 'wid', ae.i.d],
                 ['QR URL', 'qrcode', 'get qr', ae.i.e],
                 ['saved', 'heart', 'savedio', ae.i.e],
-                ['telegram share', 'fabtelegram-plane', '(function(){open("https://telegram.me/share/url?url="+location.href,"_blank")})()', ae.i.e],
+                ['telegram share', 'fabtelegram-plane', (function(){open("https://telegram.me/share/url?url="+location.href,"_blank")}), ae.i.e],
                 ['copy to markdown', 'link', 'link', ae.i.e],
                 ['view as PDF', 'file-pdf', 'get pdf', ae.i.e],
                 ['resources', 'sitemap', 'resources', ae.i.e],
                 ['save images', 'file-image', 'save img', ae.i.e],
                 ['addons', 'puzzle-piece', 'addons', ae.i.f],
-                ['bookmarks', 'external-link-alt', '(function(){open("'+jso+'_j.em/off/save/","_blank")})()', ae.i.f]
+                ['bookmarks', 'external-link-alt', (function(){open("'+jso+'_j.em/off/save/","_blank")}), ae.i.f]
             ]
         
             button.forEach(function(bt){
@@ -400,28 +400,44 @@
                     classIcon = 'fas ' + 'fa-' + bt[1]
                 }
                 iconFA(classIcon, ic)
-                if (!bt[2].startsWith('(f')) {
+                if (typeof(bt[2]) == 'string') {
                     let res = _bkl_.filter(element => element.name.toString().toLowerCase() == bt[2].toLowerCase())
-                    bt.push(res[0]['url'])
+                    if (res.length > 0) {
+                        bt.push(res[0]['fn'])
+                    } else {
+                        console.log('Check function name: ', bt[2])
+                        bt.push(function (){
+                            alert('this function does not exist')
+                        })
+                    }
                 } else {
                     bt.push(bt[2])
                 }
-                b.addEventListener('click', function(e){
+                b.addEventListener('click', function(e) {
                     e.preventDefault()
-                    let method = 'direct'
-                    if (method == 'eval') {
-                        eval(bt[4])
-                    } else if (method == 'create') {
-                        let script = document.createElement('script')
-                        script.type = 'text/javascript'
-                        script.innerHTML = bt[4]
-                        document.body.appendChild(script)
-                        setTimeout(function(){
-                            document.body.removeChild(script)
-                        }, 1e3)
-                    } else {
-                        let fn = new Function(bt[4])
-                        fn()
+                    let method = 'isfn'
+                    switch (method) {
+                        case 'eval':
+                            eval(bt[4])
+                            break;
+                        case 'create':
+                            let script = document.createElement('script')
+                            script.type = 'text/javascript'
+                            script.innerHTML = bt[4]
+                            document.body.appendChild(script)
+                            setTimeout(function(){
+                                document.body.removeChild(script)
+                            }, 1e3)
+                            break;
+                        case 'newfn':
+                            let fn = new Function(bt[4])
+                            fn()
+                            break;
+                        case 'isfn':
+                            bt[4]()
+                            break;
+                        default:
+                            break;
                     }
                 })
                 b.addEventListener('contextmenu', function(){

@@ -57,8 +57,14 @@ setTimeout(
         }
       }
     }
-    while(bki < _bkl_.length){
-      _txt.push(_bkl_[bki])
+    while(bki < _bkl_.length) {
+      let cj = _bkl_[bki]
+      let comm_js = {
+        name: cj.name,
+        path: cj.path,
+        url: cj.url
+      }
+      _txt.push(comm_js)
       bki++
     }
     while(tchi < _tech.length){
