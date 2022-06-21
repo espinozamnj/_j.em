@@ -398,6 +398,7 @@
                 ['view as PDF', 'file-pdf', 'get pdf', ae.i.e],
                 ['resources', 'sitemap', 'resources', ae.i.e],
                 ['save images', 'file-image', 'save img', ae.i.e],
+                ['info site', 'info', 'site_info', ae.i.f],
                 ['addons', 'puzzle-piece', 'addons', ae.i.f],
                 ['bookmarks', 'external-link-alt', (function(){open(jso+"_j.em/off/save/","_blank")}), ae.i.f]
             ]
