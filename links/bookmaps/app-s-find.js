@@ -458,8 +458,9 @@ setTimeout(
                   }
                   _i.appendChild(_img)
                 }
-                _i.addEventListener('click',function(){
-                  tab(bk.url, '_blank')
+                _i.addEventListener('click',function() {
+                  let only_path = bk.url.split('#fav=')[0]
+                  tab(only_path, '_blank')
                 })
               }
               _pP.setAttribute('data-val', bk.path)

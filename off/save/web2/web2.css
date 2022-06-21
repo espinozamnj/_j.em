@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: 'Lato', sans-serif;
+}
+:root {
+    --bg: #ffbfbf;
+}
+.root {
+    display: flex;
+    flex-direction: column;
+}
+.root > * {
+    width: 100%;
+    margin: 0 auto;
+}
+.entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 4em;
+    padding-bottom: 6em;
+    background-color: var(--bg);
+}
+.entry p {
+    font-size: 1.9em;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+.entry .go {
+    display: flex;
+    max-width: 700px;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+    padding: 6px;
+}
+.entry .go #url {
+    flex-grow: 1;
+}
+input#url {
+    padding: 12px 18px;
+    padding-right: 2.8em;
+    font-size: 17px;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #e24646;
+    border-width: 0px;
+    box-shadow: 0px 4px 8px 1px rgba(0, 0, 0, 0.15);
+    transition: all 0.1s;
+}
+input#url:focus {
+    outline: 4px solid #e2464675;
+    box-shadow: 0px 4px 8px 1px rgba(0, 0, 0, 0.5);
+}
+button#gen {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    bottom: 10px;
+    height: calc(100% - 20px);
+    border: none;
+    background: #e24646;
+    border-radius: 20px;
+    width: 2.4em;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+.result {
+    position: relative;
+    max-width: 800px;
+    padding-bottom: 1em;
+}
+.result > * {
+    position: absolute;
+    width: calc(100% - 10px);
+    left: 5px;
+    right: 5px;
+    transform: translateY(-2.6rem);
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.3);
+    padding: 14px;
+    padding-bottom: 4em;
+    z-index: -1;
+    visibility: hidden;
+    pointer-events: none;
+}
+.result.check .out {
+    pointer-events: all;
+    visibility: visible;
+    z-index: 1;
+    position: relative;
+    margin-bottom: 0;
+}
+.result.error .error {
+    pointer-events: all;
+    visibility: visible;
+    z-index: 1;
+}
+.response .error,
+.result .error p {
+    text-align: center;
+    font-size: 1.15em;
+    margin-top: 1em;
+    color: red;
+    font-weight: bold;
+}
+.response .error i,
+.result .error p i {
+    margin-right: 6px;
+}
+.main {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 12px;
+    padding: 8px;
+    margin-bottom: 2em;
+    background-color: #ededed;
+    border-radius: 8px;
+}
+.main .picture {
+    padding: 4px;
+    grid-row: 1 / 3;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+.main .picture img {
+    height: 64px;
+    width: 64px;
+    object-fit: contain;
+}
+.main p {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.08em;
+}
+.main .gets {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    display: flex;
+    gap: 6px;
+}
+.main .gets a {
+    border: 1px solid var(--bg);
+    padding: 6px 12px;
+    cursor: pointer;
+}
+.main .response {
+    grid-column: 1 / 3;
+    font-size: 14px;
+    font-family: monospace;
+    white-space: break-spaces;
+    background: white;
+    padding: 8px;
+    border-radius: 4px;
+    overflow-wrap: anywhere;
+    max-height: 260px;
+    overflow: auto;
+}
+.response strong {
+    display: block;
+    text-align: center;
+    margin: 2em;
+    animation: auto;
+}
+.main .thumbnail {
+    grid-column: 1 / 3;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 600px;
+}
+.main .thumbnail .access {
+    text-decoration: none;
+    color: black;
+    border-width: 1px;
+    border-style: solid;
+    padding: 8px 18px;
+    transition: all 0.3s;
+}
+.main .thumbnail .access:hover {
+    color: white;
+    background-color: black;
+}
+.main .thumbnail img {
+    max-height: 100%;
+    max-width: 100%;
+}
+.cont {
+    margin-bottom: 2.2em;
+}
+.result .cont .name {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 0.9em;
+    display: flex;
+    position: relative;
+}
+p.name::after {
+    content: "";
+    position: absolute;
+    flex-grow: 1;
+    height: 3px;
+    left: 0px;
+    bottom: -1px;
+    width: 100%;
+    background-color: var(--bg);
+}
+.result .cont .name span {
+    background-color: var(--bg);
+    padding: 4px 24px;
+    margin-left: 0.6em;
+}
+.result .cont .enlaces {
+    padding-left: 0.4em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.result .cont .enlaces a {
+    padding: 6px 12px;
+    color: black;
+    margin-bottom: 0.9em;
+    text-decoration: none;
+    background-image: linear-gradient(to right, var(--bg) 0%, var(--bg) 100%);
+    background-size: 0% 100%;
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    transition: background-size 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
+}
+.result .cont .enlaces a span::before {
+    content: "·";
+    padding: 0px 6px;
+}
+.result .cont .enlaces a span {
+    padding-left: 0.1em;
+}
+.result .cont .enlaces a span,
+.result .cont .enlaces a span::before {
+    color: rgb(100, 100, 100)
+}
+.result .cont .enlaces a:hover {
+    background-size: 100% 100%;
+}
