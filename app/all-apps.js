@@ -25,7 +25,7 @@ const __apps__ = [
     {name: 'JSON', fav: 'json', url: '@off/save/json', sec: false},
     {name: 'Open urls', fav: 'open', url: '@off/save/href', sec: false},
     {name: 'Url scan', fav: 'scan', url: '@off/save/url', sec: false},
-    {name: 'Web2', fav: 'scan', url: '@off/save/url', sec: false},
+    {name: 'Web2', fav: 'scan', url: '@off/save/web2', sec: false},
     {name: 'Speedtest', fav: 'speed', url: '@off/speedtest', sec: false},
     // {name: 'Get data', fav: 'ginfo', url: '@php/ginfo.php', sec: false},
     {name: 'Multi viewer', fav: 'files', url: '@off/view', sec: false},
