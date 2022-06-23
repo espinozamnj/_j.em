@@ -29,21 +29,21 @@ window.addEventListener('load', function(e) {
         console.info("Track settings:"), console.info(JSON.stringify(videoTrack.getSettings(), null, 2)), console
             .info("Track constraints:"), console.info(JSON.stringify(videoTrack.getConstraints(), null, 2))
     }
-    startElem.addEventListener("click", (function (evt) {
+    startElem.addEventListener('click', (function() {
             startCapture()
     }), !1)
-    stopElem.addEventListener("click", (function (evt) {
+    stopElem.addEventListener('click', (function() {
             stopCapture()
     }), !1)
-    document.getElementById("pp").addEventListener("click", (function () {
+    document.getElementById('pp').addEventListener('click', (function () {
         if(document.pictureInPictureElement){
             document.exitPictureInPicture()
         }
         else {
-            document.querySelector("video").requestPictureInPicture()
+            document.querySelector('video').requestPictureInPicture()
         } 
     }))
-    document.getElementById("ph").addEventListener("click", function () {
+    document.getElementById('ph').addEventListener('click', function () {
         let v_P = document.getElementById('scroll-canvas')
         if(v_P.style.height == ''){
             v_P.style.height = '300px'
@@ -53,9 +53,13 @@ window.addEventListener('load', function(e) {
             v_P.style.zIndex = '1'
         }
     })
-    function capture(){
-        let maxvid = document.querySelector("video")
-        let canvas = document.createElement("canvas")
+    function capture() {
+        let container = document.getElementById('scroll-canvas')
+        let maxvid = document.querySelector('video')
+        let cont = document.createElement('div')
+        cont.className = 'photo'
+        let canvas = document.createElement('canvas')
+        let exit_b = document.createElement('span')
         canvas.addEventListener('click',function(){
             let n_img = document.createElement('img')
             n_img.src = this.toDataURL()
@@ -70,8 +74,16 @@ window.addEventListener('load', function(e) {
         canvas.height = h
         context.fillRect(0,0,w,h)
         context.drawImage(maxvid,0,0,w,h)
+        cont.appendChild(canvas)
+        cont.appendChild(exit_b)
         if (w > 0) {
-            document.getElementById('scroll-canvas').appendChild(canvas)
+            container.appendChild(cont)
+            exit_b.addEventListener('click', function() {
+                canvas.setAttribute('style', 'overflow:hidden;transition:all 1s;transform:scale(0)')
+                setTimeout(function(){
+                    container.removeChild(cont)
+                }, 1100)
+            })
         }
     }
     document.getElementById("gi").addEventListener("click", function() {

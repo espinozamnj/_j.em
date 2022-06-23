@@ -102,16 +102,51 @@ main video {
     flex-wrap: nowrap;
     transition: all 0.5s;
 }
+#scroll-canvas .photo {
+    position: relative;
+    margin-right: 12px;
+}
 #scroll-canvas canvas {
     border: 1px solid white;
     box-shadow: 2px 1px 4px 0px rgba(0, 0, 0, 0.5);
     transition: all 0.2s;
     height: 100%;
     cursor: pointer;
-    margin-right: 12px;
 }
 #scroll-canvas canvas:hover {
     box-shadow: 2px 1px 6px 0px rgba(0, 0, 0, 0.85);
+}
+#scroll-canvas .photo span {
+    width: 1em;
+    height: 1em;
+    border-radius: 1em;
+    background-color: rgba(156, 83, 83, 0.767);
+    position: absolute;
+    top: -0.5em;
+    right: -0.5em;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: all 0.2s;
+}
+#scroll-canvas .photo span:hover {
+    opacity: 1
+}
+#scroll-canvas .photo span::before,
+#scroll-canvas .photo span::after {
+    content: "";
+    height: 1px;
+    width: 0.5rem;
+    background-color: white;
+    transform-origin: center;
+    position: absolute;
+    top: calc(50% - 1px);
+    left: 25%;
+}
+#scroll-canvas .photo span::before {
+    transform: rotate(-45deg);
+}
+.photo span::after {
+    transform: rotate(45deg);
 }
 #scroll-canvas::-webkit-scrollbar {width:10px;height:5px;background-color:#ffffff00}
 #scroll-canvas::-webkit-scrollbar-thumb{background-color:gray;}
