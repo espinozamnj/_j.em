@@ -1,4 +1,3 @@
-// 2/11/2021 20:01:49
 const sss = [
 {"name":"YouTube::app","url":"https://www.youtube.com/","path":"/lib/Social/Video"},
 {"name":"Vimeo","url":"https://vimeo.com/es/","path":"/lib/Social/Video"},
