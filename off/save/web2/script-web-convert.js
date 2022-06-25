@@ -162,19 +162,26 @@ window.addEventListener('load', function() {
       {'name':"Thumbnail", "service": "Miniature",'url':'https://api.miniature.io/?url=%Nd'},
       {'name':"Shots", "service": "WordPress",'url':'https://s.wordpress.com/mshots/v1/%No'},
     ],
-    'info': [
-      {"name":"Split URL", "service": "Locked","url":"./../url/?url=%Es"},
-      {'name':"Report of safe", "service": "Google",'url':'https://transparencyreport.google.com/safe-browsing/search?url=%Nd'},
-      {'name':"MetaTags", "service": "HeyMeta",'url':'https://www.heymeta.com/url/%Es'},
+    'check': [
       {"name":"Validator", "service": "Html Checker","url":"https://validator.w3.org/nu/?doc=%Es"},
       {"name":"W3C", "service": "Link Checker","url":"https://validator.w3.org/checklink?uri=%Es&hide_type=all&depth=&check=Check"},
       {"name":"Check CSS", "service": "Jigsaw","url":"https://jigsaw.w3.org/css-validator/validator?uri=%Es&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=es"},
-      {"name":"Reputation", "service": "TrustScam","url":"https://trustscam.es/%d"},
+    ],
+    'info': [
+      {"name":"Split URL", "service": "Locked","url":"./../url/?url=%Es"},
+      {'name':"Report of safe", "service": "Google",'url':'https://transparencyreport.google.com/safe-browsing/search?url=%Nd'},
+      {'name':"MetaTags", "service": "HeyMeta",'url':'https://www.heymeta.com/url/%Ns'},
+      {"name":"Reputation", "service": "TrustScam","url":"https://trustscam.es/%Nd"},
+      {"name":"Reports", "service": "AdGuard","url":"https://reports.adguard.com/es/%Nd/report.html"},
     ]
   }
   let search = location.href.split('?')
   if (search.length > 1) {
-    iptURL(search[1])
+    let query = search.join('?')
+    query = query
+      .replace(search[0], '')
+      .slice(1)
+    iptURL(query)
     setTimeout(function () {
       $('#gen').click()
     }, 2e2)
