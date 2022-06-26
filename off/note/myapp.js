@@ -84,7 +84,7 @@ window.addEventListener('load',function(){
     if (window.location.href.includes('test')){
         document.querySelector('#mus').src = 'https://sys.test/play/'
     } else {
-        document.querySelector('#mus').src = 'https://espinozamnj.github.io/music-private/'
+        document.querySelector('#mus').src = '//etoski.epizy.com/play/'
     }
     emb('n')
 })
