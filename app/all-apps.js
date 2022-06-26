@@ -40,5 +40,5 @@ const __apps__ = [
     {name: 'Infinity screen', fav: 'wait-room', url: '@off/mp4/infinity.html', sec: false},
     {name: 'Tech Apps', fav: 'tech', url: '@links/tech', sec: false},
     {name: 'Nihan', fav: 'nihan', url: 'https://espinozamnj.github.io/nihan/', sec: false},
-    {name: 'Music', fav: 'music', url: 'https://espinozamnj.github.io/music-private/', sec: true},
+    {name: 'Music', fav: 'music', url: 'https://etoski.epizy.com/play/', sec: true},
 ]
