@@ -16,6 +16,13 @@
     a.classList.add('link')
     $('.panels .links').appendChild(a)
   })
+  function moveAuto () {
+    if (music_data.mode_next == 1) {
+      player.nextVideo()
+    } else {
+      player.previousVideo()
+    }
+  }
   music_data.lists.forEach(function(link) {
     let a = document.createElement('div')
     a.innerText = link[1]
@@ -51,11 +58,7 @@
           },
           'onError': function() {
             setTimeout(function() {
-              if (music_data.mode_next == 1) {
-                player.nextVideo()
-              } else {
-                player.previousVideo()
-              }
+              moveAuto()
             }, 3e3)
           },
           'onStateChange':function () {
@@ -65,6 +68,11 @@
             setTimeout(function() {
               $('[data-action="volumen"]').value = Math.round(player.getVolume()) 
             }, 1e3)
+            setTimeout(function(){
+              if (player.getDuration() > 8 * 60) {
+                moveAuto()
+              }
+            }, 2e3)
           }
         }
       })
