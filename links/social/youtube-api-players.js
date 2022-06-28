@@ -19,9 +19,9 @@ function loadPL(idPL) {
             height: window.innerHeight,
             width: window.innerWidth,
             // videoId: 'M7lc1UVf-VE',
-            suggestedQuality: 'tiny',
+            suggestedQuality: 'default',
             playerVars: {
-                listType:'playlist',
+                listType: 'playlist',
                 list: 'PL' + idPL,
                 'autohide': 0,
                 'cc_load_policy': 0,

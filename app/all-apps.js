@@ -19,6 +19,7 @@ const __apps__ = [
     {name: 'String edit', fav: 'write', url: '@off/save/strings', sec: false},
     {name: 'Tree marks', fav: 'json', url: '@links/tree', sec: true},
     {name: 'YouTube', fav: 'youtube', url: '@links/youtu-be.html', sec: true},
+    {name: 'Music', fav: 'music', url: '@links/music', sec: true},
     {name: 'Codepen', fav: 'codepen', url: '@links/codepen.html', sec: false},
     {name: 'ClPH€R', fav: 'hash', url: '@off/save/hash', sec: false},
     {name: 'History', fav: 'key', url: '@off/save/pa55', sec: false},
@@ -40,5 +41,4 @@ const __apps__ = [
     {name: 'Infinity screen', fav: 'wait-room', url: '@off/mp4/infinity.html', sec: false},
     {name: 'Tech Apps', fav: 'tech', url: '@links/tech', sec: false},
     {name: 'Nihan', fav: 'nihan', url: 'https://espinozamnj.github.io/nihan/', sec: false},
-    {name: 'Music', fav: 'music', url: 'https://etoski.epizy.com/play/', sec: true},
 ]

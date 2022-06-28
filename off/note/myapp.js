@@ -77,14 +77,9 @@ window.addEventListener('load',function(){
                 setTimeout(function(){
                     d('mus').style.zIndex = ''
                     d('mus').style.width = ''
-                },400)
+                }, 400)
             }
         } else {}
     }
-    if (window.location.href.includes('test')){
-        document.querySelector('#mus').src = 'https://sys.test/play/'
-    } else {
-        document.querySelector('#mus').src = '//etoski.epizy.com/play/'
-    }
-    emb('n')
+    document.querySelector('#mus').src = '../../links/music'
 })
