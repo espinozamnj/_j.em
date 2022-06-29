@@ -60,7 +60,7 @@
         }, 1e3)
     
         // dir_project
-        i('script',[['src', jso + '_j.em/off/save/js/all-fa.js']], SRO)
+        // i('script',[['src', jso + '_j.em/off/save/js/all-fa.min.js']], SRO)
     
         function iconFA(name, where) {
             let createIcon = setInterval(function() {
