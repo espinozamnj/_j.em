@@ -58,32 +58,53 @@
                 })
             }
         }, 1e3)
-    
+        let sameTest = location.pathname.includes('_j.em/off/save/js/') && true
+        let data_used_icons = []
+        let iconFA = function() {}
         // dir_project
-        // i('script',[['src', jso + '_j.em/off/save/js/all-fa.min.js']], SRO)
-    
-        function iconFA(name, where) {
-            let createIcon = setInterval(function() {
-                if (typeof(window.FontAwesome) == 'object') {
-                    clearInterval(createIcon)
-                    setTimeout(function () {
+        if (sameTest) {
+            i('script',[['src', jso + '_j.em/off/save/js/all-fa.min.js']], SRO)
+            iconFA = function(name, where) {
+                let createIcon = setInterval(function() {
+                    if (typeof(window.FontAwesome) == 'object') {
+                        clearInterval(createIcon)
                         let svgend = ''
                         let td = i('div', [], document.body)
                         td.style.display = 'none'
                         i('i', [['class', name]], td)
                         setTimeout(function(){
                             svgend = td.children[0].outerHTML
-                            var htmlELM = new DOMParser().parseFromString(svgend, 'text/xml')
-                            where.appendChild(htmlELM.firstChild)
-                            setTimeout(function(){
-                                document.body.removeChild(td)
-                            }, 5e2)
+                            let htmlELM = new DOMParser().parseFromString(svgend, 'text/xml')
+                            let svgElm = htmlELM.firstChild
+                            let toRemove = 'class|focusable|role|data-fa-i2svg|aria-hidden|data-prefix|data-icon'
+                            toRemove.split('|').forEach(function(attr) {
+                                svgElm.hasAttribute(attr) && svgElm.removeAttribute(attr)
+                            })
+                            data_used_icons.push({
+                                'name': name,
+                                'code': svgElm.outerHTML
+                            })
+                            where.appendChild(svgElm)
+                            document.body.removeChild(td)
                         }, 2e2)
-                    }, 5e2)
-                }
-            }, 5e2)
+                    }
+                }, 5e2)
+            }
+        } else {
+            i('script',[['src', jso + '_j.em/off/save/js/icons-bank.js']], SRO)
+            iconFA = function(classIconName, where) {
+                let getIcon = setInterval(function() {
+                    if (typeof window.icons_fa_bank == 'object') {
+                        clearInterval(getIcon)
+                        let bank = window.icons_fa_bank
+                        let result_icon = bank.filter(a => a.name == classIconName)
+                        if (result_icon.length > 0) {
+                            where.innerHTML = result_icon[0]['code']
+                        }
+                    }
+                }, 5e2)
+            }
         }
-        
         function readBKL() {
             function create(tag, clas, css, style, where){
                 let sty = '.' +  css + '{' + style + '}'
@@ -481,6 +502,11 @@
                 bt[3].appendChild(b)
             })
             console.log('%cIMPORT ADDONS J:EM', 'font-size:16px;font-weight:bold')
+            if (sameTest) {
+                setTimeout(function () {
+                    console.log('show icons bank:', data_used_icons)
+                }, 3e3)
+            }
         }
         let ad = document.createElement('script')
         if (typeof(_bkl_) == 'undefined') {
