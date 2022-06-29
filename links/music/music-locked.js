@@ -1,4 +1,3 @@
-// AIzaSyBFZIT90G0Ns4MAhRw-9lGfSDInG517ipA
 (function(){
   let $$ = (e) => {return document.querySelectorAll(e)}
   let $ = (e) => {return $$(e)[0]}

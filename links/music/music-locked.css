@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 body {
     height: 100vh;
@@ -152,10 +153,7 @@ body .loader img {
     width: 100%;
 }
 .panels .controls {
-    /* background-image: url("plastic.png"); */
-    background-size: 100%;
-    background-repeat: repeat;
-    background-attachment: scroll;
+    background-color: rgba(0, 0, 0, 0.69);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -230,19 +228,22 @@ body .loader img {
 .panels .controls .up {
     display: flex;
     align-items: flex-end;
-    font-size: 1.3em;
+    font-size: 1.1em;
 }
 .panels .controls .up a i {
     display: flex;
     align-items: flex-end;
-    font-size: 2.4em;
+    font-size: 2.9em;
 }
 .panels .controls .medium {
     margin-top: 2.4em;
     margin-bottom: 1.3em;
 }
 .panels .controls .up [data-action="state"] {
-    font-size: 1.2em;
+    font-size: 1.3em;
+}
+.panels .controls .up a.var .yt-play-btn {
+    transform: translateX(4px);
 }
 .panels .controls [data-action="muted"] {
     margin-right: 1.2em !important;

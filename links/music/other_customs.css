@@ -78,9 +78,12 @@ input[type=range]::-webkit-slider-thumb {
     height: 13px;
     box-sizing: content-box;
     background-clip: content-box;
-    border: 3px solid #ffffffba;
     border-radius: 50%;
     margin-top: -6px;
+    border: 3px solid #ffffff00;
+}
+input[type=range]:focus::-webkit-slider-thumb {
+    border: 3px solid #ffffffba;
 }
 input[type=range]::-moz-range-thumb {
     background-color: white;

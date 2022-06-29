@@ -1,17 +1,12 @@
 var music_data = {
     links: [
-        ['//etoski.epizy.com/play/', 'Play! - Epizy'],
         ['https://music.youtube.com/channel/UCSFMRGTyAcCHgE2Fp0xsD_A', 'Yuotube Music'],
         ['https://www.youtube.com/channel/UCSFMRGTyAcCHgE2Fp0xsD_A', 'YouTube Channel'],
         ['../../youtu-be.html', 'YouTube Playlist'],
+        ['//etoski.epizy.com/play/', 'Play! - Epizy'],
         ['https://www.deezer.com/es/profile/4377442542/', 'Nick - Deezer']
     ],
-    lists: [
-        ['gvFg6oN_aUlX_AqpkiajkTs1Pom_rpl3', 'favorite'],
-        ['gvFg6oN_aUk604Ld1-IXWLtYZUSexDPM', 'all'],
-        ['gvFg6oN_aUmvTH9O3VYzbIh9q0NlZcvT', 'russian'],
-        ['gvFg6oN_aUmHhXHrVm-dyVXw_PFFoPTC', 'motivo'],
-    ],
+    lists: [],
     mode_next: 1,
     shuffle: false,
 };
@@ -28,8 +23,25 @@ function isActivePlayer() {
     let iframe_api = document.createElement('script')
     iframe_api.src = 'https://www.youtube.com/iframe_api'
     p.appendChild(iframe_api)
-    
-    let app_js = document.createElement('script')
-    app_js.src = 'music-locked.js'
-    p.appendChild(app_js)
+    let cop = __cDe(window.hash_app, '10182b30022813170b1805686116611f22651c103903267c683d16370215183f16646066382110')
+    let URLinfo = 'https://youtube.googleapis.com/youtube/v3/playlists?channelId='
+    URLinfo += 'UCSFMRGTyAcCHgE2Fp0xsD_A'
+    URLinfo += '&part=snippet&maxResults=50&key='
+    URLinfo += cop
+    fetch(URLinfo).then((response) => {
+        response.text().then((responseText) => {
+            let data = JSON.parse(responseText)
+            data.items.forEach((item) => {
+                music_data.lists.push([
+                    (item.id).slice(2),
+                    item.snippet.title.split(' - ')[1].replace(' RARQZ', '')
+                ])
+            })
+            let app_js = document.createElement('script')
+            app_js.src = 'music-locked.js'
+            p.appendChild(app_js)
+        })
+    }).catch(() => {
+        document.write('error at fetch');
+    })
 })()
