@@ -184,7 +184,7 @@ const sss = [
 {"name":"Editor de Hemingway","url":"https://hemingwayapp.com/","path":"/lib/Apps/Write Editor"},
 {"name":"Edit Pad","url":"https://www.editpad.org/","path":"/lib/Apps/Write Editor"},
 {"name":"Pastebin","url":"https://pastebin.com/","path":"/lib/Apps/Write Editor"},
-{"name":"Privnote","url":"https://privnote.com/","path":"/lib/Apps/Write Editor"},
+{"name":"Privnote | notas autodesechables","url":"https://privnote.com/","path":"/lib/Apps/Write Editor"},
 {"name":"Editor.md","url":"https://pandao.github.io/editor.md/en.html","path":"/lib/Apps/Write Editor"},
 {"name":"Overleaf","url":"https://www.overleaf.com/","path":"/lib/Apps/Write Editor"},
 {"name":"UpMath.me | Markdown editor","url":"https://upmath.me/","path":"/lib/Apps/Write Editor"},
