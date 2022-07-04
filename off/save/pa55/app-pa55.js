@@ -272,14 +272,18 @@
                             h.rs = el(h.rb, 'span', [['class','t-blue']], _ts)
                             h.ra = el(h.rb, 'span', [['class','t-w']], spy.do(ti['auth'], pppp , false) + ' - ')
                             h.rp = el(h.rb, 'span', [['class','t-gray t-pre']], ke55(ti['password'].length))
-                            h.ra.addEventListener('dblclick', function(evt){
+                            h.ra.addEventListener('dblclick', function(){
                                 cp(spy.do(ti['auth'], pppp , false))
                             })
-                            h.rp.addEventListener('mouseover', function(evt){
-                                evt.target.innerText = spy.do(ti['password'], pppp , false)
-                            })
-                            h.rp.addEventListener('mouseleave', function(evt){
-                                evt.target.innerText = ke55(spy.do(ti['password'], pppp , false).length)
+                            h.rp.addEventListener('click', function(evt) {
+                                let em = evt.target,
+                                    dec = spy.do(ti['password'], pppp , false),
+                                    hid = ke55(dec.length)
+                                if (em.innerText == hid) {
+                                    em.innerText = dec
+                                } else {
+                                    em.innerText = hid
+                                }
                             })
                             h.rp.addEventListener('dblclick', function(evt){
                                 cp(spy.do(ti['password'], pppp , false))
@@ -320,9 +324,11 @@
                                     h.rbc.addEventListener('mouseleave', function(evt){
                                         evt.target.innerText = ke55(ti[i].length)
                                     })
-                                    h.rbc.addEventListener('dblclick', function(evt){
+                                    function cdata() {
                                         cp(spy.do(ti[i], pppp , false))
-                                    })
+                                    }
+                                    h.rba.addEventListener('dblclick', function(){cdata()})
+                                    h.rbc.addEventListener('dblclick', function(){cdata()})
                                 } else {
                                     h.rbc = el(h.rp, 'span', [['class','t-w']], ti[i])
                                 }
