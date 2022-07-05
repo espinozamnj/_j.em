@@ -390,6 +390,7 @@ const sss = [
 {"name":"Speech to Text Demo","url":"https://speech-to-text-demo.ng.bluemix.net/","path":"/lib/Apps/office tools/speech"},
 {"name":"Snapdrop::app","url":"https://snapdrop.net/#","path":"/lib/Apps/office tools/share files"},
 {"name":"Sharedrop","url":"https://www.sharedrop.io/","path":"/lib/Apps/office tools/share files"},
+{"name":"Wormhole","url":"https://wormhole.app/","path":"/lib/Apps/office tools/share files"},
 {"name":"Skynet","url":"https://siasky.net/","path":"/lib/Apps/office tools/share files"},
 {"name":"MyAirBridge","url":"https://www.myairbridge.com/es/#!/","path":"/lib/Apps/office tools/share files"},
 {"name":"WeTransfer","url":"https://wetransfer.com/","path":"/lib/Apps/office tools/share files"},
