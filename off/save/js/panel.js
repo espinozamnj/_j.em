@@ -1,14 +1,3 @@
-// ==UserScript==
-// @name        j:em apps
-// @namespace   Violentmonkey Scripts
-// @include     *
-// @exclude     *a3y*
-// @icon        https://iconarchive.com/download/i94400/bokehlicia/captiva/web-chrome-app.ico
-// @grant       none
-// @version     1.0
-// @author      qulo
-// @description 04/20/2022 16:45:24
-// ==/UserScript==/
 (function () {
   setTimeout(function () {
     let pan = document.createElement('div')
@@ -80,7 +69,7 @@
       .link img{width:18px;border:0px solid white;border-radius:6px;padding:6px;background-color:white;box-shadow:0px 1px 2px 0px rgba(0,0,0,0.2);transition:all 0.2s;}
       .link:hover img{border:4px solid white;box-shadow:0px 1px 2px 0px rgba(0,0,0,0.6)}
       .over{cursor:pointer;height:50px;background-color:rgba(0,0,0,0.1);border:none;border-right:2px solid rgba(255,255,255,0.3);position:fixed;left:0;top:25%;z-index:1000000001;width:8px;transition:all 0.2s;border-radius:0px 8px 8px 0px;background-clip:padding-box;}
-      .over.show{left:48px;}
+      .over.show{/*left:48px;*/}
       .over:hover{background-color:rgba(0,0,0,0.8)}
       a.hidd{height:0px;opacity:0}
       .all a.hidd{opacity:1;height:48px}
@@ -171,6 +160,11 @@
       itm.setAttribute('href', url)
       itm.setAttribute('rel', 'noreferrer nofollow')
       itm.setAttribute('target', '_blank')
+      itm.addEventListener('auxclick', function(e) {
+        if (e.button == 1) {
+          show_panel()
+        }
+      })
       let img = nee('img', itm, '')
       if (!!true) {
         img.src = a[4]
