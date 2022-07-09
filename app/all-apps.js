@@ -10,7 +10,7 @@ const __apps__ = [
     {name: 'Firenote', fav: 'firenote', url: '@off/firenote', sec: true},
     {name: 'bloc', fav: 'note', url: '@off/note/bloc.html', sec: false},
     {name: 'Notas', fav: 'note', url: '@off/note/notas.html', sec: false},
-    {name: 'Notepad', fav: 'note', url: '@off/note/notepad.html', sec: false},
+    {name: 'Notepad', fav: 'note', url: '@off/note.html', sec: false},
     {name: 'Words', fav: 'words', url: '@off/save/words', sec: false},
     {name: 'Data md', fav: 'note', url: '@off/md', sec: false},
     {name: 'Monaco', fav: 'monaco', url: '@off/code', sec: false},
