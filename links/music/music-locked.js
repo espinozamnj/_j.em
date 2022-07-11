@@ -35,10 +35,10 @@
         width: emd.offsetWidth,
         suggestedQuality: 'small',
         playerVars: {
-          listType: 'playlist',
-          list: 'PL' + link[0],
-          'autoplay': 0,
           'host': 'https://www.youtube-nocookie.com',
+          'listType': 'playlist',
+          'list': 'PL' + link[0],
+          'autoplay': 0,
           'cc_load_policy': 0,
           'fs': 1,
           'loop': true,
