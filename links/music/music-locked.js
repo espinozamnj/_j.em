@@ -49,6 +49,7 @@
         },
         events: {
           'onReady': function () {
+            $('[data-panel="playlist"').click()
             player.setPlaybackQuality = 'small'
             let ctr = $('.controls')
             ctr.classList.remove('disabled')
