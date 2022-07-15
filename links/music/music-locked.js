@@ -27,18 +27,19 @@
     a.innerText = link[1]
     a.classList.add('play-list')
     a.addEventListener('click', function() {
-      let embed = $('.yt-iframe'), id = 'player-yt'
+      let embed = $('.yt-iframe'), id_element = 'player-yt'
       let emd = embed.parentNode
-      embed.innerHTML = '<div id="' + id + '"></div>'
-      player = new YT.Player(id, {
+      embed.innerHTML = '<div id="' + id_element + '"></div>'
+      player = new YT.Player(id_element, {
         height: emd.offsetHeight,
         width: emd.offsetWidth,
-        suggestedQuality: 'small',
-        playerVars: {
-          'host': 'https://www.youtube-nocookie.com',
+        host: 'https://www.youtube-nocookie.com',
+        'suggestedQuality': 'small',
+        'playerVars': {
           'listType': 'playlist',
           'list': 'PL' + link[0],
           'autoplay': 0,
+          'iv_load_policy': 3,
           'cc_load_policy': 0,
           'fs': 1,
           'loop': true,
@@ -47,7 +48,8 @@
           'color': 'white'
         },
         events: {
-          'onReady': function (event) {
+          'onReady': function () {
+            player.setPlaybackQuality = 'small'
             let ctr = $('.controls')
             ctr.classList.remove('disabled')
             setTimeout(function() {
@@ -93,7 +95,7 @@
               child.classList.toggle(classShow)
             }
             if (wait) {
-              setTimeout(function(){ fn() }, 510)
+              setTimeout(function(){ fn() }, 400)
             } else {
               fn()
             }
@@ -111,7 +113,7 @@
     {
       evt: 'state', type: 'click',
       fnt: function(dom) {
-        if (isActivePlayer()){
+        if (isActivePlayer()) {
           let state = player.getPlayerState()
           if (state == 1) {
             player.pauseVideo()
@@ -124,9 +126,18 @@
       }
     },
     {
-      evt: 'prev', type: 'click',
+      evt: 'state', type: 'dblclick',
       fnt: function(dom) {
-        if (isActivePlayer()){
+        if (isActivePlayer()) {
+          let ID_url = player.getVideoData()['video_id']
+          open('https://song.link/y/' + ID_url)
+        }
+      }
+    },
+    {
+      evt: 'prev', type: 'click',
+      fnt: function() {
+        if (isActivePlayer()) {
           player.previousVideo()
           music_data.mode_next = 0
         }
@@ -134,8 +145,8 @@
     },
     {
       evt: 'next', type: 'click',
-      fnt: function(dom) {
-        if (isActivePlayer()){
+      fnt: function() {
+        if (isActivePlayer()) {
           player.nextVideo()
           music_data.mode_next = 1
         }
@@ -144,7 +155,7 @@
     {
       evt: 'fullscreen', type: 'click',
       fnt: function(dom) {
-        if (isActivePlayer()){
+        if (isActivePlayer()) {
           if (document.fullscreenElement == null) {
             document.documentElement.requestFullscreen()
             dom.classList.add('var')
@@ -158,7 +169,7 @@
     {
       evt: 'random', type: 'click',
       fnt: function(dom) {
-        if (isActivePlayer()){
+        if (isActivePlayer()) {
           if (music_data.shuffle) {
             player.setShuffle({'shufflePlaylist' : false})
             dom.classList.remove('var')
@@ -172,15 +183,15 @@
     },
     {
       evt: 'reset', type: 'click',
-      fnt: function(dom) {
-        if (isActivePlayer()){
+      fnt: function() {
+        if (isActivePlayer()) {
           player.seekTo(0)
         }
       }
     },
     {
       evt: 'open-link', type: 'click',
-      fnt: function(dom) {
+      fnt: function() {
         if (isActivePlayer()){
           let url = player.getVideoUrl()
           // open('https://www.youtube-nocookie.com/embed/' + )
@@ -190,7 +201,7 @@
     },
     {
       evt: 'muted', type: 'click',
-      fnt: function(dom) {
+      fnt: function() {
         if (isActivePlayer()){
           let muted = player.isMuted()
           if (muted) {
@@ -213,7 +224,7 @@
     },
     {
       evt: 'stop', type: 'click',
-      fnt: function(dom) {
+      fnt: function() {
         if (isActivePlayer()){
           player.destroy()
         }
@@ -221,7 +232,7 @@
     },
     {
       evt: 'close-controls', type: 'click',
-      fnt: function(dom) {
+      fnt: function() {
         $('[data-panel="controls"]').click()
       }
     },

@@ -1,6 +1,6 @@
 var music_data = {
     links: [
-        ['https://music.youtube.com/channel/UCSFMRGTyAcCHgE2Fp0xsD_A', 'Yuotube Music'],
+        ['https://music.youtube.com/channel/UCSFMRGTyAcCHgE2Fp0xsD_A', 'YouTube Music'],
         ['https://www.youtube.com/channel/UCSFMRGTyAcCHgE2Fp0xsD_A', 'YouTube Channel'],
         ['../../youtu-be.html', 'YouTube Playlist'],
         ['//etoski.epizy.com/play/', 'Play! - Epizy'],

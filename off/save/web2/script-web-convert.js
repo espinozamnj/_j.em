@@ -1,6 +1,6 @@
 window.addEventListener('load', function() {
   let copi = __cDe('locked', '4d59416445604c7e3d70393e327d7863')
-  let $ = (e) => {return this.document.querySelector(e)}
+  let $ = (e) => {return document.querySelector(e)}
 
   function isURL(url) {
     let regex = new RegExp('^(https?:\\/\\/)?((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|((\\d{1,3}\\.){3}\\d{1,3}))(\\:\\d+)?(\\/.*)?$', 'i')
