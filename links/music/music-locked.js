@@ -144,7 +144,7 @@
     },
     {
       evt: 'state', type: 'dblclick',
-      fnt: function(dom) {
+      fnt: function() {
         if (isActivePlayer()) {
           let ID_url = player.getVideoData()['video_id']
           open('https://song.link/y/' + ID_url)
@@ -218,7 +218,7 @@
     },
     {
       evt: 'muted', type: 'click',
-      fnt: function() {
+      fnt: function(dom) {
         if (isActivePlayer()){
           let muted = player.isMuted()
           if (muted) {
