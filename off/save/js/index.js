@@ -350,20 +350,18 @@
                 ae.b.scrollTo(0, 0)
         
             }
-            ae.toogle.addEventListener('mouseenter', function(){
+            ae.toogle.addEventListener('mouseenter', function() {
                 alternateVisibleMenuToogle(false)
             })
             ae.toogle.addEventListener('click', function(){
                 alternateVisibleMenuToogle(false)
             })
-            window.addEventListener('keydown', function(event){
+            window.addEventListener('keydown', function(event) {
                 lastKEY = event.keyCode
             })
             
-            window.addEventListener('contextmenu', function(e){
-                if (lastKEY == 18) {
-                    console.log(SR)
-                    console.log(SR.style.display)
+            window.addEventListener('contextmenu', function(e) {
+                if (lastKEY == 18 && SR.style.display == '') {
                     e.preventDefault()
                     alternateVisibleMenuToogle(true)
                 }
@@ -449,7 +447,7 @@
                         info.real_name = res[0]['name']
                         info.fn_string = res[0]['url']
                     } else {
-                        info.exe = function(){
+                        info.exe = function() {
                             alert('this function does not exist')
                         }
                         info.origin = 'none'
