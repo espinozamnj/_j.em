@@ -23,7 +23,7 @@
     
         function i(t, a, w) {
             let i = 0
-            n = document.createElement(t)
+            let n = document.createElement(t)
             while (i < a.length) {
               let t = a[i]
               n.setAttribute(t[0], t[1])
@@ -361,7 +361,9 @@
             })
             
             window.addEventListener('contextmenu', function(e){
-                if (lastKEY == 18){
+                if (lastKEY == 18) {
+                    console.log(SR)
+                    console.log(SR.style.display)
                     e.preventDefault()
                     alternateVisibleMenuToogle(true)
                 }

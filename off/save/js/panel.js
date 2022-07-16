@@ -123,8 +123,9 @@
       e.preventDefault()
       show_all_panel()
     });
+    let i_search = document.createElement('input'), clearInput
     (function(){
-      let i = document.createElement('input')
+      let i = i_search
       i.setAttribute('type', 'text')
       i.setAttribute('placeholder', '#')
       i.setAttribute('id', 'find')
@@ -144,10 +145,14 @@
           _i++
         }
       }
+      clearInput = function() {
+        i.value = ''
+        search(i.value)
+      }
       i.addEventListener('focus', function(){i.setAttribute('placeholder', 'Search...')})
       i.addEventListener('blur', function(){i.setAttribute('placeholder', '#')})
       i.addEventListener('input', function(){search(i.value)})
-      i.addEventListener('dblclick', function (){i.value='';search(i.value)})
+      i.addEventListener('dblclick', function (){clearInput()})
     })();
     apps.forEach(function (a) {
       // dir_project
@@ -162,7 +167,10 @@
       itm.setAttribute('target', '_blank')
       itm.addEventListener('auxclick', function(e) {
         if (e.button == 1) {
-          show_panel()
+          clearInput()
+          setTimeout(function() {
+            show_panel()
+          }, 5e2)
         }
       })
       let img = nee('img', itm, '')
