@@ -82,6 +82,22 @@
     })
     $('.panels .playlist').appendChild(a)
   })
+  function checkProperties() {
+    if (isActivePlayer()) {
+      if (player.i == null) {
+        $('.bg-image').style.backgroundImage = ''
+      } else {
+        $('[data-action=volumen]').value = player.getVolume()
+        if (player.getPlayerState() == 2) {
+          $('[data-action=state]').classList.add('var')
+        } else {
+          $('[data-action=state]').classList.remove('var')
+        }
+      }
+    }
+  }
+  $('.controls').addEventListener('mouseenter', function(){checkProperties()})
+  $('[data-panel=controls]').parentElement.addEventListener('click', function(){checkProperties()})
   $$('.header .buttons a').forEach(function(button) {
     let panel = button.firstChild.getAttribute('data-panel'),
       classShow = 'show'
