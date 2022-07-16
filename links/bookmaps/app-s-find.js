@@ -247,6 +247,11 @@ setTimeout(
             let results = _txt.filter(e => e.url.toString().toLowerCase().includes(src.toLowerCase()))
             nA = []
             nA.push(results)
+          } else if (Srh.startsWith('::')) {
+            let results = _txt.filter(e => e.name.toString().toLowerCase().includes('::'))
+            results = results.filter(e => e.name.includes(Srh.slice(2)))
+            nA = []
+            nA.push(results)
           } else if (Srh.startsWith('#')) {
             firstR += 4
             let n_chd = [],
