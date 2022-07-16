@@ -260,7 +260,7 @@ const sss = [
 {"name":"Zwibbler","url":"https://zwibbler.com/","path":"/lib/Apps/Student Tools/Whiteboard"},
 {"name":"AutoDraw","url":"https://www.autodraw.com/","path":"/lib/Apps/Student Tools/Whiteboard"},
 {"name":"My online blackboard","url":"https://myonlineblackboard.com/","path":"/lib/Apps/Student Tools/Whiteboard"},
-{"name":"Canvas Chrome","url":"https://canvas.apps.chrome/","path":"/lib/Apps/Student Tools/Whiteboard"},
+{"name":"Canvas Chrome::app","url":"https://canvas.apps.chrome/","path":"/lib/Apps/Student Tools/Whiteboard"},
 {"name":"Sketch::app","url":"https://sketch.io/sketchpad/","path":"/lib/Apps/Student Tools/Whiteboard"},
 {"name":"Aggie.io","url":"https://aggie.io/","path":"/lib/Apps/Student Tools/Whiteboard"},
 {"name":"Kleki | Paint Tool","url":"https://kleki.com/","path":"/lib/Apps/Student Tools/Whiteboard"},
