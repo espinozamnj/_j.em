@@ -19,7 +19,6 @@ crx.forEach(function (x) {
 console.log(gg)
 // gg.forEach(function(x){open(`chrome://extension-icon/${x.url}/48/0`)})
 // let n_d='';gg.forEach(function(x){n_d+=x.name+':::'+x.url+'\n'});console.log(n_d)
-
 ===================================
 let _i = {}
 let h = document.querySelector("extensions-manager").shadowRoot.querySelector("extensions-detail-view").shadowRoot.querySelector("#container .page-header")
@@ -41,7 +40,6 @@ console.log(_i)
   console.log(re)
 })()
 */
-
 window.addEventListener(
   'DOMContentLoaded',
   function(){

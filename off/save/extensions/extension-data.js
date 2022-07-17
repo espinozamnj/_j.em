@@ -1,5 +1,12 @@
 const data_crx = [
     {
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAFMElEQVRoge2YW2wUZRTHf2e2E9pSsKtAYtNw8RIhGCTBQIzyYFRMFKU0okhCQlRKZEPbbUtLQJIaJVFaujsti2CIomBMJHIxBg0PBjVe8AEhEsCEi4AoosIKLa3s7BwfpGTbzuxlCk/s7+mbc/vOP7Mze76BPHny5MlzMyMAs1sujZICs8QtYFvtkBONTU0liURi5I1oIBAIdLa2tp7zmy8AFZHOBYK86xogzBp7auWPyWTyGGD63SgNvwaDwTubm5uv+Ek2AEYVD/1A4ZRrhLK8ra3ttKp+NIgm01Eej8fn+U2W3kVlW2e9irS6RxnTx55c/o/jOAdSc64jR4LB4MTm5mYn10Sjd9GZHLoe+NstSNRpjEQiPwGf++8xLePPnz//lJ/EawJ2L5UuhA1uQQozZ1uX7hWR1X47zILlfpKMPlcJxwK6XeIEx2iIRqN7gO/8bJQJEZkaDoen55rXR8D2pcPOIbznETtvTrR7tHg9J9cBx3Gacs0x+htEAy1A0iXWtDVZU1paugM47KO/bHiytrZ2ci4JAwRsCxceB7a5BQuy6MCIuiAQ8dGcAntUdZWqNgMfA/8OCFKtz6Wo6yuxItI5WZB9Hv5Xyo8vazUM4wRwe5b7nBGR56LR6DepxlAoNKagoOBD4IEUc8K27btjsdjJbAoPuAMAO8Il+1H5wiOn+uy4dgOwstkAuOw4zoz+zQPEYrGTQ4YMeRw4kmI2TdPM+i64CgBQHK9X5qiEXF5QWFi4HriYaQMRWdfR0XEo1TZnzpxA73r16tWXRGRFn71VX6yvrx+RqTakEbCjrmQ3sM+1KWjYW/RGl4isz7SBiHzSu25qarqlpqbmcFlZ2Z/V1dVTeu3xeHwXYKekFdu2vWRQAgBQafHw3FE6vLvStm0LlwcxFdu2f+td9/T0TAXGA0Hg4V77pk2beoB4v9RQQ0PD0LT9kUFAQXnRVoGjbj4RXb62o+N3YEu6GqrqpKwDIrIb2JJMJq9Nv4sXLy7hf1Gp3Gbb9sJBCdj6rCRRz1fmfZXRrkeAFiCXIewty7Lmx2Kxa3OXaZqVQKB/oKqGq6qq0o7w6X9CwPCLxe8gnHXzKdJoWdbPwE6vfNM0006vDQ0No4BVHu7RRUVFz6fLzyhgU7P0iLLOw/1YhdU1BXgzUx03wuHw/YlE4iugPE1YI2lG+IwCAAJqx4BOV6ejSy3L2isiX2ZTC3i5trZ2Q01NzfeO4/wA3JMhfmI4HJ7p5cxKwNa6W84rutHNJ8gzT7f13OU4nv8bfVDVGapaBUwjy8OR4zgrvHxZCQAwAsYawO3cGjCMZLi9vX0XsD/bejkyrbq6+iE3R07Hw4rI5fcFne9Spafgio4rO7PiUWBzP+8S4I+r68n4PLgAn1qWNeDUlpOA2ZFLE8A4iOsYzuuTLra8Go/Hj6rqGJ9NpkNVdVJ7e/vBVGPWPyGA7eFhh4HPXKsLoX1FoSJVbRtEk+kQwzAa+xtzEgDgqOH1ygwGzKEvdXd3bwT+yrVuNqjq3FAo1Ofu5ixgZ13R16J86+oUrbtQtsEGz/+NwWKaphlONeQsAMARvIa8cru0a65t2+1Al5/amVDVhamjti8BO2qLd6IccnWqLBs5cu0FwPVT5XWgOJFIhHovfAlARBHWeHgnHCi9/ISIrKHvjH/dEJHqqxOsTwHAyOLizcBpV6dqYzQa/QW4Ud9TbzVN8wWAAr8V3l4kiVltXSFD5MGBXqEicqE0eWzla4FAwF3kIBERt08/efLkyZPnJuM/l3i6d3IOQN0AAAAASUVORK5CYII=",
+        "name": "Page to Popup",
+        "url": "cogjjiejkomalkfdepejjdninlhlcgci",
+        "version": "0.2.0",
+        "descrp": "See your desired website (mobile view) in the toolbar popup"
+    },
+    {
         "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAF1ElEQVRoge2Ye4gWVRjGf++Z+dZy3fKCK6bQ1e5qURSIWkR2o+jmlpld6QJCUURFrmuDZiUFlRUF3bRauuzqRgVKdqeCrMjFooRM2DZNt7TNtdSZOW9/fGY73zcz38y329IfPv8M855z3ud5Zs4d9mEf+gTpjyTqecZfwwRMcCrKUUbkUKs6VJBaRUMj9GDZpMb8KDZc6wwZ/Jm83LipP7j7ZEAbvBPCILhB0ZmqDMtJvQYjSwsHOEtkifd7tRqqMqCXNp0YWLtQlXOrJf5XgPQgstgdNuRBef7u7fnb54De5A0Of/UXqcpsVTV5ydJgRH5BzGx3+fy2PO0yG9AG71g/8JehHJ1fXnYYI085jnubtHi7s9TPZMC/pHEqytuq1PVNXjaI4QN36AEXZulSFQ340+eeTshKVR3UP/KyQYTV7pChZ8hLd+5Iq5faj7WhaTwhbw20eABVTgl6ulu14XUnrV6iAb1+UZ0f2uWqOqT/5WWDqp4ThGu9tDqJBvyt2x/BckQqg5P6cbLBVJjMVOf40xsnJRXHjgF/euMkAj7RpDFiDOxXg5l0HDJmJJj0oWTX/oh+uQ6G1WEOHoWMGwu1+4FVtLML+9m3sNsHa+NFiqx13QknSstlYWmZG9siYFGyeEEOGYXbdA0Mrdy7dN1P6AsrcM4+BXPzBSDlaZ0rp+EvWAodW2JNqOr4MGifBSwtk1Ma8Kc3TVGYnKwI3DtmZBIPYJesQEaPwNx4flT8tu3oR+3Q8xcMr6Nwx+WgmpwHaVTVMvdlBjTUm1IVjR4OB43IJF4//Qb7fQfOrGngRKmCxmcJHm0hfKC5GBg7spg7MZmOCxqaTisNR7LqVQ/VGuXSVFWFQibxhJaweRVy+Bhk0vHl5X/uLHLu2PlvzI3v0Xv1BcwqjUVaBD3dUxTdPzVL5xbY1gPD0ruQXbka3fQb7tyrY8vdeddiV3+HmTqxGOjeAT93peY0cF5MLILTUzMAKASLlxVnjaQq33dgX3oHc+oxyElHxlc6bDRmxhnF7ugHBI+1po4BAIuO1isWjuodi/4zZXxFA9ai7T/g37IY56yTkbH1xWlUBF2/EbuuA21fDyMPxJkyoTh9JuZStHML4aqvYPPWigYA/F3+GGBzrAFFEz5XCVTh127C5neTSTdvI3j4tcq5pGg+i3gAY2zyHxAYkS0N8YuOEcwJ43Cu63XO6S1sx1/49zwTbaOaWTxAGGhkR1wy7KUOsicrhxRX2LEj44u3/9mH3EU4xkY2ltFBLAR9ZohZafeiL99mL0xkO1E6C+U+kw44jO6MvPZ+UaVzYNXkh4ZEbjBKu1DKnPf/gHXdX3q/RwyI8OXAyskHEbE10NE7FjHgirw/sJLyQZV2afF6eseiXah1/hqQiMP/E8RQdmdU0oVExciL1TNU3TJLanUdXi6Nl50H3BrnKUEyXSqVQTV1k5daVgnCm9Jy34bScJkBedXbKKLPV0ViFbv+58Ri3VDdhbSAqincF1cWeyXguLXzROiuiq2rG/3g6/K4tYSvvFd2MssChaU1y7zYGTI2m7TM6RLk9txMAALBk23Y5R8XDylW0fUbCZqeK/6BMP7mIQlG6CoUau9KoUvG7ovmNoPOzMVYCscURTsCYb7NkIhYHHNWoXX+e0l1Uv9nod69UYx8nou1FP988ZziARS5PU08ZJj4tMEbHgTB+6o6MbeCPkCEewttC+dXqldxREmLt9Ud7E4V4cP+kVaBT8SCuSWLeMhgAECavT/ciYVpIrJI+mlXHytGZDNizqx5Y8ETWdvkXjv9ixsnq5WnET0ub9sUEaoizxYYfI+0zfktZ9v8UM9zw/ZwpsU2omS7CIgjF7EKrQXkfmlb0F5VjmrJAVRVgoZ5kyXUKy1yDmoPVgHRPZn3PEVB97wbJFDDF6BvuM7+zdIyN3np/q8NlEIbvOG7Aw6yBPViTK2rdhCYMBC7a5CVbdToFurrO+XxW3f1J+8+7EMf8Dd8rzByIOkQewAAAABJRU5ErkJggg==",
         "name": "Toby Mini",
         "url": "gfdcgfhkelkdmglklfbndgopaihmoeci",
@@ -497,11 +504,15 @@ let tags_crx = {
         "vBookmarks::odhjcodnoebmndcihdedenkmdmklpihb",
     ],
     "important": [
-        "Traductor de Google::aapbdbdomjkkjkaonfhkkikfgjllcleb",
         "Vimium C - All by Keyboard::hfjbmagddngcpeloejdejnfgbamkjaeg",
         "Open-as-Popup::ncppfjladdkdaemaghochfikpmghbcpc",
+        "Page to Popup::cogjjiejkomalkfdepejjdninlhlcgci",
+        "Vimium C - All by Keyboard::hfjbmagddngcpeloejdejnfgbamkjaeg",
+        "uBlock Origin::cjpalhdlnbpafiamejdnhcphjbkeiagm",
+        "Copy URLs::efkmnflmpgiklkehhoeiibnmdfffmmjk",
     ],
     "tools": [
+        "Traductor de Google::aapbdbdomjkkjkaonfhkkikfgjllcleb",
         "Blackbox - Select. Copy. Paste & Search::mcgbeeipkmelnpldkobichboakdfaeon",
         "Bitwarden::nngceckbapebfimnlniiiahkandclblb",
         "Citation Plus::pbdamccljaemodcomdonapckfbdfefek",
