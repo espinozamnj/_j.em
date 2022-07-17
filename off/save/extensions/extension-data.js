@@ -507,7 +507,6 @@ let tags_crx = {
         "Vimium C - All by Keyboard::hfjbmagddngcpeloejdejnfgbamkjaeg",
         "Open-as-Popup::ncppfjladdkdaemaghochfikpmghbcpc",
         "Page to Popup::cogjjiejkomalkfdepejjdninlhlcgci",
-        "Vimium C - All by Keyboard::hfjbmagddngcpeloejdejnfgbamkjaeg",
         "uBlock Origin::cjpalhdlnbpafiamejdnhcphjbkeiagm",
         "Copy URLs::efkmnflmpgiklkehhoeiibnmdfffmmjk",
     ],
