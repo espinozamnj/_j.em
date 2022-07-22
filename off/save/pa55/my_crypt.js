@@ -1,6 +1,8 @@
 var spy = {
     di: `abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@[];$"',.{}()_^!¡#/&\\+%*¿?:`,
-    do: function encryp(text, key, mode_encode) {
+    do: function encryp(text, key = '', mode_encode = true) {
+        let key_c = ''
+        key == '' ? key_c = 'qwerty' : key_c = key
         var dicc = spy.di
         function nmb(lt) {
             let numero = dicc.indexOf(lt)
@@ -12,9 +14,9 @@ var spy = {
         let dividido = '', largo_div = 0, resultado = '', all_dic = '', repeat_dicc = 0
         dividido = text
         largo_div = dividido.length
-        repeat_dicc = Math.round(largo_div / key.length) + 1
+        repeat_dicc = Math.round(largo_div / key_c.length) + 1
         while (repeat_dicc--) {
-            all_dic += key
+            all_dic += key_c
         }
         // console.log('==', all_dic, '====')
         let i = 0

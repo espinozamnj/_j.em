@@ -12,6 +12,27 @@ body {
     font-size: 0.95rem;
     margin: 0;
 }
+.find {
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+.search {
+    border: none;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+    width: 100%;
+    outline: none;
+    padding: 3px 12px 8px 12px;
+    font-size: 16px;
+    margin: 0;
+    font-family: system-ui, sans-serif;
+}
+.search:focus {
+    outline: none;
+    border-bottom-color: var(--thumb);
+}
 .list {
     padding-bottom: 0.4rem;
 }
@@ -61,6 +82,11 @@ body {
     }
     .list .uri {
         padding: 0.64rem 0.85rem;
+    }
+}
+@media screen and (min-width: 820px) {
+    .find {
+        display: none;
     }
 }
 @media screen and (min-width: 820px) {

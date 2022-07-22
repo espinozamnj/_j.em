@@ -8,6 +8,11 @@ body {
     background-color: rgb(77, 77, 77);
     color: rgb(82, 82, 82);
 }
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
 #string-data,
 #ret {
     padding: 8px 14px;

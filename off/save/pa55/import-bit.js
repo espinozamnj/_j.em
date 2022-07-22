@@ -114,7 +114,8 @@ document.getElementById('but').addEventListener('click',function(){
     console.log(gen)
     document.getElementById('ret').innerHTML = ''
     document.getElementById('ret').innerText = 'data_hash_encrypt_pa55_log_ = ' + JSON.stringify(ng, 0, 1)
-    fexport('.down' , false, 'data_hash_encrypt_pa55_log_ = ' + JSON.stringify(ng))
+    let result_encrypt = spy.do(JSON.stringify(ng), '', true)
+    fexport('.down' , false, 'data_hash_encrypt_pa55_log_ = ' + JSON.stringify(result_encrypt))
 })
 document.getElementById('tog').addEventListener('click', function(){
     document.getElementById('ret').classList.toggle('color')

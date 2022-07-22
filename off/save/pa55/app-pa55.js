@@ -1,4 +1,8 @@
-(function(){
+(function() {
+    var history_input = []
+    let ckey = data_hash_encrypt_pa55_log_
+    ckey = spy.do(ckey, '', false)
+    data_hash_encrypt_pa55_log_ = JSON.parse(ckey)
     const k = data_hash_encrypt_pa55_log_
     var tg = [], set_pa = false, pppp = 'a'
     let rdd = Math.floor(Math.random() * (5 - 1)) + 1
@@ -104,16 +108,44 @@
         return s
     }
     var cmd = $('.console')
-    $('.a_top').addEventListener('click', function(e){
+    $('.a_bot').addEventListener('click', function(e) {
         e.preventDefault()
+        console.log('solicito cambio para antes')
+        let hst = history_input
+        let hsz = hst.length
+        if (hsz > 0) {
+            let index = hst.indexOf(ipt.value)
+            if (index == -1 || index == hsz - 1) {
+                index = 0
+            } else {
+                index = index + 1
+            }
+            ipt.value = hst[index]
+        }
     })
-    $('.a_bot').addEventListener('click', function(e){
+    $('.a_top').addEventListener('click', function(e) {
         e.preventDefault()
+        let hst = history_input
+        let hsz = hst.length
+        if (hsz > 0) {
+            let index = hst.lastIndexOf(ipt.value)
+            if (index == -1 || index == 0) {
+                index = hsz - 1
+            } else {
+                index = index - 1
+            }
+            ipt.value = hst[index]
+        }
     })
-    $('#send').addEventListener('submit', function(event){
+    $('#send').addEventListener('submit', function(event) {
         event.preventDefault()
+        if (!set_pa) {
+            history_input.push(ipt.value)
+            console.log(history_input)
+        }
+        
         let i = 0, e = ipt.value, g = [], h = {}, c =  e.rdic()
-      
+        
         h.c = el(cmd, 'div', [['class','result']])
         h.t = el(h.c, 'div', [['class','entry t-cian']])
         h.m = el(h.c, 'div', [['class','con']])
@@ -344,15 +376,17 @@
                         guide.split('||').forEach(function(a){
                             let b = a.split('|')
                             h.rbp = el(h.rb, 'div', [])
-                            h.rbpa = el(h.rbp, 'a', [['class','t-blue t-left t-pre']], b[0])
-                            h.rbpa.addEventListener('click', function(evt){
-                                ipt.value = evt.target.innerText
-                            })
+                            h.rbpc = el(h.rbp, 'div', [['class', 't-left']])
+                            h.rbpa = el(h.rbpc, 'a', [['class','t-blue t-pre']], b[0])
                             if (b[0] == '----') {
                                 h.rbpb = el(h.rbp, 'span', [['class','t-w']], b[1])
                                 h.rbp.style.marginTop = '12px'
                                 h.rbp.style.marginBottom = '8px'
                             } else {
+                                h.rbpa.classList.add('t-a')
+                                h.rbpa.addEventListener('click', function(evt){
+                                    ipt.value = evt.target.innerText
+                                })
                                 h.rbpb = el(h.rbp, 'span', [['class','t-gray t-italic']], b[1])
                             }
                         })
@@ -392,6 +426,7 @@
     ipt.addEventListener('keydown', function(evt){
         let o = evt.target
         if (evt.which === 13) {
+            evt.preventDefault()
             $('.sbt').click()
         }
         if (o.value.startsWith('..')) {
@@ -405,7 +440,14 @@
     })
     ipt.setAttribute('placeholder', rdd)
     setTimeout(function(){
-        ipt.value = '..' + ke55(1 - 1, '.')
-        ipt.focus()
+        if (document.activeElement != ipt) {
+            ipt.value = '..' + ke55(1 - 1, '.')
+            ipt.focus()
+        }
     }, 2e3)
-})();
+    window.addEventListener('keydown', function(e) {
+        if (e.code == 'Space' && e.ctrlKey) {
+            ipt.focus()  
+        }
+    })
+})()

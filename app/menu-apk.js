@@ -4,7 +4,11 @@ if (location.search == '?pwa') {
 window.addEventListener('load', function (){
     let loc = window.location, app = __apps__
     
-    let _s = document.createElement('div')
+    function cte(tag) {
+        return document.createElement(tag)
+    }
+
+    let _s = cte('div')
     _s.classList.add('status')
     document.body.appendChild(_s)
     function xw(href) {
@@ -22,19 +26,19 @@ window.addEventListener('load', function (){
         }
     })
     
-    if (parent !== window) {
+    if (parent == window) {
         console.log('Welcome to init app')
     }
-    
+    let list = document.querySelector('.list')
     let i = 0
     while (i < app.length) {
         let a, e, w, u, f, t, n, p, m
         a = app[i]
-        e = document.createElement('a')
-        m = document.createElement('span')
-        p = document.createElement('img')
-        t = document.createElement('span')
-        w = document.querySelector('.list')
+        e = cte('a')
+        m = cte('span')
+        p = cte('img')
+        t = cte('span')
+        w = list
         n = a['name']
         // dir_project
         a['url'].startsWith('@') ? u = _h + '_j.em/' + a['url'].slice(1) : u = a['url']
@@ -65,10 +69,42 @@ window.addEventListener('load', function (){
     }
     let add_fake_apps = 8
     while (add_fake_apps--) {
-        let a = document.createElement('a')
+        let a = cte('a')
         a.className = 'uri hidden'
-        document.querySelector('.list').appendChild(a)
+        list.appendChild(a)
     }
+    (function(){
+        let box = cte('div')
+        box.className = 'find'
+        let r = document.querySelector('.root')
+        r.insertBefore(box, r.firstChild)
+        let input = cte('input')
+        input.setAttribute('type', 'text')
+        input.setAttribute('autocomplete', 'off')
+        input.setAttribute('spellcheck', 'false')
+        input.setAttribute('placeholder', 'Buscar...')
+        input.classList.add('search')
+        box.appendChild(input)
+        input.addEventListener('input', function(e) {
+            let search = e.target.value
+            search = search.toLowerCase().trim()
+            let childs = list.children
+            let z = childs.length
+            let i = 0
+            while (i < z) {
+                let child = childs[i]
+                let content = child.textContent.toLowerCase()
+                if (content.includes(search)) {
+                    child.style.display = ''
+                } else {
+                    if (!child.classList.contains('hidden')) {
+                        child.style.display = 'none'
+                    }
+                }
+                i++
+            }
+        })
+    })()
     function verifyScroll() {
         let v_scroll = sessionStorage.getItem('scroll-app')
         if (!!v_scroll) {
