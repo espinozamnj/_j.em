@@ -2,8 +2,7 @@
   let loc = location.hash.replace('#', '')
   console.log('eval hash ' + loc)
   let box = document.querySelector('.console')
-  if (loc == '' || loc.split('-').length != 2) {
-  } else {
+  if (loc != '' && loc.split('-').length == 2) {
     let dm = loc.split('-')
     let js = {
       tths: function() {return new Date().getTime()},
@@ -36,13 +35,19 @@
         japp.addEventListener('load', function() {
           box.innerHTML = '<span class="t-green">Ready!</span>'
           setTimeout(function() {
-            box.innerHTML = ''
+            if (!!window.initpa55) {
+              box.innerHTML = ''
+            } else {
+              box.innerHTML = '<span class="t-red">Program not initialized</span>'
+            }
           }, 2e3)
         })
         js.cont.appendChild(japp)
       }, 1e3)
     })
     js.cont.appendChild(dat)
+  } else {
+    document.querySelector('.ipt').value = '00'
   }
   window.addEventListener('hashchange', function() {
     location.reload()
