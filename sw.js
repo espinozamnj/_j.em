@@ -2,11 +2,9 @@
 // dir_project
 const CACHE_NAME = 'v1_locked_cache',
   urlsToCache = [
-    '/_j.em/app/current.txt',
     '/_j.em/app/index.html',
     '/_j.em/app/j-em.css',
     '/_j.em/app/j-em.js',
-    '/_j.em/app/last.txt',
     '/_j.em/app/manifest.json',
     '/_j.em/app/menu-apk.css',
     '/_j.em/app/menu-apk.js',
@@ -20,10 +18,8 @@ const CACHE_NAME = 'v1_locked_cache',
     '/_j.em/links/bookmaps/app-s-find.js',
     '/_j.em/links/bookmaps/bookmaps.css',
     '/_j.em/links/bookmaps/book-txt.js',
-    '/_j.em/links/bookmaps/cubik.png',
     '/_j.em/links/bookmaps/finds.js',
     '/_j.em/links/bookmaps/getlogin.js',
-    '/_j.em/links/bookmaps/gradient_bar.png',
     '/_j.em/links/bookmaps/index.html',
     '/_j.em/links/bookmaps/main.js',
   ]
