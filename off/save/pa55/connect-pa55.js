@@ -47,6 +47,10 @@
     js.cont.appendChild(dat)
   } else {
     document.querySelector('.ipt').value = '00'
+    document.querySelector('#send').addEventListener('submit', function(e) {
+      e.preventDefault()
+      location.hash = document.querySelector('.ipt').value
+    })
   }
   window.addEventListener('hashchange', function() {
     location.reload()
