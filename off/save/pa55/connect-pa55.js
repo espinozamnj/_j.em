@@ -1,6 +1,5 @@
 (function() {
   let loc = location.hash.replace('#', '')
-  console.log('eval hash ' + loc)
   let box = document.querySelector('.console')
   if (loc != '' && loc.split('-').length == 2) {
     let dm = loc.split('-')
