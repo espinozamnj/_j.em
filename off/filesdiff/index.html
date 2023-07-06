@@ -1,0 +1,39 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/_cdn_/favs/diff.192.png" type="image/png">
+    <script src="/_cdn_/rm-wbha.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="filesdiff.css">
+    <title>Difference files</title>
+</head>
+<body>
+    <div class="app">
+        <div class="root">
+            <div class="main">
+                <h1>Comparador de archivos</h1>
+                <div class="rows-files">
+                    <div class="multipleFiles">
+                        <div class="file-drop-area">
+                            <span class="fake-btn">ARRASTRE AQUÍ PARA VARIOS ARCHIVOS</span>
+                            <input type="file" multiple>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-actions">
+                    <button id="btn-add">Añadir entrada</button>
+                    <button id="compare">Comparar archivos</button>
+                    <button id="togmin">Cambiar vista</button>
+                    <button id="clean">Eliminar bloques</button>
+                </div>
+            </div>
+        </div>
+        <div class="js">
+            <script src="file-diff.js"></script>
+            <script src="sha256.min.js"></script>
+            <script>method = sha256</script>
+        </div>
+    </div>
+</body>
+</html>

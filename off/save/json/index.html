@@ -1,0 +1,37 @@
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="/_cdn_/favs/json.192.png">
+        <title>JSON viewer</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="json-format.js"></script>
+        <script src="/_cdn_/rm-wbha.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div id="first">
+                <!--
+                    original pen => https://codepen.io/dede_brahma/pen/KyzEZo
+                -->
+                <form class="form">
+                    <label class="form_label--h" for="msg">Input json:</label>
+                    <textarea class="form-ipt" id="msg" placeholder="Input json..." rows="6"
+                        spellcheck="false"></textarea>
+                </form>
+            </div>
+            <div id="two">
+                <button type="button" class="load-json">VIEW</button>
+                <button type="button" class="collapse">COLLAPSE</button>
+                <button type="button" class="expand">EXPAND</button>
+                <button type="button" class="reset">CLEAR</button>
+            </div>
+            <div id="three">
+                <div id="json"></div>
+            </div>
+        </div>
+        <script src="app-json-tree.js"></script>
+    </body>
+    </html>

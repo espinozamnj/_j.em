@@ -1,0 +1,97 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/_cdn_/favs/words.192.png" type="image/png">
+    <script src="/_cdn_/rm-wbha.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fontsview.css">
+    <title>Fonts Views</title>
+</head>
+<body>
+    <div class="app">
+        <div class="root">
+            <div class="main">
+                <h1>Font viewer</h1>
+                <div class="inptFonts">
+                    <div class="file-drop-area">
+                        <span class="fake-text">ARRASTRE AQUÍ LAS FUENTES</span>
+                        <span class="desc">
+                            <span class="subt">Formatos aceptados:</span>
+                            <div class="squares-formats">
+                                <span class="minf">ttf</span>
+                                <span class="minf">woff</span>
+                                <span class="minf">woff2</span>
+                                <span class="minf">eot</span>
+                                <span class="minf">otf</span>
+                            </div>
+                        </span>
+                        <input id="files" multiple type="file" accept=".ttf,.woff,.woff2,.eot,.otf">
+                    </div>
+                </div>
+                <div class="article">
+                    <div class="hist-files">
+                        <div class="head-hist">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                            <div class="hist-tit">
+                                <span>Registro de fuentes</span>
+                                <span class="size-list">0</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="hist"></div>
+                    </div>
+                    <div class="options">
+                        <div class="ops-one">
+                            <div class="btns-one">
+                                <label for="range-size">
+                                    <b>Tamaño</b>
+                                    <input type="range" id="range-size" max="120" min="8" step="1" value="16">
+                                    <span class="size-i">16px</span>
+                                </label>
+                            </div>
+                            <div class="btns-two">
+                                <label for="tcolor" title="Color de texto">
+                                    <span>Aa</span>
+                                    <input type="color" id="tcolor" value="#000000">
+                                </label>
+                                <label for="bcolor" title="Color de fondo">
+                                    <span class="bgc"></span>
+                                    <input type="color" id="bcolor" value="#ffffff">
+                                </label>
+                                <button title="Alternar vista" id="togmin">
+                                    <i class="fa-solid fa-grip-lines"></i>
+                                    <i class="fa-solid fa-grip"></i>
+                                </button>
+                                <button title="Eliminar visualizaciones" id="clean">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="ops-two">
+                            <div class="sett-tp">
+                                <b>Texto a visualizar:</b>
+                                <input type="text" id="iptText" autocomplete="off" spellcheck="false">
+                            </div>
+                            <div class="btns-tt">
+                                <button title="Textos a minúsculas" class="t2l">aa</button>
+                                <button title="Textos a mayúsculas" class="t2u">AA</button>
+                                <button title="Capitalizar textos" class="t2c">Aa</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery"></div>
+                    <style id="sizecss">.font-preview{font-size:16px}</style>
+                    <style id="colorscss">:root{--cola:#000000;--colb:#ffffff}</style>
+                </div>
+            </div>
+            <div class="boxmsg">
+                <div class="cleanlist none">Borrar alertas</div>
+            </div>
+        </div>
+        <div class="js">
+            <script src="app-fontsviewer.js"></script>
+        </div>
+    </div>
+</body>
+</html>

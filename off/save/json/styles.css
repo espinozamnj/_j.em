@@ -1,0 +1,183 @@
+* {
+    box-sizing: border-box;
+}
+:root {
+    --app: rgb(235, 236, 236);
+    --border: rgb(174,155,71);
+}
+input,
+textarea {
+    display: block;
+    outline: 0;
+    border: 0;
+}
+input:focus,
+textarea:focus {
+    transition: 0.2s;
+}
+body {
+    background-color: #fff;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+}
+#first {
+    margin-top: 1em;
+}
+#two {
+    margin: 0.2em 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#two button {
+    padding: 0.5em 0.75em;
+    border: 0;
+    border-radius: 0.4em;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.875em;
+    transition: opacity 0.2s;
+    margin: 0.3em 0.8em;
+    outline: none;
+}
+#three {
+    margin-bottom: 4em;
+}
+.form_label {
+    display: block;
+    margin-bottom: 0.625em;
+}
+.form_label--h {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+.form-ipt {
+    width: 100%;
+    min-height: 3rem;
+    height: 5rem;
+    max-height: 20rem;
+    font-size: 10px;
+    padding: 0.83333em;
+    border: 3px solid var(--border);
+    border-radius: 0.4em;
+    background: var(--app);
+    color: #656D78;
+    resize: vertical;
+}
+.form-ipt::-webkit-scrollbar {
+    width: 16px;
+    background-color: var(--app);
+}
+.form-ipt::-webkit-scrollbar-thumb {
+    background-color: rgb(194, 194, 194);
+    border: 3px solid var(--app);
+}
+.form__modal {
+    width: 83%;
+    font-size: 1em;
+    padding: 0.83333em;
+    margin-bottom: 5px;
+    border-bottom: 6px solid #05bcaf;
+    border-radius: 0.4em;
+    background: var(--app);
+    color: #656D78;
+    font-weight: 300;
+}
+#two button:hover {
+    opacity: 0.75;
+    cursor: pointer;
+}
+.load-json {
+    background-color: rgb(19, 66, 41);
+}
+.reset {
+    background-color: rgb(86, 24, 0);
+}
+.collapse {
+    background-color: rgb(0, 53, 84);
+}
+.expand {
+    background-color: rgb(23, 76, 70);
+}
+.json-viewer {
+    display: inline-block;
+    overflow: scroll;
+    margin: 0;
+    height: 563px;
+    width: 100%;
+    color: rgb(101, 109, 120);
+    padding: 10px 10px 10px 20px;
+    background-color: var(--app);
+    border: 3px solid var(--border);
+    border-radius: 0.4em;
+}
+.json-viewer::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+    background-color: var(--app);
+}
+.json-viewer::-webkit-scrollbar-thumb {
+    background-color: rgb(194, 194, 194);
+    border: 3px solid var(--app);
+}
+.json-viewer::-webkit-scrollbar-corner {
+    background: rgba(0,0,0,0.001);
+}
+.json-viewer ul {
+    list-style-type: none;
+    margin: 0 0 0 1px;
+    border-left: 3px dotted rgb(204, 204, 204);
+    padding-left: 2em;
+}
+.json-viewer .hide {
+    display: none;
+}
+.json-viewer ul li .type-date,
+.json-viewer ul li .type-string {
+    color: var(--border);
+}
+.json-viewer ul li .type-boolean {
+    color: rgb(246, 187, 66);
+    font-weight: bold;
+}
+.json-viewer ul li .type-number {
+    color: rgb(232, 115, 118);
+}
+.json-viewer ul li .type-null {
+    color: rgb(236, 135, 192);
+}
+.json-viewer a.list-link {
+    color: rgb(101, 109, 120);
+    text-decoration: none;
+    position: relative;
+}
+.json-viewer a.list-link:before {
+    color: rgb(170, 170, 170);
+    content: "\25BC";
+    position: absolute;
+    display: inline-block;
+    width: 1em;
+    left: -1em;
+}
+.json-viewer a.list-link.collapsed:before {
+    content: "\25B6";
+}
+.json-viewer a.list-link.empty:before {
+    content: "";
+}
+.json-viewer .items-ph {
+    color: rgb(170, 170, 170);
+    padding: 0 1em;
+}
+.json-viewer .items-ph:hover {
+    text-decoration: underline;
+}

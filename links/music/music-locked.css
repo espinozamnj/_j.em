@@ -1,0 +1,260 @@
+@import url(other_customs.css);
+* {
+    font-family: system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+body {
+    height: 100vh;
+    overflow: hidden;
+}
+body .loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    background-color: white;
+    z-index: 2;
+}
+body .loader img {
+    margin: auto;
+    height: 5rem;
+    width: 5rem;
+}
+.main {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.header {
+    background-color: #ff0000;
+}
+.header .buttons {
+    display: flex;
+    width: 100%;
+    gap: 6px;
+    padding: 6px;
+}
+.header .buttons a {
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+    padding: 10px 0px;
+    font-size: 1.3rem;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+}
+.header .buttons a:hover {
+    background-color: #ffffff72;
+}
+.content {
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.content .panels {
+    position: relative;
+    transform-origin: center center;
+    /* transform: scale(0.7); */
+    height: 100%;
+    width: 100%;
+}
+.panels > * {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+}
+.panels > .embed {transform: translateY(0) translateX(0);z-index: 1;}
+.panels > .controls {transform: translateY(-100%) translateX(0)}
+.panels > .links {transform: translateY(0) translateX(100%)}
+.panels > .playlist {transform: translateY(0) translateX(-100%)}
+.panels > *.show {
+    transform: none;
+    z-index: 3;
+    transition-duration: 0.5s;
+}
+
+.panels > .embed iframe {
+    border: none;
+    height: 100%;
+    width: 100%;
+}
+.panels > .embed .yt-iframe {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+.panels .links {
+    background-color: rgba(0, 0, 0, 0.89);
+    padding: 12px 8px;
+}
+.panels .links .link {
+    display: block;
+    padding: 8px 14px;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 0.3rem;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+.panels .links .link:hover {
+    background-color: rgba(255, 255,255, 0.6);
+    color: black;
+}
+.panels .playlist {
+    background-color: rgb(219, 219, 219);
+    padding: 8px;
+}
+.panels .playlist .play-list {
+    text-transform: uppercase;
+    padding: 6px 14px;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 6px;
+}
+.panels .playlist .play-list::before {
+    content: "- ";
+}  
+.panels .playlist .play-list::after {
+    z-index: -2;
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    transition: all 0.3s;
+}
+.panels .playlist .play-list:hover::after {
+    width: 100%;
+}
+.panels .controls {
+    background-color: rgba(0, 0, 0, 0.69);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+}
+.panels .controls.disabled {
+    cursor: not-allowed;
+}
+.panels .controls.disabled * {
+    cursor: not-allowed !important;
+}
+.panels .controls .bg-image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-position: center;
+    filter: blur(9px) brightness(0.5);
+    transform: scale(1.1);
+    z-index: -1;
+}
+@media screen and (max-width: 700px){
+    .panels .controls .bg-image {
+        background-size: 180vh;
+    }
+}
+@media screen and (min-width: 700px){
+    .panels .controls .bg-image {
+        background-size: 180%;
+    }
+}
+.panels .controls .btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.panels .controls .btns > * {
+    display: flex;
+}
+.panels .controls a[data-action] {
+    overflow: hidden;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.6);
+    height: 3em;
+    width: 3em;
+    border-radius: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+    margin: 0 0.2em;
+}
+.panels .controls a[data-action]:hover {
+    background-color: rgba(255, 255, 255, 1)
+}
+.panels .controls a[data-action] i {
+    font-size: 2em;
+    color: black;
+}
+.panels .controls a[data-action] i:not(i:first-child) {
+    display: none;
+}
+.panels .controls a[data-action].var i:last-child {
+    display: block;
+}
+.panels .controls a[data-action].var i:first-child {
+    display: none;
+}
+.panels .controls .up {
+    display: flex;
+    align-items: flex-end;
+    font-size: 1.1em;
+}
+.panels .controls .up a i {
+    display: flex;
+    align-items: flex-end;
+    font-size: 2.9em;
+}
+.panels .controls .medium {
+    margin-top: 2.4em;
+    margin-bottom: 1.3em;
+}
+.panels .controls .up [data-action="state"] {
+    font-size: 1.3em;
+}
+.panels .controls .up a.var .yt-play-btn {
+    transform: translateX(4px);
+}
+.panels .controls [data-action="muted"] {
+    margin-right: 1.2em !important;
+    font-size: 0.6em;
+}
+.panels .controls .ranges .input {
+  display: flex;
+}
+.panels .controls .bottom {
+    position: absolute;
+    bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+}

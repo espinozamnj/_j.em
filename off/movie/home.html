@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/_cdn_/rm-wbha.js"></script>
+    <title>Home</title>
+    <link rel="stylesheet" href="./pelis/home.css">
+</head>
+<body>
+    <div class="app">
+        <div class="root">
+            <header>
+                <img src="./pelis/arrow-top.svg">
+                <h3>Elija un capítulo</h2>
+            </header>
+            <main>
+                <figure>
+                    <img src="">
+                </figure>
+                <section>
+                    <img src="">
+                    <h1></h1>
+                    <p></p>
+                </section>
+                <a target="_blank"></a>
+            </main>
+        </div>
+        <div class="jsrc">
+            <script>
+            let isInIframe = (parent !== window)
+            let parentUrl = null
+            var directory = 'movie'
+            if (isInIframe) {
+                parentUrl = document.referrer
+            }
+            var ll = parentUrl
+            let initdirec = ll.search(directory) + directory.length+1
+            ll = ll.substring(initdirec,ll.length-1)
+            console.log(ll)
+            // console.log('referrer: '+document.baseURI)
+            
+            var s = document.createElement('script')
+            s.type='text/javascript'
+            document.querySelector('.jsrc').appendChild(s)
+            s.src='./' + ll + '/base.js'
+
+            window.addEventListener('load',function(){
+                let cap = json_data_serie['caps']
+                document.querySelector("head").innerHTML+='<style>:root {--pri: '+json_data_serie['data_serie']['prima']+';--sec: '+json_data_serie['data_serie']['secun']+';}</style>'
+                document.querySelector("figure > img").src=json_data_serie['data_serie']['porta']
+                document.querySelector("section > img").src=json_data_serie['data_serie']['porta']
+                document.querySelector("h1").innerHTML=json_data_serie['data_serie']['serie']
+                document.querySelector("p").innerHTML="Temporadas: "+cap[cap.length-1].tem+", Capítulos: "+(cap.length)
+                document.querySelector("a").innerHTML=json_data_serie['data_serie']['exter']
+                document.querySelector("a").href=json_data_serie['data_serie']['exter']
+            })
+            </script>
+        </div>
+    </div>
+</body>
+</html>

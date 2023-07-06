@@ -1,0 +1,50 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/_cdn_/favs/read.192.png">
+    <title>Text to Speech</title>
+    <meta name="google" content="notranslate">
+    <link rel="stylesheet" href="read-app.css">
+    <script src="/_cdn_/rm-wbha.js"></script>
+  </head>
+  <body>
+    <div class="top-header">
+      <div class="main">
+        <h2>Text to Speech</h2>
+        <p>Select voice packet</p>
+        <select id="voices"></select>
+      </div>
+      <div class="customize">
+        <div>
+          <p>Volume</p>
+          <input type="range" min="0" max="1" value="1" step="0.1" id="volume" />
+          <span id="volume-label">1</span>
+        </div>
+        <div>
+          <p>Rate</p>
+          <input type="range" min="0.1" max="2.5" value="1" id="rate" step="0.1" />
+          <span id="rate-label">1</span>
+        </div>
+        <div>
+          <p>Pitch</p>
+          <input type="range" min="0" max="2" value="1" step="0.1" id="pitch" />
+          <span id="pitch-label">1</span>
+        </div>
+      </div>
+    </div>
+    <div class="botom">
+      <div class="typer">
+        <textarea spellcheck="false" class="form-control" placeholder="Type here..."></textarea>
+        <div class="statics"></div>
+      </div>
+      <div class="ctrls">
+        <button id="start">Start</button>
+        <button id="pause">Pause</button>
+        <button id="resume">Resume</button>
+        <button id="cancel">Cancel</button>
+      </div>
+    </div>
+	<script src="read-app.js"></script>
+  </body>
+</html>

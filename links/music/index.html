@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Music</title>
+    <link rel="icon" type="image/png" href="/_cdn_/favs/music.192.png">
+    <script src="/_cdn_/rm-wbha.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <link rel="stylesheet" href="music-locked.css">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="app">
+        <div class="root">
+            <div class="main">
+                <div class="loader">
+                    <img src="load_animation.svg">
+                </div>
+                <div class="header">
+                    <div class="buttons">
+                        <a><i data-panel="playlist" class='bx bxs-playlist'></i></a>
+                        <a><i data-panel="controls" class='bx bx-slider'></i></a>
+                        <a><i data-panel="links" class='bx bx-link-alt'></i></a>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="panels">
+                        <div class="controls disabled">
+                            <div class="bg-image"></div>
+                            <div class="btns">
+                                <div class="up">
+                                    <a data-action="prev">
+                                        <i class="bx bx-skip-previous"></i>
+                                    </a>
+                                    <a data-action="state" class="var">
+                                        <div class="yt-play-btn"></div>
+                                    </a>
+                                    <a data-action="next">
+                                        <i class="bx bx-skip-next"></i>
+                                    </a>
+                                </div>
+                                <div class="medium">
+                                    <a data-action="fullscreen">
+                                        <i class="bx bx-fullscreen"></i>
+                                        <i class="bx bx-exit-fullscreen"></i>
+                                    </a>
+                                    <a data-action="random">
+                                        <i class="bx bxs-arrow-to-right"></i>
+                                        <i class="bx bx-shuffle"></i>
+                                    </a>
+                                    <a data-action="reset">
+                                        <i class="bx bx-reset"></i>
+                                    </a>
+                                    <a data-action="open-link">
+                                        <i class="bx bx-link-external"></i>
+                                    </a>
+                                </div>
+                                <div class="ranges">
+                                    <div class="input">
+                                        <a data-action="muted">
+                                            <i class="bx bx-volume-full"></i>
+                                            <i class="bx bx-volume-mute"></i>
+                                        </a>
+                                        <input
+                                            data-action="volumen"
+                                            type="range"
+                                            max="100"
+                                            value="50"
+                                            step="1"
+                                            min="1"
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <a data-action="stop">
+                                    <i class="bx bx-message-alt-x"></i>
+                                </a>
+                                <a data-action="close-controls">
+                                    <i class="bx bxs-chevron-up"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="embed">
+                            <iframe src="frame-blank.html"></iframe>
+                            <div class="yt-iframe"></div>
+                        </div>
+                        <div class="links"></div>
+                        <div class="playlist"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sjs">
+            <script src="links-data-youtube.js"></script>
+            <script src="load-data-youtube.js"></script>
+        </div>
+    </div>
+</body>
+</html>

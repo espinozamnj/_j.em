@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/_cdn_/favs/screen.192.png" type="image/png">
+    <script src="/_cdn_/rm-wbha.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="app-screen.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share your screen</title>
+    <!-- <meta http-equiv="Content-Security-Policy" content="self"> -->
+</head>
+<body>
+    <div class="app">
+        <div class="root">
+            <header>
+                <div>
+                    <button id="start">Start</button>
+                    <button id="stop">Stop</button>
+                    <button id="pp">Emergent</button>
+                    <button id="ph">Photos</button>
+                    <button id="gi">Capture</button>
+                    <button id="cm">Fullscreen</button>
+                </div>
+            </header>
+            <main style="height: 100vh;">
+                <video id="video" autoplay></video>
+            </main>
+            <div id="scroll-canvas"></div>
+        </div>
+        <div class="sjs">
+            <style class="max"></style>
+            <script src="app-screen.js"></script>
+            <script src="../save/js/video_enhance.js"></script>
+        </div>
+    </div>
+</body>
+</html>

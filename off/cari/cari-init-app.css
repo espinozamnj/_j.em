@@ -1,0 +1,202 @@
+.welcome {
+    background-color: rgb(221, 221, 221);
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    transition-property: all;
+    transition-duration: 0.6s;
+    transition-timing-function: ease-out;
+}
+.init-login {
+    margin-bottom: 100px;
+    width: 100%;
+    max-width: 300px;
+}
+.init-login,
+.init-login .form-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.init-login .form-login {
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+}
+.logo-txt {
+    font-family: 'Oswald', monospace;
+    font-weight: 400;
+    font-size: 30px;
+}
+.init-login .h1 {
+    margin-top: 8px;
+}
+.form-login input {
+    width: 100%;
+    outline: none;
+    padding: 10px 14px;
+    font-size: 16px;
+    border-style: solid;
+    border-color: rgb(189, 189, 189);
+    background-color: #ffffff80;
+    transition-property: all;
+    transition-duration: 0.2s;
+}
+.form-login input:focus {
+    background-color: white;
+}
+.form-login input#pss_user {
+    border-width: 2px 2px 0px 2px;
+    border-radius: 6px 6px 0px 0px;
+}
+.form-login input#pss_pswd {
+    border-width: 2px 2px 2px 2px;
+    border-radius: 0px 0px 6px 6px;
+}
+.form-login #login {
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    color: white;
+    border: none;
+    background-color: rgb(5, 117, 5);
+    padding: 10px 14px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.form-login #login:hover {
+    background-color: rgb(7, 83, 7);
+}
+.form-login .suboptions {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+.form-login .suboptions button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-size: inherit;
+    color: #6288d2;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+.form-login .suboptions button:hover {
+    color: #1c38db;
+}
+.welcome.close {
+    transform: translateX(-100%);
+}
+.main,
+.article {
+    height: inherit;
+}
+.article {
+    z-index: 1;
+}
+.panel-slide {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-OUT;
+    max-width: 380px;
+    background-color: white;
+    z-index: 2;
+}
+.panel-slide.panel-left {
+    left: 0;
+    right: auto;
+    transform: translateX(-100%);
+}
+.panel-slide.panel-right {
+    right: 0;
+    left: auto;
+    transform: translateX(100%);
+}
+.panel-slide.open-panel {
+    transform: translateX(0);
+    box-shadow: 0px 0px 14px 0px #00000032;
+}
+.panel-slide .btn-close {
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    color: white;
+    transition-property: all;
+    transition-duration: 0.2s;
+}
+.panel-slide .btn-close:hover {
+    background-color: rgb(209, 76, 76);
+    border-color: rgb(209, 76, 76);
+}
+.pcont-header,
+.pcont-foo {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    user-select: none;
+    padding: 8px;
+    gap: 8px;
+}
+.pcont-header {
+    color: white;
+    height: 50px;
+}
+.pcont-header .btn-icon {
+    font-size: 18px;
+    cursor: pointer;
+}
+.pcont-header p.subheader {
+    flex: 1;
+    font-size: 18px;
+}
+.panel-slide .pcont-header {
+    background-color: rgb(57, 100, 221);
+}
+@media (max-width: 500px) {
+    .panel-left .pcont-foo {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .panel-left .pcont-foo .btn-large {
+        width: 100%;
+    }
+  }
+  @media (min-width: 500px) {
+    .pcont-foo {
+        flex-wrap: wrap;
+    }
+    .panel-left .pcont-foo .btn-large {
+        width: calc(50% - 4px);
+    }
+}
+.iziToast-wrapper {
+    overflow: hidden;
+}
+.iziToast-wrapper.iziToast-wrapper-topCenter {
+    top: 50px;
+}
+.iziToast {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    min-height: 40px;
+}

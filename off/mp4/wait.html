@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Sala de espera</title>
+  <link rel="icon" type="image/png" href="/_cdn_/favs/wait-room.192.png">
+  <script src="/_cdn_/rm-wbha.js"></script>
+<style>
+*{font-family:'Roboto Slab',Lato,serif;box-sizing:border-box}
+body {
+    margin: 0;
+    padding: 0;
+}
+main {
+    background-color: black;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+video {
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    min-height: 100%;
+    min-width: 100%;
+}
+video:focus {
+    outline: none;
+}
+#home {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    padding: 0.75em 1em;
+    border-radius: 0.75em;
+    box-shadow: 0px 2px 8px -2px white;
+    background-color: rgba(0, 0, 0, 0.35);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+#clock{
+    display: flex;
+    color: white;
+    font-size: 4em;
+    justify-content: center;
+    align-content: center;
+    overflow: hidden;
+    position: relative;
+}
+#clock * {
+    font-family: monospace !important;
+}
+#clock .tm {
+    font-size: 0.5em;
+    line-height: 3em;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0 0.5em 0 0.25em;
+}
+#clock span {
+    margin-right: 0.5em;
+}
+marquee {
+    background-color: transparent;
+    position: fixed;
+    bottom: 1rem;
+    padding: 0.5rem 1rem ;
+    left: 0;
+    width: 100%;
+    color: white;
+    font-size: 2em;
+    text-shadow: 0px 0px 6px black;
+}
+[nn]{
+    display: none;
+}
+nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: translateX(calc(-100% + 2px));
+    opacity: 0.1;
+    transition: all 0.5s;
+    z-index: 15;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+nav:hover {
+    transform: translateX(0);
+    opacity: 1;
+}
+nav ul {
+    display: block;
+    color: white;
+    font-family: sans-serif;
+    font-size: 1.13em;
+    padding: 1em 1.5em;
+    margin: 0;
+    transition: all 0.25s;
+}
+nav ul:hover {
+    background-color: rgba(98, 0, 255, 0.75);
+}
+nav ul p {
+    margin: 0;
+    padding-bottom: 0.4em;
+}
+nav ul input {
+    cursor: pointer;
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 4px;
+}
+.apply {
+    padding: 0.5em 1em;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.25);
+    font-size: 1.05em;
+    border: 3px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.apply:hover {
+    background-color: black;
+    border: 3px solid white;
+    color: white
+
+}
+</style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <p>Elige el video</p>
+            <input type="file" id="video" onchange="openPlayer()">
+        </ul>
+        <ul>
+            <p>Fecha</p>
+            <input type="date" id="dia">
+        </ul>
+        <ul>
+            <p>Hora</p>
+            <input type="time" id="hora">
+        </ul>
+        <ul>
+            <input type="button" value="Conteo" onclick="regre()" class="apply">
+        </ul>
+        <ul>
+            <p>Tamaño</p>
+            <input type="range" max="100" min="0" value="1" id="size">
+        </ul>
+        <ul>v.etoski</ul>
+    </nav>
+    <main>
+        <video src="000.mp4"></video>
+    </main>
+        <div id="home">
+            <div id="clock">
+                <div nn class="number"><div>0</div></div>
+                <div nn class="number"><div>0</div></div>
+                <div nn class="tm">DIAS</div>
+                <div nn class="number"><div>:</div></div>
+                <span>Faltan: </span>
+                <div class="number"><div>0</div></div>
+                <div class="number"><div>0</div></div>
+                <div class="tm" style="transform: scaleY(0.75);">HORAS</div>
+                <div nn class="number"><div>:</div></div>
+                <div class="number"><div>0</div></div>
+                <div class="number"><div>0</div></div>
+                <div class="tm">MIN</div>
+                <div class="number"><div>:</div></div>
+                <div class="number"><div>0</div></div>
+                <div class="number"><div>0</div></div>
+                <div class="tm">SEC</div>
+            </div>
+        </div>
+    <marquee behavior="" direction="">La transmisicon empieza a las 5pm, después nadie entrará</marquee>
+    <script>
+    document.getElementById('size').onchange = function(){
+        let s = this.value
+        document.getElementsByTagName('marquee')[0].style.fontSize = s+'px'
+    }
+    function regre(){
+        let d = document.getElementById('dia').value
+        let h = document.getElementById('hora').value
+        let t = d + ' ' + h
+        var lt = new Date(t).getTime()
+        console.log(t)
+        console.log(lt)
+        
+        var x = setInterval(function() {cuentaregresiva(lt)}, 1000);
+    }
+
+    function openPlayer(){
+        var vplayer = document.getElementsByTagName('video')[0]
+        var file = document.getElementById('video').files[0]
+        var fileURL = window.URL.createObjectURL(file)
+        vplayer.src = fileURL
+        vplayer.load()
+    }
+
+    //countdown
+
+
+    function cuentaregresiva(cr){
+        var countDownDate = cr
+        var now = new Date().getTime()
+        var last = "00:00:00:00";
+
+        var distance = countDownDate - now
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24))
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000)
+
+        var nowon = ("0" + days).slice(-2) + ":" + ("0" + hours).slice(-2) + ":" + ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2)
+
+        // console.log(last + " " + nowon)
+        animatetime(last, nowon)
+        last = nowon
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("clock").innerHTML = "Empezamos...";
+        }
+    }
+    function animatetime(last, nowon) {
+    for (var i = 0; i < nowon.length; i++) {
+        if (last[i] != nowon[i]) {
+        animate(i, nowon[i])
+        }
+    }
+    }
+    function animate(index, number) {
+        var element = document.getElementsByClassName("number")[index]
+        var second = element.lastElementChild.cloneNode(true)
+        second.innerHTML = number
+        element.removeChild(element.firstElementChild)
+        element.appendChild(second)
+    }
+    function PulsarTecla(event){tecla = event.keyCode;
+        if(tecla==88){
+            let msg=prompt("Mensaje","")
+            if (msg!=null) {
+                document.querySelector("marquee").innerText= msg
+            }
+        }
+    }
+    window.onkeydown=PulsarTecla
+
+    document.querySelector('#home').addEventListener('click',function(){
+        let v = document.querySelector('video')
+        if(v.paused){v.play()}else{v.pause()}
+    })
+    </script>
+</body>
+</html>

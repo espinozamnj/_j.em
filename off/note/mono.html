@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Monospace</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="icon" type="image/png" href="/_cdn_/favs/mono.192.png">
+    <meta name="viewport" content="width=device-width">
+    <script src="/_cdn_/rm-wbha.js"></script>
+    <link rel="stylesheet" href="app-notes.css">
+    <script>let note_sett = {edit:'#editor',notelocal:'note-code',down:'.down',del:'.clear',format:false};</script>
+</head>
+<body class="note-bod f-mono">
+    <div class="app">
+        <div class="root">
+            <div id="editor" contenteditable="true" spellcheck="false"></div>
+            <div class="opt">
+                <a href="#" class="clear">CLEAR</a>
+                <a href="#" class="down">SAVE</a>
+            </div>
+        </div>
+        <div class="js-sc">
+            <script src="notepad.js"></script>
+            <script>
+                q(note_sett.down).addEventListener('click', function(){fexport(false,'',true)})
+                q(note_sett.del).addEventListener('click', function(){clearCache()})
+            </script>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Lista de episodios para navegadores no compatibles</title>
+    <link id="favicon" rel="icon" type="image/png" href="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <style>
+    * {
+        font-family: sans-serif;
+    }
+    body {
+        background-color: white;
+        margin-top: 16px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 180px;
+    }
+    a {
+        display: block;
+        font-family: sans-serif;
+        text-decoration: none;
+        padding: 0.5em 0.8em;
+        color: black;
+        border-bottom: 1px solid black;
+        transition: all 0.3s;
+    }
+    a:hover {
+        color: blue;
+        text-decoration: underline;
+        padding-left: 2em;
+    }
+    #js {display: none;background-color: blue;}
+    .rem {
+        position: fixed;
+        bottom: 1em;
+        right: 1em;
+        height: 2em;
+        width: 2em;
+        z-index: 5;
+    }
+    </style>
+</head>
+<body>
+    <h1>Lista de enlaces por episodio para navegadores no compatibles</h1>
+    <div id="list"></div>
+    <div id="js"></div>
+    <script src="./base.js"></script>
+    <script>
+    var list = document.getElementById("js");
+    var cap = json_data_serie['caps']
+    var totalcaps = cap.length;
+    for(var i=0;i <totalcaps; i++) {
+    list.innerHTML+='<a href="'+cap[i]["url"]+'">'+cap[i]["tem"]+'.'+cap[i]["epi"]+'  '+cap[i]["tit"]+'</a>';}
+    </script>
+</body>
+</html>

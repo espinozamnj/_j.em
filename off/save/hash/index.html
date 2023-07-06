@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/_cdn_/favs/hash.192.png">
+    <script src="/_cdn_/rm-wbha.js"></script>
+    <title>cypher</title>
+    <link rel="stylesheet" href="cipher.css">
+</head>
+<body>
+    <div id="app">
+        <div class="main">
+            <form class="tea">
+                <!--
+                    Tiny Encryption Algorithm
+                    http://www.movable-type.co.uk/scripts/tea-block.html
+                    https://codepen.io/WartClaes/pen/QGGPJL
+                    https://codepen.io/dede_brahma/pen/KyzEZo
+                    https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
+                -->
+                <div class="pass">
+                    <label class="control-label" for="password">pa55word</label>
+                    <input id="password" type="password">
+                </div>
+                <div class="output">
+                    <div class="out">
+                        <label class="control-label" for="text" id="text-label">decrypted</label>
+                        <textarea id="text" type="text" spellcheck="false"></textarea>
+                    </div>
+                    <div class="out">
+                        <label class="control-label" for="encrypt" id="encrypt-label">encrypted</label>
+                        <textarea id="encrypt" type="text" spellcheck="false"></textarea>
+                    </div>
+                </div>
+            </form>
+            <form class="gen">
+                <input class="_l" type="number" placeholder="length">
+                <input class="_n" type="number" placeholder="numbers">
+                <input class="_s" type="number" placeholder="symbols">
+                <div>
+                    <input type="button" value="gen" id="gen">
+                    <input type="button" value="upper" id="upp">
+                    <input type="button" value="lower" id="low">
+                </div>
+                <input type="text" id="fin">
+                <input class="_c" type="button" value="copy">
+            </form>
+        </div>
+        <div class="js">
+            <script src="hash-app.js"></script>
+        </div>
+    </div>
+</body>
+</html>

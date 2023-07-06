@@ -1,0 +1,171 @@
+:root {
+    --fondo: #5a83f2;
+    --thumb: #3964dd;
+    --back: #d8e0f7;
+}
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body {
+    background-color: var(--back);
+    font-size: 0.95rem;
+    margin: 0;
+}
+.find {
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+.search {
+    border: none;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+    width: 100%;
+    outline: none;
+    padding: 3px 12px 8px 12px;
+    font-size: 16px;
+    margin: 0;
+    font-family: system-ui, sans-serif;
+}
+.search:focus {
+    outline: none;
+    border-bottom-color: var(--thumb);
+}
+.list {
+    padding-bottom: 0.4rem;
+}
+.list .pic {
+    width: 1.13rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+.list .pic img {
+    height: 1.018rem;
+}
+  
+@media screen and (max-width: 400px) {
+    body {
+        padding: 4px;
+    }
+    body::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    .list .uri {
+        padding: 0.46rem 0.4rem;
+    }
+}
+@media screen and (min-width: 400px) {
+    body {
+        padding: 8px;
+    }
+    body::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+    }
+    .list .uri {
+        padding: 0.46rem 0.65rem;
+    }
+}
+@media screen and (min-width: 700px) {
+    body {
+        padding: 12px;
+    }
+    body::-webkit-scrollbar {
+        width: 16px;
+        height: 16px;
+    }
+    .list .uri {
+        padding: 0.64rem 0.85rem;
+    }
+}
+@media screen and (min-width: 820px) {
+    .find {
+        display: none;
+    }
+}
+@media screen and (min-width: 820px) {
+    .list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .list .uri {
+        margin: 4px;
+        flex: 1;
+    }
+    .list .uri .nam {
+        overflow-wrap: break-word;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .list .pic img {
+        height: 2rem;
+    }
+    .list .pic {
+        width: 2.213rem;
+    }
+}
+.list .uri {
+    text-decoration: none;
+    position: relative;
+    user-select: none;
+    color: rgb(78, 68, 68);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 0.18rem;
+    transition: all 0.25s;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+}
+.list .uri.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+.list .uri .nam {
+    z-index: 2;
+    position: relative;
+    padding-left: 0.6rem;
+}
+.uri:hover {
+    background-color: rgba(255, 255, 255, 0.756);
+    border-color: rgb(97, 112, 228);
+    color: rgb(32, 50, 124);
+    box-shadow: 0px 4px 5px -3px rgba(0, 0, 0, 0.466);
+}
+.status {
+    font-family: monospace;
+    user-select: none;
+    cursor: pointer;
+    font-size: 13px;
+    position: fixed;
+    bottom: 0;
+    right: 2px;
+    padding: 0.3rem 0.6rem;
+    background-color: rgb(32, 50, 124);
+    color: white;
+    z-index: 15;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--back);
+}
+body::-webkit-scrollbar-thumb {
+  background: rgba(112, 147, 235, 0.25);
+  background-clip: padding-box;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: rgba(112, 147, 235, 0.52);
+  background-clip: padding-box;
+}
+body::-webkit-scrollbar-thumb:active {
+  background: rgba(112, 147, 235, 0.98);
+  background-clip: padding-box;
+}

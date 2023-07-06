@@ -1,0 +1,111 @@
+<html lang="es" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/_cdn_/favs/firenote.192.png" type="image/png">
+    <script src="/_cdn_/rm-wbha.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FireNote</title>
+    <link rel="stylesheet" href="firenote.css">
+    <link rel="stylesheet" href="prism.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="app">
+        <div class="root">
+            <div class="header">
+                <div class="act-icon">
+                    <i class='bx bx-menu'></i>
+                </div>
+                <div class="note-title">
+                    <input id="title" type="text" autocomplete="off" spellcheck="false">
+                </div>
+                <div class="view-apps act-icon">
+                    <i class='bx bxs-carousel'></i>
+                </div>
+            </div>
+            <div class="main">
+                <div id="alert"></div>
+                <div id="cont-note">
+                    <div class="list">
+                        <div class="search">
+                            <div class="bar-search">
+                                <input id="filter" type="text" autocomplete="off" spellcheck="false" placeholder="Search...">
+                                <i class='bx bx-search-alt-2'></i>
+                            </div>
+                            <div class="act-icon" id="add-note">
+                                <i class='bx bx-add-to-queue'></i>
+                            </div>
+                        </div>
+                        <aside class="notes-list"></aside>
+                    </div>
+                    <div class="note">
+                        <div class="editor">
+                            <textarea
+                                id="input"
+                                autocomplete="off"
+                                spellcheck="false"></textarea>
+                            <div class="preview markdown-body"></div>
+                            <div class="act-icon" id="update-note" title="Ctrl + Enter">
+                                <i class='bx bxs-cloud-upload'></i>
+                            </div>
+                            <div class="act-icon" id="preview" title="Ctrl + M">
+                                <i class='bx bxl-markdown'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="cont-link">
+                    <div class="urls onestep" id="urls-cont"></div>
+                    <div class="add-link">
+                        <i class='bx bx-message-square-add'></i>
+                    </div>
+                    <div class="new-link close">
+                        <div class="new-input-link">
+                            <div class="title">
+                                <input spellcheck="false" autocomplete="off" type="text" id="title-link" placeholder="Title for this card">
+                            </div>
+                            <div class="link content">
+                                <textarea spellcheck="false" autocomplete="off" id="raw-links" placeholder="[title](link)"></textarea>
+                            </div>
+                            <div class="link-add-btn">
+                                <button id="link-s">
+                                    <i class='bx bx-check'></i>
+                                    <span>Save</span>
+                                </button>
+                                <button id="link-c">
+                                    <i class='bx bx-x'></i>
+                                    <span>Cancel</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="cont-todo">
+                    <div class="table-to-a"></div>
+                    <div class="add-to">
+                        <i class='bx bx-list-plus'></i>
+                    </div>
+                </div>
+                <div class="others">
+                    <div class="call-note" accesskey="n" title="ALT + N">
+                        <i class='bx bxs-edit' ></i>
+                    </div>
+                    <div class="call-link" accesskey="l" title="ALT + L">
+                        <i class='bx bx-link-alt'></i>
+                    </div>
+                    <div class="call-todo" accesskey="t" title="ALT + T">
+                        <i class='bx bx-check-double'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sjs">
+            <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+            <script src="prism.js"></script>
+            <script src="firenote-app.js"></script>
+        </div>
+    </div>
+</body>
+</html>

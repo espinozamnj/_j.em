@@ -1,0 +1,379 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>	
+	<title>Enlaces Codepen</title>
+	<!-- <link rel="icon" type="image/png" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico"> -->
+    <link rel="icon" type="image/png" href="/_cdn_/favs/codepen.192.png">
+	<meta name="viewport" content="user-scalable=no,width=device-width, initial-scale=1.0">
+	<script src="/_cdn_/rm-wbha.js"></script>
+	<style type="text/css">
+* {
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+[scroll]::-webkit-scrollbar {
+	width: 0.6em;
+	height: 0.6em;
+	background-color: rgb(113, 192, 166);
+}
+[scroll]::-webkit-scrollbar-thumb {
+	background-color: aquamarine;
+	border-style: solid;
+	border-color: rgb(113, 192, 166);
+	border-width: 2px;
+}
+body {
+    margin: 0px;
+    font-family: 'Century Gothic';
+    color: white;
+	background-color: #8f8f8f;
+	display: grid;
+	height: 100%;
+	width: 100%;
+	grid-template-rows: auto 1fr;
+	grid-template-columns: 620px 1fr;
+}
+body.onlyifr {
+	grid-template-columns: 0px 1fr;
+}
+body.onlyifr aside {
+	visibility: hidden;
+}
+body.onlyifr article::before {
+	visibility: hidden;
+}
+header {	
+	grid-column: 1 / 3;
+	display: flex;
+	width: 100%;
+	padding: 0 1em;
+	background-color: #424242;
+	box-shadow: 0px -5px 8px 2px black;
+}
+header img {
+	padding: 0.5em 0.75em 0.25em 0;
+	cursor: pointer;
+	filter: invert(1);
+	transition: all 0.3s;
+	opacity: 0.65;
+}
+header img:hover {
+	opacity: 1;
+}
+header p {
+	margin: 0 0.25em;
+	transition: all 0.25s;
+	cursor: pointer;
+	position: relative;
+	padding: 1.2em 0.75em 1em 0.75em;
+	border-top: 0.2em solid #424242;
+	border-radius: 0.6em 0.6em 0px 0px;
+}
+header p.on {
+	background-color: aquamarine;
+	color: darkslategray;
+}
+header p.on:hover {
+	color: darkslategray;
+}
+header p.off:hover {
+	color: aquamarine;
+}
+header p::after, header p::before {
+	content: '';
+	position: absolute;
+}
+header p.on::before {
+	bottom: 0;
+	left: 0;
+	border-radius: 1.5em;
+	border-color: transparent;
+	border-width: 0.5em;
+	border-right-color: aquamarine;
+	border-style: solid;
+	height: 1.5em;
+	width: 1.5em;
+	transform: translateX(-2em) translateY(0.5em) rotateZ(45deg);
+}
+header p.on::after {
+	bottom: 0;
+	right: 0;
+	border-radius: 1.5em;
+	border-color: transparent;
+	border-width: 0.5em;
+	border-right-color: aquamarine;
+	border-style: solid;
+	height: 1.5em;
+	width: 1.5em;
+	transform: translateX(2em) translateY(0.5em) rotateZ(-215deg);
+}
+header p.off::after {
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 1px;
+	background-color: aquamarine;
+	transition-timing-function: ease-in-out;
+	transform: scaleX(0) translateY(-0.25em);
+}
+header p.off:hover::after {
+	transition: all 0.25s;
+	transform: scaleX(1) translateY(-0.25em);
+}
+aside {
+	background-color: aquamarine;
+	padding: 0.75em;
+	height: 100%;
+	overflow-y: scroll;
+	padding-bottom: 6em;
+	z-index: 1;
+	position: relative;
+}
+.coll {
+	width: 100%;
+	display: none;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 0.75em;
+    flex-wrap: nowrap;
+}
+.coll img {
+	transition: all 0.5s;
+	transition-timing-function: ease-in-out;
+    height: 164px;
+    width: 100%;
+    border: none;
+	border-radius: 0.6em;
+	border: 1px solid gray;
+}
+.coll img:nth-child(even) {
+	transform-origin: top right;
+}
+.coll img:nth-child(odd) {
+	transform-origin: top left;
+}
+.coll img:hover {
+	transform: scale(1.1);
+	box-shadow: 0px 6px 26px 10px black;
+}
+article {
+	position: relative;
+	margin: 0;
+	padding-top: 0.25em;
+	background-color: aquamarine;
+}
+article::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 0.5em;
+	height: 100%;
+	background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.5), transparent);
+}
+article img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+article iframe {
+	border: none;
+	height: 100%;
+	width: 100%;
+}
+	</style>
+</head>
+<body>
+	<header>
+		<img id="menu" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iMzJweCIgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMyIDMyOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMzIgMzIiIHdpZHRoPSIzMnB4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNNCwxMGgyNGMxLjEwNCwwLDItMC44OTYsMi0ycy0wLjg5Ni0yLTItMkg0QzIuODk2LDYsMiw2Ljg5NiwyLDhTMi44OTYsMTAsNCwxMHogTTI4LDE0SDRjLTEuMTA0LDAtMiwwLjg5Ni0yLDIgIHMwLjg5NiwyLDIsMmgyNGMxLjEwNCwwLDItMC44OTYsMi0yUzI5LjEwNCwxNCwyOCwxNHogTTI4LDIySDRjLTEuMTA0LDAtMiwwLjg5Ni0yLDJzMC44OTYsMiwyLDJoMjRjMS4xMDQsMCwyLTAuODk2LDItMiAgUzI5LjEwNCwyMiwyOCwyMnoiLz48L3N2Zz4=">
+		<p class="off">Pages</p>
+		<p class="off">Game</p>
+		<p class="off">JS learn</p>
+		<p class="off">Project</p>
+		<p class="off">CSS</p>
+	</header>
+	<aside scroll>
+		<div class="coll" data-g="Pages">
+			<img data-pen="SarahA410/BZrmQv">
+			<img data-pen="yagoestevez/oapQEJ">
+			<img data-pen="sam-sas/exYPMY">
+			<img data-pen="stefanoconsole/GMOLXo">
+			<img data-pen="wesleymenezes/LgpNyv">
+			<img data-pen="ivanrdvc/MKOwoe">
+			<img data-pen="ZonFire99/njdls">
+			<img data-pen="thesoy_sauce/OvZQVx">
+			<img data-pen="jameso/wWbPGJ">
+			<img data-pen="manz/maVXvv">
+			<img data-pen="abeeribrahim/jOWggxW">
+		</div>
+		<div class="coll" data-g="CSS">
+			<img data-pen="designcouch/Atyop">
+			<img data-pen="gcazin/bKbMQW">
+			<img data-pen="ThatGuySam/CytDA">
+			<img data-pen="jkantner/dBeWyK">
+			<img data-pen="V17h3m/dMBOXp">
+			<img data-pen="aurer/jEGbA">
+			<img data-pen="tonkec/jWmgqN">
+			<img data-pen="andrejsharapov/mvbxRY">
+			<img data-pen="shimdim/NjyNNb">
+			<img data-pen="SilentDis/PdPJVv">
+			<img data-pen="Manoz/pydxK">
+			<img data-pen="semenchenko/vDCqd">
+			<img data-pen="djcoco/RRjqYv">
+			<img data-pen="kjbrum/wBBLXx">
+			<img data-pen="CBeghin/HeuiF">
+			<img data-pen="nourabusoud/BxJbjJ">
+			<img data-pen="GeorgePark/jeBbGN">
+			<img data-pen="lmgonzalves/KaWaJO">
+			<img data-pen="michellebarker/GRgKadd">
+			<img data-pen="uurrnn/Kuylr">
+			<img data-pen="Peety/QWqpaoG">
+			<img data-pen="soufiane-khalfaoui-hassani/LYpPWda">
+			<img data-pen="JyGProyectosWeb/JXYjmv">
+			<img data-pen="coder-70/VwjEpoy">
+			<img data-pen="timothyasp/kxGjem">
+		</div>
+		<div class="coll" data-g="Project">
+			<img data-pen="justinchmura/aozcJ">
+			<img data-pen="heff/EarCt">
+			<img data-pen="markhillard/Hjcwu">
+			<img data-pen="rafaelavlucas/MLKGba">
+			<img data-pen="mnmxmx/mmZbPK">
+			<img data-pen="thenutz/MNmNMm">
+			<img data-pen="kylewetton/OJLmJoV">
+			<img data-pen="dawneraq/OJVNRgV">
+			<img data-pen="jh-thank-you/pROXPW">
+			<img data-pen="JavaScriptJunkie/qBWrRyg">
+			<img data-pen="jaamo/rVPGBe">
+			<img data-pen="nfj525/rVBaab">
+			<img data-pen="jonny-dev/yJKxrZ">
+			<img data-pen="nourabusoud/ypZzMM">
+			<img data-pen="manz/VoEEWB">
+			<img data-pen="woodwoerk/rxrLqa">
+			<img data-pen="tanmay24/PoZrKYv">
+			<img data-pen="uncle-oreo/VMNwpj">
+			<img data-pen="suez/emjwvP">
+			<img data-pen="khadkamhn/BNwxEa">
+			<img data-pen="dede_brahma/KyzEZo">
+			<img data-pen="lmgonzalves/QPBPJe">
+			<img data-pen="adrianparr/MOvwqG">
+			<img data-pen="hofmannsven/YErpdo">
+		</div>
+		<div class="coll" data-g="Game">
+			<img data-pen="zerospree/bNWbvW">
+			<img data-pen="natewiley/HBrbL">
+			<img data-pen="ste-vg/ppLQNW">
+			<img data-pen="zoite/YyLeJb">
+			<img data-pen="johan-tirholm/xoNPzN">
+			<img data-pen="john555/QBoOZM">
+			<img data-pen="mayurbirle/KXOdov">
+		</div>
+		<div class="coll" data-g="JS learn">
+			<img data-pen="jasondavis/clfik">
+			<img data-pen="shivasurya/FatiB">
+			<img data-pen="jgx/iApFj">
+			<img data-pen="arthurcamara1/jbrEyB">
+			<img data-pen="ryanmorr/JdOvYR">
+			<img data-pen="MAW/ONaRqJ">
+			<img data-pen="nxworld/OyRrGy">
+			<img data-pen="gubb/PdZqKy">
+			<img data-pen="thenutz/VwYeYEE">
+			<img data-pen="OPiMedia/WrzLQw">
+			<img data-pen="thenutz/xoygRX">
+			<img data-pen="hijazitio/zRaawR">
+			<img data-pen="dudleystorey/WGrWQO">
+			<img data-pen="dudleystorey/EIKzk">
+			<img data-pen="isc7/yJaHE">
+			<img data-pen="TinySquid/WNbPWaJ">
+			<img data-pen="sdras/gogVRX">
+			<img data-pen="sdras/gWWQgb">
+			<img data-pen="villanuevacreative/vxuDr">
+			<img data-pen="shakhzod-tojiyev/NWRQaJB">
+			<img data-pen="mendieta/WgvENJ">
+			<img data-pen="Arandintday/oNjdXWK">
+			<img data-pen="lmgonzalves/EEKEaM">
+			<img data-pen="lmgonzalves/oRdwQJ">
+			<img data-pen="Peety/YzrZYob">
+			<img data-pen="eehayman/qdGZJr">
+			<img data-pen="isladjan/dypjJQb">
+			<img data-pen="shenhuang/yZEwXB">
+			<img data-pen="udaroy/OPwMMw">
+			<img data-pen="antonmedv/PoPoGwg">
+			<img data-pen="mahirshah/pEbmzz">
+			<img data-pen="mvneerven/NWdYybz">
+			<img data-pen="tdiddy143/bvvpyX">
+			<img data-pen="alantseng/QyWoqe">
+			<img data-pen="doodlemarks/wOzPjx">
+			<img data-pen="medo001/neoXKg">
+			<img data-pen="hvianna/VwKZgEE">
+			<img data-pen="eddch/ZMOjPL">
+			<img data-pen="massimo99/VQjrwx">
+			<img data-pen="kellyex/KKwwdYg">
+		</div>
+	</aside>
+	<article>
+		<img id="loadimg" src="https://blog.codepen.io/wp-content/uploads/2012/06/Button-Fill-Black-Large.png">
+		<iframe src=""></iframe>
+	</article>
+	<script>
+		let allimg = document.getElementsByTagName("img")
+		function getPen(x){
+			let pen = x.getAttribute("data-pen")
+			let ab = pen.substring(0,pen.indexOf("/"))
+			let aa = pen.substring(pen.indexOf("/")+1,pen.length)
+			let data={ab,aa}
+			return data
+		}
+		function setPen(x){
+			let load = document.getElementById('loadimg')
+			load.style.display = "block"
+			load.src = x.src
+			let ifr = document.getElementsByTagName("iframe")[0]
+			let srcpen = 'https://codepen.io/' + getPen(x)["ab"] + '/embed/' + getPen(x)["aa"] + '/'
+			ifr.src = srcpen
+			setTimeout(() => {
+				load.style.display = "none"
+			}, 3000);
+		}
+		for (let i = 0; i < allimg.length; i++) {
+			let a = allimg[i]
+			if(a.parentElement.className == 'coll'){
+				a.src = 'https://codepen.io/' + getPen(a)["ab"] + '/pen/' + getPen(a)["aa"] + '/image/small.png'
+				a.addEventListener('click',function(){setPen(this)})
+			}
+		}
+		let allp = document.getElementsByTagName("p")
+		function setCollection(x){
+			let txt = x.textContent
+			let allcoll = document.getElementsByClassName("coll")
+			for (let i = 0; i < allp.length; i++) {
+				allp[i].classList.value = "off"				
+			}
+			x.classList.value = ('on')
+			for (i = 0; i < allcoll.length; i++) {
+				allcoll[i].style.display = "none"
+				if (allcoll[i].getAttribute('data-g') == txt) {
+					allcoll[i].style.display = "grid"
+				}
+			}
+		}
+		for (let i = 0; i < allp.length; i++) {
+			let a = allp[i]
+			a.addEventListener('click',function(){setCollection(this)})
+		}
+		document.getElementById('menu').addEventListener('click',function(){
+			let doc = document.body
+			if(!!document.body.className){
+				doc.classList.remove('onlyifr')
+			}
+			else {
+				doc.classList.add('onlyifr')
+			}
+		})
+		document.getElementsByTagName('header')[0].children[1].click()
+	</script>
+</body>
+</html>

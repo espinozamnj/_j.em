@@ -1,0 +1,32 @@
+﻿<html>
+<head>
+	<title>ENLACES</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="viewport" content="user-scalable=no,width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" href="/_cdn_/favs/images.192.png">
+	<script src="/_cdn_/rm-wbha.js"></script>
+	<style>body{margin:0;text-align:center;}</style>
+	<link rel="stylesheet" href="ifr.css" data-minify="1"/>
+	<!-- <link rel="stylesheet" href="https://www.magictoolbox.com/wp-content/cache/min/1/931ffbabd33845c50f1618c7b7052e50.css" data-minify="1"/> -->
+</head>
+<body>
+	<div class="cont">
+		<a title="" href="" class="MagicZoom" id = "zoom" data-options = "zoomOn: click; zoomPosition: inner; variableZoom: true; zoomCaption: bottom; rightClick: true; expandZoomMode: magnifier; textBtnClose: Cerrar" >
+			<img src="">
+		</a>
+	</div>
+	<!-- <script type="text/javascript" src="https://www.magictoolbox.com/static/magiczoomplus/magiczoomplus.js"></script> -->
+	<script type="text/javascript" src="ifr.js"></script>
+		<script>
+	if (!!location.search.indexOf("?=")){
+		document.querySelector("body > div.cont").innerHTML='no hay src'
+	}
+	else {
+		img = location.search.split("?=")[1].split("&")[0];
+		document.querySelector("body > div.cont > a").setAttribute('href',img)
+		document.querySelector("body > div.cont > a").setAttribute('title',img)
+		document.querySelector("body > div.cont > a > img").setAttribute('src',img)
+	}
+	</script>
+</body>
+</html>

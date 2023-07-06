@@ -1,0 +1,100 @@
+* {
+  color: white;
+  font-size: 14px;
+  font-family: 'Courier New', Courier, monospace;
+}
+body {
+  background-color: rgb(68, 68, 68);
+  padding: 10px;
+  margin: 0;
+}
+#body {
+  position: relative;
+}
+
+#header {
+  text-align: center;
+  padding-top: 16px;
+  border-bottom: 2px solid white
+}
+#header h1 {
+  font-size: 40px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  margin: 0;
+}
+#header p {
+  text-align: center;
+  padding-bottom: 16px;
+  font-size: 14px;
+  color: rgb(186, 186, 186);
+  margin: 0;
+}
+#map {
+  overflow: auto;
+  width: 100%;
+  background-color: #fff;
+  background-color: rgb(28, 28, 28);
+  border-radius: 4px;
+}
+#map svg {
+  background-color: rgb(28, 28, 28);
+}
+#map::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+#map::-webkit-scrollbar-track {
+  background: rgb(10, 10, 10);
+}
+#map::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+  border: 4px solid transparent;
+  background-clip: padding-box;
+}
+#map::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.4);
+  border: 4px solid transparent;
+  background-clip: padding-box;
+}
+#map::-webkit-scrollbar-thumb:active {
+  background: rgba(177, 162, 162, 0.8);
+  border: 4px solid transparent;
+  background-clip: padding-box;
+}
+#map svg a.folder {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.legend {
+  position: absolute;
+  top: 0px;
+  right: 0;
+  width: 330px;
+  font-size: 11px;
+  color: rgb(255, 255, 255);
+}
+
+.node {
+  cursor: pointer;
+}
+
+.node circle {
+  cursor: pointer;
+  fill: rgb(21, 21, 21);
+  stroke: rgb(220, 183, 62);
+  stroke-width: 1.5px;
+}
+
+.node text {
+  font-size: 13px;
+  fill: rgb(255, 255, 255);
+}
+
+path.link {
+  fill: none;
+  stroke: rgb(190, 191, 142);
+  stroke-width: 1px;
+}

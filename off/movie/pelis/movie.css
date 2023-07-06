@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+* {
+    font-family: 'Titillium Web', sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+}
+body .app {
+    margin: 0;
+    display: grid;
+    grid-template-rows: 3.5em 1fr;
+    height: 100vh;
+}
+nav {
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    z-index: 3;
+}
+nav:after {
+    content: "Desarrollado por " attr(data-autor);
+    position: absolute;
+    left: 1em;
+    bottom: 1em;
+}
+nav .gif {
+    height: 68px;
+    width: 68px;
+    border-radius: 100%;
+    border: 6px solid rgb(206, 206, 206);
+    border-right: 6px solid transparent;
+    animation: volt 1s linear infinite;
+}
+@keyframes volt {
+    0% {transform: rotate(0deg)}
+    50% {transform: rotate(180deg)}
+    100% {transform: rotate(360deg)}
+}
+header {
+    background-color: var(--pri);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-gap: 0.5em;
+    padding: 0.5em;
+    justify-content: space-between;
+    z-index: 1;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border-bottom: 1px solid black;
+}
+header a {
+    height: 2.5rem;
+    border-left: 0px solid transparent;
+    transition: all 0.3s;
+    display: block;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+header a:hover {
+    border-left: 3px solid var(--sec);
+    box-shadow: inset 9px 0px 9px -7px rgba(0, 0, 0, 0.23)
+}
+header a:hover img {
+    transform: translateX(4px);
+}
+header a img {
+    transition: all 0.3s;
+    display: block;
+    height: 100%;
+}
+header p {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+    overflow-y: hidden;
+    white-space: pre;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    line-height: 1.5em;
+    display: block;
+}
+header .menu {
+    cursor: pointer;
+    height: 100%;
+    padding: 0.5em;
+}
+main {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+aside {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: all 0.5s;
+    padding-bottom: 5em;
+}
+aside::-webkit-scrollbar {
+    width: 10px;
+    background-color: transparent;
+}
+aside::-webkit-scrollbar-thumb {
+    background-color: white;
+}
+aside.show {
+    width: 600px;
+    max-width: 100%;
+    box-shadow: -15px 0px 20px 20px black;
+}
+aside blockquote {
+    margin: 0.5em;
+    border-radius: 5px;
+    cursor: pointer;
+    border-bottom: 2px solid var(--pri);
+    border-left: 3px solid var(--pri);
+    transition: all 1s;
+    overflow: hidden;
+}
+aside blockquote.max {
+    box-shadow: inset 0px 8px 8px 4px black;
+}
+aside blockquote.max span {
+    background-color: var(--pri);
+}
+aside blockquote span {
+    position: relative;
+    white-space: nowrap;
+    display: block;
+    font-size: 1.1em;
+    padding: 1em;
+    transition: all 0.3s;
+    background-color: rgba(255, 255, 255, 0.85);
+    width: 100%;
+}
+aside blockquote.min span {
+    box-shadow: inset -3px 4px 9px 3px rgba(0, 0, 0, 0.05);
+}
+aside blockquote.max span {
+    box-shadow: none;
+}
+aside.show blockquote span:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 2em;
+    height: 1em;
+    width: 1em;
+    transform: translateY(-75%) rotateZ(45deg);
+    border: 3px solid var(--sec);
+    border-top: none;
+    border-left: none;
+    transition: all 0.4s
+}
+aside.show blockquote:hover span:before {
+    border-color: white
+}
+aside.show .max span:before {
+    transform: translateY(-25%) rotateZ(-135deg);
+    border-color: white;
+}
+aside blockquote span:hover {
+    background-color: var(--pri);
+    box-shadow: none
+}
+aside blockquote p {
+    cursor: pointer;
+    white-space: nowrap; 
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 0px 1em;
+    color: white;
+    margin: 0;
+    width: 100%;
+    transition: all 0.3s;
+    height: 3rem;
+    line-height: 3rem;
+}
+aside p:nth-child(even){
+    background-color: rgba(255, 255, 255, 0.3);
+}
+aside p:hover {
+    padding-left: 2em;
+    background-color: var(--sec);
+}
+aside div {
+    transform: translateY(100%);
+    transition: all 0.5s;
+    height: 5em;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(0deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.5), transparent);
+    z-index: 2;
+}
+aside.show div {
+    transform: translateY(0);
+}
+@media (max-width: 500px) {
+    aside.show {
+    width: 100vw;
+    padding-bottom: 8em;
+    }
+    aside div {
+        flex-direction: column;
+        height: 9em;
+        padding: 0 1em;
+    }
+    aside div span {
+        display: block;
+        width: 100%;
+        margin: 0.2em;
+        padding: 0.5em 1em !important;
+    }
+}
+aside div span {
+    padding: 1em 3em;
+    background-color: var(--pri);
+    border-radius: 3em;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.5s;
+}
+aside div .disable {
+    filter: grayscale(1);
+    cursor: not-allowed;
+}
+aside.show div span:hover {
+    background-color: var(--sec);
+}
+#vid {
+    border: none;
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,78 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="/_cdn_/media--fav_/cipher.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="my_crypt.js"></script>
+    <script src="/_cdn_/rm-wbha.js"></script>
+    <title>spy | my_cipher</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: monospace;
+        }
+        body {
+            background-image: url('../pixel.png');
+            background-size: 26px 13px;
+            background-repeat: repeat;
+            background-attachment: local;
+            padding: 8px 13px;
+        }
+        input:not([type="checkbox"]), textarea {
+            display: block;
+            padding: 8px 13px;
+            border: 2px solid #bdbdbd;
+            border-radius: 0px;
+            margin-top: 12px;
+            font-size: 13px;
+            color: #484848;
+            min-height: 30px;
+            max-width: 600px;
+            min-width: 100px;
+            width: 100%;
+            resize: vertical;
+            background: transparent
+        }
+        input[type="button"] {
+            cursor: pointer;
+        }
+        input:focus,
+        textarea:focus {
+            border: 2px solid #9c9c9c;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="root">
+        <div class="app">
+            <div>
+                <input type="text" id="word" autocomplete="off" spellcheck="false" placeholder="words">
+                <input type="text" id="key" autocomplete="off" spellcheck="false" placeholder="key">
+                <label for="encode">
+                    <span>decode</span>
+                    <input type="checkbox" id="code">
+                </label>
+                <input type="button" value="hash" id="send">
+                <textarea id="result" autocomplete="off" spellcheck="false"></textarea>
+            </div>
+        </div>
+        <div class="sjs">        
+            <script>
+                let $ = (m) => { return document.querySelector(m) }
+                let w = $('#word')
+                let k = $('#key')
+                let r = $('#result')
+                w.value = 'amigo, mi celular es el #745962: n0 ¡0 $lv%'
+                k.value = 'hola z'
+                
+                $('#send').onclick = function () {
+                    r.value = spy.do(w.value, k.value, !$('#code').checked)
+                }
+                console.log(`spy.do(spy.do('62[ bP¡ ¡B 0av%','esta es la clave',true),'esta es la clave',false)`)
+            </script>
+        </div>
+    </div>
+</body>
+</html>

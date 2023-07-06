@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo&display=swap');
+:root {
+    --main-clr: rgb(255, 255, 255);
+    --font-clr: rgba(255, 255, 255, 1);
+}
+* {
+    font-family: 'Heebo', sans-serif;
+    color: white;
+    cursor: wait;
+    box-sizing: border-box;
+}
+body {
+    background: var(--main-clr);
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+.mouse-cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    border-radius: 50%;
+}
+.mouse-cursor.hidden {
+    display: none;
+}
+.cursor-outer {
+    margin-left: -15px;
+    margin-top: -15px;
+    width: 20px;
+    height: 20px;
+    border: 4px solid rgb(96, 96, 96);
+    border-left-color: white;
+    box-sizing: border-box;
+    z-index: 10000000;
+    opacity: .5;
+    transition: all .08s;
+    animation-name: load-rotate;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes load-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.root {
+    width: 100%;
+    position: relative;
+    background-color: black;
+    height: 100vh;
+    min-height: -webkit-fill-available;
+    max-height: -webkit-fill-available;
+}
+*::selection {
+    background-color: transparent;
+    user-select: none;
+}
+.main {
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8em 0 100px 0;
+}
+.message {
+    cursor: none;
+    font-size: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4em;
+}
+.message:focus {
+    outline: none;
+    border: none;
+}
+.message * {
+    cursor: none;
+}
+@media (orientation: portrait) {
+    .main {
+        padding: 10vh 0 100px 0;
+        justify-content: center;
+    }
+}
+
+.animation.opacity-an {
+    position: relative;
+    z-index: 1;
+}
+.opacity-an {
+    animation-name: opacity;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate-reverse;
+}
+@keyframes opacity {
+    from { opacity: 0}
+    to { opacity: 1}
+}
+#clock {
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    font-size: 3rem;
+    gap: 0.15rem;
+}
+.message p {
+    margin: 0;
+}  
+.message p:last-child {
+    margin-top: 0.2em;
+    font-weight: 900;
+    font-size: 1.1em;
+}
+.load-cont {
+    width: 5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 6rem;
+}
+.animation:not(.disabled) .txt {
+    position: relative;
+    top: 4rem;
+    margin: 0;
+    font-family: sans-serif;
+    color: white;
+    opacity: 0;
+}
+.animation:not(.disabled) .support {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    animation: rotation 3.8s linear infinite;
+}
+.animation:not(.disabled) .support:nth-child(1) {
+    animation-delay: 0.15s;
+}
+.animation:not(.disabled) .support:nth-child(2) {
+    animation-delay: 0.3s;
+}
+.animation:not(.disabled) .support:nth-child(3) {
+    animation-delay: 0.45s;
+}
+.animation:not(.disabled) .support:nth-child(4) {
+    animation-delay: 0.6s;
+}
+.animation:not(.disabled) .support:nth-child(5) {
+    animation-delay: 0.75s;
+}
+.animation:not(.disabled) .support:nth-child(6) {
+    animation-delay: 0.9s;
+}
+@keyframes rotation {
+    0% {
+        opacity: 0.8;
+    }
+    30% {
+        transform: rotate(180deg);
+        opacity: 1;
+    }
+    40% {
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+    80% {
+        transform: rotate(720deg);
+        opacity: 0.8;
+    }
+    81% {
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+}
+.animation:not(.disabled) .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--font-clr);
+    position: relative;
+    top: 37px;
+    left: 7px;
+}
+.awake-video {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    z-index: 2;
+}

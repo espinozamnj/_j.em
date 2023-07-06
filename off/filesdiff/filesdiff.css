@@ -1,0 +1,373 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(241, 241, 255);
+    color: rgb(19, 19, 19);
+    font-family: "Lato", sans-serif;
+}
+.root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.main {
+    margin-bottom: 20vh;
+}
+h2 {
+    margin: 50px 0;
+}
+.rows-files {
+    width: 90vw;
+    max-width: 800px;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+.multipleFiles {
+    margin-bottom: 40px;
+}
+.multipleFiles .file-drop-area {
+    justify-content: center;
+}
+.fileAnalyze {
+    margin-bottom: 24px;
+}
+.file-drop-area {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    border-style: dashed;
+    border-width: 1px;
+    border-color: rgba(43, 43, 43, 0.4);
+    border-radius: 4px ;
+    transition: 0.2s;
+}
+.multipleFiles .file-drop-area.is-active {
+    border-color: rgba(25, 25, 25, 0.8);
+}
+.file-drop-area.is-active {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+.file-drop-area.file-open {
+    background-color: rgb(218, 231, 255);
+}
+.fake-btn {
+    flex-shrink: 0;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 3px;
+    padding: 8px 15px;
+    margin-right: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.file-msg {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.file-drop-area input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    opacity: 0;
+}
+.file-drop-area input:focus {
+    outline: none;
+}
+.float {
+    position: absolute;
+    top: 15px;
+    right: 0;
+}
+.index {
+    padding: 8px 12px 8px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border-radius: 6px 0px 0px 6px;
+}
+.delete {
+    cursor: pointer;
+    position: relative;
+    width: 28px;
+    height: 28px;
+    margin-right: 6px;
+    border-radius: 14px;
+    z-index: 2;
+}
+.delete::before,
+.delete::after {
+    content: "";
+    position: absolute;
+    height: 4px;
+    top: calc(50% - 2px);
+    width: 20px;
+    left: calc(50% - 10px);
+    transform-origin: center;
+    background-color: #c7c7c7;
+    border-radius: 4px;
+    display: inline-block;
+}
+.delete:hover::before,
+.delete:hover::after {
+    background-color: darkred;
+}
+.delete::before {
+    transform: rotate(45deg);
+}
+.delete::after {
+    transform: rotate(-45deg);
+}
+.resumeFile {
+    margin-top: 6px;
+}
+.alert {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 12px;
+}
+.alert.gray {
+    color: gray;
+    background-color: rgb(212, 212, 212);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(161, 161, 161);
+}
+.alert.red {
+    color: rgb(126, 34, 34);
+    background-color: rgb(243, 168, 168);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(126, 34, 34);
+}
+.alert.yellow {
+    color: rgb(126, 109, 34);
+    background-color: rgb(243, 229, 168);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(126, 109, 34);
+    position: relative;
+}
+.progress-back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    z-index: 1;
+    background-color: rgb(126, 109, 34);
+}
+.progress-back {
+    background-image: linear-gradient(
+      45deg,
+      rgb(255,255,255,.1) 25%,
+      transparent 0,
+      transparent 50%,
+      rgb(255,255,255,.1) 0,
+      rgb(255,255,255,.1) 75%,
+      transparent 0,
+      transparent
+    );
+    background-size: 20px 100%;
+    background-position: 0px center;
+    background-repeat: repeat-x;
+    animation-name: bgAnimated;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+}
+@keyframes bgAnimated {
+    from {
+        background-position: 0px 100%;
+    }
+    to {
+        background-position: -20px 100%;
+    }
+}
+.progress {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 0px 6px;
+    z-index: 2;
+    color: rgb(126, 109, 34);
+    transform: translateX(100%);
+}
+.progress.left {
+    transform: none;
+    color: rgb(243, 229, 168);
+}
+.dot-flashing {
+    margin: auto;
+    position: relative;
+    width: 8px;
+    height: 8px;
+    border-radius: 5px;
+    background-color: rgb(199, 151, 18);
+    color: rgb(199, 151, 18);
+    animation: dot-flashing 0.5s infinite linear alternate;
+    animation-delay: 0.25s;
+    z-index: 3;
+}
+.dot-flashing::before,
+.dot-flashing::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+}
+.dot-flashing::before {
+    left: -15px;
+    width: 8px;
+    height: 8px;
+    border-radius: 5px;
+    background-color: rgb(199, 151, 18);
+    color: rgb(199, 151, 18);
+    animation: dot-flashing 0.5s infinite alternate;
+    animation-delay: 0s;
+}
+.dot-flashing::after {
+    left: 15px;
+    width: 8px;
+    height: 8px;
+    border-radius: 5px;
+    background-color: rgb(199, 151, 18);
+    color: rgb(199, 151, 18);
+    animation: dot-flashing 0.5s infinite alternate;
+    animation-delay: 0.5s;
+}
+@keyframes dot-flashing {
+    0% {
+        background-color: rgb(199, 151, 18);
+    }
+    50%,
+    100% {
+        background-color: rgba(199, 151, 18, 0.09);
+    }
+}
+.result {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 14px;
+    background-color: rgb(230, 237, 251);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: rgb(171, 180, 211);
+}
+.result p {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 14px;
+}
+.result p b {
+    margin-right: 8px;
+}
+.result p span {
+    padding: 4px 6px;
+    background-color: rgb(201, 211, 239);
+    font-size: 14px;
+    border-radius: 4px;
+    line-height: 1.5;
+    font-family: monospace;
+}
+.result p span.p {
+    margin-top: 6px;
+    display: block;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+}
+.btn-actions button {
+    display: block;
+    width: 100%;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 1px;
+    text-align: center;
+    padding: 8px 0px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 10px;
+}
+#btn-add {
+    color: rgb(0, 100, 0);
+    border-color: rgb(0, 100, 0);
+}
+#btn-add:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 100, 0);
+}
+#compare {
+    color: rgb(0, 55, 100);
+    border-color: rgb(0, 55, 100);
+}
+#compare:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 55, 100);
+}
+#clean {
+    color: rgb(100, 32, 0);
+    border-color: rgb(100, 32, 0);
+}
+#clean:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(100, 32, 0);
+}
+#togmin {
+    color: rgb(0, 100, 92);
+    border-color: rgb(0, 100, 92);;
+}
+#togmin:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 100, 92);;
+}
+.min .resumeFile {
+    display: none;
+}
+.min .fileAnalyze {
+    margin-bottom: 8px;
+}
+.min .fileAnalyze .file-drop-area {
+    padding: 6px;
+}
+.min .fileAnalyze .fake-btn {
+    display: none;
+}
+.min .file-msg {
+    font-size: 14px;
+    font-weight: bold;
+}
+.min .float {
+    top: 0;
+    right: 4px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.min .delete {
+    transform: scale(0.6);
+}
+.min .index {
+    padding: 4px 8px;
+    border-radius: 6px;
+    border-right-width: 2px !important;
+}

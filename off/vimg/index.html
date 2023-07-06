@@ -1,0 +1,48 @@
+<html>
+<head>
+	<title>M ZOOM</title>
+	<link rel="icon" type="image/png" href="/_cdn_/favs/images.192.png">
+	<script src="/_cdn_/rm-wbha.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="viewport" content="user-scalable=no,width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			margin: 0;
+			text-align: center;
+		}
+		.cont {
+			background: #232222 !important;
+    		height: 100vh;
+    		display: flex;
+    		align-items: center;
+		}
+        .mz-expand a[href],
+        .caption-bottom.mz-inner a[href] {
+            display: none;
+            color: transparent;
+            visibility: hidden;
+            opacity: 0;
+        }
+    </style>
+	<link rel="stylesheet" href="../tasks/ifr.css" data-minify="1"/>
+</head>
+<body>
+	<div class="cont">
+		<a title="" href="" class="MagicZoom" id="zoom" data-options="zoomOn:click;zoomPosition:inner;variableZoom:true;zoomCaption:bottom;rightClick:true;expandZoomMode:magnifier;textBtnClose:Cerrar" >
+			<img src="">
+		</a>
+	</div>
+	<script type="text/javascript" src="../tasks/ifr.js"></script>
+		<script>
+	if (!!location.search.indexOf("?=")){
+		document.querySelector(".cont").innerHTML='no hay src'
+	}
+	else {
+		img = location.search.split("?=")[1].split("&")[0];
+		document.querySelector("#zoom").setAttribute('href',img)
+		document.querySelector("#zoom").setAttribute('title',img)
+		document.querySelector("#zoom > img").setAttribute('src',img)
+	}
+	</script>
+</body>
+</html>

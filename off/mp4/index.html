@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Video analizer</title>
+    <link rel="icon" type="image/png" href="/_cdn_/favs/player.192.png">
+    <script src="/_cdn_/rm-wbha.js"></script>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="video-import.css">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'"> -->
+</head>
+<body>
+    <div class="app">
+        <div class="main p-close">
+            <div class="canvas">
+                <div id="info" class="hidden">
+                    <label for="promt">
+                        <div id="alert"></div>
+                        <div class="messags"></div>
+                        <input type="text" name="" id="promt">
+                    </label>
+                </div>
+                <div class="vid">
+                    <video src="cdn-fox-intro-000.mp4"></video>
+                </div>
+            </div>
+            <div class="large h">
+                <input type="range" max="1000" min="0">
+                <span id='close-range'>Close setting width</span>
+            </div>
+            <div class="details">
+                <div class="wth"></div>
+                <div class="box-info">
+                    <div class="info">
+                        <div class="box-ipt">
+                            <div class="drop-zone">
+                                <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                                <input type="file" name="myFile" class="drop-zone__input">
+                            </div>
+                            <p class="last_hidden">Elige el video</p>
+                            <input type="file" id="file_vid" class="last_hidden">
+                        </div>
+                        <div class="time">
+                            <div><span class="dt i-min-m"></span><span>now (min)</span></div>
+                            <div><span class="dt i-min-s"></span><span>now (sec)</span></div>
+                            <div><span class="dt i-len-m"></span><span>dur (min)</span></div>
+                            <div><span class="dt i-len-s"></span><span>dur (sec)</span></div>
+                            <div><span class="dt i-frm"></span><span>frame</span></div>
+                            <div><span class="dt i-res-m"></span><span>lack (min)</span></div>
+                            <div><span class="dt i-res-s"></span><span>lack (sec)</span></div>
+                            <div><span class="dt i-vol"></span><span>volume</span></div>
+                            <div><span class="dt i-mute"></span><span>= muted</span></div>
+                            <div><span class="dt i-spd"></span><span>speed</span></div>
+                            <div><span class="dt i-siz"></span><span>size (px)</span></div>
+                        </div>
+                        <div class="btns">
+                            <a class="play"></a>
+                            <a class="pane"><i class="bx bx-windows">Panel</i></a>
+                            <a class="tim"><i class="bx bx-transfer">Time</i></a>
+                            <a class="set"><i class="bx bx-time">Set time</i></a>
+                            <a class="stp"><i class="bx bx-reset">Stop</i></a>
+                            <a class="cct"><i class="bx bx-movie">Controls</i></a>
+                            <a class="sped"><i class="bx bx-timer">Speed</i></a>
+                            <a class="srcc"><i class="bx bx-link-alt">URL video</i></a>
+                            <a class="srco"><i class="bx bx-link-external">View video</i></a>
+                            <a class="prv"><i class="bx bx-first-page">Preview frame</i></a>
+                            <a class="nt"><i class="bx bx-last-page">Next frame</i></a>
+                            <a class="sav"><i class="bx bx-save">Save as image</i></a>
+                            <a class="mud"><i class="bx bx-volume-mute">Muted</i></a>
+                            <a class="vol"><i class="bx bx-volume-full">Volume</i></a>
+                            <a class="bst"><i class='bx bx-speaker'>Boost</i></a>
+                            <a class="wdt"><i class="bx bx-horizontal-center">Set width</i></a>
+                            <a class="ftf"><i class="bx bx-chevrons-right">Picture forward</i></i></a>
+                            <a class="ftb"><i class="bx bx-chevrons-left">Picture backward</i></a>
+                            <a class="fts"><i class="bx bx-stop">Picture stop</i></a>
+                            <a class="ftr"><i class="bx bx-rewind">Video reverse</i></a>
+                            <a class="pic"><i class="bx bx-images">Picture in picture</i></a>
+                            <a class="fls"><i class="bx bx-expand">Full Screen</i></a>
+                        </div>
+                        <div class="gal"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sjs">
+            <script src="video-import.js"></script>
+            <script src="../save/js/video_enhance.js"></script>
+        </div>
+    </div>
+</body>
+</html>

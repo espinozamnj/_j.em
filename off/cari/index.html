@@ -1,0 +1,189 @@
+<html lang="es" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/_cdn_/favs/cari.192.png" type="image/png">
+    <script src="/_cdn_/rm-wbha.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cari-app.css">
+    <title>CARI</title>
+</head>
+<body>
+    <div class="app">
+        <div class="root loading-dom">
+            <div class="over-alerts"></div>
+            <div class="errorinit"><div class="errorinitmsg"></div></div>
+            <div class="modal-register">
+                <div class="float-form">
+                    <div class="nu-form">
+                        <p class="hellonewuser">Bienvenido</p>
+                        <p class="logTryReffer"></p>
+                        <p class="msgnewuser">Para el uso de CARI, solicite al administrador un código de invitación para su usuario</p>
+                        <div class="form-nu">
+                            <input type="text" class="nuipt" id="nurfrr" placeholder="Código de invitación"></input>
+                            <input type="text" class="nuipt" id="nuname" placeholder="Nombre de usuario"></input>
+                            <input type="password" class="nuipt" id="nupass" placeholder="Contraseña"></input>
+                            <input type="password" class="nuipt" id="nuakey" placeholder="Api KEY"></input>
+                        </div>
+                        <div class="nu-btn">
+                            <button class="exit-register">Cancelar</button>
+                            <button class="save-register">Registrar</button>
+                            <button class="next-register">Continuar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="welcome a-c-c">
+                <div class="init-login">
+                    <div class="logo-txt">CARI</div>
+                    <div class="h1">Bienvenido nuevamente</div>
+                    <div class="form-login">
+                        <div class="loader-cont">
+                            <div class="load-icon"></div>
+                        </div>
+                        <input type="text" autocomplete="false" placeholder="Usuario" spellcheck="false" id="pss_user" value="espinoza">
+                        <input type="password" placeholder="Clave" id="pss_pswd" value="cariapp">
+                        <button id="login">Ingresar</button>
+                        <div class="suboptions">
+                            <button id="newUser">Registrarse</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main">
+                <div class="panel-slide panel-left pcontv">
+                    <div class="pcont-header">
+                        <p class="subheader">Opciones</p>
+                        <div class="btn-close"><i class="fa-solid fa-xmark"></i></div>
+                    </div>
+                    <div class="pcont-main">
+                        <div class="cont-all-tags pcontv"></div>
+                    </div>
+                    <div class="pcont-foo">
+                        <div class="btn-large" id="btn-expand">
+                            <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+                            <p class="btn-text">Expandir todo</p>
+                        </div>
+                        <div class="btn-large" id="btn-collaps">
+                            <i class="fa-solid fa-down-left-and-up-right-to-center"></i>
+                            <p class="btn-text">Contraer todo</p>
+                        </div>
+                        <div class="btn-large" id="btn-download">
+                            <i class="fa-solid fa-download"></i>
+                            <p class="btn-text">Descargar chat</p>
+                        </div>
+                        <div class="btn-large" id="btn-exit">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            <p class="btn-text">Cerrar cesión</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-slide panel-right pcontv">
+                    <div class="pcont-header">
+                        <div class="btn-close"><i class="fa-solid fa-xmark"></i></div>
+                        <p class="subheader">Resumen</p>
+                    </div>
+                    <div class="pcont-main">
+                        <div class="info-cards">
+                            <div class="cards">
+                                <div class="info-card">
+                                    <!-- <i class="fa-solid fa-coin"></i> -->
+                                    <i class="fa-solid fa-coins"></i>
+                                    <span class="result-info">486</span>
+                                </div>
+                                <div class="info-card">
+                                    <i class="fa-solid fa-sack-dollar"></i>
+                                    <span class="result-info">486 USD</span>
+                                </div>
+                                <div class="info-card">
+                                    <i class="fa-solid fa-arrows-left-right-to-line"></i>
+                                    <span class="result-info">62483</span>
+                                </div>
+                                <div class="info-card">
+                                    <!-- <i class="fa-solid fa-font-case"></i> -->
+                                    <i class="fa-sharp fa-solid fa-align-left"></i>
+                                    <span class="result-info">21632</span>
+                                </div>
+                            </div>
+                            <div class="btn-large" id="btn-reset-info">
+                                <i class="fa-solid fa-circle-minus"></i>
+                                <p class="btn-text">RESTABLECER</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="article pcontv">
+                    <div class="pcont-header">
+                        <div class="btn-icon op-left"><i class="fa-solid fa-bars"></i></div>
+                        <p class="subheader">Bienvenido</p>
+                        <div class="btn-icon status-sync">
+                            <i class="i-ready fa-solid fa-cloud-arrow-up"></i>
+                            <i class="i-progress fa-solid fa-hourglass-end"></i>
+                            <i class="i-error fa-solid fa-arrows-rotate"></i>
+                        </div>
+                        <div class="btn-icon op-right"><i class="fa-solid fa-chart-column"></i></div>
+                    </div>
+                    <div class="pcont-main chat-cont">
+                        <div class="msg-cont-rel">
+                            <div class="msg-cont-scr">
+                                <div class="warn-msg">
+                                    <div class="links-load">
+                                        <a id="show-more-def">Cargar anteriores</a>
+                                        <a class="more-options-show-msg">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </a>
+                                    </div>
+                                    <div class="link-more">
+                                        <a id="show-numbers">Enumerar preguntas</a>
+                                        <span id="count-views">4 de 8</span>
+                                        <a id="show-all">Cargar todas</a>
+                                        <a id="show-last">Cargar recientes</a>
+                                    </div>
+                                </div>
+                                <div class="list-msg"></div>
+                            </div>
+                            <div class="button" id="chatScrolled"><i class="fa-solid fa-angle-down"></i></div>
+                        </div>
+                        <div class="setvars">
+                            <div class="header-svars">
+                                <p class="title-panel">Opciones de solicitud</p>
+                                <div class="btn-icon-min" id="close-sett-vars"><i class="fa-solid fa-xmark"></i></div>
+                            </div>
+                            <div class="options-vars"></div>
+                        </div>
+                    </div>
+                    <div class="pcont-foo form-submit">
+                        <div class="btn-icon" id="tsetvars"><i class="fa-solid fa-gear"></i></div>
+                        <div class="prompt-cont">
+                            <textarea id="msg-user" spellcheck="false" placeholder="Escribe tu consulta"></textarea>
+                        </div>
+                        <div class="btn-icon" id="sendq"><i class="fa-solid fa-paper-plane"></i></div>
+                    </div>
+                    <div class="cont-edit-tags">
+                        <div class="left-sett-tags pcontv">
+                            <p>Etiquetas:</p>
+                            <div class="add-tag-cont">
+                                <div class="btn-icon update-tags"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                                <div class="btn-icon cancel-tags"><i class="fa-solid fa-ban"></i></i></div>
+                            </div>
+                        </div>
+                        <div class="right-input-tags pcontv">
+                            <div class="tags-cont"></div>
+                            <div class="tag-entry">
+                                <input type="text" class="add-tag" placeholder="Espacio o coma para agregar" disabled>
+                                <div class="btn-icon add-tag-btn"><i class="fa-solid fa-plus"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="js">
+            <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.js"></script>
+            <script src="cari-init.js"></script>
+        </div>
+    </div>
+</body>
+</html>

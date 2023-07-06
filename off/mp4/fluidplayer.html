@@ -1,0 +1,64 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Reproductor de video</title>
+    <script src="/_cdn_/rm-wbha.js"></script>
+    <link rel="shortcut icon" href="/_cdn_/media--fav_/play.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<!-- <script src="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.js"></script> -->
+	<script src="players/fluidplayer.min.js"></script>
+    <style>html{height:100%;overflow:hidden}body{height:100%;margin:0;padding:0;overflow:hidden;background:black}.download{color:#ffffff;text-align:center;font-family:sans-serif, verdana, arial;font-size:14px;padding-top:3px}.download a{color:#f1ad14}.download span{color:#f1ad14;padding-left:11px;padding-right:12px;background:rgba(0,0,0,.35);border:1px solid #887f7f;border-radius:5px;font-size:15px;margin-left:0;margin-right:5px;padding:0 5px 2px}.download .extr_2_download{background:url("../img/download-mini.png?v=1") no-repeat rgba(0,0,0,0);height:16px;top:2px;position:relative;width:25px;border:0;padding-right:10px}.embedly-responsive{background:#000;background-position:center;height:100%;background-repeat:no-repeat;background-size:contain}.play{width:60px;height:60px;border:2px solid #fff;border-radius:30px;background:rgba(0, 0, 0, .5);position:absolute;top:calc(50% - 12px);left:50%;margin-left:-30px;margin-top:-30px}.play svg{position:absolute;top:15px;left:20px}#fluid_video_wrapper_example-player{width:100%!important;height:100%!important;}</style>
+</head>
+<body> 
+	<div style="width:100%;height: 100%">
+	<video id="example-player" style="width:100%;height: 100%;">
+	</video>		
+	</div></div>
+	<script>
+        let tooo
+        if (location.href.includes('?')) {
+            tooo = location.search
+            tooo = tooo.substring(2, tooo.length)
+            let v = document.getElementsByTagName('video')[0]
+            v.innerHTML = '<source src="'+tooo+'" type="video/mp4" title="origin">'
+        } else {
+            setTimeout(function(){
+                document.write('NO URL')
+            },22e2)
+        }
+		// fluidPlayer method is global when CDN distribution is used.
+		var player = fluidPlayer('example-player',
+		    {
+				"layoutControls": {
+					"controlBar": {
+						"autoHideTimeout": 3,
+						"animated": true,
+						"autoHide": true
+					},
+					"htmlOnPauseBlock": {
+						"html": null,
+						"height": null,
+						"width": null
+					},
+					"autoPlay": false,
+					"mute": false,
+					"allowTheatre": false,
+					"playPauseAnimation": true,
+					"playbackRateEnabled": true,
+					"allowDownload": true,
+					"playButtonShowing": true,
+					"fillToContainer": false,
+					"primaryColor": "#00adee",
+					"posterImage": "background.png",
+				},
+				"vastOptions": {
+					"allowVPAID": false
+				}
+			}
+		);
+        //make_player()
+    </script>
+</body>
+</html>
+
+

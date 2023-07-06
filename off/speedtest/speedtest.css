@@ -1,0 +1,54 @@
+/* @import url('https://fonts.googleapis.com/css?family=Offside&display=swap'); */
+body::-webkit-scrollbar {
+    width: 12px;
+    background-color: #222;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #393;
+    background-image: -webkit-linear-gradient(45deg, #fff3 25%, transparent 25%, transparent 50%, #fff3 50%, #fff3 75%, transparent 75%, transparent)
+}
+body {
+    font-family: monospace;
+    font-size: 1.1em;
+    background-color: rgb(66, 134, 160);
+    padding: 1.5em;
+    background: linear-gradient(to bottom, cadetblue, cadetblue, rgb(66, 134, 160));
+    height: 100vh;
+    box-sizing: border-box;
+    margin: 0;
+}
+.app h1 {
+    color: rgb(207, 226, 50);
+}
+.app h1 p {
+    padding-left: 1em;
+    color: rgb(2, 88, 88);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.75em;
+}
+.app h1 p:hover {
+    color: blue;
+    padding-left: 1.2em;
+}
+.app .bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3em;
+}
+.app .bar span {
+    height: 100%;
+    background-color: blue;
+    display: inline-block;
+    animation: complete 4.5s forwards;
+}
+@keyframes complete {
+    from {
+        width: 1px;
+    }
+    to {
+        width: 100%;
+    }
+}

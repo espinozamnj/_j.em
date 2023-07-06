@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="/_cdn_/favs/tech.192.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/_cdn_/rm-wbha.js"></script>
+    <title>LINKS : tech</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/codemirror@5.50.0/lib/codemirror.css">
+    <link rel="stylesheet" href="./codemirror-custom.css">
+    <style>
+    .app {overflow-y: hidden;height: 100vh;}
+    json-viewer {font-size:14px !important;}
+    #container {height:100%;grid-template-columns: 200px 1fr;grid-gap: 6px 8px;min-width: 900px;}
+    #container.collapsed {grid-template-columns: 60px 1fr}
+    #toggle-panel{height: 18px;width: 18px;right:20px;top: 8px;}
+    .panel-left{z-index: 1;box-shadow: 3px 12px 12px 1px rgba(0, 0, 0, 0.471);}
+    #actions-toolbar input,#actions-toolbar button{margin-bottom:4px;padding:6px 14px;border:3px solid green;border-radius:4px;background-color:rgb(220,220,220);font-size: 16px;}
+    #actions-toolbar input:focus,#actions-toolbar button:focus{outline:none;background-color: white;}
+    #actions-toolbar button{cursor: pointer;}
+    *::-webkit-scrollbar {width: 14px;height: 14px;background-color:rgb(25, 29, 36);}
+    *::-webkit-scrollbar-thumb {background-color:rgb(42, 47, 58);border: 3px solid rgb(25,29,36);}
+    </style>
+</head>
+<body>
+    <div class="root">
+        <div class="app">
+            <div class="container" id="container">
+                <div class="header">
+                    <h1># tech-json-viewer</h1>
+                    <div class="menu">
+                        <small> Copy the generated link to share this view </small>
+                        <div id="loader" class="loader"></div>
+                    </div>
+                </div>
+                <div class="panel panel-left">
+                    <div title="Toggle panel" id="toggle-panel"></div>
+                    <textarea id="json">{"sample":"json"}</textarea>
+                    <script src="./../bookmaps/app-map.js"></script>
+                    <script src="./../bookmaps/tech.js"></script>
+                    <script src="./apps-tech.js"></script>
+                </div>
+                <div class="panel panel-right">
+                    <div id="actions-toolbar">
+                        <button id="expand">Expand All</button>
+                        <button id="collapse">Collapse All</button>
+                        <input id="filter" placeholder="filter">
+                        <input id="search" placeholder="search">
+                    </div>
+                    <json-viewer></json-viewer>
+                </div>
+            </div>
+        </div>
+        <div class="sjs">
+            <script src="https://unpkg.com/codemirror@5.50.0/lib/codemirror.js"></script>
+            <script src="https://unpkg.com/codemirror@5.50.0/mode/javascript/javascript.js"></script>
+            <!-- index.js@1563 = hash autoload -->
+            <!-- <script async="" defer="" src="https://buttons.github.io/buttons.js"></script> -->
+            <script type="module" src="./index.js"></script>
+        </div>
+    </div>
+</body></html>
