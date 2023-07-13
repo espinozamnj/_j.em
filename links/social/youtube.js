@@ -1,18 +1,15 @@
-document.getElementsByTagName('body')[0].classList.add('mn-sh')
-let menuB = document.getElementById('menu')
-menuB.addEventListener('click', function() {
-    if (document.body.className == 'mn-hd') {
-        document.body.classList.replace('mn-hd', 'mn-sh')
-    } else {
-        document.body.classList.replace('mn-sh', 'mn-hd')
-    }
-})
-menuB.addEventListener('dblclick', function() {
-    let du = menuB.getAttribute('data-src')
-    if ("" != du) {
-        open(du)
-    }
-})
+if (1 == 1) {
+    let db = document.body
+    db.classList.add('mn-sh')
+    let menuB = document.getElementById('menu')
+    menuB.addEventListener('click', function() {
+        if (db.className == 'mn-hd') {
+            db.classList.replace('mn-hd', 'mn-sh')
+        } else {
+            db.classList.replace('mn-sh', 'mn-hd')
+        }
+    })
+}
 
 Object.size = function(obj) {
     var size = 0,
