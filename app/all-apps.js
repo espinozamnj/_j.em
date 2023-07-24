@@ -20,6 +20,7 @@ const __apps__ = [
     {name: 'String edit', fav: 'write', url: '@off/save/strings', sec: false},
     {name: 'Tree marks', fav: 'json', url: '@links/tree', sec: true},
     {name: 'YouTube', fav: 'youtube', url: '@links/youtu-be.html', sec: true},
+    {name: 'YTPL Viewer', fav: 'youtube', url: '@links/social/ytpl-view/', sec: false},
     {name: 'Music', fav: 'music', url: '@links/music', sec: true},
     {name: 'Codepen', fav: 'codepen', url: '@links/codepen.html', sec: false},
     {name: 'ClPH€R', fav: 'hash', url: '@off/save/hash', sec: false},
