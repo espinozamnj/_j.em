@@ -15,6 +15,22 @@ xmlhttp.send()
 function gi(id) {
     return document.getElementById(id)
 }
+gi('opf').addEventListener('click', function() {
+    var input = document.createElement('input')
+    input.type = 'file'
+    input.accept = '.txt, .json'
+
+    input.addEventListener('change', function (event) {
+        var file = event.target.files[0]
+        var reader = new FileReader()
+        reader.onload = function (event) {
+            gi('string-data').value = event.target.result
+        }
+        reader.readAsText(file)
+    })
+    input.click()
+})
+
 function makeTextFile(text) {
     let textFile = null
     let fileTxt = new Blob([text], {type:'text/plain'})
@@ -38,11 +54,11 @@ gi('strings-import').addEventListener('click', function(){
     txa.value = text
     function isJson(str) {
         try {
-            JSON.parse(str);
+            JSON.parse(str)
         } catch (e) {
-            return false;
+            return false
         }
-        return true;
+        return true
     }
     if (isJson(text)) {
         gg = JSON.parse(text)
@@ -77,7 +93,7 @@ gi('but').addEventListener('click',function(){
                 console.log(a)
             } else {
                 n.user = i[1]
-            };
+            }
             try {
                 n.web = a.login.uris[0].uri
             } catch (error) {
@@ -104,7 +120,9 @@ gi('but').addEventListener('click',function(){
     console.log(gen)
     gi('ret').innerHTML = ''
     let result_encrypt = spy.do(JSON.stringify(ng), '', true)
-    let content_data = 'data_hash_encrypt_pa55_log_ = ' + JSON.stringify(result_encrypt)
+    let timeBackup = new Date().toLocaleString()
+    timeBackup = '//' + timeBackup + '\n'
+    let content_data = timeBackup + 'data_hash_encrypt_pa55_log_ = ' + JSON.stringify(result_encrypt)
     // gi('ret').innerText = 'data_hash_encrypt_pa55_log_ = ' + JSON.stringify(ng, 0, 1)
     gi('ret').innerText = content_data
     fexport('.down' , false, content_data)
