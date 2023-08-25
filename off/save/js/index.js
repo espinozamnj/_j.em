@@ -1,12 +1,15 @@
 (function() {
+    if (!document.contentType.includes('html')) {
+        return false
+    }
     let domsForbidden = ['instagram.com']
     let stopInstallExternal = false
     domsForbidden.forEach(function(dom) {
         if (!stopInstallExternal && location.host.includes(dom)) {
             stopInstallExternal = true
         }
-    });
-    (function() {
+    })
+    setTimeout(function() {
         let es = document.createElement('script')
         let d = new Date().getTime()
         es.crossOrigin = "Anonymous"
@@ -18,7 +21,7 @@
         es.addEventListener('error', function(e) {
             stopInstallExternal = false
         })
-    })();
+    })
     if (!stopInstallExternal) {
         if (!window.trustedTypes.defaultPolicy) {
             window.trustedTypes.createPolicy('default', {createHTML: (string, sink) => string})
@@ -28,17 +31,17 @@
         window.import_bkls_start = true
         window.__select = ''
         let ready_install_resources = window['__ready-install-context'] == undefined ? false : true
-        function save(){
-            if(window.getSelection() != ''){
+        function save() {
+            if(window.getSelection() != '') {
                 window.__select = window.getSelection()
             }
         }
-        window.addEventListener('click', function(){save()}, false)
-        window.addEventListener('touchstart', function(){save()}, false)
-        window.addEventListener('touchend', function(){save()}, false)
-        window.addEventListener('mousedown', function(){save()}, false)
-        window.addEventListener('mouseup', function(){save()}, false)
-    
+        window.addEventListener('click', function() {save()}, false)
+        window.addEventListener('touchstart', function() {save()}, false)
+        window.addEventListener('touchend', function() {save()}, false)
+        window.addEventListener('mousedown', function() {save()}, false)
+        window.addEventListener('mouseup', function() {save()}, false)
+
         var jso = ''
         let isTest = location.host.includes('127')
         if (isTest) {
@@ -46,7 +49,7 @@
         } else {
             location.origin.includes('test') ? jso = 'https://locked.test/' : jso = 'https://espinozamnj.github.io/'
         }
-    
+
         function i(t, a, w) {
             let i = 0
             let n = document.createElement(t)
@@ -58,7 +61,7 @@
             w.appendChild(n)
             return n
         }
-        
+
         let SR = document.createElement('div')
         SR.id = 'context-menu-addons'
         if (document.contentType.includes('xml')) {
@@ -69,7 +72,7 @@
         var SRO = SR.attachShadow({mode: 'open'})
         // SRO = SR
         let fontMain = 'Raleway'
-        setTimeout(function(){
+        setTimeout(function() {
             function install_my_font() {
                 WebFont.load({
                     google: {
@@ -82,8 +85,8 @@
                     install_my_font()
                 } else {
                     let ff = i('script',[['src', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js']], SRO)
-                    ff.addEventListener('load', function(){
-                        setTimeout(function(){
+                    ff.addEventListener('load', function() {
+                        setTimeout(function() {
                             install_my_font()
                         }, 3e2)
                     })
@@ -104,7 +107,7 @@
                         let td = i('div', [], document.body)
                         td.style.display = 'none'
                         i('i', [['class', name]], td)
-                        setTimeout(function(){
+                        setTimeout(function() {
                             svgend = td.children[0].outerHTML
                             let htmlELM = new DOMParser().parseFromString(svgend, 'text/xml')
                             let svgElm = htmlELM.firstChild
@@ -140,11 +143,11 @@
             }
         }
         function readBKL() {
-            function create(tag, clas, css, style, where){
+            function create(tag, clas, css, style, where) {
                 let sty = '.' +  css + '{' + style + '}'
                 style == '' ? ae.css.innerText += '' : ae.css.innerText += sty
                 let g = document.createElement(tag)
-                clas.split(',').forEach(function(c){
+                clas.split(',').forEach(function(c) {
                     g.classList.add(c)
                 })
                 where.appendChild(g)
@@ -256,7 +259,7 @@
                 '--alt .--bod',
                 'position:fixed;z-index:10000000;width:100%;height:100%;overflow:hidden;background:rgba(255,255,255,0.82);backdrop-filter:blur(18px) saturate(1.1) brightness(1.15);box-shadow:0px 2px 16px 2px rgba(0,0,0,0.26);border-width:1px;border-bottom-width:0px;border-style:solid;border-color:rgb(185,185,185);transform:translateY(205vh)',
                 ae.init
-        
+
             )
             try {
                 ae.init.appendChild(ae.css)
@@ -266,7 +269,7 @@
             ae.toogle = create('div', '--tog', '', '', ae.init)
             // ae.toogle.innerText = '::'
             iconFA('fas fa-bars', ae.toogle)
-            
+
             var mov = {}
             mov.dragItem = ae.toogle
             mov.dcb = SRO
@@ -321,9 +324,9 @@
             mov.dcb.addEventListener('mousedown', dragStart, false)
             mov.dcb.addEventListener('mouseup', dragEnd, false)
             mov.dcb.addEventListener('mousemove', drag, false)
-        
+
             var poX = 0, poY = 0, lastKEY = 0
-            document.addEventListener('mousemove', function(event){
+            document.addEventListener('mousemove', function(event) {
                 poX = event.clientX
                 poY = event.clientY
             })
@@ -334,9 +337,9 @@
                     outer.style.visibility = 'hidden'
                     outer.style.overflow = 'scroll'
                     outer.style.msOverflowStyle = 'scrollbar'
-                    document.body.appendChild(outer)       
+                    document.body.appendChild(outer)
                     const inner = document.createElement('div')
-                    outer.appendChild(inner)      
+                    outer.appendChild(inner)
                     scrollbarWidth = (outer.offsetWidth - inner.offsetWidth)
                     outer.parentNode.removeChild(outer);
                 } else {
@@ -382,18 +385,17 @@
                 }
                 b.classList.toggle('view')
                 ae.b.scrollTo(0, 0)
-        
+
             }
             ae.toogle.addEventListener('mouseenter', function() {
                 alternateVisibleMenuToogle(false)
             })
-            ae.toogle.addEventListener('click', function(){
+            ae.toogle.addEventListener('click', function() {
                 alternateVisibleMenuToogle(false)
             })
             window.addEventListener('keydown', function(event) {
                 lastKEY = event.keyCode
             })
-            
             window.addEventListener('contextmenu', function(e) {
                 if (lastKEY == 18 && SR.style.display == '') {
                     e.preventDefault()
@@ -415,15 +417,15 @@
                 e: create('div', '--cont', '', '', ae.b),
                 f: create('div', '--cont', '', '', ae.b)
             }
-            
+
             button = [
-                ['preview','arrow-left',(function(){history.go(-1)}), ae.i.a],
-                ['next','arrow-right',(function(){history.go(1)}), ae.i.a],
+                ['preview','arrow-left',(function() {history.go(-1)}), ae.i.a],
+                ['next','arrow-right',(function() {history.go(1)}), ae.i.a],
                 ['share','share-alt','share', ae.i.a],
-                ['refresh','redo',(function(){location.href=location.href}), ae.i.a],
-                ['duplicate','clone',(function(){open(location.href,"_blank")}), ae.i.a],
-                ['index site','home',(function(){location.href=location.origin}), ae.i.a],
-                ['go parent','arrow-up',(function(){let f=location.href.split("/"),i=0,p="";while(i<f.length-2){p+=f[i]+"/";i++};open(p,"_blank")}), ae.i.a],
+                ['refresh','redo',(function() {location.href=location.href}), ae.i.a],
+                ['duplicate','clone',(function() {open(location.href,"_blank")}), ae.i.a],
+                ['index site','home',(function() {location.href=location.origin}), ae.i.a],
+                ['go parent','arrow-up',(function() {let f=location.href.split("/"),i=0,p="";while(i<f.length-2){p+=f[i]+"/";i++};open(p,"_blank")}), ae.i.a],
                 ['search site','fabgoogle','search_web', ae.i.a],
                 ['zoom','search-plus','zoom', ae.i.b],
                 ['viewport', 'mobile-alt', 'viewport', ae.i.b],
@@ -448,16 +450,16 @@
                 ['window', 'window-restore', 'wid', ae.i.d],
                 ['QR URL', 'qrcode', 'get qr', ae.i.e],
                 ['saved', 'heart', 'savedio', ae.i.e],
-                ['telegram share', 'fabtelegram-plane', (function(){open("https://telegram.me/share/url?url="+location.href,"_blank")}), ae.i.e],
+                ['telegram share', 'fabtelegram-plane', (function() {open("https://telegram.me/share/url?url="+location.href,"_blank")}), ae.i.e],
                 ['copy to markdown', 'link', 'link', ae.i.e],
                 ['view as PDF', 'file-pdf', 'get pdf', ae.i.e],
                 ['resources', 'sitemap', 'resources', ae.i.e],
                 ['save images', 'file-image', 'save img', ae.i.e],
                 ['info site', 'info', 'site_info', ae.i.f],
                 ['addons', 'puzzle-piece', 'addons', ae.i.f],
-                ['bookmarks', 'external-link-alt', (function(){open(jso+"_j.em/off/save/","_blank")}), ae.i.f]
+                ['bookmarks', 'external-link-alt', (function() {open(jso+"_j.em/off/save/","_blank")}), ae.i.f]
             ]
-        
+
             button.forEach(function(bt) {
                 let info = {
                     'name': bt[0],
@@ -503,7 +505,7 @@
                             script.type = 'text/javascript'
                             script.innerHTML = bt[4]
                             document.body.appendChild(script)
-                            setTimeout(function(){
+                            setTimeout(function() {
                                 document.body.removeChild(script)
                             }, 1e3)
                             break;
