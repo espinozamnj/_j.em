@@ -1,10 +1,11 @@
-(function(){
+(function() {
+    let xw = 'https://espmnj.web.app/app/links-lib/'
     let ssrc = [
         'https://espinozamnj.github.io/nihan/dg-data',
         '@app/all-apps',
         '@off/save/js/t-url',
         'finds',
-        'book-txt',
+        xw + 'book-txt',
         'tech',
         'export_favs',
         'app-map',
@@ -12,10 +13,10 @@
         'app-link',
         location.origin + '/_cdn_/getlogin',
     ]
-    function new_date(){
-        return (new Date()).getTime()
+    function new_date() {
+        return new Date().getTime()
     }
-    fetch('./bookmaps/bks-version.json?' + new_date()).then(
+    fetch(xw + 'bks-version.json?' + new_date()).then(
         function (response) {
             response.text().then(function(query){
                 let localData = 'last-version-links'
