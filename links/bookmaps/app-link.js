@@ -1,6 +1,6 @@
 setTimeout(function () {
     let $ = (d) => {return document.querySelector(d)}
-    function adjust(){
+    function adjust() {
         let pl = $('.ak').offsetWidth - 18
         let pr = $('.hm').offsetWidth + 18
         if (pl + pr + 300 < window.innerWidth) {
@@ -81,7 +81,7 @@ setTimeout(function () {
     }, false);
     $('#scripter').addEventListener(
         'contextmenu',
-        function(target, event) {
+        function(target) {
             target.srcElement.classList.remove('view')
         }
     )
@@ -89,4 +89,5 @@ setTimeout(function () {
     window.onresize = function(){
         adjust()
     }
+    delete window.ss
 }, 1e3)
