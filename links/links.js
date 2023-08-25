@@ -1,5 +1,5 @@
 (function() {
-    let xw = 'https://espmnj.web.app/app/links-lib/'
+    let xw = 'https://espmnj.web.app/apps/links-lib/'
     let ssrc = [
         'https://espinozamnj.github.io/nihan/dg-data',
         '@app/all-apps',
