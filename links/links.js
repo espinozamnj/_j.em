@@ -46,7 +46,7 @@
             // dir_project
             r = r.replace('@', location.origin + '/_j.em/')
             r.startsWith('http') ? sr = r + '.js' : sr = 'bookmaps/' + r + '.js'
-            require_reload ? sr = sr + '?' + new_date() : sr = sr
+            require_reload ? sr = sr + '?' + newTime() : sr = sr
             if (js) {
                 e.setAttribute('src', sr)
             } else {
