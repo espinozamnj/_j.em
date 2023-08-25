@@ -1,27 +1,28 @@
 document.querySelector('.find').innerHTML = /*html*/`
-  <div data-out="false" class="con-search l-false">
-    <form class="src-box">
-      <input type="text" autocomplete="off" id="srh" spellcheck="false">
-      <input type="submit" id="hid-sbt">
-      <span class="i_s">
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-        </svg>
-      </span>
-    </form>
-    <div id="box-rst"><ul></ul></div>
-  </div>`
+<div data-out="false" class="con-search l-false">
+  <form class="src-box">
+    <input type="text" autocomplete="off" id="srh" spellcheck="false">
+    <input type="submit" id="hid-sbt">
+    <span class="i_s">
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+      </svg>
+    </span>
+  </form>
+  <div id="box-rst"><ul></ul></div>
+</div>`
 var _txt
-var autoInput = false
-var loadPAGEtime = new Date().getTime()
-setTimeout(
-  function (){
+let intervalWaiData = setInterval(function() {
+  if (typeof(sss) && typeof(_tech) && typeof(dg_data) != 'undefined') {
+    clearInterval(intervalWaiData)
+    let autoInput = false
+    let loadPAGEtime = new Date().getTime()
     function eS(element) {
       let _e = document.querySelector(element)
       return _e
     }
-    setTimeout(function(){
-      if (!!eS('.load')){
+    setTimeout(function() { 
+      if (!!eS('.load')) {
         let lad = eS('.load')
         lad.parentNode.removeChild(lad)
       }
@@ -45,9 +46,9 @@ setTimeout(
       }
     }
     if (typeof (dg_data) !== 'undefined') {
-      for (const gapp in dg_data['apps']){
+      for (const gapp in dg_data['apps']) {
         let group = dg_data['apps'][gapp]
-        for (const gitems in group['items']){
+        for (const gitems in group['items']) {
           ti = group['items'][gitems]
           let nI = {}
           nI.url = ti[0]
@@ -67,7 +68,7 @@ setTimeout(
       _txt.push(comm_js)
       bki++
     }
-    while(tchi < _tech.length){
+    while(tchi < _tech.length) {
       _txt.push(_tech[tchi])
       tchi++
     }
@@ -92,14 +93,14 @@ setTimeout(
       if (((new Date().getTime()) - loadPAGEtime) > 2e3) {
         window.open(url, options, 'noreferrer')
       } else {
-        setTimeout(function(){
+        setTimeout(function() {
           window.open(url, options, 'noreferrer')
         }, 2e3)
       }
     }
     let srh = eS('#srh'),
       lr = eS('.con-search')
-    eS('.src-box').addEventListener('submit', function(e){
+    eS('.src-box').addEventListener('submit', function(e) {
       e.preventDefault()
       let bR = eS('#box-rst')
       bR = bR.children[0]
@@ -126,12 +127,12 @@ setTimeout(
           "fH": 2.8,
           "tS": false,
         }
-        function setHG(nb){
+        function setHG(nb) {
           let vH = nb + Hf.fH
           vH = vH.toString() + 'rem'
           Hf.e.style.height = vH
         }
-        if(Srh == '*'){
+        if(Srh == '*') {
           bR.innerHTML = '<pre class="cmd">\
           \n:__ for url\
           \n/__ for folder\
@@ -160,7 +161,7 @@ setTimeout(
           </pre>'
           setHG(Hf.hU * 8)
           lr.className = 'con-search l-true'
-        } else if (Srh !== ''){
+        } else if (Srh !== '') {
           let src, firstR = 1
           if (Srh.endsWith('*')) {
             Srh = Srh.substring(0, Srh.length - 1)
@@ -281,7 +282,7 @@ setTimeout(
             }
             nA = []
             nA.push(results)
-          } else if (Srh.startsWith(',')){
+          } else if (Srh.startsWith(',')) {
             let s_s = src.substring(src.search(',') + 1, src.length)
             src = src.substring(0, src.search((',')))
             let _ncs = JSON.parse(JSON.stringify(ss.searchs))
@@ -297,7 +298,7 @@ setTimeout(
               src = encodeURIComponent(src)
               let results = _ncs.filter(e => e.url.toString().toLowerCase().includes(src.toLowerCase()))
               let gi = 0
-              while (gi < results.length){
+              while (gi < results.length) {
                 let l = results[gi].url
                 results[gi].url = l.replace('%s',encodeURIComponent(s_s))
                 gi++
@@ -359,13 +360,13 @@ setTimeout(
                 _pN_.innerText = bk.name
               }
               _o.innerText = '+'
-              _o.addEventListener('mouseover',function(){
+              _o.addEventListener('mouseover',function() {
                 _l.classList.add('v-pth')
               })
-              _o.addEventListener('mouseleave',function(){
+              _o.addEventListener('mouseleave',function() {
                 _l.classList.remove('v-pth')
               })
-              _o.addEventListener('click',function(){
+              _o.addEventListener('click',function() {
                 srh.value = bk.path + '+'
               })
               _pN.classList.add('name')
@@ -374,19 +375,19 @@ setTimeout(
                   _i.innerText = '#'
                   _a.addEventListener(
                     'click',
-                    function(){
+                    function() {
                       srh.value = '/' + bk.name.toLowerCase() + '+'
                     }
                   )
                   _i.addEventListener(
                     'click',
-                    function(){
+                    function() {
                       srh.value = '/' + bk.name.toLowerCase() + '+'
                       setTimeout(
-                        function(){
+                        function() {
                           eS('.i_s').click()
                           setTimeout(
-                            function(){
+                            function() {
                               let gn = document.createElement('input')
                               gn.type = 'hidden'
                               gn.value = bk.name
@@ -404,13 +405,13 @@ setTimeout(
                 } else {
                   _i.innerText = '>'
                   let _cjs = ''
-                  if (bk.url.startsWith('data')){
+                  if (bk.url.startsWith('data')) {
                     _cjs = bk.url
                   } else {
                     let complete_function = 'javascript:' + bk.url
                     _cjs = complete_function
                   }
-                  _i.addEventListener('click',function(){
+                  _i.addEventListener('click',function() {
                     let _page = window.open(''),
                       _n = document.createElement('meta')
                       _h = document.createElement('a')
@@ -433,7 +434,7 @@ setTimeout(
                     _c.setAttribute('min', '65')
                     _c.addEventListener(
                       'change',
-                      function(){
+                      function() {
                         _e.style.height = this.value + 'px'
                       }
                     )
@@ -462,7 +463,7 @@ setTimeout(
                   }
                   _i.appendChild(_img)
                 }
-                _i.addEventListener('click',function() {
+                _i.addEventListener('click', function() {
                   let only_path = bk.url.split('#fav=')[0]
                   tab(only_path, '_blank')
                 })
@@ -502,7 +503,7 @@ setTimeout(
                     if (bks.length == 1) {
                       _a.click()
                       setTimeout(
-                        function (){
+                        function () {
                           eS('.i_s').click()
                         },
                         5e2
@@ -604,7 +605,7 @@ setTimeout(
                 if (!!eS('#gnt')) {
                   let _gn = eS('#gnt')
                   _nS.innerHTML = 'document.title="' + _gn.value + '"'
-                  setTimeout(function(){
+                  setTimeout(function() {
                     _gn.parentElement.removeChild(_gn)
                   }, 300)
                 }
@@ -646,15 +647,13 @@ setTimeout(
                 let export_button = document.createElement('a')
                 let html_code = ''
                 let time = new Date().getTime() / 1000
-                eS('.temp-items').childNodes.forEach(
-                  function(x){
-                    let a = x.children[1]
-                    let name = a.children[0].innerText
-                    let fav = favLetter(name[0].toUpperCase(), Math.floor(Math.random() * 359 + 0))
-                    
-                    html_code += `<DT><A HREF="${a.href}" ADD_DATE="${time}" ICON="${fav}">${name}</A>\n`
-                  }
-                )
+                eS('.temp-items').childNodes.forEach(function(x) {
+                  let a = x.children[1]
+                  let name = a.children[0].innerText
+                  let fav = favLetter(name[0].toUpperCase(), Math.floor(Math.random() * 359 + 0))
+                  
+                  html_code += `<DT><A HREF="${a.href}" ADD_DATE="${time}" ICON="${fav}">${name}</A>\n`
+                })
                 html_code = '<!DOCTYPE NETSCAPE-Bookmark-file-1>\
                 \n<!--This is an automatically generated file.\
                 \n    It will be read and overwritten.\
@@ -680,7 +679,7 @@ setTimeout(
                 break
               case "reload":
                 localStorage.removeItem('last-version-links')
-                setTimeout(function(){
+                setTimeout(function() {
                     location.replace(location.href)
                 }, 5e2)
                 break
@@ -726,7 +725,7 @@ setTimeout(
         } else {
           srh.value = ''
           srh.placeholder = 'inserta valor o * para comandos'
-          setTimeout(function(){
+          setTimeout(function() {
             srh.placeholder = 'Buscar'
           },
           1800)
@@ -736,9 +735,9 @@ setTimeout(
         // tab('//ddg.co/?q=' + encodeURIComponent(Srh) , '_top')
       }
     })
-
+    
     srh.placeholder = 'Buscar'
-    function cg_out(){
+    function cg_out() {
       let f = lr
       if (f.getAttribute('data-out') == 'true') {
         f.setAttribute('data-out', 'false')
@@ -760,12 +759,12 @@ setTimeout(
         srh.focus()
       }
       if (ev.keyCode == 20) {
-        if (_stt.laST_t){
+        if (_stt.laST_t) {
           _stt.laST = !_stt.laST
         }
         else {
           _stt.laST_t = true
-          setTimeout(function(){
+          setTimeout(function() {
             _stt.laST_t = false
           }, 8e2)
         }
@@ -773,10 +772,10 @@ setTimeout(
           cg_out()
         }
       }
-      if (ev.keyCode == 40 || ev.keyCode == 38){
+      if (ev.keyCode == 40 || ev.keyCode == 38) {
         let l = eS('#box-rst')
         l = l.children[0]
-        if (!!eS('.hov')){
+        if (!!eS('.hov')) {
           let e_ = eS('.hov'),
           n
           if (ev.keyCode == 40) {
@@ -820,7 +819,7 @@ setTimeout(
     srh.addEventListener('contextmenu', cg_out)
     srh.addEventListener(
       'keydown',
-      function(event){
+      function(event) {
         e = event
         k = e.keyCode
         if (k == 190 && !!eS('.l-true') && !!eS('.hov')) {
@@ -843,35 +842,35 @@ setTimeout(
     )
     srh.addEventListener(
       'input',
-      function(e){
+      function(e) {
         if (lr.getAttribute('data-out') == 'false' && (e.target.value.startsWith('#') || autoInput)) {
           eS('#hid-sbt').click()
         }
       }
     )
-    // srh.addEventListener('blur', function(){})
-    eS('.i_s').addEventListener('contextmenu', function(){
+    // srh.addEventListener('blur', function() {})
+    eS('.i_s').addEventListener('contextmenu', function() {
       lr.className = 'con-search l-false'
     })
-    eS('.i_s').addEventListener('click', function () {
+    eS('.i_s').addEventListener('click', function() {
       eS('#hid-sbt').click()
     })
-    eS('.i_s').addEventListener('dblclick', function () {
+    eS('.i_s').addEventListener('dblclick', function() {
       let ul = eS('#box-rst').children[0]
       if (ul.className == 'v-pth') {
         ul.className = ''
       } else {
         ul.className = 'v-pth'
       }
-    });
-    (function(){
+    })
+    setTimeout(function() {
       let install_pwa_btn = document.createElement('a')
       install_pwa_btn.innerHTML = '<img src="./bookmaps/install-icon.svg">'
       install_pwa_btn.classList.add('pwa-install')
       install_pwa_btn.title = 'Install PWA'
       let na = eS('.nav')
       na && na.appendChild(install_pwa_btn)
-    })()
+    })
     let g_S = location.href.split('?')
     if (g_S.length > 1) {
       let v = g_S[1]
@@ -896,9 +895,8 @@ setTimeout(
         }
       }
     }
-  },
-  2e2
-)
+  }
+}, 1e3)
 
 window.addEventListener('beforeinstallprompt', e => {
   if (window.matchMedia('(display-mode: standalone)').matches) {

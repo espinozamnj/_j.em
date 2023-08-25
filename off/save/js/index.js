@@ -341,7 +341,7 @@
                     const inner = document.createElement('div')
                     outer.appendChild(inner)
                     scrollbarWidth = (outer.offsetWidth - inner.offsetWidth)
-                    outer.parentNode.removeChild(outer);
+                    outer.parentNode.removeChild(outer)
                 } else {
                     scrollbarWidth = 0
                 }
@@ -499,7 +499,7 @@
                     switch (method) {
                         case 'eval':
                             eval(bt[4])
-                            break;
+                            break
                         case 'create':
                             let script = document.createElement('script')
                             script.type = 'text/javascript'
@@ -508,16 +508,16 @@
                             setTimeout(function() {
                                 document.body.removeChild(script)
                             }, 1e3)
-                            break;
+                            break
                         case 'newfn':
                             let fn = new Function(bt[4])
                             fn()
-                            break;
+                            break
                         case 'isfn':
                             info.exe()
-                            break;
+                            break
                         default:
-                            break;
+                            break
                     }
                 })
                 b.addEventListener('contextmenu', function() {
