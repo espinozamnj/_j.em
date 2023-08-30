@@ -121,7 +121,7 @@ gi('but').addEventListener('click',function(){
     gi('ret').innerHTML = ''
     let result_encrypt = spy.do(JSON.stringify(ng), '', true)
     let timeBackup = new Date().toLocaleString()
-    timeBackup = '//' + timeBackup + '\n'
+    timeBackup = "window['pa55_version'] = '" + timeBackup + "'\n"
     let content_data = timeBackup + 'data_hash_encrypt_pa55_log_ = ' + JSON.stringify(result_encrypt)
     // gi('ret').innerText = 'data_hash_encrypt_pa55_log_ = ' + JSON.stringify(ng, 0, 1)
     gi('ret').innerText = content_data
