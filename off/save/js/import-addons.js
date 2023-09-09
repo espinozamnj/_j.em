@@ -33,7 +33,7 @@ if (document.getElementsByClassName(_na).length == 0) {
         .${_na}.--o{max-height:23px;height:23px !important;resize:horizontal;}
         .${_na} * {user-select:none}
         .${_na} .--h{display:flex;align-items:stretch;background:rgba(255,255,255,.1);}
-        .${_na} .--h > * {height:23px;line-height:1 !important;}
+        .${_na} .--h > * {box-sizing:border-box;height:23px;line-height:1 !important;}
         .${_na} .--m{flex:1;display:flex;align-items:center;justify-content:center;cursor:pointer;display:flex;font-weight:bold;color:transparent;position:relative}
         .${_na} .--m::before{content:"";left:15px;right:15px;position:absolute;top:50%;height:3px;border-radius:8px;width:auto;background-color:rgb(190,190,190);transform:translateY(-50%);}
         .${_na} .--m:hover::before{background-color:rgb(130,130,130)}

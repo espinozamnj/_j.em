@@ -213,7 +213,7 @@
                     content:"";position:absolute;bottom:-4px;left:10px;right:10px;width:auto;border-radius:6px;height:2px;background:rgb(177,177,177)
                 }
                 .--alt .--item {
-                    display:flex;align-items:center;text-decoration:none;cursor:pointer;padding:6px 9px;transition:all .3s;font-size:13px;
+                    display:flex;align-items:center;text-decoration:none;cursor:pointer;padding:6px 9px;transition:all .3s;font-size:13px;text-align:start;
                 }
                 .--alt .--item:hover {
                     background: white;box-shadow: 0px 0px 8px -1px rgba(0,0,0,0.66);
