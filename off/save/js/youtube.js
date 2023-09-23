@@ -17,6 +17,8 @@
                 ["flv2mp3","https://www.flv2mp3.by/es67/?url=@url"],
                 ["embed","https://www.youtube.com/embed/@id"],
                 ["yt-hd","https://img.youtube.com/vi/@id/maxresdefault.jpg"],
+                ["song","https://song.link/y/@id"],
+                ["song-a","https://song.link/y/@id?auto"],
             ]        
             function create(tag, attr, where) {
                 let i = 0

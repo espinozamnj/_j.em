@@ -25,6 +25,7 @@ const _tech = [
     {"name":"New Pen on Codepen","url":"https://codepen.io/pen","path":"/lib/Apps/tech/code"},
     {"name":"Jquery to Javascript Pure","url":"https://properprogramming.com/tools/jquery-to-javascript-converter/","path":"/lib/Apps/tech/code"},
     {"name":"Transform web converters","url":"https://transform.tools/","path":"/lib/Apps/tech/code"},
+    {"name":"Regex Replace","url":"https://coding.tools/regex-replace","path":"/lib/Apps/tech/regex"},
     {"name":"Regex Tester and Debugger","url":"https://www.regextester.com/","path":"/lib/Apps/tech/regex"},
     {"name":"Pythex","url":"https://pythex.org/","path":"/lib/Apps/tech/regex"},
     {"name":"regex101","url":"https://regex101.com/","path":"/lib/Apps/tech/regex"},

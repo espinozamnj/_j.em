@@ -1,11 +1,10 @@
 (function() {
-    let xw = 'https://espmnj.web.app/apps/links-lib/'
     let ssrc = [
         'https://espinozamnj.github.io/nihan/dg-data',
         '@app/all-apps',
         '@off/save/js/t-url',
         'finds',
-        xw + 'book-txt',
+        'book-txt',
         'tech',
         'export_favs',
         'app-map',
@@ -60,5 +59,5 @@
     sourceVersion.addEventListener('error', function() {
         alert('Error to get data')
     })
-    sourceVersion.src = xw + 'book-txt-version.js?' + newTime()
+    sourceVersion.src = 'book-txt-version.js?' + newTime()
 })()
