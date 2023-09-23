@@ -59,5 +59,5 @@
     sourceVersion.addEventListener('error', function() {
         alert('Error to get data')
     })
-    sourceVersion.src = 'book-txt-version.js?' + newTime()
+    sourceVersion.src = 'bookmaps/book-txt-version.js?' + newTime()
 })()
