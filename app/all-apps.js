@@ -17,6 +17,7 @@ const __apps__ = [
     {name: 'Mono', fav: 'mono', url: '@off/note/mono.html', sec: false},
     {name: 'CARI', fav: 'cari', url: '@off/cari', sec: true},
     {name: 'Bookmarlets', fav: 'commands', url: '@off/save', sec: false},
+    {name: 'Regex tool', fav: 'write', url: '@off/rgx', sec: false},
     {name: 'String edit', fav: 'write', url: '@off/save/strings', sec: false},
     {name: 'Tree marks', fav: 'json', url: '@links/tree', sec: true},
     {name: 'YouTube', fav: 'youtube', url: '@links/youtu-be.html', sec: true},

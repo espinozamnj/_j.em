@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+}
+*::selection {
+    background-color: #00000025;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    text-align: center;
+}
+#container {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+}
+@media (max-width: 700px) {
+    #container {
+        padding: 14px;
+    }
+    .opts label {
+        margin-top: 6px;
+    }
+}
+@media (min-width: 701px) {
+    body {
+        background-color: #f0f0f0;
+        padding: 20px;
+    }
+    #container {
+        max-width: 800px;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+}
+.h1 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid #c5c5c5;
+    padding-bottom: 0.4em;
+}
+textarea,
+input[type="text"] {
+    min-height: 3rem;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-family: monospace;
+    resize: vertical;
+    font-size: 16px;
+}
+input[type="text"] {
+    padding: 4px 10px;
+}
+input.error {
+    border-color: #bf0000;
+    animation-name: shakeX;
+    animation-duration: 1s;
+}
+.flags-cont {
+    padding-left: 4px;
+    margin-top: 8px;
+    margin-bottom: 22px;
+}
+.flags-cont, .opts {
+    display: flex;
+    align-items: center;
+}
+.opts {
+    margin-left: 6px;
+    flex-wrap: wrap;
+}
+.opts label {
+    padding: 4px;
+    background-color: #eaeaea;
+    border-radius: 4px;
+    margin-right: 8px;
+    cursor: pointer;
+    user-select: none;
+}
+.opts label:hover {
+    background-color: #d7d7d7;
+}
+@keyframes shakeX {
+    from, to {
+        transform: translate3d(0, 0, 0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translate3d(-10px, 0, 0);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translate3d(10px, 0, 0);
+    }
+}
+textarea:focus,
+input:focus {
+    outline-color: #40b9e752;
+    outline-width: 3px;
+    outline-style: solid;
+}
+#output-container {
+    margin-top: 20px;
+    background-color: #fff;
+    border: 2px solid #66b3ff;
+    border-radius: 5px;
+    font-size: 16px;
+    overflow: hidden;
+}
+.occurrence {
+    background-color: #eaff6b;
+    outline: 1px solid #bfd150;
+}
+#output {
+    padding: 10px;
+    white-space: pre-wrap;
+    text-align: left;
+    font-family: monospace;
+}
+.escape {
+    user-select: none;
+    color: #c7c7c7;
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 4px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+div#ocurrence-count {
+    padding: 10px 2px;
+    background-color: #cce6ff;
+    margin-top: 1rem;
+}

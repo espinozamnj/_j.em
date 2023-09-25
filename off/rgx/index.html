@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Regex tool</title>
+    <script src="/_cdn_/rm-wbha.js"></script>
+    <link rel="shortcut icon" href="/_cdn_/favs/write.192.png" type="image/png">
+    <link rel="stylesheet" href="rgx.css">
+</head>
+<body>
+    <div class="app">
+        <div class="root">
+            <div id="container">
+                <div class="h1">Regex replace</div>
+                <textarea id="textarea1" placeholder="Texto de entrada"></textarea>
+                <textarea id="textarea2" placeholder="Texto de salida"></textarea>
+                <input type="text" id="input1" placeholder="Expresión regular">
+                <input type="text" id="input2" placeholder="Reemplazar con">
+                <div class="flags-cont">
+                    <span>Flags:</span>
+                    <div class="opts">
+                        <label><input type="checkbox" id="flag_g" value="g"> global (g)</label>
+                        <label><input type="checkbox" id="flag_i" value="i"> insensitive (i)</label>
+                        <label><input type="checkbox" id="flag_m" value="m"> multilin (m)</label>
+                    </div>
+                </div>
+                <button id="editarSalidaButton">Editar Salida</button>
+                <button id="reemplazarButton">Reemplazar</button>
+                <button id="buscarButton">Buscar</button>
+                <button id="copiarButton">Copiar</button>
+                <button id="restaurarButton">Restaurar</button>
+                <button id="altspellcheck">Alternar corrector</button>
+                <div id="output-container">
+                    <div id="output"></div>
+                    <div id="ocurrence-count"></div>
+                </div>
+            </div>
+        </div>
+        <div class="js">
+            <script src="app-rgx.js"></script>
+        </div>
+    </div>
+</body>
+</html>
