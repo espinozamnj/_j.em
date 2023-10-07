@@ -49,16 +49,10 @@ window.addEventListener('load', function() {
       let main = out.ade('div')
       main.classList.add('main');
       (function() {
-        let list_get_favicon = [
-          'https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=%d',
-          'http://s2.googleusercontent.com/s2/favicons?domain=%d',
-          'https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=%d&size=64',
-          'https://external-content.duckduckgo.com/ip3/%d',
-          'chrome://favicon/%d/',
-        ]
+        let list_get_favicon = 'https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=%d&size=64'
         let pic = main.ade('div')
         pic.classList.add('picture')
-        pic.ade('img').src = list_get_favicon[2].replace('%d', site.url.origin)
+        pic.ade('img').src = list_get_favicon.replace('%d', site.url.origin)
         main.ade('p').innerText = site.dom
         if (1 == 1) {
           let getMIN = main.ade('div')

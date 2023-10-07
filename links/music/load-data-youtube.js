@@ -19,7 +19,7 @@ function isActivePlayer() {
     return (typeof (player.i) !== 'undefined')
 }
 (function(){
-    let p = document.getElementsByClassName('sjs')[0]
+    let p = document.getElementsByClassName('js')[0]
     let iframe_api = document.createElement('script')
     iframe_api.src = 'https://www.youtube.com/iframe_api'
     p.appendChild(iframe_api)

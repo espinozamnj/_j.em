@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <script src="/_cdn_/rm-wbha.js"></script>
-    <title>Open URL</title>
+    <title>Open URLs</title>
     <style>*{margin:0;box-sizing:border-box;padding:0;}body{background-color:rgb(234,249,255);font-family:sans-serif;}.app{padding:16px 10px}.app .ipt{width:100%;max-width:900px;margin-bottom:16px;background-color:rgb(194,233,225);border-radius:3px;border-color:rgb(190,190,236);border-style:solid;border-width:4px;padding:10px 16px;font-size:0.99rem;line-height:1.49;font-family:monospace;}.app .ipt:focus{outline:none;border-color:rgb(75,75,75);}.app #sb{margin-top:14px;margin-left:auto;margin-right:0px;border:4px solid rgb(206,79,79);display:block;border-radius:6px;font-size:1.05rem;font-weight:bold;padding:6px 14px;background-color:rgb(211, 211, 211);}.app #sb:hover{outline:none;background-color:rgb(206,79,79);color:white;cursor:pointer;}.txt{height:360px;min-height:80px;max-height:800px;resize:vertical;}</style>
 </head>
 <body>
@@ -19,30 +19,30 @@
             <input type="text" placeholder="" autocomplete="false" spellcheck="false" width="100%" class="ipt res" disabled="disabled">
             <button id="sb">OPEN URLS</button>
         </div>
-        <div class="sjs">
+        <div class="js">
             <script>
-                window.addEventListener('load', function(){
-                    function s(_e){
+                window.addEventListener('load', function() {
+                    function s(_e) {
                         let q=document.querySelector(_e)
                         return q
                     }
-                    s('#sb').addEventListener('click',function(){
+                    s('#sb').addEventListener('click',function() {
                         let t = s('.txt').value
                         t = t.split('\n')
                         let n = []
-                        t.forEach(function(a){
+                        t.forEach(function(a) {
                             let s = a.trim()
                             if (s != '') {
                                 n.push(s)
                             }
                         })
                         let i = 0
-                        let goo = setInterval(function(){
+                        let goo = setInterval(function() {
                             if (i < n.length) {
                                 u = n[i]
                                 u = s('.ini').value + u + s('.end').value
                                 if (u != '') {
-                                    if (u.startsWith('http')){
+                                    if (u.startsWith('http')) {
                                         window.open(u, '_blank')
                                     } else {
                                         window.open('http://' + u, '_blank')
@@ -51,7 +51,7 @@
                                 i++
                             } else {
                                 s('.res').value = 'Open ' + n.length + ' page(s)'
-                                setTimeout(function(){
+                                setTimeout(function() {
                                     alert('Finished')
                                 }, 250)
                                 clearInterval(goo)

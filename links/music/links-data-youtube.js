@@ -1,5 +1,1 @@
-var music_data_links = [
-    {
-        
-    }
-]
+var music_data_links = [{}]

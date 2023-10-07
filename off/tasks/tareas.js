@@ -4,7 +4,7 @@ function $(element) {
 
 function altoIframe() {
 	if ($("#vid").className == 'ver') {
-		altodeiframe = $("#vid > iframe:nth-child(1)").offsetWidth / 16 * 9
+		let altodeiframe = $("#vid > iframe:nth-child(1)").offsetWidth / 16 * 9
 		console.log(altodeiframe)
 		$("#vid").setAttribute('style', 'grid-auto-rows:' + altodeiframe + 'px')
 	}

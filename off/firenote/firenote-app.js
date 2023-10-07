@@ -1,4 +1,4 @@
-window.addEventListener('load', function(){
+window.addEventListener('load', function() {
   const app = firebase.initializeApp({
     apiKey: __cDe(window.hash_app, '4d45766d5f75483a3b665a3a3e5639783d64633b564a43605f65385b7a213d407a4e4221664655'),
     authDomain: __cDe(window.hash_app, '62637869216a657e7f78226a657e696e6d7f696d7c7c226f6361'),
@@ -30,7 +30,7 @@ window.addEventListener('load', function(){
   ipt.txt.addEventListener('change', function() {
     firedata.changeNote = true
   })
-  window.onbeforeunload = function(){
+  window.onbeforeunload = function() {
     if (firedata.changeNote) {
       alert('Save the changes')
       return "You have attempted to leave this page. Are you sure?";
@@ -55,13 +55,13 @@ window.addEventListener('load', function(){
       console.log("Error getting document:", error)
     })
   }
-  $('#add-note').addEventListener('click', function(){
+  $('#add-note').addEventListener('click', function() {
     db.collection("notes").add({
       title: "New note",
       favorite: false,
       content: "Start to typing..."
     })
-    .then(function(doc){
+    .then(function(doc) {
       console.log(doc)
       show_note(doc.id)
     })
@@ -74,12 +74,12 @@ window.addEventListener('load', function(){
     t.innerText = text
     t.classList.remove('tip')
     t.classList.add('tip')
-    setTimeout(function(){
+    setTimeout(function() {
       t.classList.remove('tip')
     }, 2e3)
   }
 
-  $('#update-note').addEventListener('click', function(){
+  $('#update-note').addEventListener('click', function() {
     var this_note_to_update = db.collection("notes").doc(firedata.last_note_id)
     return this_note_to_update.update({
       title: ipt.tit.value,
@@ -145,8 +145,8 @@ window.addEventListener('load', function(){
       isfav ? html = t_html + html : html += t_html
     })
     $('.notes-list').innerHTML = html
-    $('.notes-list').querySelectorAll('.fav-action').forEach(function(s){
-      s.addEventListener('click', function(){
+    $('.notes-list').querySelectorAll('.fav-action').forEach(function(s) {
+      s.addEventListener('click', function() {
         let id = getIdNote(s)
         let last_status_favorite
         if (s.className.includes('true')) {
@@ -160,8 +160,8 @@ window.addEventListener('load', function(){
         })
       })
     })
-    $('.notes-list').querySelectorAll('.del-action').forEach(function(s){
-      s.addEventListener('click', function(){
+    $('.notes-list').querySelectorAll('.del-action').forEach(function(s) {
+      s.addEventListener('click', function() {
         let id = getIdNote(s)
         if (confirm('Are you sure you want to delete this note?')) {
           db.collection("notes").doc(id).delete()
@@ -169,8 +169,8 @@ window.addEventListener('load', function(){
         }
       })
     })
-    $('.notes-list').querySelectorAll('.details').forEach(function(s){
-      s.addEventListener('click', function(){
+    $('.notes-list').querySelectorAll('.details').forEach(function(s) {
+      s.addEventListener('click', function() {
         let id = getIdNote(s)
         show_note(id)
       })
@@ -204,9 +204,9 @@ window.addEventListener('load', function(){
       v_add.innerHTML = '<i class="bx bx-bookmark-alt-plus"></i>'
       v_open.innerHTML = '<i class="bx bx-link-external"></i>'
       v_del.innerHTML = '<i class="bx bxs-trash-alt"></i>'
-      v_open.addEventListener('click', function(){
+      v_open.addEventListener('click', function() {
         let all = dt.url.length, _i = 0
-        let j = setInterval(function(){
+        let j = setInterval(function() {
           if (_i >= all) {
             clearInterval(j)
           } else {
@@ -217,13 +217,13 @@ window.addEventListener('load', function(){
           }
         }, 5e2)
       })
-      v_del.addEventListener('click', function(){
+      v_del.addEventListener('click', function() {
         if (confirm('Are you sure you want to delete this library?')) {
           db.collection("links").doc(doc.id).delete()
           tip('Library deleted successfully')
         }
       })
-      v_add.addEventListener('click', function(){
+      v_add.addEventListener('click', function() {
         $('#title-link').value = dt.name
         $('#title-link').setAttribute('disabled', '')
         $('#title-link').setAttribute('data-id-coll', doc.id)
@@ -258,7 +258,7 @@ window.addEventListener('load', function(){
         let nhau = ne('p', nha, 'a-link-url')
         let nhp = ne('a', nhc, 'a-clip')
         nhp.innerHTML = '<i class="bx bx-copy"></i>'
-        nhp.addEventListener('click', function(){
+        nhp.addEventListener('click', function() {
           try {
             navigator.clipboard.writeText(h)
             tip('Copy to clipboard')
@@ -269,7 +269,7 @@ window.addEventListener('load', function(){
         })
         let nhd = ne('a', nhc, 'a-del')
         nhd.innerHTML = '<i class="bx bx-trash"></i>'
-        nhd.addEventListener('click', function(){
+        nhd.addEventListener('click', function() {
           let a = dt.url
           let index = a.indexOf(h)
           if (index > -1) {
@@ -291,8 +291,8 @@ window.addEventListener('load', function(){
         let iT, iH
         h = h.replace('] (', '](')
         if (h.includes('](')) {
-          iH = h.split('](')[1].replace(/^[\[|\(]|[\]|\)]$/g,'')
-          iT = h.split('](')[0].replace(/^[\[|\(]|[\]|\)]$/g,'')
+          iH = h.split('](')[1].replace(/^[\[|\(]|[\]|\)]$/g, '')
+          iT = h.split('](')[0].replace(/^[\[|\(]|[\]|\)]$/g, '')
           nhat.style.backgroundImage = 'url("http://s2.googleusercontent.com/s2/favicons?domain=' + iH + '")'
         } else {
           // dir_project
@@ -385,7 +385,7 @@ window.addEventListener('load', function(){
               i.parentNode.insertBefore(current, i)
             }
           }
-          setTimeout(function (){
+          setTimeout(function() {
             let itm = target.children, st = 0, new_order = [], only_names = []
             while (st < itm.length) {
               let c = itm[st]
@@ -422,7 +422,7 @@ window.addEventListener('load', function(){
       let v_title = ne('input', title, 'to-submit-title')
       let v_del = ne('button', title, 'action-to-del')
       v_del.innerHTML = '<i class="bx bxs-trash-alt"></i>'
-      v_del.addEventListener('click', function(){
+      v_del.addEventListener('click', function() {
         if (confirm('Are you sure you want to delete this list?')) {
           db.collection("todo").doc(doc.id).delete()
           tip('List deleted successfully')
@@ -431,7 +431,7 @@ window.addEventListener('load', function(){
       v_title.setAttribute('autocomplete', 'off')
       v_title.setAttribute('spellcheck', 'false')
       v_title.value = dt.name
-      v_title.addEventListener('change', function (e){
+      v_title.addEventListener('change', function(e) {
         let dlink = db.collection("todo").doc(doc.id)
         return dlink.update({
           name: e.target.value
@@ -448,7 +448,7 @@ window.addEventListener('load', function(){
       let task = ne('div', list, 'task')
       let ntk = ne('div', task, 'new-task')
       ntk.innerHTML = "<i class='bx bxs-plus-circle'></i><span>New task</span>"
-      ntk.addEventListener('click', function (){
+      ntk.addEventListener('click', function() {
         let new_note = [{
           done: false,
           text: 'Write a new task...'
@@ -475,7 +475,7 @@ window.addEventListener('load', function(){
         to_t.setAttribute('spellcheck', 'false')
         to_t.value = h.text
         if (h.text == 'Write a new task...') {
-          setTimeout(function(){
+          setTimeout(function() {
             to_t.focus()
             to_t.select()
           }, 1e3)
@@ -486,10 +486,10 @@ window.addEventListener('load', function(){
           complete_task++
           let del_task = ne('a', tbl, 'del-task')
           del_task.innerHTML = '<i class="bx bx-trash-alt"></i>'
-          del_task.addEventListener('click', function(){
+          del_task.addEventListener('click', function() {
             let las_list = JSON.parse(JSON.stringify(dt.list))
             let new_list = []
-            las_list.forEach(function(i){
+            las_list.forEach(function(i) {
               if (JSON.stringify(i) !== JSON.stringify(h)) {
                 new_list.push(i)
               }
@@ -514,7 +514,7 @@ window.addEventListener('load', function(){
           let las_list = JSON.parse(JSON.stringify(dt.list))
           let new_list = []
           let last_value = ''
-          las_list.forEach(function(i){
+          las_list.forEach(function(i) {
             if (JSON.stringify(i) == JSON.stringify(h)) {
               last_value = i.text
               i.text = evt.target.value
@@ -542,10 +542,10 @@ window.addEventListener('load', function(){
             to_t.blur()
           }
         })
-        chk.addEventListener('click', function(){
+        chk.addEventListener('click', function() {
           let las_list = JSON.parse(JSON.stringify(dt.list))
           let new_list = []
-          las_list.forEach(function(i){
+          las_list.forEach(function(i) {
             if (JSON.stringify(i) == JSON.stringify(h)) {
               i.done = !h.done
             }
@@ -619,7 +619,7 @@ window.addEventListener('load', function(){
       console.error('Error getting order:', error)
     })
   })
-  $('.add-to').addEventListener('click', function(){
+  $('.add-to').addEventListener('click', function() {
     let length_todos = $('.table-to').childElementCount
     let sync_order
     let docRef = db.collection('todo-order').doc('order')
@@ -642,7 +642,7 @@ window.addEventListener('load', function(){
               text: 'New list'
             }]
           })
-          .then(function(){
+          .then(function() {
             tip('and new order saved')
           })
           .catch((error) => {
@@ -661,7 +661,7 @@ window.addEventListener('load', function(){
     })
     
   })
-  $('#link-s').addEventListener('click', function(){
+  $('#link-s').addEventListener('click', function() {
     let tv = $('#title-link').value
     let cv = $('#raw-links').value
 
@@ -685,11 +685,11 @@ window.addEventListener('load', function(){
             }
           }
           if (cv.includes('\n')) {
-            cv.split('\n').forEach(function(a){
+            cv.split('\n').forEach(function(a) {
               trimURLValid(a)
             })
           } else {
-            cv.split('&&').forEach(function(a){
+            cv.split('&&').forEach(function(a) {
               trimURLValid(a)
             })
           }
@@ -724,14 +724,14 @@ window.addEventListener('load', function(){
           tit_sesion = tv
         }
         if (cv.includes('\n')) {
-          cv.split('\n').forEach(function(a){
+          cv.split('\n').forEach(function(a) {
             if (a.endsWith('&&')) {
               a = a.substring(0, a.length - 2)
             }
             lik.push(a.trim())
           })
         } else {
-          cv.split('&&').forEach(function(a){
+          cv.split('&&').forEach(function(a) {
             lik.push(a.trim())
           })
         }
@@ -739,8 +739,8 @@ window.addEventListener('load', function(){
           name: tit_sesion,
           url: lik
         })
-        .then(function(){
-          setTimeout(function(){
+        .then(function() {
+          setTimeout(function() {
             $('#link-c').click()
           }, 2e1)
           tip('Save successfully')
@@ -752,25 +752,25 @@ window.addEventListener('load', function(){
       }
     }
   })
-  $('#link-c').addEventListener('click', function(){
+  $('#link-c').addEventListener('click', function() {
     $('.new-link').classList.remove('close')
     $('.new-link').classList.add('close')
     $('#title-link').value = ''
     $('#raw-links').value = ''
   })
-  $('.add-link').addEventListener('click', function(){
+  $('.add-link').addEventListener('click', function() {
     $('.new-link').classList.remove('close')
     $('#title-link').removeAttribute('disabled')
     $('#title-link').removeAttribute('data-id-coll')
   })
   
-  $('#preview').addEventListener('click', function(){
+  $('#preview').addEventListener('click', function() {
     $('.preview').innerHTML = marked.parse(ipt.txt.value)
     $('.note').classList.toggle('md')
     if ($('.note').classList.contains('md')) {
       $('#input').blur()
       $('#preview').focus()
-      $$('[class*=language]').forEach(function(code){
+      $$('[class*=language]').forEach(function(code) {
         code.classList.add('line-numbers')
       })
       evalPRISM()
@@ -779,13 +779,13 @@ window.addEventListener('load', function(){
       $('#input').focus()
     }
   })
-  $('.bx-menu').addEventListener('click', function(){
+  $('.bx-menu').addEventListener('click', function() {
     $('.main').classList.toggle('mini')
   })
-  $('.view-apps').addEventListener('click', function(){
+  $('.view-apps').addEventListener('click', function() {
     $('.root').classList.toggle('change')
   })
-  window.addEventListener('keydown', function(e){
+  window.addEventListener('keydown', function(e) {
     let ek = e.keyCode
     let ec = e.code
     if (e.ctrlKey && !e.shiftKey && (ec == 'NumpadDivide' || ek == 111)) {
@@ -801,7 +801,7 @@ window.addEventListener('load', function(){
       $('.view-apps').click()
     }
   })
-  $('#filter').addEventListener('input', function(e){
+  $('#filter').addEventListener('input', function(e) {
     let s = e.target.value
     let c = $('.notes-list')
     let ch = c.childElementCount
@@ -814,7 +814,7 @@ window.addEventListener('load', function(){
       }
     }
   })
-  $$('[class^=call]').forEach(function(a){
+  $$('[class^=call]').forEach(function(a) {
     let clss = a.className
     clss = clss.split('-')[1]
     a.addEventListener('click', function() {
@@ -866,22 +866,22 @@ window.addEventListener('load', function(){
       ls = decodeURIComponent(ls)
       let group = ls.split('&&')
       let cgroup = []
-      group.forEach(function(gi){
+      group.forEach(function(gi) {
         let titOr = gi.trim()
         if (titOr != '') {
           cgroup.push(titOr)
         }
       })
-      setTimeout(function(){
+      setTimeout(function() {
         $('.call-link').click()
       }, 5e2)
       db.collection("links").add({
         name: new Date().toLocaleString().replace(', ',' - '),
         url: cgroup
       })
-      .then(function(){
+      .then(function() {
         tip('Autosave done!')
-        setTimeout(function(){
+        setTimeout(function() {
           open(location.href.split('?')[0], '_top')
         }, 3e3)
       })
