@@ -30,41 +30,6 @@
                     w.appendChild(n)
                     return n
                 }
-
-                let fontMain = 'Raleway'
-                if (csp_cont.css) {
-                    function install_my_font() { WebFont.load({ google: { families: [fontMain] } }) }
-                    if (typeof (WebFont) == 'object') {
-                        install_my_font()
-                    } else {
-                        let ff = i('script', [['src', '//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js']], SRO)
-                        ff.addEventListener('load', function () {
-                            setTimeout(function () {
-                                install_my_font()
-                            }, 3e2)
-                        })
-                    }
-                }
-
-                if (!ready_install_resources) {
-                    if (!csp_cont.js) {
-                        console.warm("CCTXMENU can't load external sources")
-                    } else {
-                        if (!window.icons_fa_bank) {
-                            i('script', [['src', jso + '_j.em/off/save/js/icons-bank.js']], SRO)
-                        }
-                        if (!window._bkl_) {
-                            let bk = i('script', [['src', jso + '_j.em/off/save/js/t-url.js']], SRO)
-                            bk.addEventListener('load', function () {
-                                initMenu()
-                            })
-                        } else {
-                            initMenu()
-                        }
-                    }
-                } else {
-                    initMenu()
-                }
                 function save() {
                     if (window.getSelection() != '') {
                         window.__select = window.getSelection()
@@ -88,9 +53,25 @@
                 document.body.appendChild(SR)
                 let SRO = SR.attachShadow({ mode: 'open' })
                 // SRO = SR
-                let sameTest = location.pathname.includes('_j.em/off/save/js/')
-                let data_used_icons = []
+                let sameTest = location.pathname.includes('_j.em/off/save/js')
+
+                let fontMain = 'Raleway'
+                if (csp_cont.css) {
+                    function install_my_font() { WebFont.load({ google: { families: [fontMain] } }) }
+                    if (typeof (WebFont) == 'object') {
+                        install_my_font()
+                    } else {
+                        let ff = i('script', [['src', '//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js']], SRO)
+                        ff.addEventListener('load', function () {
+                            setTimeout(function () {
+                                install_my_font()
+                            }, 3e2)
+                        })
+                    }
+                }
+
                 let iconFA = function (c, w) { }
+                let data_used_icons = []
                 // dir_project
                 if (sameTest) {
                     i('script', [['src', jso + '_j.em/off/save/js/all-fa.min.js']], SRO)
@@ -403,7 +384,7 @@
                         f: create('div', '--cont', '', '', ae.b)
                     }
 
-                    button = [
+                    let buttonsMenu = [
                         ['preview', 'arrow-left', (function () { history.go(-1) }), ae.i.a],
                         ['next', 'arrow-right', (function () { history.go(1) }), ae.i.a],
                         ['share', 'share-alt', 'share', ae.i.a],
@@ -445,7 +426,7 @@
                         ['bookmarks', 'external-link-alt', (function () { open(jso + "_j.em/off/save/", "_blank") }), ae.i.f]
                     ]
 
-                    button.forEach(function (bt) {
+                    buttonsMenu.forEach(function (bt) {
                         let info = {
                             'name': bt[0],
                             'icon': bt[1],
@@ -526,6 +507,25 @@
                     if (sameTest) {
                         console.log('show icons bank:', data_used_icons)
                     }
+                }
+                if (!ready_install_resources) {
+                    if (!csp_cont.js) {
+                        console.warm("CCTXMENU can't load external sources")
+                    } else {
+                        if (!window.icons_fa_bank) {
+                            i('script', [['src', jso + '_j.em/off/save/js/icons-bank.js']], SRO)
+                        }
+                        if (!window._bkl_) {
+                            let bk = i('script', [['src', jso + '_j.em/off/save/js/t-url.js']], SRO)
+                            bk.addEventListener('load', function () {
+                                initMenu()
+                            })
+                        } else {
+                            initMenu()
+                        }
+                    }
+                } else {
+                    initMenu()
                 }
             } else {
                 console.warn('CCTXMENU ALREADY INSTALL')
