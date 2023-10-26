@@ -291,7 +291,7 @@
                     mov.dcb.addEventListener('mouseup', dragEnd, false)
                     mov.dcb.addEventListener('mousemove', drag, false)
 
-                    let poX = 0, poY = 0, lastKEY = 0
+                    let poX = 0, poY = 0
                     document.addEventListener('mousemove', function (event) {
                         poX = event.clientX
                         poY = event.clientY
@@ -359,11 +359,8 @@
                     ae.toogle.addEventListener('click', function () {
                         alternateVisibleMenuToogle(false)
                     })
-                    window.addEventListener('keydown', function (event) {
-                        lastKEY = event.keyCode
-                    })
                     window.addEventListener('contextmenu', function (e) {
-                        if (lastKEY == 18 && SR.style.display == '') {
+                        if (e.altKey && SR.style.display == '') {
                             e.preventDefault()
                             alternateVisibleMenuToogle(true)
                         }
