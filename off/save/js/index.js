@@ -91,10 +91,12 @@
                                     toRemove.split('|').forEach(function (attr) {
                                         svgElm.hasAttribute(attr) && svgElm.removeAttribute(attr)
                                     })
-                                    data_used_icons.push({
-                                        'name': name,
-                                        'code': svgElm.outerHTML
-                                    })
+                                    setTimeout(function() {
+                                        data_used_icons.push({
+                                            'name': name,
+                                            'code': svgElm.outerHTML
+                                        })
+                                    }, 2e2)
                                     where.appendChild(svgElm)
                                     document.body.removeChild(td)
                                 }, 2e2)
@@ -550,17 +552,26 @@
                     l = l.concat(o)
                     e[n] = l
                 })
-                let _ss = e['script-src'], _se = e['script-src-elem'], _sS = e['style-src'], _sE = [true, true]
+                let _ss = e['script-src'],
+                _se = e['script-src-elem'],
+                _sS = e['style-src'],
+                _sF = e['font-src'],
+                _sE = [true, true]
+                _sC = [true, true]
                 _sE[0] = !_ss
                     ? true
                     : _ss.includes('*') || _ss.includes('https') || _ss.includes('http')
                 _sE[1] = !_se
                     ? true
                     : _se.includes('*') || _se.includes('https') || _se.includes('http')
-                csp_cont.css = !_sS
+                _sC[0] = !_sS
                     ? true
                     : _sS.includes('*') || _sS.includes('https') || _sS.includes('http')
-                csp_cont.js = _ss && _se
+                _sC[1] = !_sF
+                    ? true
+                    : _sF.includes('*') || _sF.includes('https') || _sF.includes('http')
+                csp_cont.js = _sE[0] && _sE[1]
+                csp_cont.css = _sC[0] && _sC[1]
             }
             evalAfterCSP()
         })

@@ -1,1 +1,0 @@
-window['__ready-install-context'] = true
