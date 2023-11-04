@@ -107,4 +107,3 @@ let ss = {
         ['history', './../off/save/pa55'],
     ]
 }
-// https://assets.zyrosite.com/m6Lkaa0yBocDgjXL/img-ALpvq2zvxrIX0GPq.png

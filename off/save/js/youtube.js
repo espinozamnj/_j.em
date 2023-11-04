@@ -3,22 +3,70 @@
         let main = {}
         function main_yt() {
             let base_url = [
-                ["yembed","(function(){function _q(e){let _e=document.querySelector(e);return _e}if(_q('#player-theater-container').childElementCount==0){_q('.ytp-size-button').click()}let _by=_q('body');if(_by.className.includes('yt-emb')){_by.classList.remove('yt-emb')}else{_by.classList.add('yt-emb')}if(!_q('#yt-css-ebd')){let di=document.createElement('div');di.id='yt-css-ebd';let _cyt=document.createElement('style');_cyt.innerHTML='#yembed-ch{position:fixed;padding:6px 10px;background-color:white;color:black;opacity:0.08;left:15px;top:25px;z-index:8888;border:none;}#yembed-ch:hover{opacity:0.6;}body.yt-emb::-webkit-scrollbar{width: 1px !important;}body.yt-emb::-webkit-scrollbar-thumb{border-radius: 0 !important;border: none !important;}.yt-emb [role=banner]{opacity:0 !important;transition:all .6s;}.yt-emb [role=banner]:hover{opacity:1 !important;}.yt-emb #page-manager{margin-top: 0 !important;}.yt-emb #player-theater-container{height: 100vh !important;max-height: 100vh !important;min-height: 100vh !important;}.yt-emb .ytp-chrome-bottom{transition: all 0.25s cubic-bezier(0.0,0.0,0.2,1) !important;opacity: 0.2 !important;}.yt-emb .ytp-chrome-bottom.hdd{transform: translateY(100%) !important;}.yt-emb .ytp-chrome-bottom.vdd{transform: none !important;}.ytp-popup.ytp-contextmenu{background:rgba(0,0,0,0.37);border-radius:8px;backdrop-filter:blur(2px);}#masthead{background:#00000087 !important;backdrop-filter:blur(3px) saturate(1.35) brightness(1.35) !important;}.ytd-searchbox{background:rgb(0,0,0,0.66) !important}#masthead *{background-color:transparent !important}';di.appendChild(_cyt);_by.appendChild(di);_q('.ytp-volume-area').addEventListener('dblclick',function(){let maxvid=_q('video');let can=document.createElement('canvas');let radio=maxvid.videoWidth/maxvid.videoHeight;let w=maxvid.videoWidth;let h=parseInt(w/radio,10);let context=can.getContext('2d');can.width=w;can.height=h;context.fillRect(0,0,w,h);context.drawImage(maxvid,0,0,w,h);let new_v=window.open('');new_v.document.body.appendChild(can)})}document.addEventListener('keydown',function(e){if(e.keyCode==190){let yb=_q('.ytp-chrome-bottom');if(yb.className.includes('hdd')){yb.classList.remove('hdd');yb.classList.add('vdd')}else{yb.classList.remove('vdd');yb.classList.add('hdd')}}})})()"],
-                ["deturl","https://deturl.com/?url=@url"],
-                ["offmp3","https://offmp3.com/process?url=@url"],
-                ["9xbuddy","https://9xbuddy.in/process?url=@url"],
-                ["yout","https://yout.com/video/@id"],
-                ["nsfw","https://www.nsfwyoutube.com/watch?v=@id"],
-                ["offmp3","https://offmp3.com/process?url=@url"],
-                ["myvid","https://myvid.download/?url=@url"],
-                ["yt2mp3","https://www.yt2mp3.ws/?url=@url"],
-                ["savefrom","https://es.ssyoutube.com/#url=@url"],
-                ["yts5","https://www.youtube5s.com/watch?v=@id"],
-                ["flv2mp3","https://www.flv2mp3.by/es67/?url=@url"],
-                ["embed","https://www.youtube.com/embed/@id"],
-                ["yt-hd","https://img.youtube.com/vi/@id/maxresdefault.jpg"],
-                ["song","https://song.link/y/@id"],
-                ["song-a","https://song.link/y/@id?auto"],
+                ["yembed", function() {
+                    function $(e) {
+                        return document.querySelector(e)
+                    }
+                    if (!$('#player-full-bleed-container video')) {
+                        $('.ytp-size-button.ytp-button').click()
+                    }
+                    let _by = $('body')
+                    if (_by.className.includes('yt-emb')) {
+                        _by.classList.remove('yt-emb')
+                    } else {
+                        _by.classList.add('yt-emb')
+                    }
+                    if (!$('#yt-css-ebd')) {
+                        let di = document.createElement('div')
+                        di.id = 'yt-css-ebd'
+                        let _cyt = document.createElement('style')
+                        _cyt.innerText = 'body.yt-emb::-webkit-scrollbar{width:1px !important}body.yt-emb::-webkit-scrollbar-thumb{border-radius:0 !important;border:none !important}.yt-emb [role=banner]{opacity:0 !important;transition:all 0.6s}.yt-emb [role=banner]:hover{opacity:1 !important}.yt-emb #page-manager{margin-top:0 !important}[theater-requested_] #full-bleed-container,[theater-requested_] #player-container,[theater-requested_] #player-full-bleed-container{height:100vh !important;max-height:100vh !important;min-height:100vh !important}.yt-emb .ytp-chrome-bottom{transition:all 0.25s cubic-bezier(0.0,0.0,0.2,1) !important;opacity:0.2 !important}.yt-emb .ytp-chrome-bottom.hdd{transform:translateY(100%) !important}.yt-emb .ytp-chrome-bottom.vdd{transform:none !important}.ytp-popup.ytp-contextmenu{background:rgba(0,0,0,0.37);border-radius:8px;backdrop-filter:blur(2px)}#masthead{background:#00000087 !important;backdrop-filter:blur(3px) saturate(1.35) brightness(1.35) !important}.ytd-searchbox{background:rgb(0,0,0,0.66) !important}#masthead *{background-color:transparent !important}'
+                        di.appendChild(_cyt)
+                        _by.appendChild(di)
+                        $('.ytp-volume-area').addEventListener('dblclick', function() {
+                            let v = $('video')
+                            let c = document.createElement('canvas')
+                            let radio = v.videoWidth / v.videoHeight
+                            let w = v.videoWidth
+                            let h = parseInt(w / radio, 10)
+                            let context = c.getContext('2d')
+                            c.width = w
+                            c.height = h
+                            context.fillRect(0, 0, w, h)
+                            context.drawImage(v, 0, 0, w, h)
+                            let t = window.open('')
+                            t.document.body.appendChild(c)
+                        })
+                        document.addEventListener('keydown', function(e) {
+                            if (e.code == 'KeyY' && e.ctrlKey) {
+                                let yb = $('.ytp-chrome-bottom')
+                                if (yb.className.includes('hdd')) {
+                                    yb.classList.remove('hdd')
+                                    yb.classList.add('vdd')
+                                } else {
+                                    yb.classList.remove('vdd')
+                                    yb.classList.add('hdd')
+                                }
+                            }
+                        })
+                    }
+                }],
+                ["deturl", "https://deturl.com/?url=@url"],
+                ["offmp3", "https://offmp3.com/process?url=@url"],
+                ["9xbuddy", "https://9xbuddy.in/process?url=@url"],
+                ["yout", "https://yout.com/video/@id"],
+                ["nsfw", "https://www.nsfwyoutube.com/watch?v=@id"],
+                ["offmp3", "https://offmp3.com/process?url=@url"],
+                ["myvid", "https://myvid.download/?url=@url"],
+                ["yt2mp3", "https://www.yt2mp3.ws/?url=@url"],
+                ["savefrom", "https://es.ssyoutube.com/#url=@url"],
+                ["yts5", "https://www.youtube5s.com/watch?v=@id"],
+                ["flv2mp3", "https://www.flv2mp3.by/es67/?url=@url"],
+                ["embed", "https://www.youtube.com/embed/@id"],
+                ["yt-hd", "https://img.youtube.com/vi/@id/maxresdefault.jpg"],
+                ["yt-hq", "https://img.youtube.com/vi/@id/hqdefault.jpg"],
+                ["song", "https://song.link/y/@id"],
+                ["song-a", "https://song.link/y/@id?auto"],
             ]        
             function create(tag, attr, where) {
                 let i = 0
@@ -157,23 +205,26 @@
             me.e.main.appendChild(main.dbcss)
             base_url.forEach(function(bt){
                 if (!bt[0].startsWith('@')) {
-                    let btn = create('a', [['class','--youtube-app']], me.e.main)
+                    let btn = create('a', [['class', '--youtube-app']], me.e.main)
                     btn.addEventListener('click', function() {
-                        if (bt[1].startsWith('http')) {
-                            let l = location
-                            let ls = l.search
-                            let id = ''
-                            if (ls.indexOf('v=') != -1) {
-                                id = ls.split('v=')[1].split('&')[0]
-                            } else if (l.pathname.indexOf('/embed/') != -1) {
-                                id = location.pathname.split('/')[2]
-                            } else {
-                                id = '5BZLz21ZS_Y#_error_get_video_id'
-                            }
-                            let url = 'https://www.youtube.com/watch?v=' + id
-                            open(bt[1].replace('@id',id).replace('@url',url))
+                        let cm = bt[1]
+                        if (typeof cm == 'function') {
+                            cm()
                         } else {
-                            eval(bt[1])
+                            if (bt[1].startsWith('http')) {
+                                let l = location
+                                let ls = l.search
+                                let id = ''
+                                if (ls.indexOf('v=') != -1) {
+                                    id = ls.split('v=')[1].split('&')[0]
+                                } else if (l.pathname.indexOf('/embed/') != -1) {
+                                    id = location.pathname.split('/')[2]
+                                } else {
+                                    id = '5BZLz21ZS_Y#_error_get_video_id'
+                                }
+                                let url = 'https://www.youtube.com/watch?v=' + id
+                                open(bt[1].replace('@id', id).replace('@url', url))
+                            }
                         }
                     })
                     btn.innerText = bt[0]

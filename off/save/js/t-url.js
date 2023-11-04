@@ -92,5 +92,5 @@ window.__i_ = function() {
       fn: cmm.fnt,
     })
   })
-  if(typeof(__install__)!='undefined'){__i_()}
+  if(typeof(__install__) != 'undefined') {__i_()}
 })()

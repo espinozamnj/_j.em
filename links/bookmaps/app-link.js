@@ -48,12 +48,6 @@ setTimeout(function () {
             hi.classList.replace('vi','hi')
         }
     }
-    document.addEventListener('keydown', function (ev) {
-        ev = ev || window.event
-        if (ev.ctrlKey && ev.keyCode == 32) {
-            $('.screen').classList.remove('-m')
-        }
-    })
     $('.hm').addEventListener('click', pan)
     
     $('#srh').addEventListener('click', function(){
@@ -75,10 +69,10 @@ setTimeout(function () {
         }, 2e2)
     })
     document.addEventListener("keydown", function (e) {
-        if (e.keyCode == 69 && document.activeElement !== $('#srh')) {
+        if (e.code == 'KeyE' && document.activeElement != $('#srh')) {
             pan()
         }
-    }, false);
+    })
     $('#scripter').addEventListener(
         'contextmenu',
         function(target) {
