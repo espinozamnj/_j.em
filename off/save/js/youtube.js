@@ -1,4 +1,4 @@
-(function () {
+(function() {
     if (location.host.includes('youtube.com') || location.host.includes('youtube-nocookie.com')) {
         let main = {}
         function main_yt() {
@@ -211,7 +211,7 @@
                         if (typeof cm == 'function') {
                             cm()
                         } else {
-                            if (bt[1].startsWith('http')) {
+                            if (cm.startsWith('http')) {
                                 let l = location
                                 let ls = l.search
                                 let id = ''
@@ -223,7 +223,7 @@
                                     id = '5BZLz21ZS_Y#_error_get_video_id'
                                 }
                                 let url = 'https://www.youtube.com/watch?v=' + id
-                                open(bt[1].replace('@id', id).replace('@url', url))
+                                open(cm.replace('@id', id).replace('@url', url))
                             }
                         }
                     })
@@ -258,7 +258,7 @@
                 }
             }
     
-            function dragEnd(e) {
+            function dragEnd() {
                 mov.initialX = mov.currentX
                 mov.initialY = mov.currentY
                 mov.active = false

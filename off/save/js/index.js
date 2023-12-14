@@ -11,8 +11,10 @@
     }
     radr(function () {
         let csp_cont = { js: true, css: true }
-        if (!trustedTypes.defaultPolicy) {
-            window.trustedTypes.createPolicy('default', { createHTML: (string, sink) => string })
+        if (typeof(trustedTypes) != 'undefined') {
+            if (!trustedTypes.defaultPolicy) {
+                window.trustedTypes.createPolicy('default', { createHTML: (string, sink) => string })
+            }
         }
         function evalAfterCSP() {
             if (!window.import_bkls_start) {
@@ -46,8 +48,6 @@
                     : location.origin.includes('test')
                         ? '//locked.test/'
                         : '//espinozamnj.github.io/'
-
-
                 let SR = document.createElement('div')
                 SR.id = 'context-menu-addons'
                 document.body.appendChild(SR)
