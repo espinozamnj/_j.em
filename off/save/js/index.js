@@ -515,7 +515,7 @@
                         console.log('show icons bank:', data_used_icons)
                     }
                     ae.css = document.createElement('style')
-                    // ae.css.innerText = cssFull
+                    ae.css.innerText = cssFull
                     try {
                         ae.init.appendChild(ae.css)
                     } catch (error) {
