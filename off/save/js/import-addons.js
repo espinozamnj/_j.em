@@ -70,7 +70,7 @@ if (document.getElementsByClassName(_na).length == 0) {
             __g.dragItem.style.cursor = 'move'
         }
     }
-    function dragEnd(e) {
+    function dragEnd() {
         __g.initialX = __g.currentX
         __g.initialY = __g.currentY
         __g.active = false
@@ -97,10 +97,10 @@ if (document.getElementsByClassName(_na).length == 0) {
     }
     __g.dcb.addEventListener('touchstart', dragStart, false)
     __g.dcb.addEventListener('touchend', dragEnd, false)
-    __g.dcb.addEventListener('touchmove', drag, false)
+    __g.dcb.addEventListener('touchmove', function(e) {drag(e)}, false)
     __g.dcb.addEventListener('mousedown', dragStart, false)
     __g.dcb.addEventListener('mouseup', dragEnd, false)
-    __g.dcb.addEventListener('mousemove', drag, false)
+    __g.dcb.addEventListener('mousemove', function(e) {drag(e)}, false)
     fh.appendChild(st)
     fh.appendChild(clse)
     fh.appendChild(mov)

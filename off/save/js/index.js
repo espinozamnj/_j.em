@@ -75,7 +75,7 @@
                 // dir_project
                 if (sameTest) {
                     i('script', [['src', jso + '_j.em/off/save/js/all-fa.min.js']], SRO)
-                    iconFA = function (name, where) {
+                    iconFA = function (name, where, size) {
                         let createIcon = setInterval(function () {
                             if (typeof (window.FontAwesome) == 'object') {
                                 clearInterval(createIcon)
@@ -98,13 +98,14 @@
                                         })
                                     }, 2e2)
                                     where.appendChild(svgElm)
+                                    svgElm.style.height = size + 'px'
                                     document.body.removeChild(td)
                                 }, 2e2)
                             }
                         }, 5e2)
                     }
                 } else {
-                    iconFA = function (classIconName, where) {
+                    iconFA = function (classIconName, where, size) {
                         let getIcon = setInterval(function () {
                             if (typeof window.icons_fa_bank == 'object') {
                                 clearInterval(getIcon)
@@ -112,6 +113,7 @@
                                 let result_icon = bank.filter(a => a.name == classIconName)
                                 if (result_icon.length > 0) {
                                     where.innerHTML = result_icon[0]['code']
+                                    where.firstChild.style.height = size + 'px'
                                 }
                             }
                         }, 5e2)
@@ -120,7 +122,7 @@
                 function initMenu() {
                     function create(tag, clas, css, style, where) {
                         let sty = '.' + css + '{' + style + '}'
-                        style == '' ? ae.css.innerText += '' : ae.css.innerText += sty
+                        style == '' ? cssFull += '' : cssFull += sty
                         let g = document.createElement(tag)
                         clas.split(',').forEach(function (c) {
                             g.classList.add(c)
@@ -137,8 +139,7 @@
                     let ae = {}
                     ae.width = 260
                     ae.height = 600
-                    ae.css = document.createElement('style')
-                    ae.css.innerText = /*css*/`
+                    let cssFull = /*css*/`
                         .--alt *,
                         .--alt * *,
                         .--alt * * *,
@@ -225,18 +226,20 @@
                             flex: 1;
                             color: black;
                         }
-                    `.replaceAll('\n', '').replaceAll('    ', '').replaceAll('\t', '')
+                        .--alt .--bod .close-btn i svg path {
+                            fill: #bb2b2b !important;
+                        }
+                        .--alt .--bod .close-btn span {
+                            color: #bb2b2b !important;
+                        }
+                    `
                     ae.sr = SRO
                     ae.init = create('div', '--alt', '', '', SRO)
                     ae.body = create('div', '--bod', '--alt .--bod', cssBod, ae.init)
-                    try {
-                        ae.init.appendChild(ae.css)
-                    } catch (error) {
-                        ae.init.style.display = 'none'
-                    }
+                    cssFull = cssFull.replaceAll('\n', '').replaceAll('    ', '').replaceAll('\t', '')
                     ae.toogle = create('div', '--tog', '', '', ae.init)
                     // ae.toogle.innerText = '::'
-                    iconFA('fas fa-bars', ae.toogle)
+                    iconFA('fas fa-bars', ae.toogle, 14)
 
                     let mov = {}
                     mov.dragItem = ae.toogle
@@ -261,7 +264,7 @@
                             mov.dragItem.style.cursor = 'move'
                         }
                     }
-                    function dragEnd(e) {
+                    function dragEnd() {
                         mov.initialX = mov.currentX
                         mov.initialY = mov.currentY
                         mov.active = false
@@ -288,10 +291,10 @@
                     }
                     mov.dcb.addEventListener('touchstart', dragStart, false)
                     mov.dcb.addEventListener('touchend', dragEnd, false)
-                    mov.dcb.addEventListener('touchmove', drag, false)
+                    mov.dcb.addEventListener('touchmove', function(e) {drag(e)}, false)
                     mov.dcb.addEventListener('mousedown', dragStart, false)
                     mov.dcb.addEventListener('mouseup', dragEnd, false)
-                    mov.dcb.addEventListener('mousemove', drag, false)
+                    mov.dcb.addEventListener('mousemove', function(e) {drag(e)}, false)
 
                     let poX = 0, poY = 0
                     document.addEventListener('mousemove', function (event) {
@@ -382,7 +385,6 @@
                         e: create('div', '--cont', '', '', ae.b),
                         f: create('div', '--cont', '', '', ae.b)
                     }
-
                     let buttonsMenu = [
                         ['preview', 'arrow-left', (function () { history.go(-1) }), ae.i.a],
                         ['next', 'arrow-right', (function () { history.go(1) }), ae.i.a],
@@ -422,9 +424,9 @@
                         ['save images', 'file-image', 'save img', ae.i.e],
                         ['info site', 'info', 'site_info', ae.i.f],
                         ['addons', 'puzzle-piece', 'addons', ae.i.f],
-                        ['bookmarks', 'external-link-alt', (function () { open(jso + "_j.em/off/save/", "_blank") }), ae.i.f]
+                        ['bookmarks', 'external-link-alt', (function () { open(jso + "_j.em/off/save/", "_blank") }), ae.i.f],
+                        ['close', 'circle-minus', (function () { ae.init.parentNode.style.display = 'none' }), ae.i.f],
                     ]
-
                     buttonsMenu.forEach(function (bt) {
                         let info = {
                             'name': bt[0],
@@ -439,7 +441,7 @@
                         } else {
                             classIcon = 'fas ' + 'fa-' + info.icon
                         }
-                        iconFA(classIcon, ic)
+                        iconFA(classIcon, ic, 13)
                         if (typeof (bt[2]) == 'string') {
                             let res = _bkl_.filter(element => element.name.toString().toLowerCase() == bt[2].toLowerCase())
                             if (res.length > 0) {
@@ -502,9 +504,23 @@
                         b.appendChild(s)
                         bt[3].appendChild(b)
                     })
+                    let closeBtn = ae.b.lastElementChild.lastElementChild
+                    closeBtn.classList.add('close-btn')
+                    closeBtn.addEventListener('contextmenu', function () {
+                        let psro = ae.init.parentNode
+                        psro.parentNode.removeChild(psro)
+                    })
                     console.log('%cCCTXMENU', 'font-size:16px;font-weight:bold')
                     if (sameTest) {
                         console.log('show icons bank:', data_used_icons)
+                    }
+                    ae.css = document.createElement('style')
+                    // ae.css.innerText = cssFull
+                    try {
+                        ae.init.appendChild(ae.css)
+                    } catch (error) {
+                        console.error('cctxmenu at set styles')
+                        ae.init.style.display = 'none'
                     }
                 }
                 if (!ready_install_resources) {

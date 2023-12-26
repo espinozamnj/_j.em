@@ -1,8 +1,7 @@
 window.addEventListener(
     'DOMContentLoaded',
     function(){
-        function $(he) {return document.querySelector(he)}
-
+        function $(qs) {return document.querySelector(qs)}
         let order = []
         words.forEach(function(w){
             order.push(w.name)

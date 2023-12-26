@@ -268,7 +268,7 @@
         }
     }
 
-    function dragEnd(e) {
+    function dragEnd() {
         mov.initialX = mov.currentX
         mov.initialY = mov.currentY
         mov.active = false
@@ -298,8 +298,8 @@
     }
     mov.dcb.addEventListener('touchstart', dragStart, false)
     mov.dcb.addEventListener('touchend', dragEnd, false)
-    mov.dcb.addEventListener('touchmove', drag, false)
+    mov.dcb.addEventListener('touchmove', function(e) {drag(e)}, false)
     mov.dcb.addEventListener('mousedown', dragStart, false)
     mov.dcb.addEventListener('mouseup', dragEnd, false)
-    mov.dcb.addEventListener('mousemove', drag, false)
+    mov.dcb.addEventListener('mousemove', function(e) {drag(e)}, false)
 })()

@@ -146,7 +146,7 @@
                 .${main.settg.class.body}::-webkit-scrollbar{width:8px;}
                 .${main.settg.class.body}::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.25);border-radius:0px;}
             `,
-            main.settg.styles_custom = `
+            main.settg.styles_custom = /*css*/`
                 .${main.settg.class.aside}{
                     opacity: 0.1;
                 }
@@ -155,6 +155,8 @@
                 }
                 .---main {
                     padding: 8px;
+                    width: 100%;
+                    height: fit-content;
                 }
                 .--youtube-app {
                     color: black;
@@ -162,13 +164,16 @@
                     font-size: 15px;
                     padding: 8px 12px;
                     text-decoration: none;
-                    transtion: all 0.3s;
+                    transition: all 0.3s;
                     border-radius: 5px;
                     user-select: none;
                     cursor: pointer;
                 }
                 .--youtube-app:hover {
                     background: rgba(255, 255, 255, 0.3)
+                }
+                .--youtube-app:last-child {
+                    margin-block-end: 20px
                 }
             `
             main.inset = create('div', [['class', main.settg.class.inset]], document.body)

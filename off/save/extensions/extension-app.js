@@ -3,7 +3,7 @@ let crx = document.body.children[0].shadowRoot
   .querySelector("cr-view-manager")
   .querySelector("extensions-item-list")
   .shadowRoot.querySelector("#container")
-  .querySelector(".items-container")
+  .querySelector("#no-search-results+.items-container")
   .querySelectorAll("extensions-item")
 let gg = [];
 crx.forEach(function (x) {
@@ -43,28 +43,34 @@ console.log(_i)
 window.addEventListener(
   'DOMContentLoaded',
   function(){
-    function $(he) {return document.querySelector(he)}
-
+    function $(qs) {return document.querySelector(qs)}
     function only(value, index, self) {
       return self.indexOf(value) === index;
     }
-    
-    for (const tag in tags_crx){
+    for (const tag in tags_crx) {
       let group = tags_crx[tag]
-      group.forEach(
-        function(n){
+      group.forEach(function(n) {
         let id = n.split('::')[1]
         let it = data_crx.filter(e => e.url == id)[0]
         if (it['tags'] == undefined){
           it.tags = []
         }
         it.tags.push(tag)
-      }
-    )
+      })
     }
     let tags = []
-    data_crx.forEach(
-      function(i){
+    data_crx.sort(function(a, b) {
+      let nameA = a.name.toLowerCase()
+      let nameB = b.name.toLowerCase()
+      let comparison = 0
+      if (nameA > nameB) {
+        comparison = 1
+      } else if (nameA < nameB) {
+        comparison = -1
+      }
+      return comparison
+    })
+    data_crx.forEach(function(i) {
         let htmlTAGS = ''
         if (i.tags == undefined){
           i.tags = ['no_tags']
@@ -77,24 +83,38 @@ window.addEventListener(
             `
           }
         )
-        let card = /*html*/ `
-          <a class="item-ext" href="https://chrome.google.com/webstore/detail/${i.url}" title="${i.name}">
-            <div class="info">
-              <div class="logo">
-                <img src="${i.src}">
-              </div>
-              <div class="text">
-                <div class="title">${i.name}</div>
-                <div class="version">${i.version}</div>
-              </div>
+        let card = document.createElement('a')
+        card.classList.add('item-ext')
+        card.href = 'https://chrome.google.com/webstore/detail/' + i.url
+        card.title = i.name
+        card.innerHTML = /*html*/ `
+          <div class="info">
+            <div class="logo">
+              <img src="${i.src}">
             </div>
-            <div class="tags">${htmlTAGS}</div>
-            <div class="desc">${i.descrp}</div>
-          </a>
+            <div class="text">
+              <div class="title">${i.name}</div>
+              <div class="version">${i.version}</div>
+            </div>
+          </div>
+          <div class="tags">${htmlTAGS}</div>
+          <div class="desc">${i.descrp}</div>
         `
-        $('.result').innerHTML += card
-      }
-    )
+        $('.result').appendChild(card)
+        card.addEventListener('contextmenu', function(e) {
+          if (e.shiftKey) {
+            let dataID = i.name + '::' + i.url
+            console.log(dataID)
+            let ni = document.createElement('input')
+            document.body.appendChild(ni)
+            ni.value = '"' + dataID + '",'
+            ni.select()
+            ni.setSelectionRange(0, 99999)
+            navigator.clipboard.writeText(ni.value)
+            ni.parentNode.removeChild(ni)
+          }
+        })
+    })
     tags = tags.filter(only)
     tags.forEach(
       function(tag) {
