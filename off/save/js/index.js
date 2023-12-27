@@ -425,7 +425,7 @@
                         ['info site', 'info', 'site_info', ae.i.f],
                         ['addons', 'puzzle-piece', 'addons', ae.i.f],
                         ['bookmarks', 'external-link-alt', (function () { open(jso + "_j.em/off/save/", "_blank") }), ae.i.f],
-                        ['close', 'circle-minus', (function () { ae.init.parentNode.style.display = 'none' }), ae.i.f],
+                        ['close', 'circle-minus', (function () { SR.style.display = 'none' }), ae.i.f],
                     ]
                     buttonsMenu.forEach(function (bt) {
                         let info = {
@@ -506,9 +506,8 @@
                     })
                     let closeBtn = ae.b.lastElementChild.lastElementChild
                     closeBtn.classList.add('close-btn')
-                    closeBtn.addEventListener('contextmenu', function () {
-                        let psro = ae.init.parentNode
-                        psro.parentNode.removeChild(psro)
+                    closeBtn.addEventListener('contextmenu', function() {
+                        SR.parentNode.removeChild(SR)
                     })
                     console.log('%cCCTXMENU', 'font-size:16px;font-weight:bold')
                     if (sameTest) {
@@ -520,12 +519,31 @@
                         ae.init.appendChild(ae.css)
                     } catch (error) {
                         console.error('cctxmenu at set styles')
-                        ae.init.style.display = 'none'
+                        SR.style.display = 'none'
+                    }
+                }
+                function showErrorCSP() {
+                    let p = document.createElement('div')
+                    document.body.appendChild(p)
+                    p.innerText='CCTXmenu not allowed bt CSP'
+                    p.addEventListener('click', function() {document.body.removeChild(p)})
+                    try {
+                        p.setAttribute('style', 'color:darkred;font-size:10px;padding-inline:12px;text-align:center;width:100%;position:fixed;bottom:14px;left:0;right:0;z-index:1000000')
+                    } catch (e) {
+                       console.warn('not allowed insert css')
+                    }
+                }
+                function validCss() {
+                    if (csp_cont.css) {
+                        initMenu()
+                    } else {
+                        showErrorCSP()
                     }
                 }
                 if (!ready_install_resources) {
                     if (!csp_cont.js) {
                         console.warm("CCTXMENU can't load external sources")
+                        showErrorCSP()
                     } else {
                         if (!window.icons_fa_bank) {
                             i('script', [['src', jso + '_j.em/off/save/js/icons-bank.js']], SRO)
@@ -533,14 +551,14 @@
                         if (!window._bkl_) {
                             let bk = i('script', [['src', jso + '_j.em/off/save/js/t-url.js']], SRO)
                             bk.addEventListener('load', function () {
-                                initMenu()
+                                validCss()
                             })
                         } else {
-                            initMenu()
+                            validCss()
                         }
                     }
                 } else {
-                    initMenu()
+                    validCss()
                 }
             } else {
                 console.warn('CCTXMENU ALREADY INSTALL')
@@ -554,7 +572,7 @@
                 t_e = t_e.filter(function (i) { return i != '' })
                 e = {}
                 t_e.forEach(function (p) {
-                    let t_a = p.split(' ')
+                    let t_a = p.replace('  ', ' ').split(' ')
                     let n = t_a[0]
                     let l = e[n] || []
                     let o = t_a.slice(1).map(function (t) {
