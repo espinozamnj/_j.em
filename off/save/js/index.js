@@ -2,6 +2,10 @@
     if (!document.contentType.includes('html')) {
         return false
     }
+    if (window.import_bkls_start) {
+        alert('CCTXMENU has already been executed')
+        return false
+    }
     function radr(fn) {
         if (document.readyState == 'interactive' || document.readyState == 'complete') {
             fn()
@@ -9,8 +13,8 @@
             window.addEventListener('DOMContentLoaded', function () { fn() })
         }
     }
-    radr(function () {
-        let csp_cont = { js: true, css: true }
+    radr(function() {
+        let csp_cont = { ejs: true, css: true, fnt: true }
         if (typeof(trustedTypes) != 'undefined') {
             if (!trustedTypes.defaultPolicy) {
                 window.trustedTypes.createPolicy('default', { createHTML: (string, sink) => string })
@@ -56,7 +60,7 @@
                 let sameTest = location.pathname.includes('_j.em/off/save/js')
 
                 let fontMain = 'Raleway'
-                if (csp_cont.css) {
+                if (csp_cont.css && csp_cont.fnt) {
                     function install_my_font() { WebFont.load({ google: { families: [fontMain] } }) }
                     if (typeof (WebFont) == 'object') {
                         install_my_font()
@@ -70,7 +74,7 @@
                     }
                 }
 
-                let iconFA = function (c, w) { }
+                let iconFA = function (c, w, s) { }
                 let data_used_icons = []
                 // dir_project
                 if (sameTest) {
@@ -525,7 +529,7 @@
                 function showErrorCSP() {
                     let p = document.createElement('div')
                     document.body.appendChild(p)
-                    p.innerText='CCTXmenu not allowed bt CSP'
+                    p.innerText = 'CCTXmenu not allowed bt CSP'
                     p.addEventListener('click', function() {document.body.removeChild(p)})
                     try {
                         p.setAttribute('style', 'color:darkred;font-size:10px;padding-inline:12px;text-align:center;width:100%;position:fixed;bottom:14px;left:0;right:0;z-index:1000000')
@@ -541,7 +545,7 @@
                     }
                 }
                 if (!ready_install_resources) {
-                    if (!csp_cont.js) {
+                    if (!csp_cont.ejs) {
                         console.warm("CCTXMENU can't load external sources")
                         showErrorCSP()
                     } else {
@@ -561,10 +565,14 @@
                     validCss()
                 }
             } else {
-                console.warn('CCTXMENU ALREADY INSTALL')
+                alert('CCTXMENU has already been executed')
             }
         }
         fetch(document.location.href).then(function (r) {
+            let extSrcCSPValues = '*,http,https'
+            function validSrc(arr, find) {
+                return find.split(',').some(function(i) {return arr.includes(i)})
+            }
             let d = r.headers.get('Content-Security-Policy')
             let e
             if (d) {
@@ -586,26 +594,21 @@
                     l = l.concat(o)
                     e[n] = l
                 })
-                let _ss = e['script-src'],
-                _se = e['script-src-elem'],
-                _sS = e['style-src'],
-                _sF = e['font-src'],
-                _sE = [true, true]
-                _sC = [true, true]
-                _sE[0] = !_ss
-                    ? true
-                    : _ss.includes('*') || _ss.includes('https') || _ss.includes('http')
-                _sE[1] = !_se
-                    ? true
-                    : _se.includes('*') || _se.includes('https') || _se.includes('http')
-                _sC[0] = !_sS
-                    ? true
-                    : _sS.includes('*') || _sS.includes('https') || _sS.includes('http')
-                _sC[1] = !_sF
-                    ? true
-                    : _sF.includes('*') || _sF.includes('https') || _sF.includes('http')
-                csp_cont.js = _sE[0] && _sE[1]
-                csp_cont.css = _sC[0] && _sC[1]
+                let csp = {
+                    "e-js-e": e['script-src-elem'],
+                    "e-js-s": e['script-src'],
+                    "e-styl": e['style-src'],
+                    "e-font": e['font-src']
+                }
+                csp['r-js-e'] = !csp['e-js-e'] ? true : validSrc(csp['e-js-e'], extSrcCSPValues + ',strict-dynamic')
+                csp['r-js-s'] = !csp['e-js-s'] ? true : validSrc(csp['e-js-s'], extSrcCSPValues + ',strict-dynamic')
+                csp['r-font'] = !csp['e-font'] ? true : validSrc(csp['e-font'], extSrcCSPValues + ',https://fonts.gstatic.com')
+                csp['r-styl'] = !csp['e-styl'] ? true : validSrc(csp['e-styl'], extSrcCSPValues + ',:unsafe-inline')
+                console.log(e)
+                console.log(csp)
+                csp_cont.ejs = csp['r-js-e'] || csp['r-js-s']
+                csp_cont.css = csp['r-styl']
+                csp_cont.fnt = csp['r-font']
             }
             evalAfterCSP()
         })
