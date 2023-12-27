@@ -604,8 +604,6 @@
                 csp['r-js-s'] = !csp['e-js-s'] ? true : validSrc(csp['e-js-s'], extSrcCSPValues + ',strict-dynamic')
                 csp['r-font'] = !csp['e-font'] ? true : validSrc(csp['e-font'], extSrcCSPValues + ',https://fonts.gstatic.com')
                 csp['r-styl'] = !csp['e-styl'] ? true : validSrc(csp['e-styl'], extSrcCSPValues + ',:unsafe-inline')
-                console.log(e)
-                console.log(csp)
                 csp_cont.ejs = csp['r-js-e'] || csp['r-js-s']
                 csp_cont.css = csp['r-styl']
                 csp_cont.fnt = csp['r-font']
