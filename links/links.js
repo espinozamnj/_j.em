@@ -1,6 +1,6 @@
 (function() {
     let ssrc = [
-        'https://espinozamnj.github.io/nihan/dg-data',
+        '/nihan/dg-data',
         '@app/all-apps',
         '@off/save/js/t-url',
         'finds',
@@ -44,7 +44,7 @@
             js ? e = document.createElement('script') : e = document.createElement('a')
             // dir_project
             r = r.replace('@', location.origin + '/_j.em/')
-            r.startsWith('http') ? sr = r + '.js' : sr = 'bookmaps/' + r + '.js'
+            r.startsWith('http') || r.startsWith('/') ? sr = r + '.js' : sr = 'bookmaps/' + r + '.js'
             require_reload ? sr = sr + '?' + newTime() : sr = sr
             if (js) {
                 e.setAttribute('src', sr)

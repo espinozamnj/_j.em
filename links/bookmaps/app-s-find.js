@@ -49,10 +49,16 @@ let intervalWaiData = setInterval(function() {
       for (const gapp in dg_data['apps']) {
         let group = dg_data['apps'][gapp]
         for (const gitems in group['items']) {
-          ti = group['items'][gitems]
+          let ti = group['items'][gitems]
           let nI = {}
+          console.log(ti)
+          if (ti.length == 3) {
+            console.log('---------------')
+            nI.name = ti[1] + '::' + ti[2]
+          } else {
+            nI.name = ti[1]
+          }
           nI.url = ti[0]
-          nI.name = ti[1]
           nI.path = '/lib/Design apps/' + group['title']
           _txt.push(nI)
         }

@@ -204,5 +204,6 @@ const _tech = [
     {"name":"RANDOM.ORG | Password Generator","url":"https://www.random.org/passwords/","path":"/lib/Apps/tech/GEN/hash gen"},
     {"name":"¿Cuál es mi navegador?","url":"https://www.whatsmybrowser.org/","path":"/lib/Apps/tech/Device info"},
     {"name":"What browser am I using?","url":"https://www.whatismybrowser.com/","path":"/lib/Apps/tech/Device info"},
-    {"name":"Device Info","url":"https://www.deviceinfo.me/","path":"/lib/Apps/tech/Device info"}
+    {"name":"Device Info","url":"https://www.deviceinfo.me/","path":"/lib/Apps/tech/Device info"},
+    {"name":"Device Size Screen","url":"http://howbigismybrowser.com/","path":"/lib/Apps/tech/Device info"}
 ]
