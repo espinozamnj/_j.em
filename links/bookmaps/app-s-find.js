@@ -51,9 +51,7 @@ let intervalWaiData = setInterval(function() {
         for (const gitems in group['items']) {
           let ti = group['items'][gitems]
           let nI = {}
-          console.log(ti)
           if (ti.length == 3) {
-            console.log('---------------')
             nI.name = ti[1] + '::' + ti[2]
           } else {
             nI.name = ti[1]
