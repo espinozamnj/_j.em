@@ -3,15 +3,10 @@
 // https://sindresorhus.com/github-markdown-css/github-markdown-dark.css
 /* ============================ */
 
-window.addEventListener('load', function(){
-    let style = document.createElement('style')
-    style.innerHTML = ':root{--scroll:rgb(13,17,23)}body{margin:0;padding:26px 18px}textarea{display:none}body{overflow-x:hidden}body::-webkit-scrollbar{width:16px;height:18px}body::-webkit-scrollbar-track{background:var(--scroll)}body::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.2);border-radius:10px;border:4px solid transparent;background-clip:padding-box}body::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,0.4);border:4px solid transparent;background-clip:padding-box}body::-webkit-scrollbar-thumb:active{background:rgba(255,255,255,0.8);border:4px solid transparent;background-clip:padding-box}body::-webkit-scrollbar-button{background-color:var(--scroll)}body::-webkit-scrollbar-corner{background:var(--scroll)}body::-webkit-scrollbar-button:horizontal:increment{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABlBMVEXM09b///8OmaLeAAAAAnRSTlP/AOW3MEoAAAAgSURBVHgBY2BEA+QLMGAIMGAIMGAIMBAUIGQoZU5HAwB+ZgDtGYq3fgAAAABJRU5ErkJggg==")}body::-webkit-scrollbar-button:horizontal:increment:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABlBMVEWdtMT///8YSU3FAAAAAnRSTlP/AOW3MEoAAAAgSURBVHgBY2BEA+QLMGAIMGAIMGAIMBAUIGQoZU5HAwB+ZgDtGYq3fgAAAABJRU5ErkJggg==")}body::-webkit-scrollbar-button:horizontal:decrement{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABlBMVEXM09b///8OmaLeAAAAAnRSTlP/AOW3MEoAAAAiSURBVHgBY2BEAxQJMKAJMKAJMKAJMOATgIkQMBTBooZfAH56AO2yINTrAAAAAElFTkSuQmCC")}body::-webkit-scrollbar-button:horizontal:decrement:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABlBMVEWdtMT///8YSU3FAAAAAnRSTlP/AOW3MEoAAAAiSURBVHgBY2BEAxQJMKAJMKAJMKAJMOATgIkQMBTBooZfAH56AO2yINTrAAAAAElFTkSuQmCC")}body::-webkit-scrollbar-button:vertical:increment{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABlBMVEXM09b///8OmaLeAAAAAnRSTlP/AOW3MEoAAAAfSURBVHgBY2BEA7QTYIAChAoYH6EFxkeYwQBj0MelAH3GAO2C9+AaAAAAAElFTkSuQmCC")}body::-webkit-scrollbar-button:vertical:increment:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABlBMVEWdtMT///8YSU3FAAAAAnRSTlP/AOW3MEoAAAAfSURBVHgBY2BEA7QTYIAChAoYH6EFxkeYwQBj0MelAH3GAO2C9+AaAAAAAElFTkSuQmCC")}body::-webkit-scrollbar-button:vertical:decrement{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABlBMVEXM09b///8OmaLeAAAAAnRSTlP/AOW3MEoAAAAgSURBVHgBY2BEAzQVYIAzYHwGGAvOZ4AyIXyECH1cCgB/GgDtpWTgqAAAAABJRU5ErkJggg==")}body::-webkit-scrollbar-button:vertical:decrement:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABlBMVEWdtMT///8YSU3FAAAAAnRSTlP/AOW3MEoAAAAgSURBVHgBY2BEAzQVYIAzYHwGGAvOZ4AyIXyECH1cCgB/GgDtpWTgqAAAAABJRU5ErkJggg==")}'
-
-    document.head.appendChild(style)
-
+window.addEventListener('load', function() {
     let css = document.createElement('link')
     css.rel = 'stylesheet'
-    css.href = 'markdown.css'
+    css.href = 'markdown-light.css'
     document.head.appendChild(css)
 
     let convert = document.createElement('script')
@@ -21,14 +16,73 @@ window.addEventListener('load', function(){
     document.body.classList.add('markdown-body')
     
     convert.addEventListener('load', function(){
-        function $(e){
-            return document.querySelector(e)
+        function $(qs) {
+            return document.querySelector(qs)
         }
-        var converter = new showdown.Converter()
-        var tx = $('textarea').value.replace(/\n/g,'\n').trim().replace(/<!--\n/g,'')
-        let nd = document.createElement('div')
-        nd.innerHTML = converter.makeHtml(tx)
-        nd.classList.add('container')
-        document.body.appendChild(nd)
+        
+        let dropArea = $('#drop-area')
+        let fileSelector = $('#file-selector')
+        
+        dropArea.addEventListener('dragover', function(event) {
+            event.preventDefault()
+            dropArea.classList.add('over')
+        })
+        dropArea.addEventListener('dragleave', function() {
+            dropArea.classList.remove('over')
+        })
+        dropArea.addEventListener('drop', function(event) {
+            event.preventDefault()
+            dropArea.classList.remove('over')
+            const files = event.dataTransfer.files
+            handleFile(files[0])
+        })
+        fileSelector.addEventListener('change', function(event) {
+            const files = event.target.files
+            handleFile(files[0])
+        })
+        function handleFile(file) {
+            if (!file) return;
+            if (file.name.endsWith('.md') || file.name.endsWith('.txt')) {
+                const reader = new FileReader()
+                reader.onload = function(event) {
+                    const contents = event.target.result
+                    dropArea.remove()
+                    let converter = new showdown.Converter({tables: true})
+                    let tx = contents
+                    tx = tx.replace(/\n/g, '\n').trim()
+                    tx = tx.replace(/(\|*:-:\||\|*:-\||\|*:--\||\|*-:\||\|*--:\|)/g, '|---|')
+                    tx = tx.replace(/---\|\|---/g, '---|---')
+                    let contMD = document.createElement('div')
+                    let contNM = document.createElement('div')
+                    contNM.classList.add('name-file')
+                    contNM.innerText = file.name
+                    contMD.innerHTML = converter.makeHtml(tx)
+                    contMD.classList.add('main-container-md')
+                    contNM.addEventListener('click', function() {
+                        let nt = prompt('New title', contNM.innerText)
+                        nt = nt.trim()
+                        if (nt != '') {
+                            contNM.innerText = nt
+                        } else {
+                            contNM.remove()
+                        }
+                    })
+                    contNM.addEventListener('contextmenu', function(e) {
+                        e.preventDefault()
+                        let b = document.body
+                        if (b.classList.contains('mode-dark')) {
+                            b.classList.remove('mode-dark')
+                            css.href = 'markdown-light.css'
+                        } else {
+                            b.classList.add('mode-dark')
+                            css.href = 'markdown-dark.css'
+                        }
+                    })
+                    document.body.appendChild(contNM)
+                    document.body.appendChild(contMD)
+                }
+                reader.readAsText(file)
+            }
+        }
     })
 })

@@ -1,5 +1,5 @@
 window.addEventListener('load', function() {
-  let copi = __cDe('locked', '4d59416445604c7e3d70393e327d7863')
+  let apik = new URL(location.href).searchParams.get('api')
   let $ = (e) => {return document.querySelector(e)}
 
   function isURL(url) {
@@ -60,51 +60,59 @@ window.addEventListener('load', function() {
           let getPDF = getMIN.ade('a')
           let getJPG = getMIN.ade('a')
           getPDF.innerText = 'PDF'
-          getJPG.innerText = 'JPG';
-          ([getPDF, getJPG]).forEach(function(save) {
-            save.clk(function() {
-              let dev = main.ade('div')
-              dev.classList.add('response')
-              dev.innerHTML = '<strong>Loading...</strong>'
-              let acc = main.ade('div')
-              acc.classList.add('thumbnail')
-              let req = '', test = !true
-              if (test) {
-                req = '/info.json'
-              } else {
-                req = 'https://v2.convertapi.com/convert/web/to/%2?Secret=%k&Url=%s&StoreFile=true'
-                req = req.replace('%s', site.url).replace('%2', save.innerText.toLowerCase()).replace('%k', copi)
-              }
-              fetch(req).then(
-                function(response) {
-                  response.text().then(function(recived) {
-                    try {
-                      let data = JSON.parse(recived)
-                      let newdata = JSON.parse(recived)
-                      let file = data['Files'][0]['Url']
-                      if (file.startsWith('http')) {
-                        let btn_acc = acc.ade('a')
-                        btn_acc.classList.add('access')
-                        btn_acc.href = file
-                        btn_acc.target = '_blank'
-                        btn_acc.innerText = save.innerText + ' file'
-                      } else {
-                        newdata['Files'][0]['Url'] = '...too large...'
-                        let img = acc.ade('img')
-                        img.src = "data:image/jpg;base64," + file
-                      }
-                      dev.innerHTML = ''
-                      dev.innerHTML = JSON.stringify(newdata, null, 2)
-                    } catch (error) {
-                      dev.innerHTML = '<div class="error"><i class="fa-solid fa-bug"></i><span>ERROR: Fail parse JSON</span></div>'
-                    }
-                  })
+          getJPG.innerText = 'JPG'
+          if (apik) {
+            ([getPDF, getJPG]).forEach(function(save) {
+              save.clk(function() {
+                let dev = main.ade('div')
+                dev.classList.add('response')
+                dev.innerHTML = '<strong>Loading...</strong>'
+                let acc = main.ade('div')
+                acc.classList.add('thumbnail')
+                let req = '', test = !true
+                if (test) {
+                  req = '/info.json'
+                } else {
+                  req = 'https://v2.convertapi.com/convert/web/to/%2?Secret=%k&Url=%s&StoreFile=true'
+                  req = req.replace('%s', site.url).replace('%2', save.innerText.toLowerCase()).replace('%k', apik)
                 }
-              ).catch(function() {
-                dev.innerHTML = '<div class="error"><i class="fa-solid fa-circle-exclamation"></i><span>ERROR: Could not load JSON</span></div>'
+                fetch(req).then(
+                  function(response) {
+                    response.text().then(function(recived) {
+                      try {
+                        let data = JSON.parse(recived)
+                        let newdata = JSON.parse(recived)
+                        let file = data['Files'][0]['Url']
+                        if (file.startsWith('http')) {
+                          let btn_acc = acc.ade('a')
+                          btn_acc.classList.add('access')
+                          btn_acc.href = file
+                          btn_acc.target = '_blank'
+                          btn_acc.innerText = save.innerText + ' file'
+                        } else {
+                          newdata['Files'][0]['Url'] = '...too large...'
+                          let img = acc.ade('img')
+                          img.src = "data:image/jpg;base64," + file
+                        }
+                        dev.innerHTML = ''
+                        dev.innerHTML = JSON.stringify(newdata, null, 2)
+                      } catch (error) {
+                        dev.innerHTML = '<div class="error"><i class="fa-solid fa-bug"></i><span>ERROR: Fail parse JSON</span></div>'
+                      }
+                    })
+                  }
+                ).catch(function() {
+                  dev.innerHTML = '<div class="error"><i class="fa-solid fa-circle-exclamation"></i><span>ERROR: Could not load JSON</span></div>'
+                })
               })
             })
-          })
+          } else {
+            ([getPDF, getJPG]).forEach(function(save) {
+              save.clk(function() {
+                alert('Require API key as URL param')
+              })
+            })
+          }
         }
       })()
       let child = out.ade('div')
@@ -169,14 +177,10 @@ window.addEventListener('load', function() {
       {"name":"Reports", "service": "AdGuard","url":"https://reports.adguard.com/es/%Nd/report.html"},
     ]
   }
-  let search = location.href.split('?')
-  if (search.length > 1) {
-    let query = search.join('?')
-    query = query
-      .replace(search[0], '')
-      .slice(1)
-    iptURL(query)
-    setTimeout(function () {
+  let search = new URL(location.href).searchParams.get('url')
+  if (search) {
+    iptURL(search)
+    setTimeout(function() {
       $('#gen').click()
     }, 2e2)
   }

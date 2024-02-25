@@ -67,8 +67,7 @@ t_v.addEventListener(
 t_v.addEventListener(
     'keydown',
     function(event) {
-        // t_v == document.activeElement
-        if (event.ctrlKey && event.keyCode == 13) {
+        if (event.ctrlKey && event.code == 'Enter') {
           open('https://translate.google.com/?source=osdd#auto|auto|' + txo)
         }
         let val = t_v.value

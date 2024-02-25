@@ -35,7 +35,7 @@ window.addEventListener('load', function(e) {
     stopElem.addEventListener('click', (function() {
             stopCapture()
     }), !1)
-    document.getElementById('pp').addEventListener('click', (function () {
+    document.getElementById('pp').addEventListener('click', (function() {
         if(document.pictureInPictureElement){
             document.exitPictureInPicture()
         }
@@ -43,7 +43,7 @@ window.addEventListener('load', function(e) {
             document.querySelector('video').requestPictureInPicture()
         } 
     }))
-    document.getElementById('ph').addEventListener('click', function () {
+    document.getElementById('ph').addEventListener('click', function() {
         let v_P = document.getElementById('scroll-canvas')
         if(v_P.style.height == ''){
             v_P.style.height = '300px'
@@ -60,15 +60,15 @@ window.addEventListener('load', function(e) {
         cont.className = 'photo'
         let canvas = document.createElement('canvas')
         let exit_b = document.createElement('span')
-        canvas.addEventListener('click',function(){
+        canvas.addEventListener('click', function() {
             let n_img = document.createElement('img')
             n_img.src = this.toDataURL()
             let new_v=window.open('')
             new_v.document.body.appendChild(n_img)
         })
-        let radio = maxvid.videoWidth/maxvid.videoHeight
+        let radio = maxvid.videoWidth / maxvid.videoHeight
         let w = maxvid.videoWidth
-        let h = parseInt(w/radio,10)
+        let h = parseInt(w/radio, 10)
         let context = canvas.getContext('2d')
         canvas.width = w
         canvas.height = h
@@ -80,7 +80,7 @@ window.addEventListener('load', function(e) {
             container.appendChild(cont)
             exit_b.addEventListener('click', function() {
                 canvas.setAttribute('style', 'overflow:hidden;transition:all 1s;transform:scale(0)')
-                setTimeout(function(){
+                setTimeout(function() {
                     container.removeChild(cont)
                 }, 1100)
             })
@@ -92,7 +92,7 @@ window.addEventListener('load', function(e) {
     document.getElementById("cm").addEventListener("click", function() {
         document.body.classList.toggle('fullvideo')
     })
-    window.addEventListener('resize',function(){
+    window.addEventListener('resize' ,function() {
         let ha = document.getElementsByTagName("header")[0].clientHeight
         let hb = document.getElementById("scroll-canvas").clientHeight
         let hh =  window.innerHeight - (ha * 2 + hb)
@@ -100,7 +100,7 @@ window.addEventListener('load', function(e) {
         document.getElementsByClassName("max")[0].innerText = '#video{max-height:' + hh + 'px}'
     })
     window.addEventListener('keydown', function(e) {
-        if (e.which == 83 && !e.ctrlKey && e.shiftKey) {
+        if (e.code == 'KeyS' && !e.ctrlKey && e.shiftKey) {
             capture()
         }
     })

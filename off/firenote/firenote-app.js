@@ -537,7 +537,7 @@ window.addEventListener('load', function() {
           }
         })
         to_t.addEventListener('keydown', function(ekey) {
-          if (ekey.which == 13 || ekey.key == 'Enter') {
+          if (ekey.key == 'Enter') {
             blurForceToNewCreate = to_t.parentElement.parentElement.previousElementSibling.children[0].value
             to_t.blur()
           }

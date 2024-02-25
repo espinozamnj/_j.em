@@ -136,7 +136,7 @@ window.addEventListener('load', function() {
                 location.replace('./off')
             }],
             ['input,#,password', function (event) {
-                if (event.which == 13 || event.code == 'Enter') {
+                if (event.code == 'Enter') {
                     d_.c = event.target.value.split('')
                     setTimeout(function() {
                         document.getElementsByClassName('log')[0].click()

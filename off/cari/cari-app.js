@@ -435,7 +435,7 @@
                   }
                 })
                 $(d, '.add-tag').addEventListener('keydown', function(evt) {
-                  if (evt.keyCode == 13 || evt.which == 13 || evt.code == 'Enter') {
+                  if (evt.code == 'Enter') {
                     main.f.addTagFromInput()
                   }
                 })
@@ -1040,7 +1040,7 @@
     loginApp(main.f.gPass())
   })
   $(d, '#pss_pswd').addEventListener('keydown', function(evt) {
-    if (evt.keyCode == 13 || evt.which == 13 || evt.code == 'Enter') {
+    if (evt.code == 'Enter') {
       setTimeout(function() {
         loginApp(main.f.gPass())
       }, 5e2)

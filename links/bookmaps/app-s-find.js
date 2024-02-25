@@ -664,7 +664,7 @@ let intervalWaiData = setInterval(function() {
                 \n    Do Not Edit! -->\
                 \n<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">\
                 \n<Title>Bookmarks</Title>\
-                \n<H1>import from panda</H1>\
+                \n<H1>import from links_app</H1>\
                 \n<DL><p>\n' + html_code + '\
                 </DL><p><script>setTimeout(function(){let s=document.createElement("style");s.innerHTML="*{font-family:monospace}a{padding-left:23px;background-repeat:no-repeat;background-size:18px;line-height:24px;font-size:12px;height:18px;padding-top:2px;padding-bottom:2px;text-decoration:none}a:hover{text-decoration:underline;color:black;padding-left:28px}";document.head.appendChild(s);let list=document.querySelectorAll("a[icon]");for(let i=0;i<list.length;i++){let url=list[i].getAttribute("icon");list[i].style.backgroundImage="url(\'"+url+"\')";}},2e3)</script>'
                 export_button.innerText = 'Save this bookmarks'
@@ -750,19 +750,21 @@ let intervalWaiData = setInterval(function() {
       }
     }
     window.document.addEventListener('keydown', function (ev) {
-      ev = ev || window.event
-      if (/*document.activeElement == document.body && */ev.shiftKey && ev.keyCode == 67) {
+      if ((ev.shiftKey && ev.code == 'Space') || (ev.altKey && ev.code == 'KeyB')) {
+        srh.click()
+        srh.focus()
+        setTimeout(function() {
+          srh.value = srh.value.trim()
+        }, 80)
+      }
+      if (/*document.activeElement == document.body && */ev.shiftKey && ev.code == 'KeyC') {
         if (!!eS('.f-close')) {
           eS('.f-close').click()
           srh.blur()
         }
-        lr.classList.replace('l-true','l-false')
+        lr.classList.replace('l-true', 'l-false')
       }
-      if (ev.ctrlKey && ev.keyCode == 32) {
-        srh.click()
-        srh.focus()
-      }
-      if (ev.keyCode == 20) {
+      if (ev.code == 'CapsLock') {
         if (_stt.laST_t) {
           _stt.laST = !_stt.laST
         }
@@ -776,13 +778,13 @@ let intervalWaiData = setInterval(function() {
           cg_out()
         }
       }
-      if (ev.keyCode == 40 || ev.keyCode == 38) {
+      if (ev.code == 'ArrowDown' || ev.code == 'ArrowUp') {
         let l = eS('#box-rst')
         l = l.children[0]
         if (!!eS('.hov')) {
           let e_ = eS('.hov'),
           n
-          if (ev.keyCode == 40) {
+          if (ev.code == 'ArrowDown') {
             if (e_ !== l.lastElementChild) {
               n = e_.nextElementSibling
             } else {
@@ -802,7 +804,7 @@ let intervalWaiData = setInterval(function() {
           l.children[0].classList.add('hov')
         }
       }
-      if (ev.keyCode == 13 && !!eS('.l-true') && !!eS('.hov')) {
+      if (ev.code == 'Enter' && !!eS('.l-true') && !!eS('.hov')) {
         let _a = eS('.hov'),
         lk = _a.children[1].href,
         t = _a.children[0],
@@ -825,8 +827,8 @@ let intervalWaiData = setInterval(function() {
       'keydown',
       function(event) {
         e = event
-        k = e.keyCode
-        if (k == 190 && !!eS('.l-true') && !!eS('.hov')) {
+        k = e.code
+        if (k == 'Period' && !!eS('.l-true') && !!eS('.hov')) {
           e.preventDefault()
           let _a, t
           _a =  eS('.hov')
@@ -834,13 +836,13 @@ let intervalWaiData = setInterval(function() {
           t.click()
           srh.focus()
         }
-        if (k != 40 && k != 38 && k != 17 && k != 13) {
+        if (k != 'ArrowDown' && k != 'ArrowUp' && !e.ctrlKey && k != 'Enter') {
           eS('.hov') && eS('.hov').classList.remove('hov')
         }
-        if (k == 27) {
+        if (k == 'Escape') {
           e.target.blur()
           eS('.f-close').click()
-          lr.classList.replace('l-true','l-false')
+          lr.classList.replace('l-true', 'l-false')
         }
       }
     )

@@ -1,0 +1,125 @@
+:root {
+    --scroll: rgb(13, 17, 23)
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+body {
+    overflow-x: hidden
+}
+body.mode-dark::-webkit-scrollbar {
+    width: 16px;
+    height: 18px
+}
+body.mode-dark::-webkit-scrollbar-track {
+    background: var(--scroll)
+}
+body.mode-dark::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    border: 4px solid transparent;
+    background-clip: padding-box
+}
+body.mode-dark::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+    border: 4px solid transparent;
+    background-clip: padding-box
+}
+body.mode-dark::-webkit-scrollbar-thumb:active {
+    background: rgba(255, 255, 255, 0.8);
+    border: 4px solid transparent;
+    background-clip: padding-box
+}
+body.mode-dark::-webkit-scrollbar-button {
+    background-color: var(--scroll)
+}
+body.mode-dark::-webkit-scrollbar-corner {
+    background: var(--scroll)
+}
+body.mode-dark::-webkit-scrollbar-button:horizontal:increment {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABlBMVEXM09b///8OmaLeAAAAAnRSTlP/AOW3MEoAAAAgSURBVHgBY2BEA+QLMGAIMGAIMGAIMBAUIGQoZU5HAwB+ZgDtGYq3fgAAAABJRU5ErkJggg==")
+}
+body.mode-dark::-webkit-scrollbar-button:horizontal:increment:hover {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABlBMVEWdtMT///8YSU3FAAAAAnRSTlP/AOW3MEoAAAAgSURBVHgBY2BEA+QLMGAIMGAIMGAIMBAUIGQoZU5HAwB+ZgDtGYq3fgAAAABJRU5ErkJggg==")
+}
+body.mode-dark::-webkit-scrollbar-button:horizontal:decrement {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABlBMVEXM09b///8OmaLeAAAAAnRSTlP/AOW3MEoAAAAiSURBVHgBY2BEAxQJMKAJMKAJMKAJMOATgIkQMBTBooZfAH56AO2yINTrAAAAAElFTkSuQmCC")
+}
+body.mode-dark::-webkit-scrollbar-button:horizontal:decrement:hover {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABlBMVEWdtMT///8YSU3FAAAAAnRSTlP/AOW3MEoAAAAiSURBVHgBY2BEAxQJMKAJMKAJMKAJMOATgIkQMBTBooZfAH56AO2yINTrAAAAAElFTkSuQmCC")
+}
+body.mode-dark::-webkit-scrollbar-button:vertical:increment {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABlBMVEXM09b///8OmaLeAAAAAnRSTlP/AOW3MEoAAAAfSURBVHgBY2BEA7QTYIAChAoYH6EFxkeYwQBj0MelAH3GAO2C9+AaAAAAAElFTkSuQmCC")
+}
+body.mode-dark::-webkit-scrollbar-button:vertical:increment:hover {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABlBMVEWdtMT///8YSU3FAAAAAnRSTlP/AOW3MEoAAAAfSURBVHgBY2BEA7QTYIAChAoYH6EFxkeYwQBj0MelAH3GAO2C9+AaAAAAAElFTkSuQmCC")
+}
+body.mode-dark::-webkit-scrollbar-button:vertical:decrement {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABlBMVEXM09b///8OmaLeAAAAAnRSTlP/AOW3MEoAAAAgSURBVHgBY2BEAzQVYIAzYHwGGAvOZ4AyIXyECH1cCgB/GgDtpWTgqAAAAABJRU5ErkJggg==")
+}
+body.mode-dark::-webkit-scrollbar-button:vertical:decrement:hover {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABlBMVEWdtMT///8YSU3FAAAAAnRSTlP/AOW3MEoAAAAgSURBVHgBY2BEAzQVYIAzYHwGGAvOZ4AyIXyECH1cCgB/GgDtpWTgqAAAAABJRU5ErkJggg==")
+}
+#drop-area {
+    width: 100%;
+    height: 116px;
+    max-width: 480px;
+    border-style: dashed;
+    border-width: 2px;
+    border-color: #ccc;
+    border-radius: 10px;
+    padding: 2px 14px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+#drop-area.over {
+    border-style: solid;
+    border-color: #7597a1;
+    background-color: #f3f5ff;
+}
+input#file-selector {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    opacity: 0;
+}
+#drop-area p {
+    pointer-events: none;
+    margin: 0px;
+}
+.name-file {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 8px;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+}
+body:not(.mode-dark) .name-file {
+    background-color: #e1e1e1;
+    color: #757575;
+}
+body.mode-dark .name-file {
+    background-color: #000000;
+    color: white;
+}
+.main-container-md {   
+    padding: 26px 18px;
+}

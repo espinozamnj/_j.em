@@ -7,7 +7,7 @@ setTimeout(function () {
             $('.ct').style.top = ''
             $('.ct').style.left = pl + 'px'
             $('.ct').style.right = pr + 'px'
-            if (window.innerHeight > 680) {
+            if (window.innerHeight > 660) {
                 $('.ct').style.top = (window.innerHeight / 4 * 1) + 'px'
             }
         } else {
@@ -37,7 +37,7 @@ setTimeout(function () {
         e.setAttribute('target', '_top')
         $('.men').appendChild(e)
     }
-    function pan() {
+    function toggleMenu() {
         let nv = $('.nav'),
         hi = $('.hm')
         if (nv.className.includes('hi')) {
@@ -48,7 +48,7 @@ setTimeout(function () {
             hi.classList.replace('vi','hi')
         }
     }
-    $('.hm').addEventListener('click', pan)
+    $('.hm').addEventListener('click', toggleMenu)
     
     $('#srh').addEventListener('click', function(){
         $('.f-close').style.display = 'block'
@@ -70,7 +70,7 @@ setTimeout(function () {
     })
     document.addEventListener("keydown", function (e) {
         if (e.code == 'KeyE' && document.activeElement != $('#srh')) {
-            pan()
+            toggleMenu()
         }
     })
     $('#scripter').addEventListener(
