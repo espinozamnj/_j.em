@@ -531,7 +531,6 @@ let intervalWaiData = setInterval(function() {
             }
           }
           else if (isCLI) {
-            console.log('CLI>>' + cm)
             let _con = document.createElement('div')
             _con.classList.add('con')
             _log = _con
@@ -575,6 +574,16 @@ let intervalWaiData = setInterval(function() {
                   .replaceAll('\n|','\n') // remove last close quote
                 _log.innerHTML = '<pre>' + _prf + '</pre>'
                 _log.children[0].classList.add('cmd')
+                break
+              case "json":
+                let npg = window.open('')
+                npg.document.title = 'JSON bookmarks sites'
+                let _nta = document.createElement('textarea')
+                _nta.setAttribute('style', 'width:100%;height:95vh')
+                _nta.value = JSON.stringify(_txt.filter(function(i){
+                  return i.url.startsWith('http')
+                }), null, 2)
+                npg.document.body.appendChild(_nta)
                 break
               case "search":
                 setTimeout(function() {
@@ -701,7 +710,8 @@ let intervalWaiData = setInterval(function() {
                 \nsh: show searhs minify\
                 \nedit: open textarea editor\
                 \nw: set as select user\
-                \nf: open box in new page'
+                \nf: open box in new page\
+                \njson: view links as json array'
                 _log.classList.add('cmd')
                 h_t = 10
                 break
@@ -903,13 +913,15 @@ let intervalWaiData = setInterval(function() {
   }
 }, 1e3)
 
-window.addEventListener('beforeinstallprompt', e => {
-  if (window.matchMedia('(display-mode: standalone)').matches) {
-    return e.preventDefault()
-  } else {
-    let btn = document.querySelector('.pwa-install')
-    btn.hidden = false
-    btn.onclick = _ => e.prompt()
-    return e.preventDefault()
-  }
+window.addEventListener('load', function() {
+  window.addEventListener('beforeinstallprompt', e => {
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+      return e.preventDefault()
+    } else {
+      let btn = document.querySelector('.pwa-install')
+      btn.hidden = false
+      btn.onclick = _ => e.prompt()
+      return e.preventDefault()
+    }
+  })
 })
