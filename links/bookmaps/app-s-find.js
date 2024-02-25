@@ -749,14 +749,13 @@ let intervalWaiData = setInterval(function() {
         f.setAttribute('data-out', 'true')
       }
     }
-    window.document.addEventListener('keydown', function (ev) {
+    window.document.addEventListener('keyup', function (ev) {
       if ((ev.shiftKey && ev.code == 'Space') || (ev.altKey && ev.code == 'KeyB')) {
         srh.click()
         srh.focus()
-        setTimeout(function() {
-          srh.value = srh.value.trim()
-        }, 80)
       }
+    })
+    window.document.addEventListener('keydown', function (ev) {
       if (/*document.activeElement == document.body && */ev.shiftKey && ev.code == 'KeyC') {
         if (!!eS('.f-close')) {
           eS('.f-close').click()
