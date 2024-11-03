@@ -21,7 +21,7 @@ const __apps__ = [
     {name: 'YouTube', fav: 'youtube', url: '@links/youtu-be.html', sec: true},
     {name: 'YTPL Viewer', fav: 'youtube', url: '@links/social/ytpl-view/', sec: false},
     {name: 'Music', fav: 'music', url: '@links/music', sec: true},
-    {name: 'CodeMarks', fav: 'codepen', url: '@links/codepen.html', sec: false},
+    {name: 'CodeMarks', fav: 'codepen', url: '@links/codemarks.html', sec: false},
     {name: 'ClPH€R', fav: 'hash', url: '@off/save/hash', sec: false},
     {name: 'History', fav: 'key', url: '@off/save/pa55', sec: false},
     {name: 'JSON', fav: 'json', url: '@off/save/json', sec: false},

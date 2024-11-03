@@ -136,7 +136,7 @@ window.addEventListener('load', function() {
                 location.replace('./off')
             }],
             ['input,#,password', function (event) {
-                if (event.code == 'Enter') {
+                if (['Enter', 'NumpadEnter'].includes(event.code)) {
                     d_.c = event.target.value.split('')
                     setTimeout(function() {
                         document.getElementsByClassName('log')[0].click()
