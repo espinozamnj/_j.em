@@ -1,5 +1,4 @@
 const _tech = [
-    {"name":"@LKS","url":"https://pandadnap.notion.site/311b51ee88e543ada18235ecafce2d04","path":"/lib/Apps/tech"},
     {"name":"Let Me Google That","url":"https://letmegooglethat.com/","path":"/lib/Apps/tech/noob"},
     {"name":"LMGTFY EN","url":"https://es.lmgtfy.app/","path":"/lib/Apps/tech/noob"},
     {"name":"LMGTFY | Noob search","url":"https://www.lmgtfy.es/","path":"/lib/Apps/tech/noob"},
