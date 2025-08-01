@@ -31,6 +31,15 @@
         <div class="js">
             <script src="connect-pa55.js"></script>
             <script src="/_cdn_/getlogin.js"></script>
+            <script>
+                (function () {
+                    const qs = (selector) => document.querySelector(selector)
+                    qs('.vlog').addEventListener('click', function(evt) {
+                        evt.preventDefault()
+                        qs('.float').classList.toggle('vi')
+                    })
+                })()
+            </script>
         </div>
     </div>
 </body>
