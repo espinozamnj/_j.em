@@ -1,17 +1,13 @@
 (function() {
-  let box = document.querySelector('.console')
-  let input = document.querySelector('.ipt')
-  let stored = localStorage.getItem('link-pa55')
+  const box = document.querySelector('.console')
+  const input = document.querySelector('.ipt')
+  const stored = localStorage.getItem('link-pa55')
 
-  if (stored) {
-    input.value = '0:'
-  } else {
-    input.value = '00'
-  }
+  input.value = stored ? '0:' : '00'
 
   document.querySelector('#send').addEventListener('submit', function(e) {
     e.preventDefault()
-    let val = input.value.toLowerCase().trim()
+    const val = input.value.toLowerCase().trim()
 
     if (val === '::') {
       localStorage.removeItem('link-pa55')
@@ -21,75 +17,70 @@
     }
 
     if (val === ':' && !('pa55_version' in window)) {
-      connect(stored, false)
-    } else {
-      if (!('pa55_version' in window)) {
-        let useForStorage = val
-        let clean = val.replace(/^:|:$/g, '')
-        if ((val.startsWith(':') || val.endsWith(':')) && clean) {
-          sessionStorage.setItem('_pendingStore', useForStorage)
-        }
-        location.hash = clean
+      if (stored && stored.split('-').length === 2) {
+        const [sub, app] = stored.split('-')
+        const domain = location.host.includes('github') ? `${sub}.web.app` : `${sub}.test`
+        const base = `//${domain}/apps/${app}/`
+        connect(base, false)
       }
+      return
+    }
+
+    if (!('pa55_version' in window)) {
+      const clean = val.replace(/^:|:$/g, '')
+      if ((val.startsWith(':') || val.endsWith(':')) && clean) {
+        sessionStorage.setItem('_pendingStore', clean)
+      }
+      location.hash = clean
     }
   })
 
-  let loc = location.hash.replace('#', '')
-  if (loc && loc.split('-').length == 2) {
-    let dm = loc.split('-')
-    let base = `//${dm[0]}.test/public/apps/${dm[1]}/`
-    if (location.host.includes('github')) {
-      base = `//${dm[0]}.web.app/apps/${dm[1]}/`
-    }
-    connect(base, true)
+  const hash = location.hash.replace('#', '')
+  const link = hash || ''
+
+  if (link.split('-').length === 2) {
+    const [sub, app] = link.split('-')
+    const domain = location.host.includes('github') ? `${sub}.web.app` : `${sub}.test`
+    const base = `//${domain}/apps/${app}/`
+    connect(base, !!hash)
   }
 
   function connect(base, tryStore) {
-    let js = {
-      tths: function() { return new Date().getTime() },
-      cont: document.querySelector('.js'),
-      strg: base,
-      csjs: function() { return document.createElement('script') }
-    }
+    const container = document.querySelector('.js')
+    const timestamp = () => new Date().getTime()
 
     box.innerHTML = '<span class="t-yellow">Connecting data...</span>'
-    let dat = js.csjs()
-    dat.setAttribute('src', js.strg + 'data-pa55.js?' + js.tths())
-    dat.addEventListener('error', function() {
-      box.innerHTML = '<span class="t-red">No data connect</span>'
-    })
-    dat.addEventListener('load', function() {
+    const loadScript = (src, onLoad, onError) => {
+      const script = document.createElement('script')
+      script.src = src
+      script.onload = onLoad
+      script.onerror = onError
+      container.appendChild(script)
+    }
+
+    loadScript(base + 'data-pa55.js?' + timestamp(), () => {
       box.innerHTML = '<span class="t-yellow">Connecting program...</span>'
-      setTimeout(function() {
-        let japp = js.csjs()
-        japp.setAttribute('src', js.strg + 'app-pa55.js?' + js.tths())
-        japp.addEventListener('error', function() {
-          box.innerHTML = '<span class="t-red">No program connect</span>'
-        })
-        japp.addEventListener('load', function() {
+      setTimeout(() => {
+        loadScript(base + 'app-pa55.js?' + timestamp(), () => {
           box.innerHTML = '<span class="t-green">Ready!</span>'
           if (tryStore) {
-            let pending = sessionStorage.getItem('_pendingStore')
+            const pending = sessionStorage.getItem('_pendingStore')
             if (pending) {
               localStorage.setItem('link-pa55', pending)
               sessionStorage.removeItem('_pendingStore')
             }
           }
-          setTimeout(function() {
-            if (!!window.initpa55) {
-              box.innerHTML = ''
-            } else {
-              box.innerHTML = '<span class="t-red">Program not initialized</span>'
-            }
+          setTimeout(() => {
+            box.innerHTML = window.initpa55 ? '' : '<span class="t-red">Program not initialized</span>'
           }, 2000)
+        }, () => {
+          box.innerHTML = '<span class="t-red">No program connect</span>'
         })
-        js.cont.appendChild(japp)
       }, 1000)
+    }, () => {
+      box.innerHTML = '<span class="t-red">No data connect</span>'
     })
-    js.cont.appendChild(dat)
   }
 
-  window.addEventListener('hashchange', function() {
-    location.reload()
-  })
+  window.addEventListener('hashchange', () => location.reload())
 })()
