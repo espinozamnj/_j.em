@@ -71,7 +71,7 @@
           if (tryStore) {
             let pending = sessionStorage.getItem('_pendingStore')
             if (pending) {
-              localStorage.setItem('link', pending)
+              localStorage.setItem('link-pa55', pending)
               sessionStorage.removeItem('_pendingStore')
             }
           }
