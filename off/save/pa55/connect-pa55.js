@@ -14,20 +14,22 @@
     let val = input.value.toLowerCase().trim()
 
     if (val === '::') {
-      localStorage.removeItem('link')
+      localStorage.removeItem('link-pa55')
       box.innerHTML = '<span class="t-yellow">Forgot!</span>'
       setTimeout(() => location.href = location.pathname, 1000)
       return
     }
 
-    if (val === '0:' && stored) {
+    if (val === ':' && !('pa55_version' in window)) {
       connect(stored, false)
     } else {
-      let useForStorage = val
-      let clean = val.replace(/^:|:$/g, '')
-      location.hash = clean
-      if ((val.startsWith(':') || val.endsWith(':')) && clean) {
-        sessionStorage.setItem('_pendingStore', useForStorage)
+      if (!('pa55_version' in window)) {
+        let useForStorage = val
+        let clean = val.replace(/^:|:$/g, '')
+        if ((val.startsWith(':') || val.endsWith(':')) && clean) {
+          sessionStorage.setItem('_pendingStore', useForStorage)
+        }
+        location.hash = clean
       }
     }
   })
