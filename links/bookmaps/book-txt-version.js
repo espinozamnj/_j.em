@@ -1,1 +1,1 @@
-window['book_txt_version'] = 27
+window['book_txt_version'] = 28

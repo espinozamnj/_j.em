@@ -338,7 +338,7 @@ const sss = [
 {"name":"Maps::app","url":"https://www.google.com/maps/","path":"/lib/Apps/office tools/cartografia"},
 {"name":"Convertio","url":"https://convertio.co/es/","path":"/lib/Apps/office tools/convert tools"},
 {"name":"Convert my image","url":"https://convert-my-image.com/","path":"/lib/Apps/office tools/convert tools"},
-{"name":"MP3 a texto","url":"https://converter.app/mp3-to-text/result.php?lang=es","path":"/lib/Apps/office tools/convert tools"},
+{"name":"MP3 a texto","url":"https://converter.app/es/mp3-a-text/","path":"/lib/Apps/office tools/convert tools"},
 {"name":"PDFescape | Edit PDF Online","url":"https://www.pdfescape.com/","path":"/lib/Apps/office tools/convert tools"},
 {"name":"Soda PDF","url":"https://www.sodapdf.com/jpg-to-pdf/","path":"/lib/Apps/office tools/convert tools"},
 {"name":"Convertir PDF a JPG","url":"https://www.pdf2go.com/es/pdf-a-jpg","path":"/lib/Apps/office tools/convert tools"},
