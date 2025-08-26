@@ -15,9 +15,11 @@
     }
     radr(function() {
         let csp_cont = { ejs: true, css: true, fnt: true }
-        if (typeof(trustedTypes) != 'undefined') {
-            if (!trustedTypes.defaultPolicy) {
-                window.trustedTypes.createPolicy('default', { createHTML: (string, sink) => string })
+        if (typeof trustedTypes !== 'undefined') {
+            if (!trustedTypes.getPolicy('default')) {
+                window.trustedTypes.createPolicy('default', {
+                    createHTML: (string) => string
+                });
             }
         }
         function evalAfterCSP() {
