@@ -15,11 +15,21 @@
     }
     radr(function() {
         let csp_cont = { ejs: true, css: true, fnt: true }
-        if (typeof trustedTypes !== 'undefined') {
-            if (!trustedTypes.getPolicy('default')) {
-                window.trustedTypes.createPolicy('default', {
-                    createHTML: (string) => string
-                });
+        if (typeof window.trustedTypes !== "undefined") {
+            if (typeof window.trustedTypes.getPolicy === "function") {
+                if (!window.trustedTypes.getPolicy("default")) {
+                    window.trustedTypes.createPolicy("default", {
+                        createHTML: (string) => string
+                    });
+                }
+            } else if (typeof window.trustedTypes.createPolicy === "function") {
+                try {
+                    window.trustedTypes.createPolicy("default", {
+                        createHTML: (string) => string
+                    });
+                } catch (e) {
+                    console.warn(e)
+                }
             }
         }
         function evalAfterCSP() {
